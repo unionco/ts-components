@@ -1,0 +1,51 @@
+{
+  "name": "ts-components",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/types/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn tsc && yarn dist",
+    "dist": "NODE_ENV=production rollup -c",
+    "compile": "tsc -p .",
+    "declarations": "tsc --emitDeclarationOnly",
+    "prebuild": "rm -rf dist dist-transpiled",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "dependencies": {
+    "@types/react": "^16.9.13",
+    "@types/styled-components": "4.0.2",
+    "@types/styled-system": "^5.1.4",
+    "styled-system": "^5.1.2",
+    "tslib": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.14",
+    "@types/react-dom": "^16.9.4",
+    "prettier": "^1.19.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-testing-library": "^8.0.1",
+    "rollup": "^1.27.5",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-virtual": "^1.0.1",
+    "styled-components": "^4.4.1",
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.1.0",
+    "typescript": "^3.7.2",
+    "typescript-styled-plugin": "^0.15.0"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
