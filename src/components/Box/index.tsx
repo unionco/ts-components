@@ -22,11 +22,12 @@ import {
 } from 'styled-system';
 import styled from '../../styled';
 import {
-  ICommonProps, ITypographyProps
+  ICommonProps, ITypographyProps, IBaseProps
 } from '../../theme/constants';
 
 export interface IBoxProps
-  extends BackgroundProps,
+  extends IBaseProps,
+  BackgroundProps,
   ICommonProps,
   ITypographyProps {};
 

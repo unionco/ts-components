@@ -1,76 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { DefaultTheme } from "styled-components"
-import { get } from 'lodash';
-import styled, { css } from '../../styled';
-import { IBaseProps } from '../../theme/constants';
-import { AccordionTrigger } from './trigger';
-import { AccordionPanel } from './panel';
+import { StyledAccordion, IStyledAccordionProps } from './styles';
 
-export interface IStyledAccordionProps
-  extends IBaseProps {
-  theme?: DefaultTheme,
-  open?: boolean;
-}
 export interface IAccordionProps
   extends IStyledAccordionProps {
   trigger: string | JSX.Element;
   panel: string | JSX.Element;
 };
 
-const styles = (props: IStyledAccordionProps) => css`
-  display: block;
-
-  .accordion_trigger {
-    -webkit-appearance: none;
-    border: none;
-    box-sizing: border-box;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    width: 100%;
-
-    ${AccordionTrigger} {
-      padding: ${get(props, 'theme.space.3')};
-
-      [slot="start"] {
-        padding-right: ${get(props, 'theme.space.3')};
-      }
-
-      [slot="end"] {
-        margin-left: auto;
-        transform: ${props.open ? `rotate(180deg)` : `rotate(0deg)`};
-        transition: all 0.3s ease;
-        transform-origin: center center;
-      }
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      background: ${get(props, 'theme.colors.light.base')};
-    }
-  }
-
-  .accordion_panel {
-    display: block;
-    max-height: 0;
-    transition: all 0.3s ease;
-    overflow: hidden;
-  }
-`;
-
-export const StyledAccordion = styled.div<IStyledAccordionProps>`
-  ${styles}
-`;
-
+/**
+ * Accordion is a toggle with a trigger and a panel
+ */
 const Accordion: React.FC<IAccordionProps> = ({
   trigger,
   panel,
   open = false,
   className,
+  ...rest
 }) => {
-
   const [isOpen, setIsOpen] = useState(open);
   const item = useRef<any>();
 
@@ -86,7 +32,7 @@ const Accordion: React.FC<IAccordionProps> = ({
   );
 
   return (
-    <StyledAccordion className={className} open={isOpen}>
+    <StyledAccordion className={className} open={isOpen} {...rest}>
       <button className="accordion_trigger" onClick={() => setIsOpen(!isOpen)}>
         {trigger}
       </button>
@@ -97,4 +43,9 @@ const Accordion: React.FC<IAccordionProps> = ({
   );
 };
 
-export { Accordion, AccordionTrigger, AccordionPanel };
+// Proxy exports
+export { AccordionTrigger, IStyledAccordionTriggerProps } from './trigger';
+export { AccordionPanel, IStyledAccordionPanelProps } from './panel';
+
+// Export main component
+export { Accordion, IStyledAccordionProps };

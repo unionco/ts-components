@@ -19,6 +19,7 @@ import {
   position,
 } from 'styled-system';
 import * as History from 'history';
+import { DefaultTheme } from 'styled-components';
 
 const whiteSpace = system({
   whiteSpace: {
@@ -31,13 +32,14 @@ export interface IBaseProps extends React.Props<any> {
   title?: string;
   // NOTE(@mxstbr): Necessary workaround to make <Component as={Link} to="/bla" /> work
   to?: History.LocationDescriptor;
+  theme?: DefaultTheme;
   className?: string;
 }
 
 export interface ITypographyProps
   extends IBaseProps,
   TypographyProps {
-  whiteSpace?: any;
+  whiteSpace?: 'normal' | 'nowrap' | 'pre-wrap' | 'pre' | 'pre-line';
 };
 export const TYPOGRAPHY = compose(
   typography,
@@ -50,8 +52,7 @@ export interface ICommonProps
   SpaceProps,
   ColorProps,
   DisplayProps,
-  PositionProps,
-  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
+  PositionProps {}
 export const COMMON = compose(
   layout,
   space,

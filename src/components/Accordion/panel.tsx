@@ -1,21 +1,22 @@
 // @ts-ignore
 import React from 'react';
-import { DefaultTheme } from "styled-components"
 import styled from '../../styled';
-import { compose, layout, BackgroundProps } from 'styled-system';
-import { COMMON, TYPOGRAPHY, ICommonProps, ITypographyProps } from '../../theme/constants';
+import { compose, layout } from 'styled-system';
+import { COMMON, TYPOGRAPHY } from '../../theme/constants';
+import { IStyledAccordionPanelProps } from './styles';
 
-export interface IAccordionPanelProps
-  extends BackgroundProps,
-  ICommonProps,
-  ITypographyProps {
-    theme?: DefaultTheme
-  };
-
-export const AccordionPanel = styled.div<IAccordionPanelProps>`
+/**
+ * AccordionPanel is just a container for accordion content
+ */
+const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
   ${compose(
     COMMON,
     TYPOGRAPHY,
     layout
   )}
 `;
+
+export {
+  AccordionPanel,
+  IStyledAccordionPanelProps
+};

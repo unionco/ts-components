@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-
+import { get } from 'lodash';
 import { colors } from './colors';
 import {
   fonts,
@@ -9,6 +9,15 @@ import {
 } from './typography';
 
 export * from './constants';
+
+const colorThemeNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'dark', 'medium', 'light'];
+const colorVariants: { [key: string]: object } = {};
+colorThemeNames.map((color: string) => {
+  colorVariants[color] = {
+    background: get(colors, `${color}.base`),
+    color: get(colors, `${color}.contrast`),
+  }
+});
 
 export const theme: DefaultTheme = {
   colors,
@@ -32,6 +41,9 @@ export const theme: DefaultTheme = {
     xl: '0 10px 50px rgba(27, 31, 35, 0.07)',
   },
   space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px'],
+  buttons: {
+    ...colorVariants,
+  },
   buttonSizes: {
     small: {
       fontSize: fontSizes[1],
