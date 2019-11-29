@@ -13,13 +13,12 @@ const Button: React.FC<IButtonProps> = ({
   size = 'medium',
   variant = 'primary',
   fill = 'solid',
-  className,
   ...rest
 }) => {
   const props = { size, variant, fill, ...rest };
 
   return (
-    <StyledButton className={className} {...props}>
+    <StyledButton {...props}>
       <span className="button-inner">
         {props.start && <div slot="start">{props.start}</div>}
         {props.children}

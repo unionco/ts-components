@@ -14,7 +14,6 @@ const Accordion: React.FC<IAccordionProps> = ({
   trigger,
   panel,
   open = false,
-  className,
   ...rest
 }) => {
   const [isOpen, setIsOpen] = useState(open);
@@ -32,7 +31,7 @@ const Accordion: React.FC<IAccordionProps> = ({
   );
 
   return (
-    <StyledAccordion className={className} open={isOpen} {...rest}>
+    <StyledAccordion open={isOpen} {...rest}>
       <button className="accordion_trigger" onClick={() => setIsOpen(!isOpen)}>
         {trigger}
       </button>

@@ -5,7 +5,7 @@ import { theme } from './theme';
 export { theme as BaseTheme };
 
 /**
- * Export all types
+ * Export styled wrapper and theme provider
  */
 export * from './styled';
 
