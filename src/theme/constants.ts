@@ -52,7 +52,8 @@ export interface ICommonProps
   SpaceProps,
   ColorProps,
   DisplayProps,
-  PositionProps {}
+  PositionProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
 export const COMMON = compose(
   layout,
   space,
