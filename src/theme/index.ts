@@ -1,16 +1,16 @@
-import { colors, IColors, IThemeColor } from './colors';
+import { DefaultTheme } from 'styled-components';
+
+import { colors } from './colors';
 import {
   fonts,
   fontSizes,
   fontWeights,
-  IFonts,
-  IFontSizes,
-  IFontWeights,
-  ILineHeights,
   lineHeights
 } from './typography';
 
-const theme = {
+export * from './constants';
+
+export const theme: DefaultTheme = {
   colors,
   fonts,
   fontSizes,
@@ -26,12 +26,10 @@ const theme = {
   borders: [0, '1px solid'],
   radii: ['0', '3px', '6px'],
   shadows: {
-    small: '0 1px 1px rgba(27, 31, 35, 0.1)',
-    medium: '0 1px 5px rgba(27, 31, 35, 0.15)',
-    large: '0 1px 15px rgba(27, 31, 35, 0.15)',
-    'extra-large': '0 10px 50px rgba(27, 31, 35, 0.07)',
-    formControl: 'rgba(27, 31, 35, 0.075) 0px 1px 2px inset',
-    formControlFocus: 'rgba(3, 102, 214, 0.3) 0px 0px 0px 0.2em'
+    sm: '0 1px 1px rgba(27, 31, 35, 0.1)',
+    md: '0 1px 5px rgba(27, 31, 35, 0.15)',
+    lg: '0 1px 15px rgba(27, 31, 35, 0.15)',
+    xl: '0 10px 50px rgba(27, 31, 35, 0.07)',
   },
   space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px'],
   buttonSizes: {
@@ -49,15 +47,3 @@ const theme = {
     }
   }
 };
-
-export default theme;
-export {
-  theme,
-  IColors,
-  IFonts,
-  IFontSizes,
-  IFontWeights,
-  ILineHeights,
-  IThemeColor
-};
-export * from './constants';

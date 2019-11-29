@@ -1,22 +1,13 @@
 import React from 'react';
-import { ServerStyleSheet, ThemeProvider } from './utils/primitives';
-import { default as defaultTheme } from './theme';
+import { ThemeProvider } from './styled';
+import { theme } from './theme';
 
-export type ITheme = keyof typeof defaultTheme;
-export { defaultTheme as BaseTheme };
-export { ServerStyleSheet };
+export { theme as BaseTheme };
 
 /**
  * Export all types
  */
-export {
-  IColors,
-  IFonts,
-  IFontSizes,
-  IFontWeights,
-  ILineHeights,
-  IThemeColor
-} from './theme';
+export * from './styled';
 
 /**
  * Export all components
@@ -28,7 +19,7 @@ export * from './components';
  */
 export const Theme = (props: any) => {
   return (
-    <ThemeProvider theme={Object.assign({}, defaultTheme, props.theme)}>
+    <ThemeProvider theme={Object.assign({}, theme, props.theme)}>
       {props.children}
     </ThemeProvider>
   )

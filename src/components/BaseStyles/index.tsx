@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { default as defaultTheme } from '../../theme';
+import { theme as defaultTheme } from '../../theme';
 import { TYPOGRAPHY, COMMON } from '../../theme/constants';
 
 const GlobalStyle = createGlobalStyle`

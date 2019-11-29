@@ -20,7 +20,7 @@ import {
   width,
   zIndex,
 } from 'styled-system';
-import styled from 'styled-components';
+import styled from '../../styled';
 import {
   ICommonProps, ITypographyProps
 } from '../../theme/constants';

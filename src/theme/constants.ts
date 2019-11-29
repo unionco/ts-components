@@ -15,7 +15,10 @@ import {
   ShadowProps,
   LayoutProps,
   PositionProps,
+  layout,
+  position,
 } from 'styled-system';
+import * as History from 'history';
 
 const whiteSpace = system({
   whiteSpace: {
@@ -23,22 +26,44 @@ const whiteSpace = system({
   }
 });
 
-export interface ITypographyProps extends TypographyProps {
-  whiteSpace: any;
+export interface IBaseProps extends React.Props<any> {
+  as?: React.ReactType;
+  title?: string;
+  // NOTE(@mxstbr): Necessary workaround to make <Component as={Link} to="/bla" /> work
+  to?: History.LocationDescriptor;
+  className?: string;
+}
+
+export interface ITypographyProps
+  extends IBaseProps,
+  TypographyProps {
+  whiteSpace?: any;
 };
 export const TYPOGRAPHY = compose(
   typography,
   whiteSpace
 );
 
-export interface ICommonProps extends LayoutProps, SpaceProps, ColorProps, DisplayProps, PositionProps {}
+export interface ICommonProps
+  extends IBaseProps,
+  LayoutProps,
+  SpaceProps,
+  ColorProps,
+  DisplayProps,
+  PositionProps,
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {}
 export const COMMON = compose(
+  layout,
   space,
   color,
-  display
+  display,
+  position,
 );
 
-export interface IBorderProps extends BorderProps, ShadowProps {}
+export interface IBorderProps
+  extends IBaseProps,
+  BorderProps,
+  ShadowProps {}
 export const BORDER = compose(
   border,
   shadow
