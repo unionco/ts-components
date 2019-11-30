@@ -8,7 +8,7 @@ export interface IButtonProps
     iconOnly?: JSX.Element;
   };
 
-// React Component
+/** A button with various size and color settings */
 const Button: React.FC<IButtonProps> = ({
   size = 'medium',
   variant = 'primary',
