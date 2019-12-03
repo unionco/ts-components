@@ -1,13 +1,12 @@
 // @ts-ignore
 import React from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from '../../styles';
 import { theme as defaultTheme } from '../../theme';
-import { TYPOGRAPHY, COMMON } from '../../theme/constants';
 
 const GlobalStyle = createGlobalStyle`
   :root {
-    --base-font: ${(props: any) => props.theme.fonts.body};
-    --heading-font: ${(props: any) => props.theme.fonts.heading};
+    --base-font: ${(props) => props.theme.fonts.body};
+    --heading-font: ${(props) => props.theme.fonts.heading};
   }
   *, *::before, *::after {
     box-sizing: inherit;
@@ -47,7 +46,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Base = (props: any) => {
+export const BaseStyles = (props: any) => {
   const { color, lineHeight, fontFamily, theme = defaultTheme, ...rest } = props;
   return (
     <div {...rest}>
@@ -56,7 +55,3 @@ const Base = (props: any) => {
     </div>
   )
 };
-
-export const BaseStyles = styled(Base)`
-  ${TYPOGRAPHY} ${COMMON};
-`;

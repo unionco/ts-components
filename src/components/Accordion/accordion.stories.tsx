@@ -1,7 +1,7 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { Accordion, AccordionPanel, AccordionTrigger } from "./index";
-import { Theme as ThemeProvider } from '../../index';
+import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 
 storiesOf("Accordion", module)
@@ -16,7 +16,7 @@ storiesOf("Accordion", module)
           </AccordionTrigger>
         }
         panel={
-          <AccordionPanel p={3}>
+          <AccordionPanel p={2}>
             <p>this is a styled component</p>
           </AccordionPanel>
         }
@@ -29,7 +29,7 @@ storiesOf("Accordion", module)
           </AccordionTrigger>
         }
         panel={
-          <AccordionPanel p={3}>
+          <AccordionPanel>
             <p>this is a styled component</p>
           </AccordionPanel>
         }

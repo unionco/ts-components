@@ -1,22 +1,12 @@
 // @ts-ignore
 import React from 'react';
-import styled from '../../styled';
-import { compose, layout } from 'styled-system';
-import { COMMON, TYPOGRAPHY } from '../../theme/constants';
-import { IStyledAccordionPanelProps } from './styles';
+import { styled } from '../../styles';
 
 /**
  * AccordionPanel is just a container for accordion content
  */
-const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
-  ${compose(
-    COMMON,
-    TYPOGRAPHY,
-    layout
-  )}
+const AccordionPanel = styled.div<any>`
+  padding: ${(props) => props.theme.space[2]}
 `;
 
-export {
-  AccordionPanel,
-  IStyledAccordionPanelProps
-};
+export { AccordionPanel };

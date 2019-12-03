@@ -1,8 +1,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { Theme as ThemeProvider } from '../../index';
+import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import GalleryGrid, { GalleryGridItem } from "./index";
+import { GalleryGrid, GalleryGridItem } from "./index";
 
 storiesOf("Gallery Grid", module)
   .add("Default", () => (

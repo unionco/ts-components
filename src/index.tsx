@@ -1,13 +1,7 @@
-import React from 'react';
-import { ThemeProvider } from './styled';
-import { theme } from './theme';
-
-export { theme as BaseTheme };
-
 /**
  * Export styled wrapper and theme provider
  */
-export * from './styled';
+export * from './styles';
 
 /**
  * Export all components
@@ -15,12 +9,11 @@ export * from './styled';
 export * from './components';
 
 /**
- * A wrapper component for passing down the library theme context
+ * Export all components
  */
-export const Theme = (props: any) => {
-  return (
-    <ThemeProvider theme={Object.assign({}, theme, props.theme)}>
-      {props.children}
-    </ThemeProvider>
-  )
-};
+export * from './utils';
+
+/**
+ * Export default theme
+ */
+export { theme as BaseTheme } from './theme';

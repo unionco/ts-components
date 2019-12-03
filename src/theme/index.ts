@@ -1,25 +1,60 @@
+import { colors, IColors } from './colors';
+import { fonts, fontSizes, fontWeights, lineHeights, IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
+import { createColorMap, IColorVariant } from '../utils';
 import { DefaultTheme } from 'styled-components';
-import { get } from 'lodash';
-import { colors } from './colors';
-import {
-  fonts,
-  fontSizes,
-  fontWeights,
-  lineHeights
-} from './typography';
 
-export * from './constants';
+const colorVariants = createColorMap(colors);
 
-const colorThemeNames = ['primary', 'secondary', 'tertiary', 'success', 'warning', 'danger', 'dark', 'medium', 'light'];
-const colorVariants: { [key: string]: object } = {};
-colorThemeNames.map((color: string) => {
-  colorVariants[color] = {
-    background: get(colors, `${color}.base`),
-    color: get(colors, `${color}.contrast`),
+export interface IDefaultTheme
+  extends DefaultTheme {
+  // tslint:disable-next-line:prefer-array-literal
+  borders: Array<number | string>;
+
+  colors: IColors;
+
+  breakpoints: string[];
+
+  fonts: IFonts;
+  fontSizes: IFontSizes;
+  fontWeights: IFontWeights;
+  lineHeights: ILineHeights;
+
+  maxWidths: {
+    small: string;
+    medium: string;
+    large: string;
+    xlarge: string;
   }
-});
 
-export const theme: DefaultTheme = {
+  radii: string[];
+  shadows: {
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
+  }
+
+  space: string[];
+
+  buttons: IColorVariant;
+  buttonSizes: {
+    small: {
+      fontSize: string;
+      padding: string;
+    },
+    medium: {
+      fontSize: string;
+      padding: string;
+    },
+    large: {
+      fontSize: string;
+      padding: string;
+    }
+  }
+}
+
+export { colors };
+export const theme: IDefaultTheme = {
   colors,
   fonts,
   fontSizes,

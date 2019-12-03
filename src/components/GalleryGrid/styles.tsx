@@ -1,15 +1,10 @@
-import styled, { css } from '../../styled';
-import { IBaseProps, ICommonProps, COMMON } from '../../theme/constants';
+import { styled, css } from '../../styles';
 
 const galleryLargeHeight: string = '550px';
 const galleryMediumHeight: string = '375px';
 const gallerySmallHeight: string = '275px';
 
-export interface IStyledGridItemProps
-  extends IBaseProps,
-  ICommonProps {}
-
-export const GalleryGridItem = styled.div<IStyledGridItemProps>`
+export const GalleryGridItem = styled.div`
   display: block;
   padding: 8px;
   height: 100%;
@@ -19,14 +14,11 @@ export const GalleryGridItem = styled.div<IStyledGridItemProps>`
     object-fit: cover;
     width: 100%;
   }
-
-  ${COMMON}
 `;
 
-export interface IGallerGridProps
-  extends IBaseProps {
-    layout?: string;
-  }
+export interface IGallerGridProps {
+  layout?: string;
+}
 
 const styles = (props: IGallerGridProps) => css`
   display: block;

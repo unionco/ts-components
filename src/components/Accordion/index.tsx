@@ -43,8 +43,8 @@ const Accordion: React.FC<IAccordionProps> = ({
 };
 
 // Proxy exports
-export { AccordionTrigger, IStyledAccordionTriggerProps } from './trigger';
-export { AccordionPanel, IStyledAccordionPanelProps } from './panel';
+export { AccordionTrigger } from './trigger';
+export { AccordionPanel } from './panel';
 
 // Export main component
 export { Accordion, IStyledAccordionProps };

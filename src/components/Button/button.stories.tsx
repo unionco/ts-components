@@ -1,8 +1,8 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { Theme as ThemeProvider } from '../../index';
+import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import Button from "./index";
+import { Button } from "./index";
 
 storiesOf("Button", module)
   .add("Default - Solid", () => (
