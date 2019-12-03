@@ -12,6 +12,7 @@ export interface IDefaultTheme
 
   colors: IColors;
 
+  gridColumns: number;
   breakpoints: string[];
 
   fonts: IFonts;
@@ -70,6 +71,7 @@ export const theme: IDefaultTheme = {
     large: '1012px',
     xlarge: '1280px'
   },
+  gridColumns: 12,
   borders: [0, '1px solid'],
   radii: ['0', '3px', '6px'],
   shadows: {

@@ -14,7 +14,8 @@
     "prebuild": "rm -rf dist dist-transpiled",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
-    "storybook": "start-storybook --port 9001"
+    "storybook": "start-storybook --port 9001",
+    "build:storybook": "build-storybook"
   },
   "files": [
     "dist/",
@@ -48,6 +49,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-virtual": "^1.0.1",
     "styled-components": "^4.4.1",
+    "styled-flex-component": "^3.0.0",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",

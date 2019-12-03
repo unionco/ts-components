@@ -17,7 +17,6 @@ const CardContent = styled.div<ICardProps>`
 
 const Card = styled.div<ICardProps>`
   display: flex;
-  border: 1px solid black;
   flex-direction: ${(props) => props.layout};
   position: relative;
   margin: ${(props) => props.theme.space[2]};
