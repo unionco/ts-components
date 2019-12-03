@@ -37,6 +37,9 @@ export interface IDefaultTheme
   space: string[];
 
   buttons: IColorVariant;
+  buttonFills?: {
+    [key: string]: object;
+  };
   buttonSizes: {
     small: {
       fontSize: string;
@@ -78,6 +81,31 @@ export const theme: IDefaultTheme = {
   space: ['0', '4px', '8px', '16px', '24px', '32px', '40px', '48px', '64px', '80px', '96px', '112px', '128px'],
   buttons: {
     ...colorVariants,
+  },
+  buttonFills: {
+    clear: {
+      background: 'rgba(0,0,0,0)',
+      color: 'var(--neo-color-base)',
+      ':hover': {
+        background: '#eee',
+      }
+    },
+    outline: {
+      background: 'transparent',
+      color: 'var(--neo-color-base)',
+      border: '1px solid var(--neo-color-base)',
+      ':hover': {
+        background: 'var(--neo-color-base)',
+        color: 'var(--neo-color-contrast)',
+      }
+    },
+    solid: {
+      background: 'var(--neo-color-base)',
+      color: 'var(--neo-color-contrast)',
+      ':hover': {
+        opacity: 0.75
+      }
+    }
   },
   buttonSizes: {
     small: {

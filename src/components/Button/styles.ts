@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { styled } from '../../styles';
+import { styled, css } from '../../styles';
 import { colors } from '../../theme';
 
 // export const sizeVariants = variant({
@@ -36,6 +36,9 @@ export interface IStyledButtonProps {
   fill?: 'solid' | 'outline' | 'clear';
 }
 
+const sizes = (theme: any, prop: any) => css(theme.buttonSizes[prop]);
+const fills = (theme: any, prop: any) => css(theme.buttonFills[prop]);
+
 const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
 }))<IStyledButtonProps>`
@@ -45,7 +48,9 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
 
   appearance: none;
   display: inline-block;
+  background: var(--neo-color-base);
   border: none;
+  color: var(--neo-color-contrast);
   cursor: pointer;
   font-size: ${(props) => props.theme.fontSizes[1]};
   font-weight: ${(props) => props.theme.fontWeights.bold};
@@ -83,15 +88,8 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
     opacity: 0.5;
   `}
 
-  &:hover {
-    ${(props) => props.fill === 'solid' ? `background-color: var(--neo-color-tint)` : ``};
-    ${(props) => props.fill === 'clear' ? `background-color: #eee` : ``};
-    ${(props) => props.fill === 'outline' ? `
-      background-color: var(--neo-color-base);
-      color: var(--neo-color-contrast);
-      border-color: var(--neo-color-tint)
-    ` : ``};
-  }
+  ${props => sizes(props.theme, props.size)};
+  ${props => fills(props.theme, props.fill)};
 `;
 
 export default Button;
