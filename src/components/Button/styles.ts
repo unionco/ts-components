@@ -1,6 +1,7 @@
 import { get } from 'lodash';
-import { styled, css } from '../../styles';
+import { styled } from '../../styles';
 import { colors } from '../../theme';
+import { getVariantCSS } from '../../utils';
 
 // export const sizeVariants = variant({
 //   prop: 'size',
@@ -36,8 +37,9 @@ export interface IStyledButtonProps {
   fill?: 'solid' | 'outline' | 'clear';
 }
 
-const sizes = (theme: any, prop: any) => css(theme.buttonSizes[prop]);
-const fills = (theme: any, prop: any) => css(theme.buttonFills[prop]);
+const sizes = (props: any) => getVariantCSS(props.theme, `buttonSizes.${props.size}`);
+const fills = (props: any) => getVariantCSS(props.theme, `buttonFills.${props.fill}`);
+
 
 const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
@@ -88,8 +90,8 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
     opacity: 0.5;
   `}
 
-  ${props => sizes(props.theme, props.size)};
-  ${props => fills(props.theme, props.fill)};
+  ${props => sizes(props)};
+  ${props => fills(props)};
 `;
 
 export default Button;

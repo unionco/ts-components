@@ -28,4 +28,4 @@ const Card: React.FC<ICardComponentProps> = ({
   )
 }
 
-export { Card, CardContent, ICardProps, ICardComponentProps };
+export { Card, CardContent, StyledCard, ICardProps, ICardComponentProps };

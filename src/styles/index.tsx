@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider as Provider } from './styled';
-import { theme } from '../theme';
+import { theme } from '../theme/theme';
 
 /**
  * A wrapper component for passing down the library theme context
@@ -13,4 +13,10 @@ export const ThemeProvider = (props: any) => {
   )
 };
 
-export { default as styled, css, ServerStyleSheet, createGlobalStyle } from './styled';
+export {
+  default as styled,
+  css,
+  ServerStyleSheet,
+  createGlobalStyle,
+  withTheme
+} from './styled';

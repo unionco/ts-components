@@ -4,6 +4,8 @@ import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Card, CardContent } from './index';
 import { Grid, GridItem } from "../Grid";
+import { Eyebrow } from '../Eyebrow';
+import { Image } from '../Image';
 
 storiesOf("Card", module)
   .add("Default", () => (
@@ -12,9 +14,10 @@ storiesOf("Card", module)
       <Grid>
         <GridItem size={[12, 4]}>
           <Card
-            start={<img src="https://placehold.it/345x200.png?text=Image" />}
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
+              <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
@@ -22,9 +25,10 @@ storiesOf("Card", module)
         </GridItem>
         <GridItem size={[12, 4]}>
           <Card
-            start={<img src="https://placehold.it/345x200.png?text=Image" />}
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
+              <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
@@ -32,9 +36,10 @@ storiesOf("Card", module)
         </GridItem>
         <GridItem size={[12, 4]}>
           <Card
-            start={<img src="https://placehold.it/345x200.png?text=Image" />}
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
+              <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
@@ -90,6 +95,7 @@ storiesOf("Card", module)
             layout="row"
           >
             <CardContent>
+              <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
@@ -103,6 +109,7 @@ storiesOf("Card", module)
             layout="row"
           >
             <CardContent>
+              <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>

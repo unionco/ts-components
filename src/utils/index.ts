@@ -1,5 +1,7 @@
 import { IColors } from '../theme/colors';
 import { get } from 'lodash';
+import { IDefaultTheme } from '../theme/theme';
+import { css } from '../styles/styled';
 
 export interface IColorVariant {
   [key: string]: object;
@@ -16,4 +18,12 @@ export function createColorMap(colors: IColors): IColorVariant {
     }
   });
   return colorVariants;
+}
+
+export function getVariantCSS(theme: IDefaultTheme, path: string) {
+  return css(get(theme, path));
+}
+
+export function isBrowser() {
+  return typeof window !== 'undefined';
 }
