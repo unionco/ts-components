@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyledInput, IStyledInputProps } from './styles';
 
-interface IInputProps 
+interface IInputProps
   extends IStyledInputProps {
     type?: string;
     id?: string;
     name?: string;
     placeholder?: string;
-    disabled?: boolean;
-    required?: boolean
   };
 
 interface IInputState {
@@ -29,24 +27,24 @@ class Input extends React.Component<IInputProps, IInputState> {
     this.onBlur = this.onBlur.bind(this);
   }
 
-  handleChange(event: any) {
+  public handleChange(event: any) {
     this.setState({value: event.target.value});
   }
 
-  onFocus() {
+  public onFocus() {
     this.setState({
       hasFocus: 'has-focus'
     });
   }
 
-  onBlur() {
+  public onBlur() {
     this.setState({
       hasFocus: ''
     });
   }
 
   public render() {
-    const {type = 'text', id, name, placeholder, disabled, required} = this.props;
+    const { type = 'text', id, name, placeholder, disabled, required } = this.props;
     let className = this.state.hasFocus;
 
     if (this.state.value) {

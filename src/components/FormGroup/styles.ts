@@ -25,6 +25,7 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
     ${StyledLabel} {
       margin-right: var(--inline-label-margin);
       white-space: nowrap;
+      min-width: 150px;
     }
   `}
 
@@ -32,8 +33,10 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
     align-items: flex-start;
     flex-direction: column;
 
+    input:focus + ${StyledLabel},
     .has-focus + ${StyledLabel},
     .has-value + ${StyledLabel} {
+      transform-origin: left;
       transform: var(--floating-label);
     }
 
