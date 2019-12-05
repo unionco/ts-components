@@ -1,4 +1,5 @@
 import { colors, IColors } from './colors';
+import { formElements, IFormElements } from './form-elements';
 import { fonts, fontSizes, fontWeights, lineHeights, IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
 import { createColorMap, IColorVariant } from '../utils/index';
 import { DefaultTheme } from 'styled-components';
@@ -9,6 +10,8 @@ export interface IDefaultTheme
   extends DefaultTheme {
   // tslint:disable-next-line:prefer-array-literal
   borders: Array<number | string>;
+
+  formElements: IFormElements;
 
   colors: IColors;
 
@@ -59,6 +62,7 @@ export interface IDefaultTheme
 }
 
 export const theme: IDefaultTheme = {
+  formElements,
   colors,
   fonts,
   fontSizes,
