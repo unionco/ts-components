@@ -16,7 +16,6 @@ const CardContent = styled.div<ICardProps>`
 `;
 
 const Card = styled.div<ICardProps>`
-  box-shadow: ${(props) => props.theme.shadows.md};
   display: flex;
   flex-direction: ${(props) => props.layout};
   position: relative;

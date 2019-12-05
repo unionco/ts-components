@@ -42,7 +42,6 @@ const StyleGrid = styled.div`
 `;
 
 const StyleGridItem = styled.div<IGridItemProps>`
-  display: flex;
   flex: 1;
   padding: ${(p) => p.theme.space[1]};
   position: relative;
