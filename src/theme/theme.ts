@@ -58,6 +58,14 @@ export interface IDefaultTheme
       fontSize: string;
       padding: string;
     }
+  },
+  wysiwyg: {
+    maxWidth: string;
+    tightness: {
+      tight: object,
+      default: object,
+      loose: object
+    }
   }
 }
 
@@ -126,6 +134,20 @@ export const theme: IDefaultTheme = {
     large: {
       fontSize: fontSizes[4],
       padding: `24px 32px`
+    }
+  },
+  wysiwyg: {
+    maxWidth: '720px',
+    tightness: {
+      tight: {
+        lineHeight: 1.2
+      },
+      default: {
+        lineHeight: 1.9
+      },
+      loose: {
+        lineHeight: 2.5
+      }
     }
   }
 };
