@@ -6,6 +6,7 @@ import { Input } from './index';
 import { Grid, GridItem } from "../Grid";
 import { Label } from "../Label";
 import { FormGroup } from "../FormGroup";
+import { Textarea } from "../Textarea";
 
 storiesOf("Input", module)
   .add("Default", () => (
@@ -34,6 +35,12 @@ storiesOf("Input", module)
           <FormGroup>
             <Input type="tel" id="tel" name="tel" />
             <Label htmlFor="tel">Phone Number</Label>
+          </FormGroup>
+        </GridItem>
+        <GridItem size={[12, 12]}>
+          <FormGroup>
+            <Textarea id="description" name="description" rows={6} />
+            <Label htmlFor="description">Textarea</Label>
           </FormGroup>
         </GridItem>
       </Grid>
@@ -96,6 +103,12 @@ storiesOf("Input", module)
           <FormGroup position="floating">
             <Input type="tel" id="tel" name="tel" />
             <Label htmlFor="tel">Phone Number</Label>
+          </FormGroup>
+        </GridItem>
+        <GridItem size={[12, 12]}>
+          <FormGroup position="floating">
+            <Textarea id="description" name="description" rows={6} resize/>
+            <Label htmlFor="description">Textarea</Label>
           </FormGroup>
         </GridItem>
       </Grid>

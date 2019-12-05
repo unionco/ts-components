@@ -29,8 +29,8 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
   `}
 
   ${({ position }) => position === 'floating' && `
-    align-items: center;
-    flex-direction: row-reverse;
+    align-items: flex-start;
+    flex-direction: column;
 
     .has-focus + ${StyledLabel},
     .has-value + ${StyledLabel} {
