@@ -1,4 +1,12 @@
 export interface IFormElements {
+  input: {
+    backgroundColor: string;
+    border: string;
+    borderRadius: string;
+    padding: string;
+    floatingLabel: string;
+  }
+
   checkbox: {
     border: string;
     borderRadius: string;
@@ -17,6 +25,13 @@ export interface IFormElements {
 }
 
 export const formElements: IFormElements = {
+  input: {
+    backgroundColor: '#eee',
+    border: 'none',
+    borderRadius: '0',
+    padding: '22px',
+    floatingLabel: 'translate(-10px, -40px) scale(0.75);',
+  },
   checkbox: {
     border: 'none',
     borderRadius: '0',

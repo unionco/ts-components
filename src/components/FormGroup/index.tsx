@@ -1,24 +1,15 @@
 import React from 'react';
-import { styled } from '../../styles';
+import { StyledFormGroup, IStyledFormGroupProps } from './styles';
 
-interface IFormGroupProps {
-  position?: string;
-}
-
-const StyledFormGroup = styled.div<IFormGroupProps>`
-
-`;
+interface IFormGroupProps 
+  extends IStyledFormGroupProps {}
 
 class FormGroup extends React.Component<IFormGroupProps> {
-  constructor(props: IFormGroupProps) {
-    super(props);
-  }
-
   public render() {
-    const {children, position} = this.props;
+    const {children, position = 'stacked'} = this.props;
 
     return (
-      <StyledFormGroup className={position}>
+      <StyledFormGroup position={position}>
         {children}
       </StyledFormGroup>
     )
