@@ -20,6 +20,7 @@ export interface IDefaultTheme
   fontWeights: IFontWeights;
   lineHeights: ILineHeights;
 
+  siteMaxWidth: string;
   maxWidths: {
     small: string;
     medium: string;
@@ -64,6 +65,7 @@ export const theme: IDefaultTheme = {
   fontWeights,
   lineHeights,
   breakpoints: ['544px', '768px', '1012px', '1280px'],
+  siteMaxWidth: '1440px',
   maxWidths: {
     small: '544px',
     medium: '768px',

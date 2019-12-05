@@ -16,11 +16,11 @@ export const GalleryGridItem = styled.div`
   }
 `;
 
-export interface IGallerGridProps {
+export interface IGalleryGridProps {
   layout?: string;
 }
 
-const styles = (props: IGallerGridProps) => css`
+const styles = (props: IGalleryGridProps) => css`
   display: block;
 
   .gallery_inner {
@@ -48,6 +48,6 @@ const styles = (props: IGallerGridProps) => css`
   }
 `;
 
-export const GalleryGrid = styled.div<IGallerGridProps>`
+export const GalleryGrid = styled.div<IGalleryGridProps>`
   ${styles}
 `;

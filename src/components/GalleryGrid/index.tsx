@@ -2,7 +2,7 @@ import React from 'react';
 import {
   GalleryGrid as StyledGalleryGrid,
   GalleryGridItem,
-  IGallerGridProps
+  IGalleryGridProps
 } from './styles';
 
 const layoutTypes: { [key: number]: string } = {
@@ -18,7 +18,7 @@ const layoutTypes: { [key: number]: string } = {
   10: 'up-4',
 };
 
-const GalleryGrid: React.FC<IGallerGridProps> = (props) => {
+const GalleryGrid: React.FC<IGalleryGridProps> = (props) => {
 
   const determineMinWidth = (): string => {
     const length: number = props.children ? (props.children as any).length : 0;
@@ -36,4 +36,4 @@ const GalleryGrid: React.FC<IGallerGridProps> = (props) => {
   );
 }
 
-export { GalleryGrid, GalleryGridItem, IGallerGridProps };
+export { GalleryGrid, GalleryGridItem, IGalleryGridProps };
