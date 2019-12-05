@@ -15,7 +15,8 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "storybook": "start-storybook --port 9001",
-    "build:storybook": "build-storybook"
+    "build:storybook": "build-storybook && yarn deploy",
+    "deploy": "surge --domain playcore-storybook.surge.sh --project ./storybook-static"
   },
   "files": [
     "dist/",

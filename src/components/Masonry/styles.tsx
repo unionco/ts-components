@@ -75,6 +75,17 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
     ${MasonryGridItem} {
       padding: ${props => get(props.theme, `space.${props.padding}`)};
       ${props => determineItemSize(props.layout)};
+
+    }
+
+    @media screen and (max-width: ${props => props.theme.breakpoints[1]}) {
+      flex-flow: column nowrap;
+      height: auto;
+
+      ${MasonryGridItem} {
+        max-width: 100%;
+        min-width: 100%;
+      }
     }
   }
 `;
