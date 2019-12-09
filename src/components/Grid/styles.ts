@@ -3,18 +3,44 @@ import { IDefaultTheme } from '../../theme';
 
 interface IGridItemProps {
   size: 'auto' | number | number[];
-  offset?: number | number[];
+  offSet?: number | number[];
 }
+
+const calculatePosition = (theme: IDefaultTheme, modifier: string, values?: number | number[]) => {
+  if (!values) {
+    return;
+  }
+  const { gridColumns } = theme;
+  let normalizedValues: number[] = !Array.isArray(values) ? [values] : values;
+
+  const styles = theme.breakpoints.map((breakpoint: string, index: number) => {
+    const responsiveSize = normalizedValues[index] ? normalizedValues[index] : normalizedValues[normalizedValues.length - 1]
+    const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
+
+    return css({
+      [`@media screen and (min-width: ${breakpoint})`]: {
+        [modifier]: `${responsiveColSize}`,
+      }
+    } as any)
+  })
+
+  // const size = Array.isArray(normalizedValues) ? normalizedValues[0] : normalizedValues;
+  // const colSize = `${(size / gridColumns) * 100}%`;
+  return css`
+    ${styles}
+  `;
+};
 
 const calculateSize = (theme: IDefaultTheme, sizes: 'auto' | number | number[]) => {
   const { gridColumns } = theme;
-
   if (sizes === 'auto') {
     return ''
   }
 
+  let normalizedSized: number[] = !Array.isArray(sizes) ? [sizes] : sizes;
+
   const styles = theme.breakpoints.map((breakpoint: string, index: number) => {
-    const responsiveSize = Array.isArray(sizes) ? sizes[index] ? sizes[index] : sizes[sizes.length] : sizes;
+    const responsiveSize = normalizedSized[index] ? normalizedSized[index] : normalizedSized[normalizedSized.length - 1]
     const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
 
     return css({
@@ -50,6 +76,7 @@ const StyleGridItem = styled.div<IGridItemProps>`
   max-width: 100%;
   min-height: 1px;
   ${(props) => calculateSize(props.theme, props.size)}
+  ${(props) => calculatePosition(props.theme, 'margin-left', props.offSet)}
 `;
 
 export {

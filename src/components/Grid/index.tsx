@@ -7,6 +7,7 @@ import {
 
 interface IGridItemComponentProps {
   size?: 'auto' | number | number[];
+  offSet?: number | number[];
 }
 
 const Grid: React.FC<any> = (props) => {

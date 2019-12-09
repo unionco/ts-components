@@ -27,3 +27,5 @@ export function getVariantCSS(theme: IDefaultTheme, path: string) {
 export function isBrowser() {
   return typeof window !== 'undefined';
 }
+
+export { fontSize } from './slopeCalc';

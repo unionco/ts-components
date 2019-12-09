@@ -8,6 +8,7 @@ import { Eyebrow } from '../Eyebrow';
 import { Image } from '../Image';
 import { Flex, FlexItem } from "../Flex";
 import { Button } from "../Button";
+import { ButtonGroup } from "../ButtonGroup";
 
 storiesOf("Card", module)
   .add("Default", () => (
@@ -20,7 +21,7 @@ storiesOf("Card", module)
           >
             <CardContent>
               <Eyebrow>Eyebrow</Eyebrow>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -31,7 +32,7 @@ storiesOf("Card", module)
           >
             <CardContent>
               <Eyebrow>Eyebrow</Eyebrow>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -42,7 +43,7 @@ storiesOf("Card", module)
           >
             <CardContent>
               <Eyebrow>Eyebrow</Eyebrow>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -67,9 +68,12 @@ storiesOf("Card", module)
                   </p>
                 </FlexItem>
               </Flex>
-              <h2 style={{ paddingBottom: '16px'}}>Product Title</h2>
+              <h4>Product Title</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
-              <Button variant="primary">Add to cart</Button>
+              <ButtonGroup>
+                <Button variant="primary">Add to cart</Button>
+                <Button variant="primary" fill="clear">Learn More</Button>
+              </ButtonGroup>
             </CardContent>
           </Card>
         </GridItem>
@@ -86,9 +90,12 @@ storiesOf("Card", module)
                   </p>
                 </FlexItem>
               </Flex>
-              <h2 style={{ paddingBottom: '16px' }}>Product Title</h2>
+              <h4>Product Title</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
-              <Button variant="primary">Add to cart</Button>
+              <ButtonGroup>
+                <Button variant="primary">Add to cart</Button>
+                <Button variant="primary" fill="clear">Learn More</Button>
+              </ButtonGroup>
             </CardContent>
           </Card>
         </GridItem>
@@ -105,9 +112,12 @@ storiesOf("Card", module)
                   </p>
                 </FlexItem>
               </Flex>
-              <h2 style={{ paddingBottom: '16px' }}>Product Title</h2>
+              <h4>Product Title</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
-              <Button variant="primary">Add to cart</Button>
+              <ButtonGroup>
+                <Button variant="primary">Add to cart</Button>
+                <Button variant="primary" fill="clear">Learn More</Button>
+              </ButtonGroup>
             </CardContent>
           </Card>
         </GridItem>
@@ -123,7 +133,7 @@ storiesOf("Card", module)
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -133,7 +143,7 @@ storiesOf("Card", module)
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -143,7 +153,7 @@ storiesOf("Card", module)
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -162,7 +172,7 @@ storiesOf("Card", module)
           >
             <CardContent>
               <Eyebrow>Eyebrow</Eyebrow>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>
@@ -176,7 +186,7 @@ storiesOf("Card", module)
           >
             <CardContent>
               <Eyebrow>Eyebrow</Eyebrow>
-              <h1>This is a card</h1>
+              <h4>This is a card</h4>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
             </CardContent>
           </Card>

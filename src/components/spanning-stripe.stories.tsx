@@ -16,7 +16,7 @@ storiesOf("Spanning Stripe", module)
           <h2 style={{ padding: '0 0 16px                                                                                                            '}}>Definition Card</h2>
           <p>Body Copy of up to three lines. Maecenas faucibus mollis interdum. Donec sed odio duimollis interdum. Body Copy of up to three lines</p>
         </GridItem>
-        <GridItem size={[12, 6]}>
+        <GridItem size={[12, 4]} offSet={[0, 2]}>
           <Flex style={{ height: '100%' }} alignCenter>
             <ButtonGroup>
               <Button variant="primary">Primary Action CTA</Button>

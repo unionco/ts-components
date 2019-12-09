@@ -1,6 +1,7 @@
 import { colors, IColors } from './colors';
 import { formElements, IFormElements } from './form-elements';
 import { fonts, fontSizes, fontWeights, lineHeights, IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
+import { breakpoints } from './breakpoints';
 import { createColorMap, IColorVariant } from '../utils/index';
 import { DefaultTheme } from 'styled-components';
 
@@ -76,7 +77,7 @@ export const theme: IDefaultTheme = {
   fontSizes,
   fontWeights,
   lineHeights,
-  breakpoints: ['544px', '768px', '1012px', '1280px'],
+  breakpoints,
   siteMaxWidth: '1440px',
   maxWidths: {
     small: '544px',

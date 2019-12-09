@@ -40,10 +40,32 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
     margin: 0;
+    line-height: 1.25;
   }
   p {
+    line-height: 1.9;
     margin: 0;
   }
+
+  h1.display {
+    ${props => props.theme.fontSizes['6xl']};
+  }
+  h1 {
+   ${props => props.theme.fontSizes['4xl']};
+  }
+  h2 {
+   ${props => props.theme.fontSizes['3xl']};
+  }
+  h3 {
+   ${props => props.theme.fontSizes['2xl']};
+  }
+  h4 {
+   ${props => props.theme.fontSizes['xl']};
+  }
+  h5 {
+   ${props => props.theme.fontSizes['lg']};
+  }
+
 `;
 
 export const BaseStyles = (props: any) => {

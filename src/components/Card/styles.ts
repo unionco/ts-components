@@ -1,4 +1,5 @@
 import { styled } from '../../styles';
+import Button from '../Button/styles';
 
 interface ICardProps {
   layout?: 'row' | 'column';
@@ -6,13 +7,20 @@ interface ICardProps {
 }
 
 const CardContent = styled.div<ICardProps>`
-  display: flex;
-  flex-direction: column;
   padding: ${(props) => props.theme.space[3]};
   position: relative;
   z-index: 1;
   height: 100%;
   width: 100%;
+
+  h3,
+  p {
+    padding-bottom: ${props => props.theme.space[2]};
+  }
+
+  ${Button} {
+    margin-left: 0;
+  }
 `;
 
 const Card = styled.div<ICardProps>`
@@ -29,6 +37,8 @@ const Card = styled.div<ICardProps>`
   ${(props) => props.hasBackground && `
     ${CardContent} {
       align-items: center;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       padding: ${props.theme.space[6]};
       text-align: center;
