@@ -30,4 +30,4 @@ const GridItem: React.FC<IGridItemComponentProps> = ({
   );
 }
 
-export { Grid, GridItem, IGridItemComponentProps, IGridItemProps };
+export { Grid, GridItem, StyleGridItem, IGridItemComponentProps, IGridItemProps };

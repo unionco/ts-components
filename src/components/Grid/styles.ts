@@ -19,7 +19,7 @@ const calculatePosition = (theme: IDefaultTheme, modifier: string, values?: numb
     const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
 
     return css({
-      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]}px})`]: {
+      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]}px)`]: {
         [modifier]: `${responsiveColSize}`,
       }
     } as any)

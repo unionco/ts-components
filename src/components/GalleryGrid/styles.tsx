@@ -33,13 +33,13 @@ const styles = (props: IGalleryGridProps) => css`
       ${(() => {
         switch (props.layout) {
           case 'up-1':
-            return `height: ${galleryLargeHeight}; width: 100%;`;
+            return `min-height: ${galleryLargeHeight}; width: 100%;`;
           case 'up-2':
-            return `height: ${galleryLargeHeight}; width: 50%;`;
+            return `min-height: ${galleryLargeHeight}; width: 50%;`;
           case 'up-3':
-            return `height: ${galleryMediumHeight}; width: 33%;`;
+            return `min-height: ${galleryMediumHeight}; width: 33%;`;
           case 'up-4':
-            return `height: ${gallerySmallHeight}; width: 25%;`;
+            return `min-height: ${gallerySmallHeight}; width: 25%;`;
           default:
             return '';
         }

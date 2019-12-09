@@ -15,9 +15,10 @@ interface ICardComponentProps
 
 const Card: React.FC<ICardComponentProps> = ({
   layout = "column",
+  tall = false,
   ...rest
 }) => {
-  const props = { layout, ...rest };
+  const props = { layout, tall, ...rest };
   return (
     <StyledCard {...props} hasBackground={!!props.background}>
       {props.background && <div slot="background">{props.background}</div>}

@@ -3,6 +3,7 @@ import Button from '../Button/styles';
 
 interface ICardProps {
   layout?: 'row' | 'column';
+  tall?: boolean;
   hasBackground?: boolean;
 }
 
@@ -31,7 +32,6 @@ const Card = styled.div<ICardProps>`
   display: flex;
   flex-direction: ${(props) => props.layout};
   position: relative;
-  margin: ${(props) => props.theme.space[2]};
 
   ${(props) => props.layout === 'row' && `
     align-items: center;
@@ -49,7 +49,14 @@ const Card = styled.div<ICardProps>`
     }
   `}
 
+  ${props => props.tall && `
+    justify-content: flex-end;
+    min-height: 400px;
+  `}
+
   div[slot="background"] {
+    background: blue;
+
     img {
       height: 100%;
       left: 0;

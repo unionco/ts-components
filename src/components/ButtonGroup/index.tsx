@@ -9,6 +9,7 @@ interface IButtonGroupProps {
 
 const StyledButtonGroup = styled.div<IButtonGroupProps>`
   display: flex;
+  flex-wrap: wrap;
 
   ${(props) => props.layout === 'column' && `
     align-items: flex-start;

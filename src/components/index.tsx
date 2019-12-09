@@ -5,6 +5,7 @@ export * from './ButtonGroup';
 export * from './Card';
 export * from './Eyebrow';
 export * from './Flex';
+export * from './FlexibleContent';
 export * from './FormGroup';
 export * from './GalleryGrid';
 export * from './Grid';

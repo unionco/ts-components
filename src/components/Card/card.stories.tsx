@@ -135,6 +135,7 @@ storiesOf("Card", module)
       <Grid>
         <GridItem size={[12, 4]}>
           <Card
+            tall
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
@@ -145,6 +146,7 @@ storiesOf("Card", module)
         </GridItem>
         <GridItem size={[12, 4]}>
           <Card
+            tall
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
@@ -155,6 +157,7 @@ storiesOf("Card", module)
         </GridItem>
         <GridItem size={[12, 4]}>
           <Card
+            tall
             background={<img src="https://placehold.it/345x200.png?text=Image" />}
           >
             <CardContent>
