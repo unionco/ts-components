@@ -7,15 +7,19 @@ interface ICardProps {
 }
 
 const CardContent = styled.div<ICardProps>`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space[4]} ${(props) => props.theme.space[3]};
   position: relative;
   z-index: 1;
   height: 100%;
   width: 100%;
 
-  h3,
+  h4,
   p {
     padding-bottom: ${props => props.theme.space[2]};
+  }
+
+  h4 {
+    ${props => props.theme.fontSizes.lg}
   }
 
   ${Button} {

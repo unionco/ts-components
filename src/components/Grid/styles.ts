@@ -12,13 +12,14 @@ const calculatePosition = (theme: IDefaultTheme, modifier: string, values?: numb
   }
   const { gridColumns } = theme;
   let normalizedValues: number[] = !Array.isArray(values) ? [values] : values;
+  const breakpointKeys = Object.keys(theme.breakpoints);
 
-  const styles = theme.breakpoints.map((breakpoint: string, index: number) => {
+  const styles = breakpointKeys.map((breakpoint: string, index: number) => {
     const responsiveSize = normalizedValues[index] ? normalizedValues[index] : normalizedValues[normalizedValues.length - 1]
     const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
 
     return css({
-      [`@media screen and (min-width: ${breakpoint})`]: {
+      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]}px})`]: {
         [modifier]: `${responsiveColSize}`,
       }
     } as any)
@@ -38,13 +39,14 @@ const calculateSize = (theme: IDefaultTheme, sizes: 'auto' | number | number[]) 
   }
 
   let normalizedSized: number[] = !Array.isArray(sizes) ? [sizes] : sizes;
+  const breakpointKeys = Object.keys(theme.breakpoints);
 
-  const styles = theme.breakpoints.map((breakpoint: string, index: number) => {
+  const styles = breakpointKeys.map((breakpoint: string, index: number) => {
     const responsiveSize = normalizedSized[index] ? normalizedSized[index] : normalizedSized[normalizedSized.length - 1]
     const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
 
     return css({
-      [`@media screen and (min-width: ${breakpoint})`]: {
+      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]}px)`]: {
         flex: `0 0 ${responsiveColSize}`,
         width: `${responsiveColSize}`,
         'max-width': `${responsiveColSize}`

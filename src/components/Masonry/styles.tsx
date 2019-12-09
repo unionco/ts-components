@@ -78,7 +78,7 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
 
     }
 
-    @media screen and (max-width: ${props => props.theme.breakpoints[1]}) {
+    @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
       flex-flow: column nowrap;
       height: auto;
 

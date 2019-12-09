@@ -1,13 +1,14 @@
 import React from 'react';
 import { styled } from '../../styles';
 
-interface IEyebrowProps {
-  as?: React.ReactType
+interface IEyebrowProps
+  extends React.Props<any> {
+  as?: React.ReactType;
 }
 
-const StyledEyebrow = styled.span`
+const StyledEyebrow = styled.p`
   color: ${p => p.theme.colors.black};
-  font-size: ${p => p.theme.fontSizes.base};
+  ${props => props.theme.fontSizes.sm};
   font-weight: ${p => p.theme.fontWeights.bold};
   letter-spacing: 1.5px;
   line-height: 1;

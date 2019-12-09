@@ -17,7 +17,9 @@ export interface IDefaultTheme
   colors: IColors;
 
   gridColumns: number;
-  breakpoints: string[];
+  breakpoints: {
+    [key: string]: number;
+  };
 
   fonts: IFonts;
   fontSizes: IFontSizes;

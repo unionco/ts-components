@@ -118,7 +118,7 @@ const RichTextStyles = styled.div<IRichTextProps>`
     line-height: 1.5;
     margin: ${props => props.theme.space[5]} 0;
     padding: ${props => props.theme.space[4]};
-    font-size: ${props => props.theme.fontSizes.lg};
+    ${props => props.theme.fontSizes.lg};
     font-style: italic;
     text-align: left;
 
@@ -128,7 +128,7 @@ const RichTextStyles = styled.div<IRichTextProps>`
     }
 
     span {
-      font-size: ${props => props.theme.fontSizes.small};
+      ${props => props.theme.fontSizes.small};
 
       &:before {
         content: '\2014';

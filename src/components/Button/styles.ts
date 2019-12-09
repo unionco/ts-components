@@ -28,7 +28,7 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   border: none;
   color: var(--neo-color-contrast);
   cursor: pointer;
-  font-size: ${(props) => props.theme.fontSizes.base};
+  ${props => props.theme.fontSizes.base};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   line-height: 20px;
   overflow: hidden;
