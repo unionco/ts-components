@@ -3,6 +3,7 @@ import { IDefaultTheme } from '../../theme';
 
 interface IGridItemProps {
   size: 'auto' | number | number[];
+  offset?: number | number[];
 }
 
 const calculateSize = (theme: IDefaultTheme, sizes: 'auto' | number | number[]) => {

@@ -6,6 +6,8 @@ import { Card, CardContent } from './index';
 import { Grid, GridItem } from "../Grid";
 import { Eyebrow } from '../Eyebrow';
 import { Image } from '../Image';
+import { Flex, FlexItem } from "../Flex";
+import { Button } from "../Button";
 
 storiesOf("Card", module)
   .add("Default", () => (
@@ -42,6 +44,70 @@ storiesOf("Card", module)
               <Eyebrow>Eyebrow</Eyebrow>
               <h1>This is a card</h1>
               <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
+            </CardContent>
+          </Card>
+        </GridItem>
+      </Grid>
+    </ThemeProvider>
+  ))
+  .add("Product", () => (
+    <ThemeProvider>
+      <BaseStyles />
+      <Grid>
+        <GridItem size={[12, 4]}>
+          <Card
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
+          >
+            <CardContent>
+              <Flex alignCenter justifyBetween>
+                <FlexItem><Eyebrow>Eyebrow</Eyebrow></FlexItem>
+                <FlexItem>
+                  <p style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>
+                    <span style={{ textDecoration: 'line-through', fontSize: '1rem' }}>$39</span> $19
+                  </p>
+                </FlexItem>
+              </Flex>
+              <h2 style={{ paddingBottom: '16px'}}>Product Title</h2>
+              <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
+              <Button variant="primary">Add to cart</Button>
+            </CardContent>
+          </Card>
+        </GridItem>
+        <GridItem size={[12, 4]}>
+          <Card
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
+          >
+            <CardContent>
+              <Flex alignCenter justifyBetween>
+                <FlexItem><Eyebrow>Eyebrow</Eyebrow></FlexItem>
+                <FlexItem>
+                  <p style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>
+                    <span style={{ textDecoration: 'line-through', fontSize: '1rem' }}>$39</span> $19
+                  </p>
+                </FlexItem>
+              </Flex>
+              <h2 style={{ paddingBottom: '16px' }}>Product Title</h2>
+              <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
+              <Button variant="primary">Add to cart</Button>
+            </CardContent>
+          </Card>
+        </GridItem>
+        <GridItem size={[12, 4]}>
+          <Card
+            start={<Image alt="image" src="https://placehold.it/345x200.png?text=Image" />}
+          >
+            <CardContent>
+              <Flex alignCenter justifyBetween>
+                <FlexItem><Eyebrow>Eyebrow</Eyebrow></FlexItem>
+                <FlexItem>
+                  <p style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>
+                    <span style={{ textDecoration: 'line-through', fontSize: '1rem' }}>$39</span> $19
+                  </p>
+                </FlexItem>
+              </Flex>
+              <h2 style={{ paddingBottom: '16px' }}>Product Title</h2>
+              <p>Nulla porttitor accumsan tincidunt. Proin eget tortor risus. Cras ultricies ligula sed magna dictum porta.</p>
+              <Button variant="primary">Add to cart</Button>
             </CardContent>
           </Card>
         </GridItem>
