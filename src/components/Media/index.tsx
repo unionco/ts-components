@@ -36,4 +36,4 @@ const Media: React.FC<IMedia> = ({
   );
 };
 
-export { Media };
+export { Media, Embed };
