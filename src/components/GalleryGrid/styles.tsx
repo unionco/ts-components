@@ -22,6 +22,8 @@ export interface IGalleryGridProps {
 
 const styles = (props: IGalleryGridProps) => css`
   display: block;
+  max-width: ${props => props.theme.siteMaxWidth};
+  margin: 0 auto;
 
   .gallery_inner {
     display: flex;

@@ -22,6 +22,8 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   justify-content: space-between;
   display: flex;
   position: relative;
+  max-width: ${props => props.theme.siteMaxWidth};
+  margin: 0 auto;
 
   div[slot="content"] {
     flex-basis: 50%;
