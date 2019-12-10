@@ -1,6 +1,7 @@
 import styled from '../../styles/styled';
 import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
+import { StyledCopy } from '../Copy';
 
 interface IFlexibleContentStyleProps {
   layout?: string;
@@ -9,6 +10,8 @@ interface IFlexibleContentStyleProps {
   bleed?: boolean;
   stretch?: boolean;
   background?: any;
+  backgroundColor?: string;
+  textAlign?: string;
 }
 
 const Media = styled(FlexItem)`
@@ -28,6 +31,44 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   div[slot="content"] {
     flex-basis: 50%;
   }
+
+  ${Media} {
+    flex-basis: 50%;
+  }
+
+  ${(props) => {
+    switch(props.textAlign) {
+      case 'center':
+        return `
+          justify-content: center;
+
+          div[slot="content"] {
+            flex-basis: 60%;
+          }
+
+          ${StyledCopy} {
+            align-items: center;
+            text-align: center;
+          }
+        `;
+      case 'right':
+        return `
+          justify-content: flex-end;
+          ${StyledCopy} {
+            align-items: flex-end;
+            text-align: right;
+          }
+        `;
+      case 'left':
+      default:
+        return `
+          ${StyledCopy} {
+            align-items: flex-start;
+            text-align: left;
+          }
+        `;
+    }
+  }}
 
   ${props => props.reversed && `
     ${Media} {

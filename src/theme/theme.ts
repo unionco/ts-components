@@ -28,10 +28,10 @@ export interface IDefaultTheme
 
   siteMaxWidth: string;
   maxWidths: {
-    small: string;
-    medium: string;
-    large: string;
-    xlarge: string;
+    sm: string;
+    md: string;
+    lg: string;
+    xl: string;
   }
 
   radii: string[];
@@ -82,10 +82,10 @@ export const theme: IDefaultTheme = {
   breakpoints,
   siteMaxWidth: '1440px',
   maxWidths: {
-    small: '544px',
-    medium: '768px',
-    large: '1012px',
-    xlarge: '1280px'
+    sm: '544px',
+    md: '768px',
+    lg: '1012px',
+    xl: '1280px',
   },
   gridColumns: 12,
   borders: [0, '1px solid'],

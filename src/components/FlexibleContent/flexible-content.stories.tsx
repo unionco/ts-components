@@ -1,6 +1,6 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
-import { boolean } from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 import { ThemeProvider, ButtonGroup, Button } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { FlexibleContent } from ".";
@@ -44,6 +44,15 @@ storiesOf("Flexible Content", module)
       <ThemeProvider>
         <BaseStyles />
         <FlexibleContent {...Object.assign({}, { reversed })} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} content={<ContentCopy />} />
+      </ThemeProvider>
+    );
+  })
+  .add("Without Media", () => {
+    const textAlign = select('Text Align', ['left', 'center', 'right'], 'left');
+    return (
+      <ThemeProvider>
+        <BaseStyles />
+        <FlexibleContent textAlign={textAlign} content={<ContentCopy />} />
       </ThemeProvider>
     );
   })

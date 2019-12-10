@@ -3,6 +3,7 @@ export * from './BaseStyles';
 export * from './Button';
 export * from './ButtonGroup';
 export * from './Card';
+export * from './Container';
 export * from './Checkbox';
 export * from './Copy';
 export * from './Eyebrow';

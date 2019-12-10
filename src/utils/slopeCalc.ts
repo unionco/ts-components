@@ -82,7 +82,7 @@ const createTransformClamp = (size: any) => (
   }).join(' ')
 );
 
-const slopeCalc = (breakpoints: any) => {
+export const slopeCalc = (breakpoints: any) => {
   const breaks = [0];
   const breakById: any = { 0: [] };
 
@@ -150,3 +150,4 @@ export default function expose(arg: any) {
 }
 
 export const fontSize: any = expose('font-size');
+export const maxWidth: any = expose('max-width');

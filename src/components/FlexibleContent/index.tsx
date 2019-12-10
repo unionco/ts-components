@@ -13,11 +13,12 @@ const FlexibleContent: React.FC<IFlexibleContentProps> = ({
   reversed = false,
   bleed = false,
   stretch = false,
+  textAlign = 'center',
   content,
   media,
   ...rest
 }) => {
-  const props = { layout, bleed, stretch, reversed, ...rest };
+  const props = { layout, bleed, stretch, reversed, textAlign, ...rest };
   return (
     <StyledFlexibleContent {...props}>
       {content && <div slot="content">{content}</div>}

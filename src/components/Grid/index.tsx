@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  StyleGrid,
-  StyleGridItem,
-  IGridItemProps
+  StyledGrid,
+  StyledGridItem,
+  IGridItemProps,
+  StyledGridContainer
 } from './styles';
 
 interface IGridItemComponentProps {
@@ -12,9 +13,11 @@ interface IGridItemComponentProps {
 
 const Grid: React.FC<any> = (props) => {
   return (
-    <StyleGrid {...props}>
-      {props.children}
-    </StyleGrid>
+    <StyledGrid {...props}>
+      <StyledGridContainer>
+        {props.children}
+      </StyledGridContainer>
+    </StyledGrid>
   )
 }
 
@@ -24,10 +27,10 @@ const GridItem: React.FC<IGridItemComponentProps> = ({
 }) => {
   const props = { size, ...rest };
   return (
-    <StyleGridItem {...props}>
+    <StyledGridItem {...props}>
       {props.children}
-    </StyleGridItem>
+    </StyledGridItem>
   );
 }
 
-export { Grid, GridItem, StyleGridItem, IGridItemComponentProps, IGridItemProps };
+export { Grid, GridItem, StyledGrid, StyledGridItem, IGridItemComponentProps, IGridItemProps };

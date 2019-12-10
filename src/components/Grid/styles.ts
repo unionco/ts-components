@@ -65,14 +65,19 @@ const calculateSize = (theme: IDefaultTheme, sizes: 'auto' | number | number[]) 
   `;
 }
 
-const StyleGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+const StyledGrid = styled.div`
+  display: block;
 `;
 
-const StyleGridItem = styled.div<IGridItemProps>`
+const StyledGridContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -${props => props.theme.space[4]};
+`;
+
+const StyledGridItem = styled.div<IGridItemProps>`
   flex: 1;
-  padding: ${(p) => p.theme.space[1]};
+  padding: 0 ${(p) => p.theme.space[4]};
   position: relative;
   width: 100%;
   max-width: 100%;
@@ -82,7 +87,8 @@ const StyleGridItem = styled.div<IGridItemProps>`
 `;
 
 export {
-  StyleGrid,
-  StyleGridItem,
+  StyledGrid,
+  StyledGridContainer,
+  StyledGridItem,
   IGridItemProps
 }
