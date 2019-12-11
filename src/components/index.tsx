@@ -14,6 +14,7 @@ export * from './GalleryGrid';
 export * from './Grid';
 export * from './Image';
 export * from './Input';
+export * from './Intro';
 export * from './Label';
 export * from './Media';
 export * from './Radio';
