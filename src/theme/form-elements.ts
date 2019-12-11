@@ -5,6 +5,7 @@ export interface IFormElements {
     borderRadius: string;
     padding: string;
     floatingLabel: string;
+    requiredColor: string; 
   }
 
   checkbox: {
@@ -36,6 +37,7 @@ export const formElements: IFormElements = {
     borderRadius: '0',
     padding: '22px',
     floatingLabel: 'translate(-10px, -40px) scale(0.75);',
+    requiredColor: 'red',
   },
   checkbox: {
     border: 'none',
@@ -82,5 +84,5 @@ export const formElements: IFormElements = {
         width: '30px',
       }
     }
-  }
+  },
 };

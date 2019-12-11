@@ -7,6 +7,8 @@ import { Grid, GridItem } from "../Grid";
 import { Label } from "../Label";
 import { FormGroup } from "../FormGroup";
 import { Textarea } from "../Textarea";
+import { Select } from "../Select";
+import { Option } from "../Option";
 
 storiesOf("Input", module)
   .add("Default", () => (
@@ -15,13 +17,13 @@ storiesOf("Input", module)
       <Grid>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Input id="first-name" name="first-name" placeholder="First Name" />
+            <Input id="first-name" name="first-name" required />
             <Label htmlFor="first-name">First Name</Label>
           </FormGroup>
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Input id="last-name" name="last-name" />
+            <Input id="last-name" name="last-name" required />
             <Label htmlFor="last-name">Last Name</Label>
           </FormGroup>
         </GridItem>
@@ -35,6 +37,18 @@ storiesOf("Input", module)
           <FormGroup>
             <Input type="tel" id="tel" name="tel" />
             <Label htmlFor="tel">Phone Number</Label>
+          </FormGroup>
+        </GridItem>
+        <GridItem size={[12, 12]}>
+          <FormGroup>
+            <Select id="states" name="states"> 
+              <Option value="alabama">Alabama</Option>
+              <Option value="alaska">Alaska</Option>
+              <Option value="arizona">Arizona</Option>
+              <Option value="arkansas">Arkansas</Option>
+              <Option value="california">California</Option>
+            </Select>
+            <Label htmlFor="states">State</Label>
           </FormGroup>
         </GridItem>
         <GridItem size={[12, 12]}>
@@ -58,13 +72,13 @@ storiesOf("Input", module)
       <Grid>
         <GridItem size={[12, 12]}>
           <FormGroup position="inline">
-            <Input id="first-name" name="first-name" placeholder="First Name" />
+            <Input id="first-name" name="first-name" required />
             <Label htmlFor="first-name">First Name</Label>
           </FormGroup>
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup position="inline">
-            <Input id="last-name" name="last-name" />
+            <Input id="last-name" name="last-name" required />
             <Label htmlFor="last-name">Last Name</Label>
           </FormGroup>
         </GridItem>
@@ -78,6 +92,18 @@ storiesOf("Input", module)
           <FormGroup position="inline">
             <Input type="tel" id="tel" name="tel" />
             <Label htmlFor="tel">Phone Number</Label>
+          </FormGroup>
+        </GridItem>
+        <GridItem size={[12, 12]}>
+          <FormGroup position="inline">
+            <Select id="states" name="states" selectedValue="california"> 
+              <Option value="alabama">Alabama</Option>
+              <Option value="alaska">Alaska</Option>
+              <Option value="arizona">Arizona</Option>
+              <Option value="arkansas">Arkansas</Option>
+              <Option value="california">California</Option>
+            </Select>
+            <Label htmlFor="option">State</Label>
           </FormGroup>
         </GridItem>
       </Grid>
@@ -109,6 +135,19 @@ storiesOf("Input", module)
           <FormGroup position="floating">
             <Input type="tel" id="tel" name="tel" />
             <Label htmlFor="tel">Phone Number</Label>
+          </FormGroup>
+        </GridItem>
+        <GridItem size={[12, 12]}>
+          <FormGroup position="floating">
+            <Select id="states" name="states" floating> 
+              <Option disabled>Select A State</Option>
+              <Option value="alabama">Alabama</Option>
+              <Option value="alaska">Alaska</Option>
+              <Option value="arizona">Arizona</Option>
+              <Option value="arkansas">Arkansas</Option>
+              <Option value="california">California</Option>
+            </Select>
+            <Label htmlFor="option">State</Label>
           </FormGroup>
         </GridItem>
         <GridItem size={[12, 12]}>

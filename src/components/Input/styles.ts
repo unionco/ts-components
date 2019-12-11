@@ -1,5 +1,6 @@
 import { get } from 'lodash';
 import { styled } from '../../styles';
+import { StyledLabel } from '../Label';
 
 export interface IStyledInputProps {
   disabled?: boolean;
@@ -58,7 +59,19 @@ export const StyledInput = styled.input<IStyledInputProps>`
     }
   }
 
+  & + ${StyledLabel} {
+    &::after {
+      color: ${(props) => get(props.theme, 'formElements.input.requiredColor')};
+    }
+  }
+
   ${props => props.disabled && `
     cursor: not-allowed;
+  `}
+
+  ${props => props.required && `
+    & + ${StyledLabel}::after {
+      content: '*';
+    }
   `}
 `;
