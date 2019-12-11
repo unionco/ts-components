@@ -7,6 +7,7 @@ interface IInputProps
     id?: string;
     name?: string;
     placeholder?: string;
+    multiple?: boolean;
   };
 
 interface IInputState {
@@ -62,7 +63,7 @@ class Input extends React.Component<IInputProps, IInputState> {
   }
 
   public render() {
-    const { type = 'text', id, name, placeholder, disabled, required } = this.props;
+    const { type = 'text', id, name, placeholder, disabled, required, multiple } = this.props;
     let className = this.state.hasFocus;
 
     if (this.state.value) {
@@ -89,10 +90,10 @@ class Input extends React.Component<IInputProps, IInputState> {
           value={this.state.value}
           disabled={disabled}
           required={required}
+          multiple={multiple}
           onChange={this.handleChange}
           onFocus={this.onFocus}
           onBlur={this.onBlur}
-          multiple
         />
       </>
     )

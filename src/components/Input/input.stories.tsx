@@ -45,7 +45,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 5]}>
           <FormGroup>
-            <Input type="file" id="file" name="file" />
+            <Input type="file" id="file" name="file" multiple />
             <Label htmlFor="file">Choose A File</Label>
           </FormGroup>
         </GridItem>
