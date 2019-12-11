@@ -12,9 +12,9 @@ export interface IDefaultTheme
   // tslint:disable-next-line:prefer-array-literal
   borders: Array<number | string>;
 
-  formElements: IFormElements;
-
   colors: IColors;
+
+  formElements: IFormElements;
 
   gridColumns: number;
   breakpoints: {
@@ -73,11 +73,11 @@ export interface IDefaultTheme
 }
 
 export const theme: IDefaultTheme = {
-  formElements,
   colors,
   fonts,
   fontSizes,
   fontWeights,
+  formElements,
   lineHeights,
   breakpoints,
   siteMaxWidth: '1440px',

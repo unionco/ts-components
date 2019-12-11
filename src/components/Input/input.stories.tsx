@@ -43,6 +43,12 @@ storiesOf("Input", module)
             <Label htmlFor="description">Textarea</Label>
           </FormGroup>
         </GridItem>
+        <GridItem size={[12, 5]}>
+          <FormGroup>
+            <Input type="file" id="file" name="file" />
+            <Label htmlFor="file">Choose A File</Label>
+          </FormGroup>
+        </GridItem>
       </Grid>
     </ThemeProvider>
   ))

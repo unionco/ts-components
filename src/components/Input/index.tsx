@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledInput, IStyledInputProps } from './styles';
+import { StyledInput, StyledFiles, IStyledInputProps } from './styles';
 
 interface IInputProps
   extends IStyledInputProps {
@@ -12,6 +12,7 @@ interface IInputProps
 interface IInputState {
   value?: string;
   hasFocus: string;
+  fileNames: any[];
 }
 
 class Input extends React.Component<IInputProps, IInputState> {
@@ -19,15 +20,21 @@ class Input extends React.Component<IInputProps, IInputState> {
     super(props);
     this.state = {
       value: '',
-      hasFocus: ''
+      hasFocus: '',
+      fileNames: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.onFocus = this.onFocus.bind(this);
     this.onBlur = this.onBlur.bind(this);
+    this.onFileClear = this.onFileClear.bind(this);
   }
 
   public handleChange(event: any) {
+    if (this.props.type === 'file') {
+      this.setState({fileNames: Array.from(event.target.files).map((file: any) => file.name)});
+    }
+
     this.setState({value: event.target.value});
   }
 
@@ -43,6 +50,17 @@ class Input extends React.Component<IInputProps, IInputState> {
     });
   }
 
+  public onFileClear(event: any) {
+    if (this.props.type === 'file') {
+      this.setState({
+        value: ''
+      });
+      this.setState({fileNames: this.state.fileNames.filter((person) => { 
+        return person !== event.target.parentNode.dataset.file;
+      })});
+    }
+  }
+
   public render() {
     const { type = 'text', id, name, placeholder, disabled, required } = this.props;
     let className = this.state.hasFocus;
@@ -51,20 +69,32 @@ class Input extends React.Component<IInputProps, IInputState> {
       className += ' has-value'
     }
 
+    const fileNames = this.state.fileNames.map((filename, index) =>
+      <div key={index} data-file={filename}>{filename} <button onClick={this.onFileClear}>X</button></div>
+    );
+
     return (
-      <StyledInput
-        className={className}
-        type={type}
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        value={this.state.value}
-        disabled={disabled}
-        required={required}
-        onChange={this.handleChange}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-      />
+      <>
+        {type === 'file' && (
+          <StyledFiles>
+            {fileNames}
+          </StyledFiles>
+        )}
+        <StyledInput
+          className={className}
+          type={type}
+          id={id}
+          name={name}
+          placeholder={placeholder}
+          value={this.state.value}
+          disabled={disabled}
+          required={required}
+          onChange={this.handleChange}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          multiple
+        />
+      </>
     )
   }
 }

@@ -15,6 +15,11 @@ export interface IFormElements {
     }
   }
 
+  fileInput: {
+    backgroundColor: string;
+    color: string;
+  }
+
   radio: {
     border: string;
     borderRadius: string;
@@ -52,6 +57,10 @@ export const formElements: IFormElements = {
         width: '30px',
       }
     }
+  },
+  fileInput: {
+    backgroundColor: '#3880ff',
+    color: '#fff',
   },
   radio: {
     border: 'none',
