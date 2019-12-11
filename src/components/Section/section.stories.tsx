@@ -11,12 +11,10 @@ storiesOf("Section", module)
   .add("Default", () => (
     <ThemeProvider>
       <BaseStyles />
-      <Section p={[1, 5, 10]} background="light">
+      <Section p={[2, 4, 8]} bg="light.base">
         <Container>
           <Intro
-            alignCenter
-            justifyCenter
-            column
+            centered
             copy={
               <div style={{ textAlign: 'center'}}>
                 <h1>Section Intro</h1>
@@ -32,11 +30,9 @@ storiesOf("Section", module)
       </Section>
       <br/>
       <br/>
-      <Section p={[1, 5, 10]} background="light" image="https://placehold.it/600x200.png">
+      <Section p={[2, 4, 8]} image="https://placehold.it/600x200.png">
         <Container>
           <Intro
-            alignCenter
-            justifyBetween
             copy={
               <div>
                 <h1>Section Intro</h1>

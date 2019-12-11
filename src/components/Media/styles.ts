@@ -11,10 +11,9 @@ const Embed = styled.div`
 
   @media (min-width: 600px) {
     margin: 0 auto;
-    padding: 0 24px;
 
     iframe {
-      min-height: 500px;
+      min-height: 550px;
     }
   }
 `;

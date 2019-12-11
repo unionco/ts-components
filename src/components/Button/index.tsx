@@ -29,4 +29,4 @@ const Button: React.FC<IButtonProps> = ({
   );
 }
 
-export { Button, StyledButton };
+export { Button, StyledButton, IStyledButtonProps };

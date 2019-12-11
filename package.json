@@ -28,9 +28,11 @@
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.13",
     "@types/styled-components": "4.0.2",
+    "@types/styled-system": "^5.1.4",
     "@types/swiper": "^5.2.0",
     "@union/react-schematics": "^0.0.0",
     "lodash": "^4.17.15",
+    "styled-system": "^5.1.4",
     "swiper": "^5.2.1",
     "tslib": "*"
   },

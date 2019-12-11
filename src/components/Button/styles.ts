@@ -1,19 +1,22 @@
 import { get } from 'lodash';
-import { styled } from '../../styles';
-import { colors } from '../../theme';
-import { getVariantCSS } from '../../utils';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
 
-export interface IStyledButtonProps {
+export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProps & SpaceProps & ButtonStyleProps & {
   disabled?: boolean;
   onClick?: () => void;
-  variant: keyof typeof colors;
   size?: 'small' | 'medium' | 'large';
   fill?: 'solid' | 'outline' | 'clear';
-}
+};
 
-const sizes = (props: any) => getVariantCSS(props.theme, `buttonSizes.${props.size}`);
-const fills = (props: any) => getVariantCSS(props.theme, `buttonFills.${props.fill}`);
-
+const sizes = variant({
+  prop: 'size',
+  scale: 'buttonSizes',
+});
+const fills = variant({
+  prop: 'fill',
+  scale: 'buttonFills',
+});
 
 const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
@@ -64,8 +67,11 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
     opacity: 0.5;
   `}
 
-  ${props => sizes(props)};
-  ${props => fills(props)};
+  ${typography};
+  ${space};
+  ${buttonStyle};
+  ${sizes};
+  ${fills};
 `;
 
 export default Button;

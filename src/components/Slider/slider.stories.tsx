@@ -5,7 +5,8 @@ import { BaseStyles } from '../BaseStyles';
 import { Slider, SwiperInstance, ISwiperEvent} from './index';
 import { styled } from "../../styles";
 import {Button} from "../Button";
-import { Grid, GridItem } from "../Grid";
+import { Grid } from "../Grid";
+import { GridItem } from "../GridItem";
 import { Eyebrow } from "../Eyebrow";
 
 const Slide = styled.div`

@@ -1,8 +1,6 @@
 import React from 'react';
 import {
   StyledGrid,
-  StyledGridItem,
-  IGridItemProps,
   StyledGridContainer
 } from './styles';
 
@@ -21,16 +19,4 @@ const Grid: React.FC<any> = (props) => {
   )
 }
 
-const GridItem: React.FC<IGridItemComponentProps> = ({
-  size = 'auto',
-  ...rest
-}) => {
-  const props = { size, ...rest };
-  return (
-    <StyledGridItem {...props}>
-      {props.children}
-    </StyledGridItem>
-  );
-}
-
-export { Grid, GridItem, StyledGrid, StyledGridItem, IGridItemComponentProps, IGridItemProps };
+export { Grid, StyledGrid, IGridItemComponentProps };

@@ -13,7 +13,7 @@ storiesOf("Spanning Stripe", module)
       <Grid>
         <GridItem size={[12, 6]}>
           <Eyebrow>Eyebrow Text</Eyebrow>
-          <h2 style={{ padding: '0 0 16px                                                                                                            '}}>Definition Card</h2>
+          <h2 style={{ padding: '0 0 16px'}}>Definition Card</h2>
           <p>Body Copy of up to three lines. Maecenas faucibus mollis interdum. Donec sed odio duimollis interdum. Body Copy of up to three lines</p>
         </GridItem>
         <GridItem size={[12, 4]} offSet={[0, 2]}>

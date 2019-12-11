@@ -18,5 +18,6 @@ export {
   css,
   ServerStyleSheet,
   createGlobalStyle,
-  withTheme
+  withTheme,
+  IThemeStyledFunction
 } from './styled';

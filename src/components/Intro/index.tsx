@@ -1,25 +1,49 @@
 import React from 'react';
-import { Flex, IFlex, FlexItem } from '../Flex';
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { display, DisplayProps, SpaceProps, FlexboxProps, space, flexbox } from 'styled-system';
 
-interface IIntro extends IFlex {
+type IIntro = IThemeStyledFunction<'div'> & DisplayProps & SpaceProps & FlexboxProps & {
+  /** copy slotted content */
   copy?: JSX.Element;
+  /** action slotted content */
   action?: JSX.Element;
+  /** applies default values for centering of content */
+  centered?: boolean;
 }
 
-const StyledIntro = styled(Flex)`
-  margin-bottom: ${props => props.theme.space[4]};
+const StyledIntro = styled.div<Omit<IIntro, 'copy' | 'action' | 'centered'>>`
+  ${display};
+  ${space};
+  ${flexbox};
 `;
 
 const Intro: React.FC<IIntro> = ({
   copy,
   action,
-  ...props
+  centered,
+  display = 'flex',
+  alignItems = 'center',
+  justifyContent = 'space-between',
+  mb = 4,
+  ...rest
 }) => {
+
+  /**
+   * Reset props with default values
+   */
+  const props = { alignItems, display, justifyContent, mb, ...rest };
+
+  /**
+   * Override styles if centered
+   */
+  if (centered) {
+    props.flexDirection = 'column';
+  }
+
   return (
     <StyledIntro {...props}>
-      {copy && <FlexItem basis="40%">{copy}</FlexItem>}
-      {action && <FlexItem>{action}</FlexItem>}
+      {copy && copy}
+      {action && action}
     </StyledIntro>
   );
 }

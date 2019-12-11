@@ -16,7 +16,7 @@ storiesOf("Accordion", module)
           </AccordionTrigger>
         }
         panel={
-          <AccordionPanel p={2}>
+          <AccordionPanel p={4}>
             <p>this is a styled component</p>
           </AccordionPanel>
         }
@@ -29,7 +29,7 @@ storiesOf("Accordion", module)
           </AccordionTrigger>
         }
         panel={
-          <AccordionPanel>
+          <AccordionPanel p={4}>
             <p>this is a styled component</p>
           </AccordionPanel>
         }

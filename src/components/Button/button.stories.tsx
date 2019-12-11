@@ -1,60 +1,29 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { select } from "@storybook/addon-knobs";
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Button } from "./index";
 
 storiesOf("Button", module)
-  .add("Default - Solid", () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Button variant="primary" disabled>Primary Button</Button>
-      <Button variant="secondary">Secondary Button</Button>
-      <Button variant="tertiary">Tertiary Button</Button>
-      <Button variant="success">Success Button</Button>
-      <Button variant="warning">Warning Button</Button>
-      <Button variant="danger">Danger Button</Button>
-      <Button variant="dark">Dark Button</Button>
-      <Button variant="medium">Medium Button</Button>
-      <Button variant="light">Light Button</Button>
-    </ThemeProvider>
-  ))
-  .add("Fill - Outline", () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Button fill="outline" variant="primary">Primary Button</Button>
-      <Button fill="outline" variant="secondary">Secondary Button</Button>
-      <Button fill="outline" variant="tertiary">Tertiary Button</Button>
-      <Button fill="outline" variant="success">Success Button</Button>
-      <Button fill="outline" variant="warning">Warning Button</Button>
-      <Button fill="outline" variant="danger">Danger Button</Button>
-      <Button fill="outline" variant="dark">Dark Button</Button>
-      <Button fill="outline" variant="medium">Medium Button</Button>
-      <Button fill="outline" variant="light">Light Button</Button>
-    </ThemeProvider>
-  ))
-  .add("Fill - Clear", () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Button fill="clear" variant="primary">Primary Button</Button>
-      <Button fill="clear" variant="secondary">Secondary Button</Button>
-      <Button fill="clear" variant="tertiary">Tertiary Button</Button>
-      <Button fill="clear" variant="success">Success Button</Button>
-      <Button fill="clear" variant="warning">Warning Button</Button>
-      <Button fill="clear" variant="danger">Danger Button</Button>
-      <Button fill="clear" variant="dark">Dark Button</Button>
-      <Button fill="clear" variant="medium">Medium Button</Button>
-      <Button fill="clear" variant="light">Light Button</Button>
-    </ThemeProvider>
-  ))
-  .add('Sizes', () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Button size="small" variant="primary">Small Button</Button>
-      <Button size="medium" variant="primary">Medium Button</Button>
-      <Button size="large" variant="primary">Large Button</Button>
-    </ThemeProvider>
-  ))
+  .add("Default", () => {
+    const fill = select('Fill', ['solid', 'outline', 'clear'], 'solid');
+    const size = select('Size', ['small', 'medium', 'large'], 'medium');
+    return (
+      <ThemeProvider>
+        <BaseStyles />
+        <Button fill={fill} size={size} variant="primary">Primary Button</Button>
+        <Button fill={fill} size={size} variant="secondary">Secondary Button</Button>
+        <Button fill={fill} size={size} variant="tertiary">Tertiary Button</Button>
+        <Button fill={fill} size={size} variant="success">Success Button</Button>
+        <Button fill={fill} size={size} variant="warning">Warning Button</Button>
+        <Button fill={fill} size={size} variant="danger">Danger Button</Button>
+        <Button fill={fill} size={size} variant="dark">Dark Button</Button>
+        <Button fill={fill} size={size} variant="medium">Medium Button</Button>
+        <Button fill={fill} size={size} variant="light">Light Button</Button>
+      </ThemeProvider>
+    );
+  })
   .add("Slots", () => (
     <ThemeProvider>
       <BaseStyles />

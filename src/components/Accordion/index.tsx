@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyledAccordion, IStyledAccordionProps } from './styles';
+import { AccordionPanel, StyledAccordion, IStyledAccordionProps } from './styles';
 
 export interface IAccordionProps
   extends IStyledAccordionProps {
@@ -44,7 +44,6 @@ const Accordion: React.FC<IAccordionProps> = ({
 
 // Proxy exports
 export { AccordionTrigger } from './trigger';
-export { AccordionPanel } from './panel';
 
 // Export main component
-export { Accordion, IStyledAccordionProps };
+export { Accordion, AccordionPanel, IStyledAccordionProps };

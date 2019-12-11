@@ -102,7 +102,7 @@ export const theme: IDefaultTheme = {
   },
   buttonFills: {
     clear: {
-      background: 'rgba(0,0,0,0)',
+      background: 'transparent',
       color: 'var(--neo-color-base)',
       ':hover': {
         background: '#eee',

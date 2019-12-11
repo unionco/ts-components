@@ -39,14 +39,15 @@ const calculateSize = (theme: IDefaultTheme, sizes: 'auto' | number | number[]) 
   }
 
   let normalizedSized: number[] = !Array.isArray(sizes) ? [sizes] : sizes;
-  const breakpointKeys = Object.keys(theme.breakpoints);
+  const breakpointKeys = Object.keys(theme.breakpoints).splice(4, 7);
 
   const styles = breakpointKeys.map((breakpoint: string, index: number) => {
     const responsiveSize = normalizedSized[index] ? normalizedSized[index] : normalizedSized[normalizedSized.length - 1]
     const responsiveColSize = `${(responsiveSize / gridColumns) * 100}%`;
 
+    console.log(`@media screen and (min-width: ${theme.breakpoints[breakpoint]})`);
     return css({
-      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]}px)`]: {
+      [`@media screen and (min-width: ${theme.breakpoints[breakpoint]})`]: {
         flex: `0 0 ${responsiveColSize}`,
         width: `${responsiveColSize}`,
         'max-width': `${responsiveColSize}`

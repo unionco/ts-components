@@ -1,11 +1,24 @@
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { SpaceProps, space, DisplayProps, FlexboxProps, display, flexbox } from 'styled-system';
 
-export interface IStyledAccordionProps {
+export type IStyledAccordionProps = IThemeStyledFunction<'div'> & SpaceProps & {
   open?: boolean;
-};
+}
 
-export const StyledAccordionTrigger = styled.span<any>`
+export type IStyledAccordionTriggerProps = IThemeStyledFunction<'div'> & SpaceProps;
+
+export type IStyledAccordionPanelProps = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & FlexboxProps;
+
+export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
+  ${display};
+  ${flexbox};
+  ${space};
+`;
+
+export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   display: flex;
+  ${props => props.theme.fontSizes.base};
+  padding: ${(props) => props.theme.space[3]};
 
   i {
     height: 16px;
@@ -16,6 +29,30 @@ export const StyledAccordionTrigger = styled.span<any>`
       width: 16px;
     }
   }
+
+  [slot="start"],
+  [slot="end"] {
+    align-items: center;
+    display: flex;
+  }
+
+  [slot="start"] {
+    padding-right: ${props => props.theme.space[3]};
+  }
+
+  [slot="end"] {
+    margin-left: auto;
+    transform-origin: center center;
+    transition: all 0.3s ease;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: ${(props) => props.theme.colors.light.base};
+  }
+
+  ${space};
 `;
 
 export const StyledAccordion = styled.div<IStyledAccordionProps>`
@@ -32,24 +69,9 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
     width: 100%;
 
     ${StyledAccordionTrigger} {
-      padding: ${(props) => props.theme.space[3]};
-
-      [slot="start"] {
-        padding-right: ${(props) => props.theme.space[3]};
-      }
-
       [slot="end"] {
-        margin-left: auto;
-        transform: ${(props) => props.open ? `rotate(180deg)` : `rotate(0deg)`};
-        transition: all 0.3s ease;
-        transform-origin: center center;
+        transform: ${(props) => props.open ? `rotate(90deg)` : `rotate(0deg)`};
       }
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      background: ${(props) => props.theme.colors.light.base};
     }
   }
 
@@ -59,4 +81,6 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
     transition: all 0.3s ease;
     overflow: hidden;
   }
+
+  ${space};
 `;
