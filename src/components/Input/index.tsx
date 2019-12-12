@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { StyledInput, StyledFiles, IStyledInputProps } from './styles';
 
 interface IInputProps
@@ -8,6 +8,9 @@ interface IInputProps
     name?: string;
     placeholder?: string;
     multiple?: boolean;
+    onFocus?: (ev: FocusEvent) => void;
+    onBlur?: (ev: FocusEvent) => void;
+    onChange?: (ev: ChangeEvent) => void;
   };
 
 interface IInputState {
@@ -31,21 +34,53 @@ class Input extends React.Component<IInputProps, IInputState> {
     this.onFileClear = this.onFileClear.bind(this);
   }
 
-  public handleChange(event: any) {
-    if (this.props.type === 'file') {
-      this.setState({fileNames: Array.from(event.target.files).map((file: any) => file.name)});
+  public handleChange(ev: React.ChangeEvent<HTMLInputElement>) {
+    const { type } = this.props;
+
+    if (type === 'file') {
+      const files: FileList | null = ev.target.files;
+
+      if (files && files.length) {
+        const fileNames: string[] = [];
+
+        for (let i = 0; i < files.length; i++) {
+          const file = files.item(i);
+
+          if (file) {
+            fileNames.push(file.name);
+          }
+        }
+
+        this.setState({
+          fileNames
+        });
+      }
     }
 
-    this.setState({value: event.target.value});
+    this.setState({value: ev.target.value});
+
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(ev);
+    }
   }
 
-  public onFocus() {
+  public onFocus(ev: React.FocusEvent<HTMLInputElement>) {
+    const { onFocus } = this.props;
+    if (onFocus) {
+      onFocus(ev.nativeEvent);
+    }
+
     this.setState({
       hasFocus: 'has-focus'
     });
   }
 
-  public onBlur() {
+  public onBlur(ev: React.FocusEvent<HTMLInputElement>) {
+    const { onBlur } = this.props;
+    if (onBlur) {
+      onBlur(ev.nativeEvent);
+    }
     this.setState({
       hasFocus: ''
     });
@@ -56,7 +91,7 @@ class Input extends React.Component<IInputProps, IInputState> {
       this.setState({
         value: ''
       });
-      this.setState({fileNames: this.state.fileNames.filter((person) => { 
+      this.setState({fileNames: this.state.fileNames.filter((person) => {
         return person !== event.target.parentNode.dataset.file;
       })});
     }

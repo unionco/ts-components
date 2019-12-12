@@ -18,13 +18,13 @@ storiesOf("Input", module)
       <Grid>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Input id="first-name" name="first-name" required />
+            <Input id="first-name" name="first-name" required/>
             <Label htmlFor="first-name">First Name</Label>
           </FormGroup>
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Input id="last-name" name="last-name" required />
+            <Input id="last-name" name="last-name" required/>
             <Label htmlFor="last-name">Last Name</Label>
           </FormGroup>
         </GridItem>
@@ -42,7 +42,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Select id="states" name="states"> 
+            <Select id="states" name="states">
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
               <Option value="arizona">Arizona</Option>
@@ -60,7 +60,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 5]}>
           <FormGroup>
-            <Input type="file" id="file" name="file" multiple />
+            <Input type="file" id="file" name="file" multiple/>
             <Label htmlFor="file">Choose A File</Label>
           </FormGroup>
         </GridItem>
@@ -97,7 +97,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup position="inline">
-            <Select id="states" name="states" selectedValue="california"> 
+            <Select id="states" name="states" selectedValue="california">
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
               <Option value="arizona">Arizona</Option>
@@ -140,7 +140,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup position="floating">
-            <Select id="states" name="states" floating> 
+            <Select id="states" name="states" floating>
               <Option disabled>Select A State</Option>
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
