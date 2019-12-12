@@ -7,7 +7,8 @@ import {
 interface IChipComponentProps
   extends IChipProps {
     start?: JSX.Element,
-    end?: JSX.Element
+    end?: JSX.Element,
+    onClick?: () => void
   }
 
 const Chip: React.FC<IChipComponentProps> = ({
