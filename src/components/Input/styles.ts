@@ -34,6 +34,8 @@ export const StyledInput = styled.input<IStyledInputProps>`
   border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
   padding: ${(props) => get(props.theme, 'formElements.input.padding')};
   width: 100%;
+  outline: none;
+  ${props => get(props.theme, 'fontSizes.base')};
 
   &[type="file"] {
     cursor: pointer;
