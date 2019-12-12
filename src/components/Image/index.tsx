@@ -3,6 +3,7 @@ import { styled } from '../../styles';
 import { isBrowser } from '../../utils';
 
 interface IImageProps {
+  unsplash?: boolean;
   src: string;
   alt: string;
   onError?: (ev?: SyntheticEvent) => void,
@@ -40,12 +41,12 @@ class Image extends React.Component<IImageProps, IImageState> {
 
   public render() {
     const { loadSrc } = this.state;
-    const { alt } = this.props;
+    const { alt, unsplash } = this.props;
     return (
       <StyledImage
         decoding="async"
         ref={this.el}
-        src={loadSrc}
+        src={unsplash ? `https://source.unsplash.com/random/${Math.floor(Math.random() * 10)}` : loadSrc}
         alt={alt}
         onLoad={this.onLoad}
         onError={this.onError}
