@@ -17,19 +17,19 @@ storiesOf("Checkbox", module)
         <BaseStyles />
         <Grid>
           <GridItem size={[12]} mb={8}>
-            <Checkbox fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
           </GridItem>
           <GridItem size={[12]} mb={8}>
-            <Checkbox fill={fill} round value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} round value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} round value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} round value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
           </GridItem>
           <GridItem size={[12]} mb={8}>
-            <Checkbox fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
-            <Checkbox fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox label="Click Me" fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
           </GridItem>
         </Grid>
       </ThemeProvider>

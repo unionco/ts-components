@@ -51,12 +51,15 @@ export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
 
   display: inline-block;
   line-height: 1;
-  margin-right: 1em;
   position: relative;
   white-space: nowrap;
   ${props => props.disabled ? 'cursor: not-allowed;' : ''};
+  width: 100%;
 
   .state {
+    padding: ${props => props.theme.space[3]} 0;
+    margin-right: ${props => props.theme.space[3]};
+
     [slot="inner"] {
       color: var(--input-color-contrast);
       font-size: 1em;
@@ -104,6 +107,7 @@ export const CheckboxLabel = styled.label<ICheckboxLabel>`
   min-width: calc(1em + 2px);
   position: initial;
   text-indent: 1.5em;
+  position: relative;
 
   &:after,
   &:before {

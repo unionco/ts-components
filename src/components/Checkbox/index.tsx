@@ -8,6 +8,7 @@ interface ICheckboxProps
     value?: string;
     defaultChecked?: boolean;
     inner?: JSX.Element;
+    label: string;
     onChange?: (e: any) => void;
   };
 
@@ -18,6 +19,7 @@ const Checkbox: React.FC<ICheckboxProps> = ({
   fill = 'default',
   id = Math.random().toString(36).substring(2, 6),
   inner,
+  label,
   name,
   onChange,
   round = false,
@@ -34,7 +36,7 @@ const Checkbox: React.FC<ICheckboxProps> = ({
         <CheckboxInput type="checkbox" id={`input-${id}`} defaultChecked={defaultChecked} {...props} aria-label={name} />
         <div className="state">
           {inner && <div slot="inner">{inner}</div>}
-          <CheckboxLabel htmlFor={`input-${id}`} fill={fill} round={round} size={boxSize}>Check me</CheckboxLabel>
+          <CheckboxLabel htmlFor={`input-${id}`} fill={fill} round={round} size={boxSize}>{label}</CheckboxLabel>
         </div>
       </CheckboxWrapper>
     </>
