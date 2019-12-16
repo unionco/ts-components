@@ -17,7 +17,7 @@ storiesOf("Spanning Stripe", module)
           <p>Body Copy of up to three lines. Maecenas faucibus mollis interdum. Donec sed odio duimollis interdum. Body Copy of up to three lines</p>
         </GridItem>
         <GridItem size={[12, 4]} offSet={[0, 2]}>
-          <Flex style={{ height: '100%' }} alignCenter>
+          <Flex alignCenter>
             <ButtonGroup>
               <Button variant="primary">Primary Action CTA</Button>
               <Button variant="primary" fill="clear">Secondary Action CTA</Button>
@@ -32,7 +32,7 @@ storiesOf("Spanning Stripe", module)
       <BaseStyles />
       <Grid>
         <GridItem size={[12, 12]}>
-          <Flex style={{ width: '700px', margin: '0 auto'}} alignItemsCenter center column contentCenter>
+          <Flex alignCenter center column contentCenter>
             <Eyebrow>Eyebrow Text</Eyebrow>
             <h2>Definition Card</h2>
             <p style={{ textAlign: 'center', padding: '16px 0'}}>Body Copy of up to three lines. Maecenas faucibus mollis interdum. Donec sed odio duimollis interdum. Body Copy of up to three lines</p>

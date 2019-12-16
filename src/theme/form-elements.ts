@@ -5,7 +5,7 @@ export interface IFormElements {
     borderRadius: string;
     padding: string;
     floatingLabel: string;
-    requiredColor: string; 
+    requiredColor: string;
   }
 
   checkbox: {

@@ -1,18 +1,19 @@
 import { styled, IThemeStyledFunction } from '../../styles';
-import { SpaceProps, space, DisplayProps, FlexboxProps, display, flexbox } from 'styled-system';
+import { SpaceProps, space, DisplayProps, FlexboxProps, display, flexbox, BorderProps, border } from 'styled-system';
 
-export type IStyledAccordionProps = IThemeStyledFunction<'div'> & SpaceProps & {
+export type IStyledAccordionProps = IThemeStyledFunction<'div'> & SpaceProps & BorderProps & {
   open?: boolean;
 }
 
-export type IStyledAccordionTriggerProps = IThemeStyledFunction<'div'> & SpaceProps;
+export type IStyledAccordionTriggerProps = IThemeStyledFunction<'div'> & SpaceProps & BorderProps;
 
-export type IStyledAccordionPanelProps = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & FlexboxProps;
+export type IStyledAccordionPanelProps = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & FlexboxProps & BorderProps;
 
 export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
   ${display};
   ${flexbox};
   ${space};
+  ${border};
 `;
 
 export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
@@ -53,6 +54,7 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   }
 
   ${space};
+  ${border};
 `;
 
 export const StyledAccordion = styled.div<IStyledAccordionProps>`
@@ -83,4 +85,5 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
   }
 
   ${space};
+  ${border};
 `;

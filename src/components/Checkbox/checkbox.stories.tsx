@@ -1,54 +1,37 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
+import { select } from "@storybook/addon-knobs";
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import { Checkbox } from './index';
 import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
-import { Label } from "../Label";
-import { FormGroup } from "../FormGroup";
+import { Checkbox } from ".";
 
 storiesOf("Checkbox", module)
-  .add("Default", () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Grid>
-        <GridItem size={[12, 4]}>
-          <FormGroup>
-            <Checkbox id="checkbox-1" value="checkbox-1-label" name="checkbox-1" variant="medium" />
-            <Label htmlFor="checkbox-1">Checkbox 1</Label>
-          </FormGroup>
-          <FormGroup>
-            <Checkbox id="checkbox-2" value="checkbox-2-label" name="checkbox-2" checkedColor="primary" />
-            <Label htmlFor="checkbox-2">Checkbox 2</Label>
-          </FormGroup>
-          <FormGroup>
-            <Checkbox id="checkbox-3" value="checkbox-3-label" name="checkbox-3" disabled />
-            <Label htmlFor="checkbox-3">Disabled</Label>
-          </FormGroup>
-        </GridItem>
-      </Grid>
-    </ThemeProvider>
-  ))
+  .add("Default", () => {
+    const size = select('Size', ['small', 'medium', 'large'], 'medium');
+    const fill = select('Fill', ['default', 'full', 'thick'], 'default');
 
-  .add("Sizes", () => (
-    <ThemeProvider>
-      <BaseStyles />
-      <Grid>
-        <GridItem size={[12, 4]}>
-          <FormGroup>
-            <Checkbox id="checkbox-1" value="checkbox-1-label" name="checkbox-1" variant="medium" />
-            <Label htmlFor="checkbox-1">Small</Label>
-          </FormGroup>
-          <FormGroup>
-            <Checkbox id="checkbox-2" value="checkbox-2-label" name="checkbox-2" checkboxSize="medium" />
-            <Label htmlFor="checkbox-2">Medium</Label>
-          </FormGroup>
-          <FormGroup>
-            <Checkbox id="checkbox-3" value="checkbox-3-label" name="checkbox-3" checkboxSize="large" />
-            <Label htmlFor="checkbox-3">Large</Label>
-          </FormGroup>
-        </GridItem>
-      </Grid>
-    </ThemeProvider>
-  ))
+    return (
+      <ThemeProvider>
+        <BaseStyles />
+        <Grid>
+          <GridItem size={[12]} mb={8}>
+            <Checkbox fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+          </GridItem>
+          <GridItem size={[12]} mb={8}>
+            <Checkbox fill={fill} round value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} round value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+          </GridItem>
+          <GridItem size={[12]} mb={8}>
+            <Checkbox fill={fill} value="A" name="checkbox-a" variant="primary" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} value="B" name="checkbox-b" variant="success" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+            <Checkbox fill={fill} round value="C" name="checkbox-c" variant="danger" boxSize={size} onChange={(e) => console.log('checked', e.target.value, e.target.checked)} />
+          </GridItem>
+        </Grid>
+      </ThemeProvider>
+    );
+  });

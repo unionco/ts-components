@@ -1,9 +1,10 @@
 // @ts-ignore
 import React from 'react';
-import Flex, { FlexItem } from 'styled-flex-component';
-// import { styled } from '../../styles';
+import { default as FlexComponent, FlexItem as FlexItemComponent } from 'styled-flex-component';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { SpaceProps, space } from 'styled-system';
 
-interface IFlex {
+type IFlex = IThemeStyledFunction<'div'> & SpaceProps & {
   full?: boolean;
   inline?: boolean;
   center?: boolean;
@@ -31,7 +32,7 @@ interface IFlex {
   justifyEvenly?: boolean;
 }
 
-interface IFlexItem {
+type IFlexItem = IThemeStyledFunction<'div'> & SpaceProps & {
   order?: number;
   basis?: string;
   grow?: boolean;
@@ -39,11 +40,12 @@ interface IFlexItem {
   noShrink?: boolean;
 }
 
-// const Flex = styled<IFlex>(SFlex)`
-//   display: block;
-// `;
-// const FlexItem = styled<IFlex>(SFlexItem)`
-//   flex: 1;
-// `;
+const Flex = styled(FlexComponent)`
+  ${space};
+`;
+
+const FlexItem = styled(FlexItemComponent)`
+  ${space};
+`;
 
 export { Flex, FlexItem, IFlex, IFlexItem };
