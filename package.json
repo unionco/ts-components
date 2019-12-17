@@ -32,9 +32,9 @@
     "@types/swiper": "^5.2.0",
     "@union/react-schematics": "^0.0.0",
     "lodash": "^4.17.15",
-    "styled-system": "^5.1.4",
     "styled-components": "^4.4.1",
     "styled-flex-component": "^3.0.0",
+    "styled-system": "^5.1.4",
     "swiper": "^5.2.1",
     "tslib": "*"
   },
