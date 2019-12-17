@@ -20,6 +20,7 @@ export * from './Intro';
 export * from './Label';
 export * from './Masonry';
 export * from './Media';
+export * from './Modal';
 export * from './Radio';
 export * from './RichText';
 export * from './Section';
