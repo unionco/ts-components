@@ -28,4 +28,4 @@ export function isBrowser() {
   return typeof window !== 'undefined';
 }
 
-export { fontSize } from './slopeCalc';
+export { maxWidth, fontSize } from './slopeCalc';

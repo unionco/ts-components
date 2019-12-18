@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledModal } from './styles';
-import { Button } from '../index';
+import { Button } from '../Button';
 
 interface IModal {
   isOpen?: boolean | false;

@@ -1,7 +1,14 @@
-const breakpoints: any = ['544px', '768px', '1012px', '1280px'];
+const breakpoints: any = ['480px', '768px', '1024px', '1280px'];
 breakpoints.sm = breakpoints[0];
 breakpoints.md = breakpoints[1];
 breakpoints.lg = breakpoints[2];
 breakpoints.xl = breakpoints[3];
 
-export { breakpoints };
+const media: { [key: string]: string } = {
+  sm: `@media (min-width: ${breakpoints.sm})`,
+  md: `@media (min-width: ${breakpoints.md})`,
+  lg: `@media (min-width: ${breakpoints.lg})`,
+  xl: `@media (min-width: ${breakpoints.xl})`,
+};
+
+export { breakpoints, media };

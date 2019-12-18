@@ -24,9 +24,8 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   align-items: center;
   justify-content: space-between;
   display: flex;
+  flex-direction: column;
   position: relative;
-  max-width: ${props => props.theme.siteMaxWidth};
-  margin: 0 auto;
 
   div[slot="content"] {
     flex-basis: 50%;
@@ -134,6 +133,10 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
       }
     `}
   `}
+
+  ${props => props.theme.media.md} {
+    flex-direction: row;
+  }
 `;
 
 StyledFlexibleContent.displayName = 'FlexibleContent';
