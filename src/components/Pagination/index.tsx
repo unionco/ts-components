@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { StyledPagination } from './styles';
 
 interface IPaginationProps {
-  maxButtons: number | 5;
-  perPage: number | 10;
-  totalItems: number | 0;
+  maxButtons?: number;
+  perPage?: number;
+  totalItems?: number;
   onPageChange?: (e:number) => void;
 };
 
@@ -14,10 +14,10 @@ interface IPageRange {
 }
 
 const Pagination: React.FC<IPaginationProps> = ({
-  maxButtons,
+  maxButtons = 5,
+  perPage = 10,
+  totalItems = 10,
   onPageChange,
-  perPage,
-  totalItems
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(totalItems / perPage);

@@ -27,3 +27,4 @@ export * from './Section';
 export * from './Select';
 // export * from './Slider';
 export * from './Textarea';
+export * from './Pagination';

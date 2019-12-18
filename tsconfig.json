@@ -12,7 +12,7 @@
       "es2015"
     ],
     "importHelpers": true,
-    "module": "es2015",
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
