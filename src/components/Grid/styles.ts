@@ -7,7 +7,6 @@ const StyledGrid = styled.div`
 const StyledGridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -${props => props.theme.space[4]};
 
   @media screen and (max-width: ${props => props.theme.siteMaxWidth}) {
     margin: 0;

@@ -56,14 +56,20 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
           justify-content: flex-end;
           ${StyledCopy} {
             align-items: flex-end;
+            padding-right: 0;
             text-align: right;
           }
         `;
       case 'left':
       default:
         return `
+          ${Media} {
+            padding-right: ${props.theme.space[6]};
+          }
+
           ${StyledCopy} {
             align-items: flex-start;
+            padding-left: 0;
             text-align: left;
           }
         `;
