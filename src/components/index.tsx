@@ -24,5 +24,6 @@ export * from './Modal';
 export * from './Radio';
 export * from './RichText';
 export * from './Section';
+export * from './Select';
 // export * from './Slider';
 export * from './Textarea';
