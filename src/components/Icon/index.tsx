@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Icon as StyledIcon, IStyledIconProps } from './styles';
-import { Icons } from './icons';
+import { getIcon } from './icons';
+import { isBrowser } from '../../utils';
+import { getSvgContent , iconContent } from './request';
 
 export interface IIconProps
   extends IStyledIconProps {
@@ -9,37 +11,54 @@ export interface IIconProps
   }
 
 export interface IIconState {
-  SVGElement?: string
+  svg?: string
 }
 
 class Icon extends Component<IIconProps, IIconState> {
   constructor(props: IIconProps) {
     super(props);
     this.state = {
-      SVGElement: undefined
+      svg: ''
     }
   }
 
   componentDidMount() {
     const { icon } = this.props;
     if (icon) {
-      fetch(Icons[icon])
-        .then(res => res.text())
-        .then((text) => {
-          this.setState({
-            SVGElement: text
-          })
+      this.loadSvgContent(icon);
+    }
+  }
+
+  async loadSvgContent(icon: string) {
+    if (!isBrowser) {
+      return;
+    }
+
+    const url = await getIcon(icon)
+    if (url) {
+      if (iconContent.has(url)) {
+        // sync if it's already loaded
+        this.setState({
+          svg: iconContent.get(url)
         });
+      } else {
+        // async if it hasn't been loaded
+        getSvgContent(url).then(() => {
+          this.setState({
+            svg: iconContent.get(url)
+          });
+        });
+      }
     }
   }
 
   render() {
     const { size, color } = this.props;
-    const { SVGElement } = this.state;
+    const { svg } = this.state;
 
     return (
       <StyledIcon size={size} color={color}>
-        {SVGElement && <div dangerouslySetInnerHTML={{ __html: SVGElement }}></div>}
+        {svg && <div dangerouslySetInnerHTML={{ __html: svg }} />}
       </StyledIcon>
     );
   }

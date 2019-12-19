@@ -1,8 +1,8 @@
-import ArrowRight from '../../lib/svgs/arrow-right.svg';
-// import { styled } from '../../styles';
 
-const Icons: { [key: string]: any } = {
-  arrowRight: ArrowRight
+export const getIcon = async (key: string) => {
+  const icon = await import(`../../lib/svgs/${key}.svg`);
+  if (icon) {
+    return icon.default;
+  }
+  return null;
 };
-
-export { Icons };

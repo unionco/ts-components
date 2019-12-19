@@ -15,7 +15,7 @@ const Icon = styled.i<IStyledIconProps>`
   height: 1em;
   width: 1em;
 
-  div svg {
+  svg {
     fill: var(--icon-color-base);
     stroke: var(--icon-color-base);
   }
