@@ -1,13 +1,21 @@
 import { get } from 'lodash';
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
 import { StyledLabel } from '../Label';
+import { SpaceProps, space } from 'styled-system';
 
-export interface IStyledSelectProps {
+export type IStyledSelectProps = IThemeStyledFunction<'select'> & SpaceProps & {
   disabled?: boolean;
   required?: boolean;
-  floating?: boolean;
+  position?: 'stacked' | 'inline' | 'floating';
 }
 
+export type ISelectWrapperProps = IStyledSelectProps & SpaceProps & {
+  hasValue?: boolean;
+}
+
+/**
+ * Select Styles
+ */
 export const StyledSelect = styled.select<IStyledSelectProps>`
   appearance: none;
   background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
@@ -36,14 +44,12 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   }
 `;
 
-export interface ISelectWrapperProps {
-  floating?: boolean;
-  disabled?: boolean;
-  value?: boolean;
-}
-
+/**
+ * Select Wrapper styles
+ */
 export const SelectWrapper = styled.div<ISelectWrapperProps>`
   position: relative;
+  margin-bottom: ${props => get(props.theme, 'space.4')};
 
   // Caret
   svg {
@@ -55,7 +61,7 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
   }}
 
   // if Floating
-  ${props => props.floating && `
+  ${props => props.position === 'floating' && `
     svg {
       top: 6px;
     }
@@ -69,9 +75,21 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
       transition: transform .25s, opacity .25s ease-in-out;
       transform-origin: 0 0;
 
-      ${props.value && `
+      ${props.hasValue && `
          transform: translate(0, -60%) scale(.9);
       `}
+    }
+  `}
+
+  // If inline
+  ${props => props.position === 'inline' && `
+    align-items: center;
+    display: flex;
+
+    ${StyledLabel} {
+      margin-right: ${props.theme.space[4]};
+      white-space: nowrap;
+      min-width: 150px;
     }
   `}
 
@@ -87,9 +105,11 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
     }
   `}
 
-  ${props => props.value && `
+  ${props => props.hasValue && `
     ${StyledSelect} {
       border-bottom: 2px inset ${props.theme.colors.dark.base};
     }
   `}
+
+  ${space}
 `;

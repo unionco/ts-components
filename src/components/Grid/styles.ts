@@ -1,7 +1,12 @@
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { SpaceProps, space } from 'styled-system';
 
-const StyledGrid = styled.div`
+export type IStyledGridProps = IThemeStyledFunction<'div'> & SpaceProps;
+
+const StyledGrid = styled.div<IStyledGridProps>`
   display: block;
+
+  ${space};
 `;
 
 const StyledGridContainer = styled.div`

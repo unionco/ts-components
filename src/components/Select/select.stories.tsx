@@ -14,8 +14,8 @@ storiesOf("Select", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <Grid>
-          <GridItem size={[12]} py={4} px={8}>
+        <Grid py={8}>
+          <GridItem size={[12]} px={8}>
             <Select label="States" id="states" name="states">
               <Option>Select a state</Option>
               <Option value="alabama">Alabama</Option>
@@ -25,8 +25,8 @@ storiesOf("Select", module)
               <Option value="california">California</Option>
             </Select>
           </GridItem>
-          <GridItem size={[12]} py={4} px={8}>
-            <Select label="Floating States" id="states" name="states" floating>
+          <GridItem size={[12]} px={8}>
+            <Select label="Floating States" id="states" name="states" position="floating">
               <Option></Option>
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
@@ -35,8 +35,8 @@ storiesOf("Select", module)
               <Option value="california">California</Option>
             </Select>
           </GridItem>
-          <GridItem size={[12]} py={4} px={8}>
-            <Select disabled label="Disabled States" id="states" name="states" floating>
+          <GridItem size={[12]} px={8}>
+            <Select disabled label="Disabled States" id="states" name="states" position="floating">
               <Option></Option>
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>

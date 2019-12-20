@@ -16,7 +16,6 @@ interface ISelectProps
 const Select: React.FC<ISelectProps> = ({
   id = Math.random().toString(36).substring(2, 6),
   name,
-  floating,
   selectedValue,
   value,
   required,
@@ -25,6 +24,7 @@ const Select: React.FC<ISelectProps> = ({
   disabled,
   onChange,
   children,
+  position = 'stacked',
   ...rest
 }) => {
   const [hasValue, setHasValue] = useState(false);
@@ -49,12 +49,12 @@ const Select: React.FC<ISelectProps> = ({
   }
 
   return (
-    <SelectWrapper floating={floating} disabled={disabled} value={hasValue}>
-      {!floating && <Label htmlFor={`select-${id}`}>{label}</Label>}
+    <SelectWrapper position={position} disabled={disabled} hasValue={hasValue} {...rest}>
+      {position && position !== 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
       <StyledSelect id={`select-${id}`} aria-label={name} {...props} onChange={onChangeProxy}>
         {children}
       </StyledSelect>
-      {floating && <Label htmlFor={`select-${id}`}>{label}</Label>}
+      {position && position === 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
       {getSvg()}
     </SelectWrapper>
   );
