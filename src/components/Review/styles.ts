@@ -52,6 +52,7 @@ const Review = styled.div`
 
         &-info {
             display: flex;
+            flex-direction: column;
             margin-bottom: 32px;
             width: 100%;
 
@@ -61,7 +62,6 @@ const Review = styled.div`
             &-right {
                 align-items: center;
                 display: flex;
-                margin-left: auto;
 
                 strong {
                     font-size: 24px;
@@ -72,7 +72,15 @@ const Review = styled.div`
     }
 
     ${props => props.theme.media.md} {
+        .Review {
+            &-info {
+                flex-direction: row;
 
+                &-right {
+                    margin-left: auto;
+                }
+            }
+        }
     }
 `;
 
