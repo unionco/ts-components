@@ -1,28 +1,19 @@
 import React, { useState } from 'react';
-import { StyledModal } from './styles';
-import { Button } from '../index';
+import { StyledModal, IModalProps } from './styles';
+import { Button } from '../Button';
 
-interface IModal {
+interface IModal extends IModalProps {
   isOpen?: boolean | false;
   onAfterOpen?: () => void;
   onRequestClose?: () => void;
-  style?: object | null;
-  contentLabel?: string | null;
 }
 
-const customStyles = {
-  content: {
-    bottom: 'auto',
-    left: '50%',
-    marginRight: '-50%',
-    right: 'auto',
-    top: '50%',
-    transform: 'translate(-50%, -50%)'
-  }
-};
-
-const ModalComponent: React.FC<IModal> = (props) => {
+const ModalComponent: React.FC<IModal> = ({
+    modalSize = 'md',
+    ...rest
+  }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
+  const props = {modalSize, ...rest};
 
   function openModal() {
     setIsOpen(true);
@@ -42,8 +33,7 @@ const ModalComponent: React.FC<IModal> = (props) => {
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
+        {...props}
       >
         {props.children}
         <button className="Modal-close" onClick={closeModal}>×</button>

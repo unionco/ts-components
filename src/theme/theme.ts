@@ -62,6 +62,11 @@ export interface IDefaultTheme
       padding: string;
     }
   },
+  modalSizes: {
+    sm: object;
+    md: object;
+    lg: object;
+  }
   wysiwyg: {
     maxWidth: string;
     tightness: {
@@ -137,6 +142,24 @@ export const theme: IDefaultTheme = {
     large: {
       fontSize: fontSizes[4],
       padding: `24px 32px`
+    }
+  },
+  modalSizes: {
+    sm: {
+      height: `270px`,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: `480px`
+    },
+    md: {
+      height: `360px`,
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      width: `640px`
+    },
+    lg: {
+      height: `90vh`,
+      width: `90vw`
     }
   },
   wysiwyg: {

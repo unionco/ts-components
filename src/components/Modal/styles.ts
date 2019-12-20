@@ -1,14 +1,23 @@
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
 import Modal from 'react-modal';
+import { variant, SpaceProps, space } from 'styled-system'
 
-const StyledModal = styled(Modal)`
+const modalSize = variant({
+    prop: 'modalSize',
+    scale: 'modalSizes'
+});
+
+export type IModalProps = IThemeStyledFunction<'div'> & SpaceProps & {
+    /** Image url for background image */
+    modalSize?: string;
+}
+
+const StyledModal = styled(Modal)<IModalProps>`
     bottom: auto;
-    height: calc(100% - 120px);
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: calc(100% - 120px);
 
     .Modal-close {
         background: none;
@@ -19,6 +28,9 @@ const StyledModal = styled(Modal)`
         right: 40px;
         top: 40px;
     }
+
+    ${modalSize}
+    ${space}
 `;
 
 export { StyledModal };
