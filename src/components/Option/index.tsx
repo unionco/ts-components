@@ -5,20 +5,14 @@ interface IOptionProps {
   disabled?: boolean;
 };
 
-
-class Option extends React.Component<IOptionProps> {
-  public render() {
-    const { value, disabled, children } = this.props;
-
-    return (
-      <option
-        value={value}
-        disabled={disabled}
-      >
-        {children}
-      </option>
-    )
-  }
-}
+const Option: React.FC<IOptionProps> = ({
+  value,
+  disabled,
+  children
+}) => (
+  <option value={value} disabled={disabled}>
+    {children}
+  </option>
+);
 
 export { Option, IOptionProps };

@@ -8,52 +8,88 @@ export interface IStyledSelectProps {
   floating?: boolean;
 }
 
-export const StyledSelect = styled.div<IStyledSelectProps>`
+export const StyledSelect = styled.select<IStyledSelectProps>`
+  appearance: none;
   background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-  position: relative;
+  border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
+  border: ${(props) => get(props.theme, 'formElements.input.border')};
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  outline: none;
+  padding: ${(props) => get(props.theme, 'formElements.input.padding')};
   width: 100%;
-  
-  &::after {
-    content: 'v';
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-  }
+  transition: all 0.3s ease-in-out;
 
-  &.has-focus select {
-    opacity: 1;
-  }
-
-  select {
-    appearance: none;
-    background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-    border: ${(props) => get(props.theme, 'formElements.input.border')};
-    border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-    cursor: pointer;
-    padding: ${(props) => get(props.theme, 'formElements.input.padding')};
-    width: 100%;
-  }
-
-  & + ${StyledLabel} {
-    &::after {
-      color: ${(props) => get(props.theme, 'formElements.input.requiredColor')};
+  &:focus {
+    & + ${StyledLabel} {
+      transform: translate(0, -60%) scale(.9);
     }
   }
+
+  &:hover,
+  &:active,
+  &:focus {
+    &:not([disabled]) {
+      border-bottom: 2px inset ${props => props.theme.colors.dark.base};
+    }
+  }
+`;
+
+export interface ISelectWrapperProps {
+  floating?: boolean;
+  disabled?: boolean;
+  value?: boolean;
+}
+
+export const SelectWrapper = styled.div<ISelectWrapperProps>`
+  position: relative;
+
+  // Caret
+  svg {
+    margin: ${props => get(props.theme, 'formElements.input.padding')};
+    pointer-events: none;
+    position: absolute;
+    bottom: 6px;
+    right: 0;
+  }}
+
+  // if Floating
+  ${props => props.floating && `
+    svg {
+      top: 6px;
+    }
+
+    ${StyledLabel} {
+      padding: ${get(props.theme, 'formElements.input.padding')};
+      position: absolute;
+      top: 0;
+      left: 0;
+      user-select: none;
+      transition: transform .25s, opacity .25s ease-in-out;
+      transform-origin: 0 0;
+
+      ${props.value && `
+         transform: translate(0, -60%) scale(.9);
+      `}
+    }
+  `}
 
   ${props => props.disabled && `
-    cursor: not-allowed;
-  `}
+    opacity: 0.75;
 
-  ${props => props.required && `
-    & + ${StyledLabel}::after {
-      content: '*';
+    svg {
+      opacity: 0.5;
+    }
+
+    ${StyledSelect} {
+      cursor: not-allowed;
     }
   `}
 
-  ${props => props.floating && `
-    select {
-      opacity: 0;
+  ${props => props.value && `
+    ${StyledSelect} {
+      border-bottom: 2px inset ${props.theme.colors.dark.base};
     }
   `}
 `;

@@ -42,7 +42,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup>
-            <Select id="states" name="states">
+            <Select label="States" id="states" name="states">
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
               <Option value="arizona">Arizona</Option>
@@ -97,7 +97,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup position="inline">
-            <Select id="states" name="states" selectedValue="california">
+            <Select label="States" id="states" name="states" selectedValue="california">
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
               <Option value="arizona">Arizona</Option>
@@ -140,7 +140,7 @@ storiesOf("Input", module)
         </GridItem>
         <GridItem size={[12, 12]}>
           <FormGroup position="floating">
-            <Select id="states" name="states" floating>
+            <Select label="States" id="states" name="states" floating>
               <Option disabled>Select A State</Option>
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
