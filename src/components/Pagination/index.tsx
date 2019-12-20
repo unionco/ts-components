@@ -88,11 +88,15 @@ const Pagination: React.FC<IPaginationProps> = ({
   return (
     <StyledPagination>
       <nav>
-        <button onClick={decrementPage}>⬅</button>
+        <button className="Pagination-prev" onClick={decrementPage} disabled={currentPage === 1}>
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.58951 7.87006L8.93359 15.2141L8.40768 15.7401L0.537676 7.87006L8.40768 6.10352e-05L8.93359 0.525978L1.58951 7.87006Z" fill="currentColor"/>
+          </svg>
+        </button>
         {currentPage >= maxButtons && (
           <>
             <button onClick={() => goToPage(1)}>1</button>
-            <span className="Pagination-spacer">...</span>
+            <span className="Pagination-spacer">•••</span>
           </>
         )}
         {range.map(({pageNum, isDisabled}) => (
@@ -106,11 +110,15 @@ const Pagination: React.FC<IPaginationProps> = ({
         ))}
         {currentPage < (totalPages - Math.floor(maxButtons / 2) + 1) && (
           <>
-            <span className="Pagination-spacer">...</span>
+            <span className="Pagination-spacer">•••</span>
             <button onClick={() => goToPage(totalPages)}>{totalPages}</button>
           </>
         )}
-        <button onClick={incrementPage}>➡</button>
+        <button className="Pagination-next" onClick={incrementPage} disabled={currentPage === totalPages}>
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.34408 8.13006L0 0.785977L0.525917 0.260061L8.39592 8.13006L0.525917 16.0001L0 15.4741L7.34408 8.13006Z" fill="currentColor"/>
+          </svg>
+        </button>
       </nav>
     </StyledPagination>
   )
