@@ -13,7 +13,7 @@ const FlexibleContent: React.FC<IFlexibleContentProps> = ({
   reversed = false,
   bleed = false,
   stretch = false,
-  textAlign = 'center',
+  textAlign = 'left',
   content,
   media,
   ...rest

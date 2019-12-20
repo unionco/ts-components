@@ -24,9 +24,8 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   align-items: center;
   justify-content: space-between;
   display: flex;
+  flex-direction: column;
   position: relative;
-  max-width: ${props => props.theme.siteMaxWidth};
-  margin: 0 auto;
 
   div[slot="content"] {
     flex-basis: 50%;
@@ -56,14 +55,20 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
           justify-content: flex-end;
           ${StyledCopy} {
             align-items: flex-end;
+            padding-right: 0;
             text-align: right;
           }
         `;
       case 'left':
       default:
         return `
+          ${Media} {
+            padding-right: ${props.theme.space[6]};
+          }
+
           ${StyledCopy} {
             align-items: flex-start;
+            padding-left: 0;
             text-align: left;
           }
         `;
@@ -128,6 +133,10 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
       }
     `}
   `}
+
+  ${props => props.theme.media.md} {
+    flex-direction: row;
+  }
 `;
 
 StyledFlexibleContent.displayName = 'FlexibleContent';

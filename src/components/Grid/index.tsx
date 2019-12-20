@@ -4,11 +4,6 @@ import {
   StyledGridContainer
 } from './styles';
 
-interface IGridItemComponentProps {
-  size?: 'auto' | number | number[];
-  offSet?: number | number[];
-}
-
 const Grid: React.FC<any> = (props) => {
   return (
     <StyledGrid {...props}>
@@ -19,4 +14,4 @@ const Grid: React.FC<any> = (props) => {
   )
 }
 
-export { Grid, StyledGrid, IGridItemComponentProps };
+export { Grid, StyledGrid };

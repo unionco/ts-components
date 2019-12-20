@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyledAccordionTrigger } from './styles';
+import { StyledAccordionTrigger, IStyledAccordionTriggerProps } from './styles';
 
-export interface ITriggerProps {
-  start: string | JSX.Element,
-  end: string | JSX.Element
+export interface ITriggerProps
+  extends IStyledAccordionTriggerProps {
+  start?: string | JSX.Element,
+  end?: string | JSX.Element
 };
 
 /**
@@ -23,4 +24,4 @@ const AccordionTrigger: React.FC<ITriggerProps> = ({
   );
 }
 
-export { AccordionTrigger };
+export { AccordionTrigger, StyledAccordionTrigger };

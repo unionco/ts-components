@@ -5,7 +5,7 @@ export type IStyledAccordionProps = IThemeStyledFunction<'div'> & SpaceProps & B
   open?: boolean;
 }
 
-export type IStyledAccordionTriggerProps = IThemeStyledFunction<'div'> & SpaceProps & BorderProps;
+export type IStyledAccordionTriggerProps = IThemeStyledFunction<'span'> & SpaceProps & BorderProps;
 
 export type IStyledAccordionPanelProps = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & FlexboxProps & BorderProps;
 
@@ -19,7 +19,8 @@ export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
 export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   display: flex;
   ${props => props.theme.fontSizes.base};
-  padding: ${(props) => props.theme.space[3]};
+  ${space};
+  ${border};
 
   i {
     height: 16px;
@@ -52,9 +53,6 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   &:focus {
     background: ${(props) => props.theme.colors.light.base};
   }
-
-  ${space};
-  ${border};
 `;
 
 export const StyledAccordion = styled.div<IStyledAccordionProps>`

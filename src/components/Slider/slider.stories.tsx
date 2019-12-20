@@ -8,6 +8,7 @@ import {Button} from "../Button";
 import { Grid } from "../Grid";
 import { GridItem } from "../GridItem";
 import { Eyebrow } from "../Eyebrow";
+import { ThumbsSlider } from "../ThumbsSlider";
 
 const Slide = styled.div`
   max-width: 70%;
@@ -93,6 +94,20 @@ storiesOf("Slider", module)
           <Slide key={index}>Slide {index + 1}</Slide>
         ))}
       </Slider>
+    </ThemeProvider>
+  ))
+  .add("Thumbs Slider", () => (
+    <ThemeProvider>
+      <BaseStyles />
+      <Grid>
+          <GridItem size={[10]}>
+            <ThumbsSlider>
+              {[...Array(8).keys()].map((index: number) => (
+                <div key={index}>Slide {index + 1}</div>
+              ))}
+            </ThumbsSlider>
+          </GridItem>
+        </Grid>
     </ThemeProvider>
   ))
   .add("Coverflow Effect", () => (

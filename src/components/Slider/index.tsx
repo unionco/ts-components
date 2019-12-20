@@ -188,7 +188,7 @@ class Slider extends Component<ISliderProps, ISliderState> {
   };
 }
 
-export { Slider };
+export { Slider, SwiperContainer };
 
 const defaultOptions: SwiperOptions = {
   effect: undefined,

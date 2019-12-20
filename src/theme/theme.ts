@@ -1,7 +1,7 @@
 import { colors, IColors } from './colors';
 import { formElements, IFormElements } from './form-elements';
 import { fonts, fontSizes, fontWeights, lineHeights, IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
-import { breakpoints } from './breakpoints';
+import { breakpoints, media } from './breakpoints';
 import { createColorMap, IColorVariant } from '../utils/index';
 import { DefaultTheme } from 'styled-components';
 
@@ -18,9 +18,11 @@ export interface IDefaultTheme
 
   gridColumns: number;
   breakpoints: {
-    [key: string]: number;
+    [key: string]: string;
   };
-
+  media: {
+    [key: string]: string;
+  };
   fonts: IFonts;
   fontSizes: IFontSizes;
   fontWeights: IFontWeights;
@@ -85,6 +87,7 @@ export const theme: IDefaultTheme = {
   formElements,
   lineHeights,
   breakpoints,
+  media,
   siteMaxWidth: '1440px',
   maxWidths: {
     sm: '544px',

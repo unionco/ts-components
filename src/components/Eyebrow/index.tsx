@@ -1,8 +1,8 @@
 import React from 'react';
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
+import { SpaceProps, space } from 'styled-system';
 
-interface IEyebrowProps
-  extends React.Props<any> {
+type IEyebrowProps = IThemeStyledFunction<'any'> & SpaceProps & {
   as?: React.ReactType;
 }
 
@@ -16,6 +16,8 @@ const StyledEyebrow = styled.p`
   margin-bottom: ${p => p.theme.space[2]};
   padding: 0;
   text-transform: uppercase;
+
+  ${space};
 `
 
 const Eyebrow: React.FC<IEyebrowProps> = ({

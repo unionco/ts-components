@@ -1,12 +1,15 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { boolean, select } from '@storybook/addon-knobs';
-import { ThemeProvider, ButtonGroup, Button } from '../../index';
+import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { FlexibleContent } from ".";
 import { Copy } from '../Copy';
 import { Media } from "../Media";
-
+import { Container } from "../Container";
+import { Section } from "../Section";
+import { ButtonGroup } from '../ButtonGroup';
+import { Button } from '../Button';
 
 const image = {
   id: '1',
@@ -43,7 +46,11 @@ storiesOf("Flexible Content", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <FlexibleContent {...Object.assign({}, { reversed })} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} content={<ContentCopy />} />
+        <Section>
+          <Container>
+            <FlexibleContent {...Object.assign({}, { reversed })} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} content={<ContentCopy />} />
+          </Container>
+        </Section>
       </ThemeProvider>
     );
   })
@@ -52,7 +59,11 @@ storiesOf("Flexible Content", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <FlexibleContent textAlign={textAlign} content={<ContentCopy />} />
+        <Section>
+          <Container>
+            <FlexibleContent textAlign={textAlign} content={<ContentCopy />} />
+          </Container>
+        </Section>
       </ThemeProvider>
     );
   })
@@ -63,7 +74,11 @@ storiesOf("Flexible Content", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { reversed, layout: 'col' })} />
+        <Section>
+          <Container>
+            <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { reversed, textAlign: 'center', layout: 'col' })} />
+          </Container>
+        </Section>
       </ThemeProvider>
     );
   })
@@ -74,7 +89,11 @@ storiesOf("Flexible Content", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { layout: 'col', reversed, stretch: true })} />
+        <Section>
+          <Container>
+            <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { layout: 'col', reversed, stretch: true })} />
+          </Container>
+        </Section>
       </ThemeProvider>
     );
   })
@@ -85,7 +104,11 @@ storiesOf("Flexible Content", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { reversed, bleed: true })} />
+        <Section>
+          <Container>
+            <FlexibleContent content={<ContentCopy />} media={showVideo ? <ContentMediaVideo /> : <ContentMedia />} {...Object.assign({}, { reversed, bleed: true })} />
+          </Container>
+        </Section>
       </ThemeProvider>
     );
   });

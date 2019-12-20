@@ -20,7 +20,7 @@ const StyledImage = styled.img`
 
 interface IImageState {
   loadSrc?: string;
-  io?: IntersectionObserver|null;
+  io?: IntersectionObserver;
 }
 
 class Image extends React.Component<IImageProps, IImageState> {
@@ -105,7 +105,7 @@ class Image extends React.Component<IImageProps, IImageState> {
     if (this.state.io) {
       this.state.io.disconnect();
       this.setState({
-        io: null
+        io: undefined
       });
     }
   }
