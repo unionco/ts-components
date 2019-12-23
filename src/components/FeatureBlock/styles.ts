@@ -2,6 +2,8 @@ import { styled } from '../../styles';
 import { Icon } from '../Icon/styles'
 
 const StyledFeatureBlock = styled.div`
+    margin-bottom: 3em;
+
     ${Icon} {
         height: 32px;
         width: 32px;
