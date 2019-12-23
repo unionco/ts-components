@@ -17,7 +17,7 @@
     "lint": "tslint -p tsconfig.json",
     "storybook": "start-storybook --port 9001",
     "build:storybook": "build-storybook && yarn deploy",
-    "deploy": "surge --domain playcore-storybook.surge.sh --project ./storybook-static",
+    "deploy": "surge --add chris.weissenberger@union.co --domain playcore-storybook.surge.sh --project ./storybook-static",
     "generate": "schematics ./node_modules/@union/react-schematics/src/collection.json:react --debug=false"
   },
   "files": [

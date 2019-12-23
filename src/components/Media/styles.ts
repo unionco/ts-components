@@ -2,6 +2,7 @@ import styled from "../../styles/styled";
 
 const Embed = styled.div`
   margin: 0 auto 25px;
+  width: 100%;
 
   iframe {
     border: none;
@@ -14,6 +15,7 @@ const Embed = styled.div`
 
     iframe {
       min-height: 550px;
+      width: 100%;
     }
   }
 `;
