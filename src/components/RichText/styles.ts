@@ -128,7 +128,7 @@ const RichTextStyles = styled.div<IRichTextProps>`
     }
 
     span {
-      ${props => props.theme.fontSizes.small};
+      ${props => props.theme.fontSizes.base};
 
       &:before {
         content: '\2014';
