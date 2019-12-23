@@ -1,6 +1,6 @@
 {
   "name": "@union/ts-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -21,8 +21,7 @@
     "generate": "schematics ./node_modules/@union/react-schematics/src/collection.json:react --debug=false"
   },
   "files": [
-    "dist/",
-    "src/"
+    "dist/"
   ],
   "dependencies": {
     "@types/lodash": "^4.14.149",
@@ -43,7 +42,6 @@
   "devDependencies": {
     "@babel/core": "^7.7.4",
     "@storybook/addon-a11y": "^5.2.6",
-    "@storybook/addon-info": "^5.2.6",
     "@storybook/addon-knobs": "^5.2.6",
     "@storybook/addon-viewport": "^5.2.6",
     "@storybook/react": "^5.2.6",
@@ -54,7 +52,9 @@
     "concurrently": "^5.0.0",
     "fs-extra": "^8.1.0",
     "prettier": "^1.19.1",
+    "react": "^16.10.2",
     "react-docgen-typescript-loader": "^3.6.0",
+    "react-dom": "^16.10.2",
     "react-testing-library": "^8.0.1",
     "rollup": "^1.27.5",
     "rollup-plugin-copy": "^3.1.0",
@@ -70,7 +70,7 @@
     "typescript-styled-plugin": "^0.15.0"
   },
   "peerDependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }
