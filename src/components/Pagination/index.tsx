@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyledPagination } from './styles';
 
 interface IPaginationProps {
+  align?: 'left' | 'center' | 'right';
   maxButtons?: number;
   perPage?: number;
   totalItems?: number;
@@ -14,6 +15,7 @@ interface IPageRange {
 }
 
 const Pagination: React.FC<IPaginationProps> = ({
+  align = 'center',
   maxButtons = 5,
   perPage = 10,
   totalItems = 10,
@@ -73,7 +75,6 @@ const Pagination: React.FC<IPaginationProps> = ({
   }
 
   const endPage = Math.min((startPage() + maxButtons) - 1, totalPages);
-
   let range:IPageRange[] = [];
 
   for (let i:number = startPage(); i <= endPage; i += 1) {
@@ -83,10 +84,8 @@ const Pagination: React.FC<IPaginationProps> = ({
     });
   }
 
-  console.log('startPage', startPage(), 'range', range, 'currentPage', currentPage);
-
   return (
-    <StyledPagination>
+    <StyledPagination align={align}>
       <nav>
         <button className="Pagination-prev" onClick={decrementPage} disabled={currentPage === 1}>
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +94,7 @@ const Pagination: React.FC<IPaginationProps> = ({
         </button>
         {currentPage >= maxButtons && (
           <>
-            <button onClick={() => goToPage(1)}>1</button>
+            <button className="Pagination-button" onClick={() => goToPage(1)}>1</button>
             <span className="Pagination-spacer">•••</span>
           </>
         )}
@@ -111,7 +110,7 @@ const Pagination: React.FC<IPaginationProps> = ({
         {currentPage < (totalPages - Math.floor(maxButtons / 2) + 1) && (
           <>
             <span className="Pagination-spacer">•••</span>
-            <button onClick={() => goToPage(totalPages)}>{totalPages}</button>
+            <button className="Pagination-button" onClick={() => goToPage(totalPages)}>{totalPages}</button>
           </>
         )}
         <button className="Pagination-next" onClick={incrementPage} disabled={currentPage === totalPages}>
