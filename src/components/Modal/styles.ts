@@ -23,9 +23,11 @@ const StyledModal = styled(Modal)<IModalProps>`
         background: none;
         border: 0;
         color: #000;
+        cursor: pointer;
         font-size: 24px;
         position: absolute;
         right: 40px;
+        text-shadow: 0 0px 5px rgba(255, 255, 255);
         top: 40px;
     }
 

@@ -28,4 +28,5 @@ export * from './Section';
 export * from './Select';
 export * from './Slider';
 export * from './Textarea';
+export * from './ThumbsSlider';
 export * from './Pagination';
