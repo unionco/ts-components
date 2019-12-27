@@ -8,16 +8,17 @@ const Copy: React.FC<ICopyProps> = ({
   subheading,
   copy,
   action,
+  twoCol = false,
   ...rest
 }) => {
 
-  const props = { copy, ...rest };
+  const props = { copy, twoCol, ...rest };
   return (
     <StyledCopy {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       {heading && <h1>{heading}</h1>}
       {subheading && <h5>{subheading}</h5>}
-      {copy && <div dangerouslySetInnerHTML={{ __html: copy }} />}
+      {copy && <div className="copy" dangerouslySetInnerHTML={{ __html: copy }} />}
       {action && <div slot="actions">{action}</div>}
     </StyledCopy>
   );

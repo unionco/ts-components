@@ -6,10 +6,11 @@ interface ICopyProps {
   heading?: string;
   subheading?: string;
   copy?: string;
+  twoCol?: boolean;
   action?: JSX.Element
 }
 
-const Copy = styled.div`
+const Copy = styled.div<ICopyProps>`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -30,6 +31,17 @@ const Copy = styled.div`
   p {
     margin-bottom: ${props => props.theme.space[6]};
   }
+
+  ${props => props.twoCol && `
+    .copy {
+      column-count: 2;
+      margin-bottom: ${props.theme.space[6]};
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }    
+  `}
 `;
 
 export { Copy, ICopyProps };

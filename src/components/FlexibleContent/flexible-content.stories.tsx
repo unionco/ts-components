@@ -26,8 +26,10 @@ const copy = {
 };
 
 const ContentCopy = () => {
+  const twoCol = boolean('Copy 2-col', false);
+
   return (
-    <Copy {...copy} action={
+    <Copy {...copy} {...Object.assign({}, { twoCol })} action={
       <ButtonGroup>
         <Button variant="primary">Primary CTA</Button>
         <Button variant="primary" fill="clear">Secondary CTA</Button>
@@ -43,6 +45,7 @@ storiesOf("Flexible Content", module)
   .add("Default", () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
+    
     return (
       <ThemeProvider>
         <BaseStyles />
