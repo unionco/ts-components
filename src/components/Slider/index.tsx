@@ -1,7 +1,6 @@
 import React, { Children, Component, ReactElement, cloneElement } from 'react';
 import Swiper, { SwiperOptions } from 'swiper';
 import { SwiperContainer } from './styles';
-import 'swiper/css/swiper.css';
 import { get } from 'lodash';
 
 export interface ISwiperEvent { name: string, swiper: Swiper };

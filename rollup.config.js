@@ -1,7 +1,6 @@
 import resolve from 'rollup-plugin-node-resolve';
 import sourcemaps from 'rollup-plugin-sourcemaps';
 import copy from 'rollup-plugin-copy';
-// import svgo from 'rollup-plugin-svgo';
 
 const outputs = [
   { name: 'index.esm.js', format: 'es' },
@@ -12,7 +11,9 @@ export default [
   {
     input: 'dist-transpiled/index.js',
     plugins: [
-      resolve(),
+      resolve({
+        dedupe: ['react', 'react-dom']
+      }),
       sourcemaps(),
       copy({
         targets: [
