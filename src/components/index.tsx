@@ -22,7 +22,7 @@ export * from './Label';
 export * from './ListTable';
 export * from './Masonry';
 export * from './Media';
-export * from './Modal';
+// export * from './Modal';
 export * from './Radio';
 export * from './Review';
 export * from './RichText';
