@@ -1,7 +1,13 @@
 import React from 'react';
 import { Review as StyledReview, ReviewStars as StyledReviewStars } from './styles';
+import { Avatar } from '../Avatar'
 
 interface IReview {
+  image?: string;
+  title?: string;
+  subtitle?: string;
+  rating?: number;
+  review?: string;
 }
 
 interface IReviewStars {
@@ -29,10 +35,26 @@ const ReviewStars: React.FC<IReviewStars> = ({rating, ...rest}) => {
   );
 }
 
-const Review: React.FC<IReview> = ({children}, {...rest}) => {
+const Review: React.FC<IReview> = ({image, title, subtitle, rating, review, ...rest}) => {
   return (
     <StyledReview {...rest}>
-      {children}
+      <Avatar image={image} />
+      <div className="Review-content">
+        <div className="Review-info">
+          <div className="Review-info-left">
+            {title && (<h4>{title}</h4>)}
+            {subtitle && (<p>{subtitle}</p>)}
+          </div>
+          <div className="Review-info-right">
+            {rating && (
+              <>
+                <strong>{rating.toFixed(1)}</strong> <ReviewStars rating={rating} /> <span>a week ago</span>
+              </>
+            )}
+          </div>
+        </div>
+        {review && (<p>{review}</p>)}
+      </div>
     </StyledReview>
   );
 }
