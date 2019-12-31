@@ -68,10 +68,10 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   `}
 
   ${typography};
-  ${space};
   ${buttonStyle};
   ${sizes};
   ${fills};
+  ${space};
 `;
 
 export default Button;
