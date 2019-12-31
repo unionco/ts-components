@@ -1,5 +1,6 @@
 export * from './Accordion';
 export * from './BaseStyles';
+export * from './Box';
 export * from './Button';
 export * from './ButtonGroup';
 export * from './Card';
@@ -31,4 +32,5 @@ export * from './Select';
 export * from './Slider';
 export * from './Textarea';
 export * from './ThumbsSlider';
+export * from './Typography';
 export * from './Pagination';
