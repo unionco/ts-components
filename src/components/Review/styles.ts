@@ -48,6 +48,7 @@ const Review = styled.div`
         &-content {
             border-bottom: 1px solid #ECECEC;
             padding-bottom: 40px;
+            width: 100%;
         }
 
         &-info {
