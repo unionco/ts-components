@@ -1,27 +1,31 @@
-import { styled } from "../../styles";
+import { styled, IThemeStyledFunction } from "../../styles";
+import { SpaceProps, space, BorderProps, border } from 'styled-system';
+import { darken } from "polished";
 
-export interface IStyledListTableProps {
-  size?: 'small' | 'medium' | 'large';
+
+export type IStyledListTableProps = IThemeStyledFunction<'table'> & SpaceProps & {
   type?: 'default' | 'striped';
   border?: 'default' | 'all' | 'none';
 }
 
+export type IStyledListTableCellProps = IThemeStyledFunction<'td'|'th'> & BorderProps & SpaceProps;
+
 const TableBody = styled.tbody``;
 const TableHeader = styled.thead``;
 const TableRow = styled.tr``;
+const TableTh = styled.th<IStyledListTableCellProps>`
+  border-bottom: 1px solid ${props => darken(0.2, props.theme.colors.light.base)};  
+  padding: ${props => props.theme.space[3]} ${props => props.theme.space[5]};
 
-const TableTh = styled.th<IStyledListTableProps>`
-  ${props => props.size === 'small' && `
-    width: 10%;
-  `}
-
-  ${props => props.size === 'medium' && `
-    width: 25%;
-  `}
-
-  ${props => props.size === 'large' && `
-    width: 50%;
-  `}
+  ${border}
+  ${space}
+`;
+const TableTd = styled.td<IStyledListTableCellProps>`
+  border-bottom: 1px solid ${props => darken(0.2, props.theme.colors.light.base)};  
+  padding: ${props => props.theme.space[3]} ${props => props.theme.space[5]};
+  
+  ${border}
+  ${space}
 `;
 
 const Table = styled.table<IStyledListTableProps>`
@@ -30,8 +34,6 @@ const Table = styled.table<IStyledListTableProps>`
 
   td,
   th {
-    border-bottom: 1px solid #d8d8d8;
-    padding: 20px 32px;
     text-align: left;
 
     ${props => props.border === 'none' && `
@@ -39,7 +41,7 @@ const Table = styled.table<IStyledListTableProps>`
     `}
 
     ${props => props.border === 'all' && `
-      border: 1px solid #d8d8d8;
+      border: 1px solid ${darken(0.2, props.theme.colors.light.base)};
     `}
   }
 
@@ -47,11 +49,13 @@ const Table = styled.table<IStyledListTableProps>`
     ${TableRow} {
       ${props => props.type === 'striped' && `
         &:nth-child(odd) {
-          background-color: #fbfbfb;
+          background-color: ${props.theme.colors.light.base};
         }
       `}
     }
   }
+
+  ${space}
 `;
 
 const TableContainer = styled.div`
@@ -59,4 +63,4 @@ const TableContainer = styled.div`
   width: 100%;
 `;
 
-export { Table, TableContainer, TableHeader, TableBody, TableRow, TableTh };
+export { Table, TableContainer, TableHeader, TableBody, TableRow, TableTh, TableTd };
