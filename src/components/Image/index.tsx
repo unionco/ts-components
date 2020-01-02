@@ -42,16 +42,21 @@ class Image extends React.Component<IImageProps, IImageState> {
   public render() {
     const { loadSrc } = this.state;
     const { alt, unsplash } = this.props;
-    return (
-      <StyledImage
-        decoding="async"
-        ref={this.el}
-        src={unsplash ? `https://source.unsplash.com/random/${Math.floor(Math.random() * 10)}` : loadSrc}
-        alt={alt}
-        onLoad={this.onLoad}
-        onError={this.onError}
-      />
-    );
+
+    if (loadSrc || unsplash) {
+      return (
+        <StyledImage
+          decoding="async"
+          ref={this.el}
+          src={unsplash ? `https://source.unsplash.com/random/${Math.floor(Math.random() * 10)}` : loadSrc}
+          alt={alt}
+          onLoad={this.onLoad}
+          onError={this.onError}
+        />
+      );
+    }
+
+    return <div ref={this.el}></div>;
   }
 
   private addIO() {
@@ -69,6 +74,8 @@ class Image extends React.Component<IImageProps, IImageState> {
           this.load();
           this.removeIO();
         }
+      }, {
+        rootMargin: '0px 0px 200px 0px'
       });
 
       instance.observe((this.el as any).current);

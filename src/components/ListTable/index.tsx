@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Table, TableContainer, TableHeader, TableBody, TableRow, TableTd, IStyledListTableProps, IStyledListTableCellProps } from './styles';
 
 export interface IListTableProps
@@ -7,25 +7,28 @@ export interface IListTableProps
     bodyData?: any
   };
 
-class ListTable extends Component<IListTableProps> {
-  public render() {
-    const { type, border,  headerData, bodyData} = this.props;
+const ListTable: React.FC<IListTableProps> = ({
+  type,
+  border, 
+  headerData,
+  bodyData,
+}) => {
+  const props = { type, border,  headerData, bodyData };
 
-    return (
-      <TableContainer>
-        <Table type={type} border={border}>
-          <TableHeader>
-            <TableRow>
-              {headerData}
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {bodyData}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    );
-  }
+  return (
+    <TableContainer>
+      <Table {...props}>
+        <TableHeader>
+          <TableRow>
+            {headerData}
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {bodyData}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
 }
 
 // Export main component

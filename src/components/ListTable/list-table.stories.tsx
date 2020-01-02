@@ -4,7 +4,6 @@ import { ListTable, ListTableCell, ListTableRow } from "./index";
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { select } from "@storybook/addon-knobs";
-// import { gridRowGap } from "styled-system";
 
 const headerData = ['First', 'Second', 'Third', 'Fourth'];
 
