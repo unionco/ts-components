@@ -2,7 +2,8 @@ import { styled } from "../../styles";
 
 const SwiperContainer = styled.div<any>`
   display: block;
-  height: 400px;
+  min-height: 400px;
+  height: 100%;
   width: 100%;
 
   > .swiper-wrapper > div {
