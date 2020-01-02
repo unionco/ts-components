@@ -4,6 +4,7 @@ import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, spa
 
 export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProps & SpaceProps & ButtonStyleProps & {
   disabled?: boolean;
+  textLink?: boolean;
   onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
   fill?: 'solid' | 'outline' | 'clear';
@@ -71,6 +72,13 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   ${buttonStyle};
   ${sizes};
   ${fills};
+
+  ${props => props.textLink && `
+    background: transparent;
+    color: var(--neo-color-base);
+    padding: 0;`
+  };
+
   ${space};
 `;
 
