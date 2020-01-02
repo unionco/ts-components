@@ -4,7 +4,7 @@ import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import * as Typography from './index';
 
-storiesOf("Typography2", module)
+storiesOf("Typography", module)
   .add("Default", () => (
     <ThemeProvider>
       <BaseStyles />
