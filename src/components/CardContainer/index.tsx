@@ -23,6 +23,12 @@ const CardContainer = styled.div.attrs(({ gap }: ICardContainerProps) => ({
 
   ${props => props.theme.media.sm} {
     ${Card} {
+      width: calc(50% - ${props => props.gap}%);
+    }
+  }
+
+  ${props => props.theme.media.md} {
+    ${Card} {
       width: calc(${props => `${100 / (props.perRow || 3)}%`} - ${props => props.gap}%);
     }
   }
