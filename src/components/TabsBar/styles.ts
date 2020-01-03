@@ -14,7 +14,6 @@ const StyledTabsBar = styled.div<IStyledTabsBarProps>`
   background: var(--background-color-base);
   color: var(--color-base);
   display: flex;
-  font-size: ${props => props.theme.fontSizes.base};
   margin-bottom: ${props => props.theme.space[1]};
 
   ${typography}
