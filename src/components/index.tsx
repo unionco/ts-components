@@ -1,4 +1,5 @@
 export * from './Accordion';
+export * from './Avatar';
 export * from './BaseStyles';
 export * from './Box';
 export * from './Button';
