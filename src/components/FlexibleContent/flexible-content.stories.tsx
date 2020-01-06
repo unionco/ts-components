@@ -27,9 +27,9 @@ const copy = {
 
 const ContentCopy = () => {
   const twoCol = boolean('Copy 2-col', false);
-
+  const textAlign = select('Text Align', ['left', 'center', 'right'], 'left');
   return (
-    <Copy {...copy} {...Object.assign({}, { twoCol })} action={
+    <Copy {...copy} {...Object.assign({}, { twoCol, textAlign })} action={
       <ButtonGroup>
         <Button variant="primary">Primary CTA</Button>
         <Button variant="primary" fill="clear">Secondary CTA</Button>
@@ -45,7 +45,7 @@ storiesOf("Flexible Content", module)
   .add("Default", () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
-    
+
     return (
       <ThemeProvider>
         <BaseStyles />
@@ -58,13 +58,12 @@ storiesOf("Flexible Content", module)
     );
   })
   .add("Without Media", () => {
-    const textAlign = select('Text Align', ['left', 'center', 'right'], 'left');
     return (
       <ThemeProvider>
         <BaseStyles />
         <Section>
           <Container>
-            <FlexibleContent textAlign={textAlign} content={<ContentCopy />} />
+            <FlexibleContent content={<ContentCopy />} />
           </Container>
         </Section>
       </ThemeProvider>

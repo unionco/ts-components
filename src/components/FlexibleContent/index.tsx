@@ -13,6 +13,7 @@ const FlexibleContent: React.FC<IFlexibleContentProps> = ({
   reversed = false,
   bleed = false,
   stretch = false,
+  // deprecated
   textAlign = 'left',
   content,
   media,
@@ -22,7 +23,7 @@ const FlexibleContent: React.FC<IFlexibleContentProps> = ({
   return (
     <StyledFlexibleContent {...props}>
       {content && <div slot="content">{content}</div>}
-      {media && <Media basis="50%">{media}</Media>}
+      {media && <Media>{media}</Media>}
     </StyledFlexibleContent>
   );
 };

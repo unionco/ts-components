@@ -1,6 +1,14 @@
 import React from 'react';
 import { Eyebrow } from '../Eyebrow';
-import { Copy as StyledCopy, ICopyProps } from './styles';
+import { Copy as StyledCopy, IStyledCopyProps } from './styles';
+
+interface ICopyProps extends IStyledCopyProps {
+  eyebrow?: string;
+  heading?: string;
+  subheading?: string;
+  copy?: string;
+  action?: JSX.Element;
+}
 
 const Copy: React.FC<ICopyProps> = ({
   eyebrow,

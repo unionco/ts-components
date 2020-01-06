@@ -1,7 +1,7 @@
 import styled from '../../styles/styled';
 import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
-import { StyledCopy } from '../Copy';
+// import { StyledCopy } from '../Copy';
 
 interface IFlexibleContentStyleProps {
   layout?: string;
@@ -22,58 +22,19 @@ Media.displayName = 'Media';
 
 const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   position: relative;
 
   div[slot="content"] {
     flex-basis: 50%;
+    ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
   }
 
   ${Media} {
     flex-basis: 50%;
   }
-
-  ${(props) => {
-    switch(props.textAlign) {
-      case 'center':
-        return `
-          justify-content: center;
-
-          div[slot="content"] {
-            flex-basis: 60%;
-          }
-
-          ${StyledCopy} {
-            align-items: center;
-            text-align: center;
-          }
-        `;
-      case 'right':
-        return `
-          justify-content: flex-end;
-          ${StyledCopy} {
-            align-items: flex-end;
-            padding-right: 0;
-            text-align: right;
-          }
-        `;
-      case 'left':
-      default:
-        return `
-          ${Media} {
-            padding-right: ${props.theme.space[6]};
-          }
-
-          ${StyledCopy} {
-            align-items: flex-start;
-            padding-left: 0;
-            text-align: left;
-          }
-        `;
-    }
-  }}
 
   ${props => props.reversed && `
     ${Media} {
@@ -90,6 +51,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
       align-items: center;
       max-width: 720px;
       margin: 0 auto;
+      padding: 0;
     }
 
     ${props.stretch && `
@@ -99,7 +61,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
 
       ${Media} {
         margin: 0 auto;
-        width: 90%;
+        width: 100%;
 
         ${StyledImage} {
           height: 540px;
@@ -110,32 +72,15 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   `}
 
   ${props => props.bleed && `
+    ${props.layout === 'col' && `align-items: flex-start;`}
+
     div[slot="content"] {
       max-width: 50%;
     }
-
-    ${Media} {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      height: 100%;
-      width: 50%;
-    }
-
-    ${props.reversed && `
-      div[slot="content"] {
-        margin-left: 50%;
-      }
-
-      ${Media} {
-        left: 0;
-      }
-    `}
   `}
 
   ${props => props.theme.media.md} {
-    flex-direction: row;
+    ${props => props.layout !== 'col' && `flex-direction: row;`}
   }
 `;
 
