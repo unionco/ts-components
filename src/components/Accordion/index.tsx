@@ -63,4 +63,4 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
 export { AccordionTrigger, StyledAccordionTrigger } from './trigger';
 
 // Export main component
-export { Accordion, AccordionPanel, IStyledAccordionPanelProps, IStyledAccordionProps };
+export { Accordion, StyledAccordion, AccordionPanel, IStyledAccordionPanelProps, IStyledAccordionProps };
