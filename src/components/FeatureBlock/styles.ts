@@ -1,7 +1,10 @@
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
 import { Icon } from '../Icon/styles'
+import { SpaceProps, space } from 'styled-system';
 
-const StyledFeatureBlock = styled.div`
+type IStyledFeatureBlockProps = IThemeStyledFunction<'div'> & SpaceProps;
+
+const StyledFeatureBlock = styled.div<IStyledFeatureBlockProps>`
     margin-bottom: 3em;
 
     ${Icon} {
@@ -22,6 +25,8 @@ const StyledFeatureBlock = styled.div`
     p {
         margin-bottom: 1em;
     }
+
+    ${space}
 `;
 
-export { StyledFeatureBlock };
+export { StyledFeatureBlock, IStyledFeatureBlockProps };

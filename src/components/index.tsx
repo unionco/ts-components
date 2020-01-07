@@ -13,6 +13,7 @@ export * from './Copy';
 export * from './Eyebrow';
 export * from './Flex';
 export * from './FlexibleContent';
+export * from './FeatureBlock';
 export * from './FormGroup';
 export * from './GalleryGrid';
 export * from './Grid';

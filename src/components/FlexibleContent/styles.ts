@@ -72,13 +72,37 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   `}
 
   ${props => props.bleed && `
-    ${props.layout === 'col' && `align-items: flex-start;`}
+    ${props.layout === 'col' ? `align-items: flex-start;` : ``}
+    ${props.layout === 'row' ? `justify-content: flex-start !important;` : ``}
+
+    overflow-x: visible;
 
     div[slot="content"] {
       max-width: 50%;
     }
+
+    ${Media} {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    ${props.reversed ? `
+      ${Media} {
+        right: 50%;
+      }
+      div[slot="content"] {
+        transform: translateX(100%);
+      }
+    ` : `
+      ${Media} {
+        left: 50%;
+      }
+    `}
   `}
 
+  // media for the whole thing
   ${props => props.theme.media.md} {
     ${props => props.layout !== 'col' && `flex-direction: row;`}
   }

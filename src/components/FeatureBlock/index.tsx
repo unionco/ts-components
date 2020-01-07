@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledFeatureBlock } from './styles';
+import { StyledFeatureBlock, IStyledFeatureBlockProps } from './styles';
 import { Icon } from '../Icon';
 
-interface IFeatureBlock {
+interface IFeatureBlock extends IStyledFeatureBlockProps {
   icon?: JSX.Element;
   title?: string;
   copy?: string;

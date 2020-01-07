@@ -1,6 +1,5 @@
 // import React from 'react';
 import { styled } from '../../styles';
-import { Card } from '../Card/styles'
 
 interface ICardContainerProps {
   gap?: number | string;
@@ -15,20 +14,20 @@ const CardContainer = styled.div.attrs(({ gap }: ICardContainerProps) => ({
   margin: 0 -${props => props.gap}%;
   width: calc(100% + ${props => props.gap}%);
 
-  ${Card} {
+  > * {
     margin-bottom: calc(2 * ${props => props.gap}%);
     margin-left: ${props => props.gap}%;
     width: calc(100% - ${props => props.gap}%);
   }
 
   ${props => props.theme.media.sm} {
-    ${Card} {
+    > * {
       width: calc(50% - ${props => props.gap}%);
     }
   }
 
   ${props => props.theme.media.md} {
-    ${Card} {
+    > * {
       width: calc(${props => `${100 / (props.perRow || 3)}%`} - ${props => props.gap}%);
     }
   }
