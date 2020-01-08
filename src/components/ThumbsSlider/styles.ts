@@ -32,6 +32,7 @@ const ThumbsSliderContainer = styled.div<any>`
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      object-fit: cover;
     }
   }
 `;
