@@ -8,6 +8,7 @@ const ThumbsContainer = styled.div<any>`
 
   ${SwiperContainer} {
     height: 95px;
+    min-height: auto;
     margin-left: 0;
     position: static;
 
@@ -21,11 +22,6 @@ const ThumbsContainer = styled.div<any>`
 
     .swiper-slide {
       cursor: pointer;
-      max-width: 128px;
-    }
-
-    img {
-      max-width: 128px;
     }
   }
 `;
