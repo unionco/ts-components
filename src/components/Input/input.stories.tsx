@@ -99,7 +99,7 @@ storiesOf("Input", module)
             </FormGroup>
           </GridItem>
           <GridItem size={[12, 12]}>
-            <Select position="inline" label="States" id="states" name="states" selectedValue="california">
+            <Select position="inline" label="States" id="states" name="states" defaultValue="california">
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>
               <Option value="arizona">Arizona</Option>

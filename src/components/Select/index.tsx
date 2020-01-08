@@ -7,16 +7,16 @@ interface ISelectProps
   id?: string;
   name?: string;
   multiple?: boolean;
-  selectedValue?: string;
+  defaultValue?: string;
   value?: string;
-  label: string;
+  label?: string;
   onChange?: (e: any) => void;
 };
 
 const Select: React.FC<ISelectProps> = ({
   id = Math.random().toString(36).substring(2, 6),
   name,
-  selectedValue,
+  defaultValue,
   value,
   required,
   multiple,
@@ -51,7 +51,7 @@ const Select: React.FC<ISelectProps> = ({
   return (
     <SelectWrapper position={position} disabled={disabled} hasValue={hasValue} {...rest}>
       {position && position !== 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
-      <StyledSelect id={`select-${id}`} aria-label={name} {...props} onChange={onChangeProxy}>
+      <StyledSelect id={`select-${id}`} aria-label={name} {...props} defaultValue={defaultValue} onChange={onChangeProxy}>
         {children}
       </StyledSelect>
       {position && position === 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
