@@ -19,8 +19,6 @@ export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
 export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   display: flex;
   ${props => props.theme.fontSizes.base};
-  ${space};
-  ${border};
 
   i {
     height: 16px;
@@ -53,6 +51,9 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   &:focus {
     background: ${(props) => props.theme.colors.light.base};
   }
+
+  ${space};
+  ${border};
 `;
 
 export const StyledAccordion = styled.div<IStyledAccordionProps>`

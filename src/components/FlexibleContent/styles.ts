@@ -1,6 +1,7 @@
 import styled from '../../styles/styled';
 import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
+import { StyledCopy } from '../Copy';
 // import { StyledCopy } from '../Copy';
 
 interface IFlexibleContentStyleProps {
@@ -22,14 +23,19 @@ Media.displayName = 'Media';
 
 const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
   flex-direction: column;
   position: relative;
 
   div[slot="content"] {
-    flex-basis: 50%;
+    flex: 1;
     ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
+
+    ${StyledCopy} {
+      max-width: 720px;
+      margin: 0 auto;
+    }
   }
 
   ${Media} {

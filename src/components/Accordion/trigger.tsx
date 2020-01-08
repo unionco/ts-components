@@ -13,10 +13,11 @@ export interface ITriggerProps
 const AccordionTrigger: React.FC<ITriggerProps> = ({
   start,
   end,
-  children
+  children,
+  ...rest
 }) => {
   return (
-    <StyledAccordionTrigger>
+    <StyledAccordionTrigger {...rest}>
       {start && <div slot="start">{start}</div>}
       {children}
       {end && <div slot="end">{end}</div>}
