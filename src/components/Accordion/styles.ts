@@ -60,8 +60,10 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
 
   .accordion_trigger {
     -webkit-appearance: none;
+    background: transparent;
     border: none;
     box-sizing: border-box;
+    color: inherit;
     cursor: pointer;
     margin: 0;
     padding: 0;
