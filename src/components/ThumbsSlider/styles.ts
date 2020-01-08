@@ -13,7 +13,12 @@ const ThumbsContainer = styled.div<any>`
     position: static;
 
     .swiper-button-next {
-      right: -10%;
+      color: ${props => props.theme.colors.black};
+      right: -13%;
+
+      &::after {
+        font-size: 30px;
+      }
     }
 
     .swiper-button-prev {
