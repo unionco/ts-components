@@ -27,6 +27,13 @@ const ThumbsContainer = styled.div<any>`
 
     .swiper-slide {
       cursor: pointer;
+      max-width: 25%;
+    }
+
+    img {
+      cursor: pointer;
+      max-width: 25%;
+      object-fit: cover;
     }
   }
 `;
