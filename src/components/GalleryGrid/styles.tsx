@@ -22,8 +22,7 @@ export interface IGalleryGridProps {
 
 const styles = (props: IGalleryGridProps) => css`
   display: block;
-  max-width: ${props => props.theme.siteMaxWidth};
-  margin: 0 auto;
+  width: 100%;
 
   .gallery_inner {
     display: flex;
@@ -31,17 +30,17 @@ const styles = (props: IGalleryGridProps) => css`
     flex-wrap: wrap;
     width: 100%;
 
-    > div {
+    ${GalleryGridItem} {
       ${(() => {
         switch (props.layout) {
           case 'up-1':
-            return `min-height: ${galleryLargeHeight}; width: 100%;`;
+            return `height: ${galleryLargeHeight}; width: 100%;`;
           case 'up-2':
-            return `min-height: ${galleryLargeHeight}; width: 50%;`;
+            return `height: ${galleryLargeHeight}; width: 50%;`;
           case 'up-3':
-            return `min-height: ${galleryMediumHeight}; width: 33%;`;
+            return `height: ${galleryMediumHeight}; width: 33%;`;
           case 'up-4':
-            return `min-height: ${gallerySmallHeight}; width: 25%;`;
+            return `height: ${gallerySmallHeight}; width: 25%;`;
           default:
             return '';
         }

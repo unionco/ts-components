@@ -26,11 +26,11 @@ storiesOf("Link List", module)
           </FlexItem>
           <FlexItem basis="50%">
             <LinkList>
-              <LinkListItem href="#">Retail</LinkListItem>
-              <LinkListItem href="#">Healthcare</LinkListItem>
-              <LinkListItem href="#">Manufacturing</LinkListItem>
-              <LinkListItem href="#">Food Safety</LinkListItem>
-              <LinkListItem href="#">Supply Chain</LinkListItem>
+              <LinkListItem>Retail</LinkListItem>
+              <LinkListItem>Healthcare</LinkListItem>
+              <LinkListItem>Manufacturing</LinkListItem>
+              <LinkListItem>Food Safety</LinkListItem>
+              <LinkListItem>Supply Chain</LinkListItem>
             </LinkList>
           </FlexItem>
         </Flex>

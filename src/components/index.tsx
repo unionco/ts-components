@@ -24,6 +24,8 @@ export * from './Input';
 export * from './Intro';
 export * from './Label';
 export * from './ListTable';
+export * from './LinkList';
+export * from './LinkListItem';
 export * from './Masonry';
 export * from './Media';
 export * from './Modal';

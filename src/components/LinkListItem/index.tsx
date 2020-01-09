@@ -4,15 +4,13 @@ import { StyledLinkListItem, StyledLinkListButton, IStyledLinkListItemProps } fr
 export interface ILinkListItemProps
   extends IStyledLinkListItemProps {
     children: React.ReactNode;
-    href: string;
   };
 
 const LinkListItem: React.FC<ILinkListItemProps> = ({
   children,
-  href,
   ...rest
 }) => {
-  const props = { children, href, ...rest };
+  const props = { children, ...rest };
   const itemProps = { ...rest };
 
   return (
@@ -21,10 +19,7 @@ const LinkListItem: React.FC<ILinkListItemProps> = ({
       border={props.border}
       {...itemProps}
     >
-      <StyledLinkListButton
-        href={href}
-        {...props}
-      >
+      <StyledLinkListButton {...props}>
         {children}
       </StyledLinkListButton>
     </StyledLinkListItem>

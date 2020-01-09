@@ -3,12 +3,14 @@ import { SpaceProps, space, BorderProps, border, TypographyProps, typography } f
 
 export type IStyledLinkListItemProps = IThemeStyledFunction<'li'> & SpaceProps & BorderProps & TypographyProps;
 
-const StyledLinkListButton = styled.a<IStyledLinkListItemProps>`
+const StyledLinkListButton = styled.span<IStyledLinkListItemProps>`
   display: flex;
+  font-size: 1rem;
   position: relative;
   padding: 15px 0;
   transition: all 0.2s;
   transform-origin: left;
+  outline: none;
 
   ${space}
   ${typography}
