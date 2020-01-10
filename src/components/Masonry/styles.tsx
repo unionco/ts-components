@@ -6,6 +6,7 @@ export const MasonryGridItem = styled.div`
   height: 50%;
   max-width: 50%;
   min-width: 50%;
+  width: 50%;
 
   img {
     height: 100%;
@@ -85,6 +86,7 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
       ${MasonryGridItem} {
         max-width: 100%;
         min-width: 100%;
+        width: 100%;
       }
     }
   }
