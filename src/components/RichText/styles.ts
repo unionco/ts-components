@@ -48,7 +48,7 @@ const RichTextStyles = styled.div<IRichTextProps>`
     margin-bottom: ${props => props.theme.space[2]};
   }
 
-  ${({ theme }) => [...Array(6).keys()].map((key) => `
+  ${({ theme }) => [1, 2, 3, 4, 5, 6].map((key) => `
     p + h${key},
     figure + h${key},
     ol + h${key},

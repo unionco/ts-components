@@ -24,7 +24,7 @@
     "inlineSources": true,
     "sourceMap": true,
     "jsx": "react",
-    "target": "es2017",
+    "target": "ES5",
     "allowJs": true,
 
     /* Plugins */

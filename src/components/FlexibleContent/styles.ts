@@ -30,11 +30,14 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
 
   div[slot="content"] {
     flex: 1;
-    ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
 
     ${StyledCopy} {
       max-width: 720px;
-      margin: 0 auto;
+      ${props => props.textAlign === 'center' ? `margin: 0 auto;` : ``}
+    }
+
+    ${props => props.theme.media.md} {
+      ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
     }
   }
 
@@ -84,28 +87,39 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
     overflow-x: visible;
 
     div[slot="content"] {
-      max-width: 50%;
+      padding-left: 0px;
     }
 
     ${Media} {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      object-fit: cover;
+
     }
 
-    ${props.reversed ? `
-      ${Media} {
-        right: 50%;
-      }
+    ${props.theme.media.md} {
       div[slot="content"] {
-        transform: translateX(100%);
+        max-width: 50%;
       }
-    ` : `
+
       ${Media} {
-        left: 50%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        object-fit: cover;
       }
-    `}
+
+      ${props.reversed ? `
+        ${Media} {
+          right: 50%;
+        }
+        div[slot="content"] {
+          padding-left: 40px;
+          transform: translateX(100%);
+        }
+      ` : `
+        ${Media} {
+          left: 50%;
+        }
+      `}
+    }
   `}
 
   // media for the whole thing

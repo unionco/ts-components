@@ -9,7 +9,7 @@ import { Grid } from "../Grid";
 import { GridItem } from "../GridItem";
 import { Eyebrow } from "../Eyebrow";
 import { ThumbsSlider } from "../ThumbsSlider";
-import 'swiper/css/swiper.css';
+import 'swipercss';
 
 const Slide = styled.div`
   max-width: 70%;
@@ -19,13 +19,15 @@ const SlideSmall = styled.div`
   max-width: 50%;
 `;
 
+const SlideItems = Array.from(Array(4).keys());
+
 storiesOf("Slider", module)
   .add("Default", () => {
     return (
       <ThemeProvider>
         <BaseStyles />
         <Slider>
-          {[...Array(4).keys()].map((index: number) => (
+          {SlideItems.map((index: number) => (
             <div key={index}>Slide {index + 1}</div>
           ))}
         </Slider>
@@ -72,7 +74,7 @@ storiesOf("Slider", module)
           </GridItem>
           <GridItem size={8}>
             <Slider onSlidesDidLoad={updateSwiper} onTransitionEnd={(event) => forceUpdate(event)}>
-              {[...Array(4).keys()].map((index: number) => (
+              {SlideItems.map((index: number) => (
                 <div key={index}>Slide {index + 1}</div>
               ))}
             </Slider>
@@ -91,7 +93,7 @@ storiesOf("Slider", module)
         spaceBetween: 20,
         loop: true
       }}>
-        {[...Array(4).keys()].map((index: number) => (
+        {SlideItems.map((index: number) => (
           <Slide key={index}>Slide {index + 1}</Slide>
         ))}
       </Slider>
@@ -103,7 +105,7 @@ storiesOf("Slider", module)
       <Grid>
           <GridItem size={[10]}>
             <ThumbsSlider>
-              {[...Array(8).keys()].map((index: number) => (
+              {SlideItems.map((index: number) => (
                 <div key={index}>Slide {index + 1}</div>
               ))}
             </ThumbsSlider>
@@ -128,7 +130,7 @@ storiesOf("Slider", module)
         },
         loop: true
       }}>
-        {[...Array(4).keys()].map((index: number) => (
+        {SlideItems.map((index: number) => (
           <SlideSmall key={index}>Slide {index + 1}</SlideSmall>
         ))}
       </Slider>

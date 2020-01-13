@@ -10,7 +10,7 @@ storiesOf("Masonry Grid", module)
     const minHeight = text('Min Height in vmin', '90vmin');
     const padding = number('Item Padding', 4);
     const value = number('Gallery Items', 2);
-    const items = [...Array(value).keys()];
+    const items = Array.from(Array(value).keys());
 
     return (
       <ThemeProvider>

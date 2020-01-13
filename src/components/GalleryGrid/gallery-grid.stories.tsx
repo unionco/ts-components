@@ -8,7 +8,7 @@ import { GalleryGrid, GalleryGridItem } from "./index";
 storiesOf("Gallery Grid", module)
   .add("Default", () => {
     const value = number('Gallery Items', 2);
-    const items = [...Array(value).keys()];
+    const items = Array.from(Array(value).keys());
 
     return (
       <ThemeProvider>
