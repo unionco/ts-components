@@ -36,6 +36,12 @@ const determineItemSize = (layout: string) => {
         ':first-child': {
           height: '30%'
         },
+        ':nth-child(2)': {
+          paddingLeft: 0,
+        },
+        ':nth-child(3)': {
+          paddingRight: 0,
+        },
         ':last-child': {
           height: '30%'
         }
@@ -43,8 +49,12 @@ const determineItemSize = (layout: string) => {
     case 'lg':
       return css({
         height: '50%',
+        ':nth-child(2)': {
+          paddingLeft: 0,
+        },
         ':nth-child(n+3)': {
-          height: '30%'
+          height: '30%',
+          paddingRight: 0
         },
         ':nth-child(4)': {
           height: '40%'
@@ -77,6 +87,13 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
       padding: ${props => get(props.theme, `space.${props.padding}`)};
       ${props => determineItemSize(props.layout)};
 
+      &:nth-child(1) {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
     }
 
     @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
