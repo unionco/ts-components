@@ -29,7 +29,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   position: relative;
 
   div[slot="content"] {
-    flex: 1;
+    flex-grow: 1;
 
     ${StyledCopy} {
       max-width: 720px;
@@ -47,12 +47,18 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   }
 
   ${Media} {
-    flex-basis: 50%;
+    flex-basis: auto;
   }
 
   ${props => props.reversed && `
     ${Media} {
       order: -1;
+    }
+  `}
+
+  ${props => props.layout === 'row' && `
+    ${Media} {
+      flex-basis: 50%;
     }
   `}
 
