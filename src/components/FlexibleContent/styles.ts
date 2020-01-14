@@ -38,6 +38,11 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
 
     ${props => props.theme.media.md} {
       ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
+
+      &:only-child {
+        padding-left: 0;
+        padding-right: 0;
+      }
     }
   }
 
