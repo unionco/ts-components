@@ -29,7 +29,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   position: relative;
 
   div[slot="content"] {
-    flex-grow: 1;
+    flex: 1;
 
     ${StyledCopy} {
       max-width: 720px;
