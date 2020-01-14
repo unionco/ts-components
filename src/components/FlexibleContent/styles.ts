@@ -29,8 +29,6 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   position: relative;
 
   div[slot="content"] {
-    flex: 1;
-
     ${StyledCopy} {
       max-width: 720px;
       ${props => props.textAlign === 'center' ? `margin: 0 auto;` : ``}
@@ -57,6 +55,10 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   `}
 
   ${props => props.layout === 'row' && `
+    div[slot="content"] {
+      flex: 1;
+    }
+
     ${Media} {
       flex-basis: 50%;
     }
