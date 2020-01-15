@@ -14,4 +14,4 @@ const Grid: React.FC<any> = (props) => {
   )
 }
 
-export { Grid, StyledGrid };
+export { Grid, StyledGrid, StyledGridContainer };
