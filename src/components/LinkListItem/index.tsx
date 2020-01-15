@@ -26,4 +26,4 @@ const LinkListItem: React.FC<ILinkListItemProps> = ({
   );
 }
 
-export { LinkListItem };
+export { LinkListItem, StyledLinkListItem, StyledLinkListButton };

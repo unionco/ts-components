@@ -31,4 +31,4 @@ const LinkList: React.FC<ILinkListProps> = ({
   );
 }
 
-export { LinkList };
+export { LinkList, StyledLinkList };
