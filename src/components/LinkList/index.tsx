@@ -5,7 +5,7 @@ import { SpaceProps, space } from 'styled-system';
 type IStyledLinkListrops = IThemeStyledFunction<'ul'> & SpaceProps;
 
 const StyledLinkList = styled.ul<IStyledLinkListrops>`
-  padding: ${props => props.theme.space[6]};
+  padding: ${props => props.theme.space[6]} 0;
 
   ${space}
 `;
