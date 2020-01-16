@@ -26,7 +26,7 @@ async function main() {
             versionType = 'patch';
         }
         
-        common.preparePkg(versionType, commitMessage);
+        await common.preparePkg(versionType, commitMessage);
 
         console.log('\nVersion successfully incremented. Commit changes and push to Github to deploy to NPM\n');
     } catch(err) {

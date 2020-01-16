@@ -18,7 +18,7 @@ function packagePath() {
   return path.join(rootDir, 'package.json');
 }
 
-function preparePkg(versionType, commitMessage) {
+async function preparePkg(versionType, commitMessage) {
   const pkg = readPkg();
   console.log(`Old version: ${pkg.version}`);
   // Bump package version
@@ -26,7 +26,7 @@ function preparePkg(versionType, commitMessage) {
   pkg.version = newVersion;
   console.log(`New version: ${newVersion}`);
   writePkg(pkg);
-  tagCommit(newVersion, commitMessage);
+  await tagCommit(newVersion, commitMessage);
 }
 
 function writePkg(pkg) {
@@ -36,10 +36,10 @@ function writePkg(pkg) {
   return fs.writeFileSync(packageJsonPath, `${text}\n`);
 }
 
-function tagCommit(version, commitMessage) {
+async function tagCommit(version, commitMessage) {
   const addCmd = 'git add -A';
   console.log(`$ ${addCmd}`);
-  execa.command(addCmd).then(() => {
+  await execa.command(addCmd).then(() => {
     const commitCmd = `git commit -m \"${commitMessage}\"`;
     console.log(`$ ${commitCmd}`);
     execa.command(commitCmd, { shell: true }).then(() => {
