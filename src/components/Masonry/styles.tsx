@@ -27,7 +27,8 @@ const determineItemSize = (layout: string) => {
       return css({
         height: '100%',
         ':nth-child(n+2)': {
-          height: '50%'
+          height: '50%',
+          paddingRight: 0
         }
       } as any)
     case 'md':

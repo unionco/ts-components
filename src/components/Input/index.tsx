@@ -8,6 +8,7 @@ interface IInputProps
     name?: string;
     placeholder?: string;
     multiple?: boolean;
+    defaultValue?: any;
     onFocus?: (ev: FocusEvent) => void;
     onBlur?: (ev: FocusEvent) => void;
     onChange?: (ev: ChangeEvent) => void;
@@ -23,7 +24,7 @@ class Input extends React.Component<IInputProps, IInputState> {
   constructor(props: IInputProps) {
     super(props);
     this.state = {
-      value: '',
+      value: props.defaultValue || '',
       hasFocus: '',
       fileNames: []
     };
@@ -98,7 +99,7 @@ class Input extends React.Component<IInputProps, IInputState> {
   }
 
   public render() {
-    const { type = 'text', id, name, placeholder, disabled, required, multiple } = this.props;
+    const { type = 'text', id, name, placeholder, disabled, required, multiple, defaultValue } = this.props;
     let className = this.state.hasFocus;
 
     if (this.state.value) {
@@ -121,6 +122,7 @@ class Input extends React.Component<IInputProps, IInputState> {
           type={type}
           id={id}
           name={name}
+          defaultValue={defaultValue}
           placeholder={placeholder}
           value={this.state.value}
           disabled={disabled}
