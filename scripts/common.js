@@ -40,9 +40,9 @@ function tagCommit(version, commitMessage) {
   const addCmd = 'git add -A';
   console.log(addCmd);
   execa.command(addCmd).then(() => {
-    const commitCmd = `git commit -m "${commitMessage}"`;
+    const commitCmd = `git commit -m \"${commitMessage}\"`;
     console.log(commitCmd);
-    execa.command(commitCmd).then(() => {
+    execa.command(commitCmd, { shell: true }).then(() => {
       const tagCmd = `git tag ${version}`;
       console.log(tagCmd);
       execa.command(tagCmd).then(() => console.log('Finished'));
