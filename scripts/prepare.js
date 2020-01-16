@@ -28,7 +28,7 @@ async function main() {
         
         await common.preparePkg(versionType, commitMessage);
 
-        console.log('\nVersion successfully incremented. Commit changes and push to Github to deploy to NPM\n');
+        process.exit(0);
     } catch(err) {
         console.error(err);
         process.exit(1);
