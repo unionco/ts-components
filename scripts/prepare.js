@@ -7,7 +7,7 @@ async function main() {
             process.exit(0);
         }
         
-        let commitMessage = '[prepare.js]';
+        let commitMessage = '[Release]';
         const mIndex = process.argv.indexOf('-m');
         if (mIndex !== -1 && process.argv.length > mIndex) {
             commitMessage += ' ' + process.argv[mIndex + 1];
