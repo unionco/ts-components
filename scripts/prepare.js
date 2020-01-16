@@ -10,6 +10,12 @@ async function main() {
         // if (!process.env.NPM_API_TOKEN) {
         //     throw new Error('env.NPM_API_TOKEN is undefined');
         // }
+        let commitMessage = '[prepare.js]';
+        const mIndex = process.argv.indexOf('-m');
+        if (mIndex !== -1 && process.argv.length > mIndex) {
+            commitMessage += ' ' + process.argv[mIndex + 1];
+            console.log(`\nCommit message: ${commitMessage}\n`);
+        }
 
         let versionType = undefined;
         if (process.argv.indexOf('--major') !== -1) {
@@ -20,7 +26,7 @@ async function main() {
             versionType = 'patch';
         }
         
-        await common.preparePkg(versionType);
+        common.preparePkg(versionType, commitMessage);
 
         console.log('\nVersion successfully incremented. Commit changes and push to Github to deploy to NPM\n');
     } catch(err) {
