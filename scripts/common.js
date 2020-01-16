@@ -39,13 +39,13 @@ function writePkg(pkg) {
 async function tagCommit(version, commitMessage) {
   const addCmd = 'git add -A';
   console.log(`$ ${addCmd}`);
-  await execa.command(addCmd).then(() => {
+  await execa.command(addCmd).then(async () => {
     const commitCmd = `git commit -m \"${commitMessage}\"`;
     console.log(`$ ${commitCmd}`);
-    execa.command(commitCmd, { shell: true }).then(() => {
+    await execa.command(commitCmd, { shell: true }).then(async () => {
       const tagCmd = `git tag ${version}`;
       console.log(`$ ${tagCmd}`);
-      execa.command(tagCmd).then(() => console.log(`You can publish this to NPM using the following command:\n\n\tgit push origin ${version}\n`));
+      await execa.command(tagCmd).then(() => console.log(`You can publish this to NPM using the following command:\n\n\tgit push origin ${version}\n`));
     });
   });
 }
