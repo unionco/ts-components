@@ -1,6 +1,6 @@
 {
   "name": "@union/ts-components",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -19,7 +19,8 @@
     "storybook": "start-storybook --port 9001",
     "build:storybook": "build-storybook && yarn deploy",
     "deploy": "surge --domain playcore-storybook.surge.sh --project ./storybook-static",
-    "generate": "schematics ./node_modules/@union/react-schematics/src/collection.json:react --debug=false"
+    "generate": "schematics ./node_modules/@union/react-schematics/src/collection.json:react --debug=false",
+    "release.prepare": "node scripts/prepare.js"
   },
   "files": [
     "dist/"
@@ -56,6 +57,7 @@
     "babel-loader": "^8.0.6",
     "concurrently": "^5.0.0",
     "fs-extra": "^8.1.0",
+    "path": "^0.12.7",
     "prettier": "^1.19.1",
     "react": "^16.10.2",
     "react-docgen-typescript-loader": "^3.6.0",
@@ -68,6 +70,7 @@
     "rollup-plugin-sourcemaps": "^0.4.2",
     "rollup-plugin-svgo": "^1.1.0",
     "rollup-plugin-virtual": "^1.0.1",
+    "semver": "^7.1.1",
     "tslint": "^5.20.1",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
