@@ -53,7 +53,7 @@ export const colors: IColors = {
     tint: '#ffd31a',
   },
   danger: {
-    base: '#f04141',
+    base: '#cf3737',
     contrast: '#FFFFFF',
     shade: '#d33939',
     tint: '#f25454',

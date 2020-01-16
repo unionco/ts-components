@@ -21,17 +21,18 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
   border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
   border: ${(props) => get(props.theme, 'formElements.input.border')};
+  border: 2px solid transparent;
   cursor: pointer;
   font-size: 16px;
-  line-height: 24px;
   outline: none;
-  padding: ${(props) => get(props.theme, 'formElements.input.padding')};
+  padding: 0 ${(props) => get(props.theme, 'formElements.input.padding')};
+  height: 64px;
   width: 100%;
   transition: all 0.3s ease-in-out;
 
   &:focus {
     & + ${StyledLabel} {
-      transform: translate(0, -60%) scale(.9);
+      /* transform: translate(0, -60%) scale(.9); */
     }
   }
 
@@ -39,7 +40,7 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   &:active,
   &:focus {
     &:not([disabled]) {
-      border-bottom: 2px inset ${props => props.theme.colors.dark.base};
+      border: 2px solid #ddd;
     }
   }
 `;
@@ -49,39 +50,40 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
  */
 export const SelectWrapper = styled.div<ISelectWrapperProps>`
   position: relative;
-  margin-bottom: ${props => get(props.theme, 'space.4')};
+  margin-bottom: ${props => get(props.theme, 'space.3')};
 
-  // Caret
   svg {
     margin: ${props => get(props.theme, 'formElements.input.padding')};
     pointer-events: none;
     position: absolute;
     bottom: 6px;
     right: 0;
-  }}
+  }
 
-  // if Floating
   ${props => props.position === 'floating' && `
     svg {
       top: 6px;
     }
 
     ${StyledLabel} {
-      padding: ${get(props.theme, 'formElements.input.padding')};
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 28px;
+      line-height: 12px;
+      left: 16px;
       user-select: none;
-      transition: transform .25s, opacity .25s ease-in-out;
+      transition: top 0.25s, left 0.25s, transform .25s, opacity .25s ease-in-out;
       transform-origin: 0 0;
+      opacity: .75;
 
       ${props.hasValue && `
-         transform: translate(0, -60%) scale(.9);
+        top: 0;
+        left: 0;
+        transform: translate3d(0, -90%, 0) scale(0.9);
+        opacity: 1;
       `}
     }
   `}
 
-  // If inline
   ${props => props.position === 'inline' && `
     align-items: center;
     display: flex;
@@ -102,12 +104,6 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
 
     ${StyledSelect} {
       cursor: not-allowed;
-    }
-  `}
-
-  ${props => props.hasValue && `
-    ${StyledSelect} {
-      border-bottom: 2px inset ${props.theme.colors.dark.base};
     }
   `}
 

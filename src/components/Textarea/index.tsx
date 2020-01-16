@@ -1,77 +1,25 @@
-import React from 'react';
-import { StyledTextarea, IStyledTextareaProps } from './styles';
+import React, { forwardRef } from 'react';
+import { StyledTextareaWrapper, StyledTextarea, StyledTextareaError, StyledTextareaProps } from './styles';
+import { Label } from '../Label';
 
-interface ITextareaProps 
-  extends IStyledTextareaProps {
-    id?: string;
-    name?: string;
-    placeholder?: string;
-    disabled?: boolean;
-    required?: boolean;
-    cols?: number;
-    rows?: number;
-  };
+type Ref = HTMLTextAreaElement;
 
-interface ITextareaState {
-  value?: string;
-  hasFocus: string;
+type TextareaProps = StyledTextareaProps & {
+  label?: string;
 }
 
-class Textarea extends React.Component<ITextareaProps, ITextareaState> {
-  constructor(props: ITextareaProps) {
-    super(props);
-    this.state = {
-      value: '',
-      hasFocus: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.onFocus = this.onFocus.bind(this);
-    this.onBlur = this.onBlur.bind(this);
-  }
-
-  handleChange(event: any) {
-    this.setState({value: event.target.value});
-  }
-
-  onFocus() {
-    this.setState({
-      hasFocus: 'has-focus'
-    });
-  }
-
-  onBlur() {
-    this.setState({
-      hasFocus: ''
-    });
-  }
-
-  public render() {
-    const {id, name, cols, rows, resize = false, placeholder, disabled, required} = this.props;
-    let className = this.state.hasFocus;
-
-    if (this.state.value) {
-      className += ' has-value'
-    }
-
-    return (
-      <StyledTextarea
-        className={className}
-        id={id}
-        name={name}
-        placeholder={placeholder}
-        value={this.state.value}
-        cols={cols}
-        rows={rows}
-        resize={resize}
-        disabled={disabled}
-        required={required}
-        onChange={this.handleChange}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-      />
-    )
-  }
+const TextareaComponent: React.FC<TextareaProps> = ({ ref, label, floating, ...props }) => {
+  return (
+    <StyledTextareaWrapper floating={floating}>
+      <StyledTextarea {...props} floating={floating} />
+      {label && <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>}
+      {props.error && <StyledTextareaError>{props.error}</StyledTextareaError>}
+    </StyledTextareaWrapper>
+  );
 }
 
-export { Textarea, StyledTextarea, ITextareaProps };
+export const Textarea = forwardRef<Ref, TextareaProps>((props, ref) => (
+  <TextareaComponent ref={ref} {...props} />
+))
+
+export { StyledTextareaWrapper, StyledTextarea, StyledTextareaError, StyledTextareaProps };

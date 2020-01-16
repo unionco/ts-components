@@ -8,18 +8,18 @@ type InputProps = StyledInputProps & {
   label?: string;
 }
 
-const Input: React.FC<InputProps> = ({ ref, label, floating, ...props }) => {
+const InputComponent: React.FC<InputProps> = ({ ref, label, floating, ...props }) => {
   return (
     <StyledInputWrapper floating={floating}>
-      <StyledInput {...props} />
+      <StyledInput {...props} floating={floating} />
       {label && <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>}
       {props.error && <StyledInputError>{props.error}</StyledInputError>}
     </StyledInputWrapper>
   );
 }
 
-export const InputRef = forwardRef<Ref, InputProps>((props, ref) => (
-  <Input ref={ref} {...props} />
+export const Input = forwardRef<Ref, InputProps>((props, ref) => (
+  <InputComponent ref={ref} {...props} />
 ))
 
-export { Input };
+export { StyledInputWrapper, StyledInput, StyledInputError, StyledInputProps };

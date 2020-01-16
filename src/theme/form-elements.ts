@@ -35,7 +35,7 @@ export const formElements: IFormElements = {
     backgroundColor: '#eee',
     border: 'none',
     borderRadius: '0',
-    padding: '22px',
+    padding: '16px',
     floatingLabel: 'translate(-10px, -40px) scale(0.75);',
     requiredColor: 'red',
   },
