@@ -6,10 +6,7 @@ async function main() {
             usage();
             process.exit(0);
         }
-
-        // if (!process.env.NPM_API_TOKEN) {
-        //     throw new Error('env.NPM_API_TOKEN is undefined');
-        // }
+        
         let commitMessage = '[prepare.js]';
         const mIndex = process.argv.indexOf('-m');
         if (mIndex !== -1 && process.argv.length > mIndex) {
