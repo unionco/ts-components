@@ -1,5 +1,7 @@
 # Union Styled Components Library w/Typescript [WIP]
 
+[![Build Status](https://travis-ci.org/unionco/ts-components.svg?branch=master)](https://travis-ci.org/unionco/ts-components)
+
 ## Getting Started
 
 Simply run the commands below and you _should_ have a working storybook displaying all of our components.
@@ -45,3 +47,9 @@ Where x.y.z is the new version number (part of the script output).
 Notes:
 - If the git commit message is left blank, it will default to "[Release]"
 - If the version type is left blank, `patch` will be used by default
+
+## Travis CI
+https://travis-ci.org/unionco/ts-components
+
+Travis CI runs only when tags are pushed! master/branch commits will not trigger a deploy to NPM.
+
