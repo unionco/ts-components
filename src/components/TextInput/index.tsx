@@ -18,7 +18,7 @@ const InputComponent: React.FC<InputProps> = ({ ref, label, floating, ...props }
   );
 }
 
-export const Input = forwardRef<Ref, InputProps>((props, ref) => (
+export const TextInput = forwardRef<Ref, InputProps>((props, ref) => (
   <InputComponent ref={ref} {...props} />
 ))
 
