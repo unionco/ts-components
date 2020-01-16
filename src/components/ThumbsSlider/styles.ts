@@ -1,5 +1,6 @@
 import { styled } from "../../styles";
 import { SwiperContainer } from '../Slider';
+import { objectFit } from '../../theme/mixins'
 
 const ThumbsContainer = styled.div<any>`
   margin-top: 20px;
@@ -33,7 +34,7 @@ const ThumbsContainer = styled.div<any>`
     img {
       cursor: pointer;
       max-width: 25%;
-      object-fit: cover;
+      ${objectFit('cover')}
     }
   }
 `;
@@ -44,7 +45,7 @@ const ThumbsSliderContainer = styled.div<any>`
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      object-fit: cover;
+      ${objectFit('cover')}
     }
   }
 `;

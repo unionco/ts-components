@@ -2,6 +2,7 @@ import styled from '../../styles/styled';
 import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
 import { StyledCopy } from '../Copy';
+import { objectFit } from '../../theme/mixins'
 // import { StyledCopy } from '../Copy';
 
 interface IFlexibleContentStyleProps {
@@ -87,7 +88,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
 
         ${StyledImage} {
           height: 540px;
-          object-fit: cover;
+          ${objectFit('cover')}
         }
       }
     `}
@@ -116,7 +117,7 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
         position: absolute;
         top: 0;
         width: 100%;
-        object-fit: cover;
+        ${objectFit('cover')}
       }
 
       ${props.reversed ? `

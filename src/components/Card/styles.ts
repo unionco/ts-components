@@ -1,5 +1,6 @@
 import { styled } from '../../styles';
 import Button from '../Button/styles';
+import { objectFit } from '../../theme/mixins'
 
 interface ICardProps {
   layout?: 'row' | 'column';
@@ -17,6 +18,7 @@ const CardContent = styled.div<ICardProps>`
   h4,
   p {
     padding-bottom: ${props => props.theme.space[2]};
+    width: 100%;
   }
 
   h4 {
@@ -32,6 +34,7 @@ const Card = styled.div<ICardProps>`
   display: flex;
   flex-direction: ${(props) => props.layout};
   position: relative;
+  width: 100%;
 
   ${(props) => props.layout === 'row' && `
     align-items: center;
@@ -60,8 +63,7 @@ const Card = styled.div<ICardProps>`
     img {
       height: 100%;
       left: 0;
-      object-fit: cover;
-      object-position: center;
+      ${objectFit('cover', 'center')}
       position: absolute;
       top: 0;
       width: 100%;
@@ -73,7 +75,7 @@ const Card = styled.div<ICardProps>`
   div[slot="end"] {
     img {
       width: 100%;
-      object-fit: cover;
+      ${objectFit('cover')}
     }
   }
 `;

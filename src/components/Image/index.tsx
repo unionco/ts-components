@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react';
 import { styled } from '../../styles';
 import { isBrowser } from '../../utils';
+import { objectFit } from '../../theme/mixins'
 
 interface IImageProps {
   unsplash?: boolean;
@@ -14,8 +15,7 @@ const StyledImage = styled.img`
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: inherit;
-  object-position: inherit;
+  ${objectFit('inherit', 'inherit')}
 `
 
 interface IImageState {

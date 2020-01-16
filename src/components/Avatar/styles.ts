@@ -1,4 +1,5 @@
 import { styled } from '../../styles';
+import { objectFit } from '../../theme/mixins'
 
 const StyledAvatar = styled.div`
     background: gray;
@@ -10,7 +11,7 @@ const StyledAvatar = styled.div`
 
     img {
         height: 100%;
-        object-fit: cover;
+        ${objectFit('cover')}
         width: 100%;
     }
 `;

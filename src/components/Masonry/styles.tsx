@@ -1,5 +1,6 @@
 import { styled, css } from '../../styles';
 import { get } from 'lodash';
+import { objectFit } from '../../theme/mixins'
 
 export const MasonryGridItem = styled.div`
   display: block;
@@ -10,7 +11,7 @@ export const MasonryGridItem = styled.div`
 
   img {
     height: 100%;
-    object-fit: cover;
+    ${objectFit('cover')}
     width: 100%;
   }
 `;

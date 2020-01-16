@@ -1,4 +1,5 @@
 import { styled, css } from '../../styles';
+import { objectFit } from '../../theme/mixins'
 
 const galleryLargeHeight: string = '550px';
 const galleryMediumHeight: string = '375px';
@@ -11,7 +12,7 @@ export const GalleryGridItem = styled.div`
 
   img {
     height: 100%;
-    object-fit: cover;
+    ${objectFit('cover')}
     width: 100%;
   }
 `;

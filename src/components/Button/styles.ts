@@ -14,10 +14,6 @@ const sizes = variant({
   prop: 'size',
   scale: 'buttonSizes',
 });
-const fills = variant({
-  prop: 'fill',
-  scale: 'buttonFills',
-});
 
 const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
@@ -28,8 +24,10 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
 
   appearance: none;
   display: inline-block;
+  background: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
   background: var(--neo-color-base);
   border: none;
+  color: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
   color: var(--neo-color-contrast);
   cursor: pointer;
   ${props => props.theme.fontSizes.base};
@@ -71,7 +69,29 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   ${typography};
   ${buttonStyle};
   ${sizes};
-  ${fills};
+
+  ${(props) => {
+    switch (props.fill) {
+      case 'clear':
+        return `
+          background: transparent;
+          color: ${get(props.theme, `colors.${props.variant}.base`)};
+          :hover {
+            background: #eee;
+          }`
+      case 'outline':
+        return `
+          background: transparent;
+          border: 1px solid ${get(props.theme, `colors.${props.variant}.base`)};
+          color: ${get(props.theme, `colors.${props.variant}.base`)};
+          :hover {
+            background: ${get(props.theme, `colors.${props.variant}.base`)};
+            color: ${get(props.theme, `colors.${props.variant}.contrast`)};
+          }`
+      default:
+        return `${props.theme.buttonFills?.solid}`
+    }
+  }}
 
   ${props => props.textLink && `
     background: transparent;

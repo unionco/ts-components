@@ -1,5 +1,6 @@
 import { styled } from '../../styles';
 import { getVariantCSS } from '../../utils';
+import { objectFit } from '../../theme/mixins'
 
 interface IRichTextProps {
   tightness: 'tight' | 'loose' | 'default';
@@ -107,8 +108,7 @@ const RichTextStyles = styled.div<IRichTextProps>`
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
-      object-position: center center;
+      ${objectFit('cover', 'center center')}
     }
   }
 
