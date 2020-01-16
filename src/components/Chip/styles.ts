@@ -15,9 +15,11 @@ const Chip = styled.div<IChipProps>`
   --neo-color-tint: ${(props) => get(props.theme, `colors.${props.variant}.tint`)};
 
   align-items: center;
+  background: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
   background: var(--neo-color-base);
   border: none;
   border-radius: ${props => props.shape === 'round' ? '32px' : '2px'};
+  color: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
   color: var(--neo-color-contrast);
   display: inline-flex;
   font-size: 14px;

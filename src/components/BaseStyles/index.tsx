@@ -31,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
   body {
+    font-family: ${(props) => props.theme.fonts.body};
     font-family: var(--base-font);
   }
   html {
@@ -38,6 +39,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 100%;
   }
   h1, h2, h3, h4, h5, h6 {
+    font-family: ${(props) => props.theme.fonts.heading};
     font-family: var(--heading-font);
     margin: 0;
     line-height: 1.25;

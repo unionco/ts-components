@@ -22,7 +22,7 @@ export interface IFontSizes {
 }
 
 export const fonts: IFonts = {
-  body: '"Helvetica Neue", sans-serif',
+  body: '"Helvetica Neue", "Arial", sans-serif',
   heading: 'inherit',
 };
 
