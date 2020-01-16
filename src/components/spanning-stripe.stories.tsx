@@ -2,9 +2,10 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ThemeProvider } from '../index';
 import { BaseStyles } from './BaseStyles';
-import { ButtonGroup, Grid, GridItem, Button, FormGroup, Input } from './index';
+import { ButtonGroup, Grid, GridItem, Button, FormGroup } from './index';
 import { Eyebrow } from "./Eyebrow";
 import { Flex } from "./Flex";
+import { TextInput } from "./TextInput";
 
 storiesOf("Spanning Stripe", module)
   .add("Default", () => (
@@ -37,7 +38,7 @@ storiesOf("Spanning Stripe", module)
             <h2>Definition Card</h2>
             <p style={{ textAlign: 'center', padding: '16px 0'}}>Body Copy of up to three lines. Maecenas faucibus mollis interdum. Donec sed odio duimollis interdum. Body Copy of up to three lines</p>
             <FormGroup>
-              <Input id="first-name" name="first-name" placeholder="First Name" />
+              <TextInput id="first-name" name="first-name" placeholder="First Name" />
             </FormGroup>
           </Flex>
         </GridItem>

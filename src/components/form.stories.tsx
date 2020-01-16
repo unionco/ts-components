@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { boolean } from "@storybook/addon-knobs";
 
 import { ThemeProvider } from '../index';
-import { BaseStyles, Container, Grid, GridItem, Section, Option, Select, Input, Textarea } from './index';
+import { BaseStyles, Container, Grid, GridItem, Section, Option, Select, TextInput, Textarea } from './index';
 
 storiesOf("Forms", module)
   .add("Default", () => {
@@ -16,7 +16,7 @@ storiesOf("Forms", module)
           <Container>
             <Grid m={-2}>
               <GridItem p={2} size={[12, 6]}>
-                <Input
+                <TextInput
                   id="firstname"
                   type="text"
                   label="First Name"
@@ -27,7 +27,7 @@ storiesOf("Forms", module)
                 />
               </GridItem>
               <GridItem p={2} size={[12, 6]}>
-                <Input
+                <TextInput
                   id="lastname"
                   type="text"
                   label="Last Name"
@@ -39,7 +39,7 @@ storiesOf("Forms", module)
               </GridItem>
 
               <GridItem p={2} size={[12]}>
-                <Input
+                <TextInput
                   id="email"
                   type="email"
                   label="Email"
@@ -51,7 +51,7 @@ storiesOf("Forms", module)
               </GridItem>
 
               <GridItem p={2} size={[12, 4]}>
-                {/* <Input
+                {/* <TextInput
                   id="organization"
                   type="text"
                   label="Organization"
@@ -69,7 +69,7 @@ storiesOf("Forms", module)
                 </Select>
               </GridItem>
               <GridItem p={2} size={[12, 4]}>
-                <Input
+                <TextInput
                   id="phone"
                   type="text"
                   label="Phone Number"
@@ -79,7 +79,7 @@ storiesOf("Forms", module)
                 />
               </GridItem>
               <GridItem p={2} size={[12, 4]}>
-                <Input
+                <TextInput
                   id="website"
                   type="url"
                   label="Website"
