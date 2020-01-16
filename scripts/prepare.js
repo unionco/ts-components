@@ -36,8 +36,9 @@ async function main() {
 }
 
 function usage() {
-    console.log('\nnode prepare.js [--patch|--minor|--major]\n');
-    console.log('Run this script before pushing to the Github origin.')
+    console.log('\nnode prepare.js -m "Git commit message" [--patch|--minor|--major]');
+    console.log('\n\tIf no version level is specified, `--patch` will be used');
+    console.log('\n\tRun this script before pushing to the Github origin.')
 }
 
 main();
