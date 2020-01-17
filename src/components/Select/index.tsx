@@ -60,4 +60,4 @@ const Select: React.FC<ISelectProps> = ({
   );
 }
 
-export { Select, StyledSelect, ISelectProps };
+export { Select, SelectWrapper, StyledSelect, ISelectProps };
