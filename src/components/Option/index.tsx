@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
-interface IOptionProps {
-  value?: string;
-  disabled?: boolean;
-};
+type Ref = HTMLOptionElement;
 
-const Option: React.FC<IOptionProps> = ({
+type IOptionProps = React.DetailedHTMLProps<React.OptionHTMLAttributes<HTMLOptionElement>, HTMLOptionElement>;
+
+const OptionComponent: React.FC<IOptionProps> = ({
   value,
   disabled,
   children
@@ -15,4 +14,8 @@ const Option: React.FC<IOptionProps> = ({
   </option>
 );
 
-export { Option, IOptionProps };
+export const Option = forwardRef<Ref, IOptionProps>((props, ref) => (
+  <OptionComponent ref={ref} {...props} />
+))
+
+export { IOptionProps };

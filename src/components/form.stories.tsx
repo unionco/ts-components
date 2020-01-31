@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import { boolean } from "@storybook/addon-knobs";
 
 import { ThemeProvider } from '../index';
-import { BaseStyles, Container, Grid, GridItem, Section, Option, Select, TextInput, Textarea } from './index';
+import { BaseStyles, Container, Grid, GridItem, Section, Option, Select, TextInput, Textarea, FileInput } from './index';
 
 storiesOf("Forms", module)
   .add("Default", () => {
@@ -51,14 +51,6 @@ storiesOf("Forms", module)
               </GridItem>
 
               <GridItem p={2} size={[12, 4]}>
-                {/* <TextInput
-                  id="organization"
-                  type="text"
-                  label="Organization"
-                  placeholder="Organization"
-                  floating={floating}
-                  onChange={() => console.log('change')}
-                /> */}
                 <Select label="State" id="states" name="states" position={floating ? "floating" : "stacked"}>
                   <Option>Select a state</Option>
                   <Option value="alabama">Alabama</Option>
@@ -96,6 +88,17 @@ storiesOf("Forms", module)
                   label="Tell us about your project"
                   placeholder="Tell us about your project"
                   required
+                  floating={floating}
+                  onChange={() => console.log('change')}
+                />
+              </GridItem>
+              <GridItem p={2} size={[12]}>
+                <FileInput
+                  id="uploads"
+                  label="Upload you files"
+                  placeholder="Upload you files"
+                  required
+                  multiple
                   floating={floating}
                   onChange={() => console.log('change')}
                 />
