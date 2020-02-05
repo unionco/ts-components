@@ -2,16 +2,16 @@ import React from 'react';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { SpaceProps, space } from 'styled-system';
 
-type IStyledLinkListrops = IThemeStyledFunction<'ul'> & SpaceProps;
+type IStyledLinkListProps = IThemeStyledFunction<'ul'> & SpaceProps;
 
-const StyledLinkList = styled.ul<IStyledLinkListrops>`
+const StyledLinkList = styled.ul<IStyledLinkListProps>`
   padding: ${props => props.theme.space[6]} 0;
 
   ${space}
 `;
 
 export interface ILinkListProps
-  extends IStyledLinkListrops {
+  extends IStyledLinkListProps {
     children: React.ReactNode;
   };
 

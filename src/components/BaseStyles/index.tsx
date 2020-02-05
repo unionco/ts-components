@@ -1,9 +1,8 @@
 // @ts-ignore
 import React from 'react';
 import { createGlobalStyle } from '../../styles';
-import { theme as defaultTheme } from '../../theme';
 
-const GlobalStyle = createGlobalStyle`
+export const BaseStyles = createGlobalStyle`
   :root {
     --base-font: ${(props) => props.theme.fonts.body};
     --heading-font: ${(props) => props.theme.fonts.heading};
@@ -69,13 +68,3 @@ const GlobalStyle = createGlobalStyle`
   }
 
 `;
-
-export const BaseStyles = (props: any) => {
-  const { color, lineHeight, fontFamily, theme = defaultTheme, ...rest } = props;
-  return (
-    <div {...rest}>
-      <GlobalStyle {...props} />
-      {props.children}
-    </div>
-  )
-};
