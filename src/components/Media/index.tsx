@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image } from '../Image';
-import { Embed } from './styles';
+import { EmbedWrapper, Embed } from './styles';
 
 export interface IImage {
   id: string;
@@ -30,9 +30,11 @@ const Media: React.FC<IMedia> = ({
   const url = videoProvider === 'vimeo' ? `https://player.vimeo.com/video/${videoId}` : `https://www.youtube.com/embed/${videoId}`;
 
   return (
-    <Embed>
-      <iframe title={`${videoId}-${videoProvider}`} src={url} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
-    </Embed>
+    <EmbedWrapper>
+      <Embed>
+        <iframe title={`${videoId}-${videoProvider}`} src={url} allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      </Embed>
+    </EmbedWrapper>
   );
 };
 

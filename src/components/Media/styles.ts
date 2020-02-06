@@ -1,5 +1,11 @@
 import styled from "../../styles/styled";
 
+const EmbedWrapper = styled.div`
+  width: 100%;
+`;
+
+EmbedWrapper.displayName = 'EmbedWrapper';
+
 const Embed = styled.div`
   height: 0;
   margin: 0 auto 25px;
@@ -10,7 +16,9 @@ const Embed = styled.div`
   iframe {
     border: none;
     height: 100%;
+    left: 0;
     position: absolute;
+    top: 0;
     width: 100%;
   }
 
@@ -21,4 +29,4 @@ const Embed = styled.div`
 
 Embed.displayName = 'Embed';
 
-export { Embed };
+export { EmbedWrapper, Embed };

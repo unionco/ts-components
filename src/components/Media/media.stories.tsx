@@ -2,9 +2,12 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import { Media } from "../Media";
-import { Container } from "../Container";
-import { Section } from "../Section";
+import { Media } from '../Media';
+import { Container } from '../Container';
+import { Section } from '../Section';
+import { Flex } from '../Flex';
+import { CopyStory } from '../Copy/copy.stories';
+import { Box } from '../Box';
 
 const image = {
   id: '1',
@@ -34,6 +37,21 @@ storiesOf("Media", module)
       <Section>
         <Container>
           <ContentMediaVideo />
+        </Container>
+      </Section>
+    </ThemeProvider>
+  ))
+  .add("Copy + Video", () => (
+    <ThemeProvider>
+      <BaseStyles />
+      <Section>
+        <Container>
+          <Flex>
+            <Box width="50%" flexShrink={0}>
+              <CopyStory twoCol={false} />
+            </Box>
+            <ContentMediaVideo />
+          </Flex>
         </Container>
       </Section>
     </ThemeProvider>
