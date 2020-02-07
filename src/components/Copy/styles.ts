@@ -1,5 +1,6 @@
 import styled, { IThemeStyledFunction } from '../../styles/styled';
 import { StyledEyebrow } from '../Eyebrow';
+import { StyledRichText } from '../RichText';
 import { SpaceProps, space } from 'styled-system';
 
 type IStyledCopyProps = IThemeStyledFunction<'div'> & SpaceProps & {
@@ -43,7 +44,7 @@ const Copy = styled.div<IStyledCopyProps>`
   }
 
   ${props => props.twoCol && `
-    .copy {
+    ${StyledRichText} {
       column-count: 2;
       margin-bottom: ${props.theme.space[6]};
 

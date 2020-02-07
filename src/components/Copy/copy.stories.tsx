@@ -10,11 +10,11 @@ const copy = {
   eyebrow: 'Eyebrow',
   heading: 'Long headline for two lines for attention and evolving',
   subheading: 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam.',
-  copy: '<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Sciis natoque penatibus et magnis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.</p>'
+  copy: '<p><span style="color: rebeccapurple; text-decoration: underline;">Sociis natoque penatibus</span> et magnis dis parturient montes, <b>nascetur ridiculus mus</b>. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Sciis natoque penatibus et magnis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo.<ul><li>List Item</li><li>List Item</li></ul><ol><li>List Item</li><li>List Item</li></ol></p>'
 };
 
 export const CopyStory: React.FC<{ twoCol: boolean }> = ({ twoCol }) => (
-  <Copy {...copy} {...Object.assign({}, { twoCol })} action={
+  <Copy {...copy} twoCol={twoCol} action={
     <ButtonGroup>
       <Button variant="primary">Primary CTA</Button>
       <Button variant="primary" fill="clear">Secondary CTA</Button>

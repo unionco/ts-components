@@ -3,12 +3,13 @@ import { getVariantCSS } from '../../utils';
 import { objectFit } from '../../theme/mixins'
 
 interface IRichTextProps {
-  tightness: 'tight' | 'loose' | 'default';
+  tightness?: 'tight' | 'loose' | 'default';
+  twoCol?: boolean;
 };
 
 const tightness = (props: any) => getVariantCSS(props.theme, `wysiwyg.tightness.${props.tightness}`);
 
-const RichTextStyles = styled.div<IRichTextProps>`
+const StyledRichText = styled.div<IRichTextProps>`
   display: block;
   max-width: ${props => props.theme.wysiwyg.maxWidth};
 
@@ -138,4 +139,4 @@ const RichTextStyles = styled.div<IRichTextProps>`
   }
 `;
 
-export { RichTextStyles, IRichTextProps };
+export { StyledRichText, IRichTextProps };

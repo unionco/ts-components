@@ -3,7 +3,6 @@ import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
 import { StyledCopy } from '../Copy';
 import { objectFit } from '../../theme/mixins'
-// import { StyledCopy } from '../Copy';
 
 interface IFlexibleContentStyleProps {
   layout?: string;

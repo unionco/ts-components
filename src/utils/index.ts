@@ -29,3 +29,4 @@ export function isBrowser() {
 }
 
 export { maxWidth, fontSize } from './slopeCalc';
+export { themeGet } from '@styled-system/theme-get';

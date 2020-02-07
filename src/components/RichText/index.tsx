@@ -1,16 +1,17 @@
 import React from 'react';
-import { RichTextStyles, IRichTextProps } from './styles';
+import { StyledRichText, IRichTextProps } from './styles';
 
 const RichText: React.FC<IRichTextProps> = ({
   tightness = 'default',
   ...rest
 }) => {
   const props = { tightness, ...rest };
+
   return (
-    <RichTextStyles {...props}>
+    <StyledRichText {...props}>
       {props.children}
-    </RichTextStyles>
+    </StyledRichText>
   );
 };
 
-export { RichText, RichTextStyles };
+export { RichText, StyledRichText };
