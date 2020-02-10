@@ -1,11 +1,12 @@
-// import React from 'react';
 import { styled } from '../../styles';
+
+import { Box } from '../Box';
 
 interface IContainerProps {
   variant?: 'thin'|'extra-thin';
 };
 
-const Container = styled.div<IContainerProps>`
+const Container = styled(Box)<IContainerProps>`
   max-width: ${ props => props.theme.maxWidths.xl };
   margin: 0 auto;
   padding: 0 ${ props => props.theme.space[3] };
