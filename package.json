@@ -1,6 +1,6 @@
 {
   "name": "@union/ts-components",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
