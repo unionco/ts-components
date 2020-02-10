@@ -25,7 +25,7 @@ const Copy: React.FC<ICopyProps> = ({
     <StyledCopy {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
       {heading && <h1>{heading}</h1>}
-      {subheading && <h5>{subheading}</h5>}
+      {subheading && <h5 dangerouslySetInnerHTML={{ __html: subheading }} />}
 
       {
         copy && (
