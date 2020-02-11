@@ -50,11 +50,11 @@ const Select: React.FC<ISelectProps> = ({
 
   return (
     <SelectWrapper position={position} disabled={disabled} hasValue={hasValue} {...rest}>
-      {position && position !== 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
-      <StyledSelect id={`select-${id}`} aria-label={name} {...props} defaultValue={defaultValue} onChange={onChangeProxy} multiple={multiple}>
+      {position && position !== 'floating' && <Label required={required} htmlFor={`select-${id}`}>{label}</Label>}
+      <StyledSelect id={`select-${id}`} aria-label={name} {...props} defaultValue={defaultValue} onChange={onChangeProxy} multiple={multiple} required={required}>
         {children}
       </StyledSelect>
-      {position && position === 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
+      {position && position === 'floating' && <Label required={required} htmlFor={`select-${id}`}>{label}</Label>}
       {!multiple && getSvg()}
     </SelectWrapper>
   );
