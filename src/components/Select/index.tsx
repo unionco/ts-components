@@ -19,7 +19,7 @@ const Select: React.FC<ISelectProps> = ({
   defaultValue,
   value,
   required,
-  multiple,
+  multiple = false,
   label,
   disabled,
   onChange,
@@ -51,11 +51,11 @@ const Select: React.FC<ISelectProps> = ({
   return (
     <SelectWrapper position={position} disabled={disabled} hasValue={hasValue} {...rest}>
       {position && position !== 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
-      <StyledSelect id={`select-${id}`} aria-label={name} {...props} defaultValue={defaultValue} onChange={onChangeProxy}>
+      <StyledSelect id={`select-${id}`} aria-label={name} {...props} defaultValue={defaultValue} onChange={onChangeProxy} multiple={multiple}>
         {children}
       </StyledSelect>
       {position && position === 'floating' && <Label htmlFor={`select-${id}`}>{label}</Label>}
-      {getSvg()}
+      {!multiple && getSvg()}
     </SelectWrapper>
   );
 }

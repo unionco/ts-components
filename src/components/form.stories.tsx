@@ -60,6 +60,18 @@ storiesOf("Forms", module)
                   <Option value="california">California</Option>
                 </Select>
               </GridItem>
+
+              <GridItem p={2} size={[12, 4]}>
+                <Select multiple={true} label="State" id="states" name="states" position={floating ? "floating" : "stacked"}>
+                  <Option>Select a state</Option>
+                  <Option value="alabama">Alabama</Option>
+                  <Option value="alaska">Alaska</Option>
+                  <Option value="arizona">Arizona</Option>
+                  <Option value="arkansas">Arkansas</Option>
+                  <Option value="california">California</Option>
+                </Select>
+              </GridItem>
+
               <GridItem p={2} size={[12, 4]}>
                 <TextInput
                   id="phone"

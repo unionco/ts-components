@@ -2,6 +2,7 @@ import { get } from 'lodash';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { StyledLabel } from '../Label';
 import { SpaceProps, space } from 'styled-system';
+import { themeGet } from '../../utils';
 
 export type IStyledSelectProps = IThemeStyledFunction<'select'> & SpaceProps & {
   disabled?: boolean;
@@ -18,17 +19,26 @@ export type ISelectWrapperProps = IStyledSelectProps & SpaceProps & {
  */
 export const StyledSelect = styled.select<IStyledSelectProps>`
   appearance: none;
-  background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-  border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-  border: ${(props) => get(props.theme, 'formElements.input.border')};
+  background: ${themeGet('formElements.input.backgroundColor')};
+  border-radius: ${themeGet('formElements.input.borderRadius')};
+  border: ${themeGet('formElements.input.border')};
   border: 2px solid transparent;
   cursor: pointer;
   font-size: 16px;
   outline: none;
-  padding: 0 ${(props) => get(props.theme, 'formElements.input.padding')};
-  height: 64px;
+  padding: 0 ${themeGet('formElements.input.padding')};
+  height: ${props => !props.multiple ? '64px' :  'auto'};
   width: 100%;
   transition: all 0.3s ease-in-out;
+
+  ${props => props.multiple && `
+    padding-top: ${get(props.theme, 'formElements.input.padding')};
+    padding-bottom: ${get(props.theme, 'formElements.input.padding')};
+
+    option {
+      padding: 6px 5px;
+    }
+  `}
 
   &:focus {
     & + ${StyledLabel} {
@@ -50,10 +60,10 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
  */
 export const SelectWrapper = styled.div<ISelectWrapperProps>`
   position: relative;
-  margin-bottom: ${props => get(props.theme, 'space.3')};
+  margin-bottom: ${themeGet('space.3')};
 
   svg {
-    margin: ${props => get(props.theme, 'formElements.input.padding')};
+    margin: ${themeGet('formElements.input.padding')};
     pointer-events: none;
     position: absolute;
     bottom: 6px;
