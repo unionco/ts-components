@@ -48,6 +48,7 @@ export const BaseStyles = createGlobalStyle`
     margin: 0;
   }
 
+  /* [NOTE] These sizes are duplicated in the Typography component */
   h1.display {
     ${props => props.theme.fontSizes['5xl']};
   }

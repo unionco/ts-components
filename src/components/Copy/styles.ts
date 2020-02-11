@@ -31,13 +31,17 @@ const Copy = styled.div<IStyledCopyProps>`
     margin-bottom: ${props => props.theme.space[6]};
   }
 
+
+  /* [TODO] This should be a styled-component reference to more explicitly link the usage */
   h1 {
     margin-bottom: ${props => props.theme.space[3]};
   }
 
-  h5 {
+  /* [TODO] This should be a styled-component reference to more explicitly link the usage */
+  h2 {
     margin-bottom: ${props => props.theme.space[4]};
   }
+
 
   p {
     margin-bottom: ${props => props.theme.space[6]};
