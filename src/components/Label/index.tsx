@@ -4,6 +4,7 @@ import { SpaceProps, ColorProps, space, color } from 'styled-system';
 
 export type ILabelProps = IThemeStyledFunction<'label'> & SpaceProps & ColorProps & {
   htmlFor?: string;
+  required?: boolean;
 }
 
 const StyledLabel = styled.label<ILabelProps>`
@@ -17,6 +18,12 @@ const StyledLabel = styled.label<ILabelProps>`
   pointer-events: none;
   color: ${props => props.theme.colors.dark.base};
 
+  ${props => props.required && `
+    &:after {
+      content: '*';
+    }
+  `}
+
   ${space}
   ${color}
 `;
@@ -26,9 +33,9 @@ const Label: React.FC<ILabelProps> = ({
   children,
   ...rest
 }) => (
-    <StyledLabel htmlFor={htmlFor} {...rest }>
-      {children}
-    </StyledLabel>
-)
+  <StyledLabel htmlFor={htmlFor} {...rest }>
+    {children}
+  </StyledLabel>
+);
 
 export { Label, StyledLabel };
