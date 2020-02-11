@@ -27,16 +27,15 @@ export const fonts: IFonts = {
 };
 
 export const fontSizes: IFontSizes = {
-  xs: fontSize({ sm: 8, xl: 8 }),
-  sm: fontSize({ sm: 12, xl: 12 }),
-  base: fontSize({ sm: 16, xl: 16 }),
-  lg: fontSize({ sm: 20, xl: 20 * 1.25 }),
-  xl: fontSize({ sm: 24, xl: 24 * 1.25 }),
-  '2xl': fontSize({ sm: 28, xl: 28 * 1.25 }),
-  '3xl': fontSize({ sm: 32, xl: 32 * 1.25 }),
-  '4xl': fontSize({ sm: 36, xl: 36 * 1.25 }),
-  '5xl': fontSize({ sm: 48, xl: 48 * 1.25 }),
-  '6xl': fontSize({sm: 64, xl: 64 * 1.25 }),
+  xs: 'font-size: 8px',
+  sm: 'font-size: 12px',
+  base: 'font-size: 16px',
+  lg: 'font-size: 12px', // h5
+  xl: 'font-size: 16px', // h4
+  '2xl': fontSize({ sm: 20, xl: 24 }), // h3
+  '3xl': fontSize({ sm: 32, xl: 40 }), // h2
+  '4xl': fontSize({ sm: 40, xl: 56 }), // h1
+  '5xl': fontSize({ sm: 48, xl: 80 }), // h1.display
 }
 
 export const fontWeights: IFontWeights = {

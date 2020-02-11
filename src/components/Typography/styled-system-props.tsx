@@ -28,4 +28,7 @@ export type StyledSystemProps = IThemeStyledFunction<any>
   | LineHeightProps
   | TextAlignProps
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  | { color: string; as?: keyof JSX.IntrinsicElements | React.ComponentType<any> };
+  | {
+    color: string;
+    as?: keyof JSX.IntrinsicElements | React.ComponentType<any>
+  };

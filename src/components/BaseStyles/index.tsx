@@ -49,7 +49,7 @@ export const BaseStyles = createGlobalStyle`
   }
 
   h1.display {
-    ${props => props.theme.fontSizes['6xl']};
+    ${props => props.theme.fontSizes['5xl']};
   }
   h1 {
    ${props => props.theme.fontSizes['4xl']};
