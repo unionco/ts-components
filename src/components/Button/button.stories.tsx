@@ -22,7 +22,7 @@ storiesOf("Button", module)
         <Button fill={fill} size={size} textLink={textLink} variant="dark">Dark Button</Button>
         <Button fill={fill} size={size} textLink={textLink} variant="medium">Medium Button</Button>
         <Button fill={fill} size={size} textLink={textLink} variant="light">Light Button</Button>
-        <Button fill={fill} size={size} textLink={textLink} variant="link">Light Button</Button>
+        <Button fill={fill} size={size} textLink={textLink} variant="link">Link Button</Button>
       </ThemeProvider>
     );
   })

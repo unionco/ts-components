@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
 
@@ -8,6 +8,7 @@ export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProp
   onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
   fill?: 'solid' | 'outline' | 'clear';
+  href?: string;
 };
 
 const sizes = variant({
@@ -18,20 +19,14 @@ const sizes = variant({
 const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
 }))<IStyledButtonProps>`
-  --neo-color-base: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  --neo-color-contrast: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-  --neo-color-tint: ${(props) => get(props.theme, `colors.${props.variant}.tint`)};
-
   appearance: none;
   display: inline-block;
-  background: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  background: var(--neo-color-base);
-  border: none;
-  color: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-  color: var(--neo-color-contrast);
+  background: ${props => themeGet(`colors.${props.variant}.base`)};
+  border: 1px solid ${props => themeGet(`colors.${props.variant}.base`)};;
+  color: ${props => themeGet(`colors.${props.variant}.contrast`)};
   cursor: pointer;
-  ${props => props.theme.fontSizes.base};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
+  ${themeGet('fontSizes.base')};
+  font-weight: ${themeGet('fontWeights.bold')};
   line-height: 20px;
   overflow: hidden;
   margin: 4px;
@@ -75,18 +70,19 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
       case 'clear':
         return `
           background: transparent;
-          color: ${get(props.theme, `colors.${props.variant}.base`)};
+          border-color: transparent; // to maintain the same, shared height
+          color: ${themeGet(`colors.${props.variant}.base`)(props)};
           :hover {
             background: #eee;
           }`
       case 'outline':
         return `
           background: transparent;
-          border: 1px solid ${get(props.theme, `colors.${props.variant}.base`)};
-          color: ${get(props.theme, `colors.${props.variant}.base`)};
+          border: 1px solid ${themeGet(`colors.${props.variant}.base`)(props)};
+          color: ${themeGet(`colors.${props.variant}.base`)(props)};
           :hover {
-            background: ${get(props.theme, `colors.${props.variant}.base`)};
-            color: ${get(props.theme, `colors.${props.variant}.contrast`)};
+            background: ${themeGet(`colors.${props.variant}.base`)(props)};
+            color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
           }`
       default:
         return `${props.theme.buttonFills?.solid}`
@@ -95,7 +91,7 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
 
   ${props => props.textLink && `
     background: transparent;
-    color: var(--neo-color-base);
+    color: ${themeGet(`colors.${props.variant}.base`)};
     padding: 0;`
   };
 
