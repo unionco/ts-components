@@ -15,15 +15,16 @@ const CardContent = styled.div<ICardProps>`
   height: 100%;
   width: 100%;
 
-  h4,
+
+
+  /* [TODO] This should be a styled-component reference to more explicitly link the usage */
+  h1,
   p {
     padding-bottom: ${props => props.theme.space[2]};
     width: 100%;
   }
 
-  h4 {
-    ${props => props.theme.fontSizes.lg}
-  }
+
 
   ${Button} {
     margin-left: 0;

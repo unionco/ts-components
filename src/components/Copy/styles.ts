@@ -32,6 +32,7 @@ const Copy = styled.div<IStyledCopyProps>`
   }
 
 
+
   /* [TODO] This should be a styled-component reference to more explicitly link the usage */
   h1 {
     margin-bottom: ${props => props.theme.space[3]};
@@ -41,6 +42,7 @@ const Copy = styled.div<IStyledCopyProps>`
   h2 {
     margin-bottom: ${props => props.theme.space[4]};
   }
+
 
 
   p {

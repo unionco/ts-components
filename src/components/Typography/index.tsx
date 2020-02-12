@@ -8,6 +8,8 @@ import { typographyStyles } from './styles';
 type HeadingProps = StyledSystemProps & React.HTMLAttributes<HTMLHeadingElement>;
 type TextProps = StyledSystemProps & React.HTMLAttributes<HTMLParagraphElement>;
 
+
+
 // [TODO] Replace `any` below with something more explicit
 const createComponent: (upperProps: any, displayName: string) => React.FC<StyledSystemProps> = (upperProps, displayName) => {
   const { slopeFontSize, ...rest } = upperProps;
