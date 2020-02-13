@@ -1,3 +1,4 @@
+import { themeGet } from '@styled-system/theme-get';
 import { get } from 'lodash';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { colors } from '../../theme';
@@ -61,7 +62,7 @@ export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
     margin-right: ${props => props.theme.space[3]};
 
     [slot="inner"] {
-      color: var(--input-color-contrast);
+      color: ${props => themeGet(`colors.${props.variant}.contrast`)};
       font-size: 1em;
       height: calc(1.25em + 2px);
       left: 1px;
@@ -74,8 +75,8 @@ export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
       z-index: 1;
 
       svg {
-        fill: var(--input-color-contrast);
-        stroke: var(--input-color-contrast);
+        fill: ${props => themeGet(`colors.${props.variant}.contrast`)};
+        stroke: ${props => themeGet(`colors.${props.variant}.contrast`)};
       }
     }
   }
@@ -153,7 +154,7 @@ export const CheckboxInput = styled.input<IStyledCheckboxProps>`
     &:focus {
       ~ .state ${CheckboxLabel} {
         &:before {
-          border-color: var(--input-color-base);
+          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }
@@ -167,10 +168,10 @@ export const CheckboxInput = styled.input<IStyledCheckboxProps>`
 
       ${CheckboxLabel} {
         &:before {
-          border-color: var(--input-color-base);
+          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }
         &:after {
-          background: var(--input-color-base);
+          background: ${props => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }

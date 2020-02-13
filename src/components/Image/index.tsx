@@ -15,7 +15,7 @@ const StyledImage = styled.img`
   display: block;
   width: 100%;
   height: 100%;
-  ${objectFit('inherit', 'inherit')}
+  ${objectFit('cover')}
 `
 
 interface IImageState {

@@ -21,6 +21,7 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   ${props => props.theme.fontSizes.base};
 
   i {
+    font-style: normal;
     height: 16px;
     width: 16px;
 

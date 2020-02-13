@@ -11,7 +11,7 @@ const ReviewStars = styled.div<IStyledReviewStarsProps>`
     .ReviewStars-full {
         display: inline-block;
         left: 0;
-        overflow-x: hidden;
+        overflow: hidden;
         position: absolute;
         top: 0;
         transition: width 0.5s ease;

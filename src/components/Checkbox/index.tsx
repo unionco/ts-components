@@ -27,13 +27,14 @@ const Checkbox: React.FC<ICheckboxProps> = ({
   variant = 'primary',
   ...rest
 }) => {
-  const props = { disabled, onChange, value,...rest };
+  const props = { disabled, onChange, value, ...rest };
   const wrapperProps = { disabled, boxSize, variant };
+  console.log('props', props);
 
   return (
     <>
       <CheckboxWrapper {...wrapperProps}>
-        <CheckboxInput type="checkbox" id={`input-${id}`} defaultChecked={defaultChecked} {...props} aria-label={name} />
+        <CheckboxInput type="checkbox" id={`input-${id}`} defaultChecked={defaultChecked} variant={variant} {...props} aria-label={name} />
         <div className="state">
           {inner && <div slot="inner">{inner}</div>}
           <CheckboxLabel htmlFor={`input-${id}`} fill={fill} round={round} size={boxSize}>{label}</CheckboxLabel>

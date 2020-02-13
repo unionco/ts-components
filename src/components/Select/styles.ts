@@ -31,6 +31,11 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   width: 100%;
   transition: all 0.3s ease-in-out;
 
+  /* IE11 */
+  &::-ms-expand {
+    display: none;
+  }
+
   ${props => props.multiple && `
     padding-top: ${get(props.theme, 'formElements.input.padding')};
     padding-bottom: ${get(props.theme, 'formElements.input.padding')};
