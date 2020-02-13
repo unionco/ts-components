@@ -40,14 +40,12 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
 
   [slot="start"] i {
     display: block;
-    height: 100%;
-    padding-right: 12px;
+    margin-right: ${({ fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
   }
 
   [slot="end"] i {
     display: block;
-    height: 100%;
-    padding-left: 12px;
+    margin-left: ${({ fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
   }
 
   .button-inner {
