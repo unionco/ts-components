@@ -1,22 +1,24 @@
 import React from 'react';
 import { StyledFeatureBlock, IStyledFeatureBlockProps } from './styles';
 import { Icon } from '../Icon';
+import { H3, Paragraph } from '../Typography';
 
 interface IFeatureBlock extends IStyledFeatureBlockProps {
   icon?: JSX.Element;
   title?: string;
   copy?: string;
+  action?: JSX.Element;
   link?: string;
   linkText?: string;
 }
 
-const FeatureBlock: React.FC<IFeatureBlock> = ({icon, title, copy, link, linkText}) => {
+const FeatureBlock: React.FC<IFeatureBlock> = ({ icon, title, copy, action }) => {
   return (
     <StyledFeatureBlock>
       {icon && (<Icon icon={icon} />)}
-      {title && (<h4>{title}</h4>)}
-      {copy && (<p>{copy}</p>)}
-      {link && (<a href={link}>{linkText ? linkText : 'Learn More'}</a>)}
+      {title && (<H3 className="h4">{title}</H3>)}
+      {copy && (<Paragraph>{copy}</Paragraph>)}
+      {action && (<div slot="action">{action}</div>)}
     </StyledFeatureBlock>
   );
 }

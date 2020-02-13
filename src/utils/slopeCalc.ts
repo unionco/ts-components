@@ -151,3 +151,4 @@ export default function expose(arg: any) {
 
 export const fontSize: any = expose('font-size');
 export const maxWidth: any = expose('max-width');
+export const lineHeight: any = expose('line-height');

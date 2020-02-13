@@ -135,15 +135,15 @@ export const theme: IDefaultTheme = {
   },
   buttonSizes: {
     small: {
-      fontSize: fontSizes[1],
+      fontSize: fontSizes.sm,
       padding: `8px 16px`
     },
     medium: {
-      fontSize: fontSizes[2],
+      fontSize: fontSizes.base,
       padding: `16px 24px`
     },
     large: {
-      fontSize: fontSizes[4],
+      fontSize: fontSizes.md,
       padding: `24px 32px`
     }
   },

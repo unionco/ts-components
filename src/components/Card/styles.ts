@@ -21,10 +21,6 @@ const CardContent = styled.div<ICardProps>`
     width: 100%;
   }
 
-  h4 {
-    ${props => props.theme.fontSizes.lg}
-  }
-
   ${Button} {
     margin-left: 0;
   }

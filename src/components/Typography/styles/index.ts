@@ -15,6 +15,7 @@ export interface TypographyStyles {
 export const typographyStyles: TypographyStyles = {
   Display: {
     as: 'h1',
+    className: 'display'
   },
   H1: {
     as: 'h1',
@@ -38,7 +39,7 @@ export const typographyStyles: TypographyStyles = {
     as: 'p',
   },
   SmallParagraph: {
-    fontSize: '0.8em',
     as: 'p',
+    className: 'small',
   },
 };

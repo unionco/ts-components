@@ -13,7 +13,6 @@ const { ServerStyleSheet } = styledComponents;
 
 export type IThemeStyledFunction<T> = Omit<ThemedStyledFunction<T, IDefaultTheme, {}>, 'attrs'|'color'> & {
   color?: Exclude<keyof typeof colors, 'white'|'black'>;
-
 };
 
 export { css, ServerStyleSheet, createGlobalStyle, ThemeProvider, withTheme };

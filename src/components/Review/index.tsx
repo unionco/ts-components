@@ -1,6 +1,7 @@
 import React from 'react';
 import { Review as StyledReview, ReviewStars as StyledReviewStars } from './styles';
 import { Avatar } from '../Avatar'
+import { H1, Paragraph } from '../Typography';
 
 interface IReview {
   image?: string;
@@ -39,22 +40,22 @@ const Review: React.FC<IReview> = ({image, title, subtitle, rating, review, ...r
   return (
     <StyledReview {...rest}>
       <Avatar image={image} />
-      <div className="Review-content">
+      <section className="Review-content">
         <div className="Review-info">
           <div className="Review-info-left">
-            {title && (<h4>{title}</h4>)}
-            {subtitle && (<p>{subtitle}</p>)}
+            {title && (<H1 className="h3">{title}</H1>)}
+            {subtitle && (<Paragraph>{subtitle}</Paragraph>)}
           </div>
           <div className="Review-info-right">
             {rating && (
               <>
-                <strong>{rating.toFixed(1)}</strong> <ReviewStars rating={rating} /> <span>a week ago</span>
+                <strong>{rating.toFixed(1)}</strong> <ReviewStars rating={rating} /> <Paragraph>a week ago</Paragraph>
               </>
             )}
           </div>
         </div>
         {review && (<p>{review}</p>)}
-      </div>
+      </section>
     </StyledReview>
   );
 }

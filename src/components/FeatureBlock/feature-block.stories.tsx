@@ -6,7 +6,15 @@ import { BaseStyles } from '../BaseStyles';
 import { FeatureBlock } from './index';
 import { Flex, FlexItem } from '../Flex';
 import AddressBook from '../Icon/icons/AddressBook';
+import Button from "../Button/styles";
 
+const Action: React.FC<any> = ({ link, linkText }) => {
+  return (
+    <Button fill="clear" variant="primary" textLink={true}>
+      <a href={link}>{linkText}</a>
+    </Button>
+  );
+}
 storiesOf("FeatureBlock", module)
   .add("Default", () => {
     const Icon = AddressBook;
@@ -22,16 +30,16 @@ storiesOf("FeatureBlock", module)
       <BaseStyles />
       <Flex wrap={wrap}>
         <FlexItem basis={columnSize}>
-          <FeatureBlock icon={<Icon />} title={title} copy={copy} link={link} linkText={linkText} />
+          <FeatureBlock icon={<Icon />} title={title} copy={copy} action={<Action link={link} linkText={linkText} />} />
         </FlexItem>
         <FlexItem basis={columnSize}>
-          <FeatureBlock icon={<Icon />} title={title} copy={copy} link={link} linkText={linkText} />
+          <FeatureBlock icon={<Icon />} title={title} copy={copy} action={<Action link={link} linkText={linkText} />} />
         </FlexItem>
         <FlexItem basis={columnSize}>
-          <FeatureBlock icon={<Icon />} title={title} copy={copy} link={link} linkText={linkText} />
+          <FeatureBlock icon={<Icon />} title={title} copy={copy} action={<Action link={link} linkText={linkText} />} />
         </FlexItem>
         <FlexItem basis={columnSize}>
-          <FeatureBlock icon={<Icon />} title={title} copy={copy} link={link} linkText={linkText} />
+          <FeatureBlock icon={<Icon />} title={title} copy={copy} action={<Action link={link} linkText={linkText} />} />
         </FlexItem>
       </Flex>
     </ThemeProvider>

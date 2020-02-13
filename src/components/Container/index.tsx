@@ -1,8 +1,9 @@
-import { styled } from '../../styles';
+import { styled, IThemeStyledFunction } from '../../styles';
 
 import { Box } from '../Box';
+import { space } from 'styled-system';
 
-interface IContainerProps {
+type IContainerProps = IThemeStyledFunction<'div'> & {
   variant?: 'thin'|'extra-thin';
 };
 
@@ -20,8 +21,11 @@ const Container = styled(Box)<IContainerProps>`
   `}
 
   ${props => props.theme.media.xl} {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
+
+  ${space}
 `;
 
 

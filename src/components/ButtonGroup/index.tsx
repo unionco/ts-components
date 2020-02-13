@@ -31,4 +31,4 @@ const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
   )
 }
 
-export { ButtonGroup, IButtonGroupProps };
+export { ButtonGroup, StyledButtonGroup, IButtonGroupProps };

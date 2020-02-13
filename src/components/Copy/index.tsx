@@ -2,6 +2,7 @@ import React from 'react';
 import { Eyebrow } from '../Eyebrow';
 import { RichText } from '../RichText';
 import { Copy as StyledCopy, IStyledCopyProps } from './styles';
+import { H1, H2 } from '../Typography';
 
 interface ICopyProps extends IStyledCopyProps {
   eyebrow?: string;
@@ -24,14 +25,16 @@ const Copy: React.FC<ICopyProps> = ({
   return (
     <StyledCopy {...props}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      {heading && <h1>{heading}</h1>}
-      {subheading && <h5 dangerouslySetInnerHTML={{ __html: subheading }} />}
+      {heading && <H1 className="h2">{heading}</H1>}
+      {subheading && <H2 className="h3" dangerouslySetInnerHTML={{ __html: subheading }} />}
 
       {
         copy && (
-          <RichText tightness="default" twoCol={twoCol}>
-            <div dangerouslySetInnerHTML={{ __html: copy }} />
-          </RichText>
+          <RichText
+            tightness="default"
+            twoCol={twoCol}
+            dangerouslySetInnerHTML={{ __html: copy }}
+          />
         )
       }
 

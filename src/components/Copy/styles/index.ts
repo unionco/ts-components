@@ -1,7 +1,8 @@
-import styled, { IThemeStyledFunction } from '../../styles/styled';
-import { StyledEyebrow } from '../Eyebrow';
-import { StyledRichText } from '../RichText';
+import styled, { IThemeStyledFunction } from '../../../styles/styled';
+import { StyledEyebrow } from '../../Eyebrow';
+import { StyledRichText } from '../../RichText';
 import { SpaceProps, space } from 'styled-system';
+import { themeGet } from '../../../utils';
 
 type IStyledCopyProps = IThemeStyledFunction<'div'> & SpaceProps & {
   twoCol?: boolean;
@@ -24,29 +25,31 @@ const Copy = styled.div<IStyledCopyProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${props => textAlignToFlexMap(props.textAlign ?? 'left')};
-  padding: ${props => props.theme.space[6]} 0;
+  padding: ${themeGet('space.6')} 0;
   text-align: ${props => props.textAlign ?? 'left'};
 
   ${StyledEyebrow} {
-    margin-bottom: ${props => props.theme.space[6]};
+    margin-bottom: ${themeGet('space.4')};
   }
 
   h1 {
-    margin-bottom: ${props => props.theme.space[3]};
+    margin-bottom: ${themeGet('space.3')};
   }
 
-  h5 {
-    margin-bottom: ${props => props.theme.space[4]};
+  h2 {
+    margin-bottom: ${themeGet('space.5')};
   }
 
-  p {
-    margin-bottom: ${props => props.theme.space[6]};
+  ${StyledRichText} {
+    p {
+      margin-bottom: ${themeGet('space.6')};
+    }
   }
 
   ${props => props.twoCol && `
     ${StyledRichText} {
       column-count: 2;
-      margin-bottom: ${props.theme.space[6]};
+      margin-bottom: ${themeGet('space.6')(props)};
 
       p:last-child {
         margin-bottom: 0;
@@ -56,6 +59,7 @@ const Copy = styled.div<IStyledCopyProps>`
 
   div[slot="actions"] {
     align-self: ${props => textAlignToFlexMap(props.textAlign ?? 'left')};
+    margin: 0 -5px;
   }
 
   ${space}
