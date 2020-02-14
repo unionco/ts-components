@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { StyledModal, IModalProps } from './styles';
 import { Button } from '../Button';
-import ModalButton from './ModalButton';
 
-interface IModal extends IModalProps {
+interface IModalButton extends IModalProps {
+  buttonProps: any;
   isOpen?: boolean | false;
   onAfterOpen?: () => void;
   onRequestClose?: () => void;
 }
 
-const Modal: React.FC<IModal> = ({
-    modalSize = 'md',
-    ...rest
-  }) => {
+const ModalButton: React.FC<IModalButton> = ({
+  buttonProps,
+  modalSize = 'md',
+  ...rest
+}) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const props = {modalSize, ...rest};
 
@@ -29,7 +30,7 @@ const Modal: React.FC<IModal> = ({
   }
   return (
     <>
-      <Button variant="primary" onClick={openModal}>Open Modal</Button>
+      <Button onClick={openModal} {...buttonProps} />
       <StyledModal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -43,4 +44,4 @@ const Modal: React.FC<IModal> = ({
   );
 }
 
-export { Modal, ModalButton, StyledModal, IModal };
+export default ModalButton;

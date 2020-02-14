@@ -5,7 +5,7 @@ import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, spa
 export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProps & SpaceProps & ButtonStyleProps & {
   disabled?: boolean;
   textLink?: boolean;
-  onClick?: () => void;
+  onClick?: () => void | Function;
   size?: 'small' | 'medium' | 'large';
   fill?: 'solid' | 'outline' | 'clear';
   href?: string;
