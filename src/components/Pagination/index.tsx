@@ -36,7 +36,6 @@ const Pagination: React.FC<IPaginationProps> = ({
   }
 
   const goToPage = (page:number) => {
-    console.log(`goToPage ${page}`);
     setCurrentPage(page);
   }
 

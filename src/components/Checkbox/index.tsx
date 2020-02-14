@@ -29,7 +29,6 @@ const Checkbox: React.FC<ICheckboxProps> = ({
 }) => {
   const props = { disabled, onChange, value, ...rest };
   const wrapperProps = { disabled, boxSize, variant };
-  console.log('props', props);
 
   return (
     <>

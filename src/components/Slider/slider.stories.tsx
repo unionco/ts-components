@@ -50,16 +50,8 @@ storiesOf("Slider", module)
     }
 
     const forceUpdate = (event: ISwiperEvent) => {
-      console.log(swiper === event.swiper);
       updateSwiper(event.swiper);
     }
-
-    useEffect(
-      () => {
-        console.log('update swiper');
-      },
-      [swiper]
-    )
 
     return (
       <ThemeProvider>
