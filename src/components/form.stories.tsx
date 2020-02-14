@@ -111,6 +111,7 @@ storiesOf("Forms", module)
                   placeholder="Upload you files"
                   required
                   multiple
+                  color="primary"
                   floating={floating}
                   onChange={() => console.log('change')}
                 />

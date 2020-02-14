@@ -1,15 +1,18 @@
 import { get } from 'lodash';
 import { styled, IThemeStyledFunction } from '../../../styles';
 import { StyledLabel } from '../../Label';
+import { themeGet } from '../../../utils';
+import { StyledIcon } from '../../Icon';
+import { ColorProps } from 'styled-system';
 
 export type FileInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export type StyledFileInputProps = IThemeStyledFunction<'input'> & FileInputProps & {
+export type StyledFileInputProps = IThemeStyledFunction<'input'> & FileInputProps & ColorProps & {
   floating?: boolean;
   error?: string;
 };
 
-const StyledFileInput = styled.input`
+const StyledFileInput = styled.input<ColorProps>`
   cursor: pointer;
   height: 64px;
   left: 0;
@@ -19,11 +22,11 @@ const StyledFileInput = styled.input`
   width: 100%;
 
   &:hover + ${StyledLabel} {
-    border-color: #ddd;
+    border-color: ${props => themeGet(`colors.${props.color}.shade`)};
   }
 `;
 
-export const StyledInputWrapper = styled.div<{ floating?: boolean }>`
+export const StyledInputWrapper = styled.div<StyledFileInputProps>`
   background: transparent;
   display: flex;
   flex-direction: column;
@@ -35,10 +38,10 @@ export const StyledInputWrapper = styled.div<{ floating?: boolean }>`
 
   ${StyledLabel} {
     align-items: center;
-    background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-    /* border: ${(props) => get(props.theme, 'formElements.input.border')}; */
-    border: 2px solid ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-    border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
+    background: ${props => themeGet(`colors.${props.color}.base`)};
+    color: ${props => themeGet(`colors.${props.color}.contrast`)};
+    border: 2px solid ${props => themeGet(`colors.${props.color}.base`)};
+    border-radius: ${themeGet('formElements.input.borderRadius')};
     display: flex;
     ${props => get(props.theme, 'fontSizes.sm')};
     padding: 0 16px;
@@ -46,6 +49,15 @@ export const StyledInputWrapper = styled.div<{ floating?: boolean }>`
     outline: none;
     width: 100%;
     transition: all 0.3s ease-in-out;
+
+    ${StyledIcon} {
+      height: 16px;
+      margin-right: ${themeGet('space.3')};
+
+      * {
+        stroke: ${props => themeGet(`colors.${props.color}.contrast`)};
+      }
+    }
   }
 `;
 
