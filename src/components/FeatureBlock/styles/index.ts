@@ -20,7 +20,7 @@ const StyledFeatureBlock = styled.div<IStyledFeatureBlockProps>`
         margin: 0;
     }
 
-    ${Icon} {
+    > ${Icon} {
         height: 32px;
         width: 32px;
     }
