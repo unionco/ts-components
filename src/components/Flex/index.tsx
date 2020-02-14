@@ -2,7 +2,7 @@
 import React from 'react';
 import { default as FlexComponent, FlexItem as FlexItemComponent } from 'styled-flex-component';
 import { styled, IThemeStyledFunction } from '../../styles';
-import { SpaceProps, space } from 'styled-system';
+import { SpaceProps, space, TextAlignProps, textAlign } from 'styled-system';
 
 type IFlex = IThemeStyledFunction<'div'> & SpaceProps & {
   full?: boolean;
@@ -32,7 +32,7 @@ type IFlex = IThemeStyledFunction<'div'> & SpaceProps & {
   justifyEvenly?: boolean;
 }
 
-type IFlexItem = IThemeStyledFunction<'div'> & SpaceProps & {
+type IFlexItem = IThemeStyledFunction<'div'> & SpaceProps & TextAlignProps & {
   order?: number;
   basis?: string;
   grow?: boolean;
@@ -41,11 +41,12 @@ type IFlexItem = IThemeStyledFunction<'div'> & SpaceProps & {
 }
 
 const Flex = styled(FlexComponent)`
-  ${space};
+  ${space}
 `;
 
 const FlexItem = styled(FlexItemComponent)`
-  ${space};
+  ${textAlign}
+  ${space}
 `;
 
 export { Flex, FlexItem, IFlex, IFlexItem };
