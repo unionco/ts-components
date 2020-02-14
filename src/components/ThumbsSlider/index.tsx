@@ -11,6 +11,9 @@ interface IThumbsSliderState {
   isLoaded?: boolean
 }
 
+// [TODO] Perhaps make this come from the CMS ... remove this comment if you are a B/E and disagree
+export const slidesPerView = 4;
+
 class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderState> {
   constructor(props: IThumbsSliderProps) {
     super(props);
@@ -31,6 +34,7 @@ class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderStat
 
   public render() {
     const { children } = this.props;
+    const disableNextButton = React.Children.count(children) <= slidesPerView;
 
     return (
       <ThumbsSliderContainer>
@@ -43,13 +47,13 @@ class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderStat
             {children}
           </Slider>
         )}
-        <ThumbsContainer>
+        <ThumbsContainer disableNextButton={disableNextButton}>
           <Slider buttons onSlidesDidLoad={this.thumbsLoaded} options={{
             spaceBetween: 15,
-            slidesPerView: 4,
             freeMode: true,
             watchSlidesVisibility: true,
             watchSlidesProgress: true,
+            slidesPerView,
           }}>
             {children}
           </Slider>

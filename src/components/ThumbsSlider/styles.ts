@@ -14,6 +14,7 @@ const ThumbsContainer = styled.div<any>`
     position: static;
 
     .swiper-button-next {
+      ${props => props.disableNextButton && `display: none;`}
       color: ${props => props.theme.colors.black};
       right: -13%;
 
