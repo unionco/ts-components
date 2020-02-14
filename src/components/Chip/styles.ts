@@ -1,12 +1,13 @@
 import styled from '../../styles/styled';
 import { get } from 'lodash';
+import { Icon } from '../Icon/styles'
 
 interface IChipProps {
   variant?: string;
   outline?: boolean;
   clickable?: boolean;
   disabled?: boolean;
-  shape?: 'block'|'round'
+  shape?: 'block'|'round'|'circle'
 }
 
 const Chip = styled.div<IChipProps>`
@@ -18,7 +19,7 @@ const Chip = styled.div<IChipProps>`
   background: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
   background: var(--neo-color-base);
   border: none;
-  border-radius: ${props => props.shape === 'round' ? '32px' : '2px'};
+  border-radius: ${props => props.shape !== 'block' ? '32px' : '2px'};
   color: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
   color: var(--neo-color-contrast);
   display: inline-flex;
@@ -33,6 +34,11 @@ const Chip = styled.div<IChipProps>`
   box-sizing: border-box;
   user-select: none;
   transition: all 0.3s ease-in-out;
+  ${props => props.shape === 'circle' && `
+    justify-content: center;
+    padding: 0;
+    width: 32px;
+  `}
 
   [slot="end"],
   [slot="start"] {
@@ -48,6 +54,17 @@ const Chip = styled.div<IChipProps>`
 
   [slot="end"] {
     margin-left: 8px;
+  }
+
+  ${Icon} {
+    display: flex;
+    height: 10px;
+    width: 10px;
+
+    svg {
+      height: 100%;
+      width: 100%;
+    }
   }
 
   ${props => props.shape === 'round' && `
