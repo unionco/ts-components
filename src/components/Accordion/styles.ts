@@ -44,7 +44,7 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   [slot="end"] {
     margin-left: auto;
     transform-origin: center center;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
   }
 
   &:hover,
@@ -74,7 +74,7 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
 
     ${StyledAccordionTrigger} {
       [slot="end"] {
-        transform: ${(props) => props.open ? `rotate(90deg)` : `rotate(0deg)`};
+        transform: ${(props) => props.open ? `rotate(180deg)` : `rotate(0deg)`};
       }
     }
   }
@@ -82,7 +82,7 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
   .accordion_panel {
     display: block;
     max-height: 0;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     overflow: hidden;
   }
 
