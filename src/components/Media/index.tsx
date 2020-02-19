@@ -27,7 +27,7 @@ const Media: React.FC<IMedia> = ({
     return <Image src={image.url} alt={image.alt || 'image'} />
   }
 
-  const url = videoProvider === 'vimeo' ? `https://player.vimeo.com/video/${videoId}` : `https://www.youtube.com/embed/${videoId}`;
+  const url = videoProvider === 'vimeo' ? `https://player.vimeo.com/video/${videoId}` : `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
 
   return (
     <EmbedWrapper>
