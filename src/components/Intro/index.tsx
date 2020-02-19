@@ -1,51 +1,32 @@
 import React from 'react';
-import { styled, IThemeStyledFunction } from '../../styles';
-import { display, DisplayProps, SpaceProps, FlexboxProps, space, flexbox } from 'styled-system';
+import { StyledIntro, StyledIntroProps } from './styles';
 
-type IIntro = IThemeStyledFunction<'div'> & DisplayProps & SpaceProps & FlexboxProps & {
+type IntroProps = StyledIntroProps & {
   /** copy slotted content */
   copy?: JSX.Element;
   /** action slotted content */
   action?: JSX.Element;
   /** applies default values for centering of content */
-  centered?: boolean;
+  layout?: 'row'|'column';
 }
 
-const StyledIntro = styled.div<Omit<IIntro, 'copy' | 'action' | 'centered'>>`
-  ${display};
-  ${space};
-  ${flexbox};
-`;
-
-const Intro: React.FC<IIntro> = ({
+const Intro: React.FC<IntroProps> = ({
   copy,
   action,
-  centered,
-  display = 'flex',
-  alignItems = 'center',
-  justifyContent = 'space-between',
-  mb = 4,
+  layout = 'row',
   ...rest
 }) => {
-
   /**
    * Reset props with default values
    */
-  const props = { alignItems, display, justifyContent, mb, ...rest };
-
-  /**
-   * Override styles if centered
-   */
-  if (centered) {
-    props.flexDirection = 'column';
-  }
+  const props = { layout, ...rest };
 
   return (
     <StyledIntro {...props}>
-      {copy && copy}
+      {copy && <div slot="copy">{copy}</div>}
       {action && action}
     </StyledIntro>
   );
 }
 
-export { Intro, IIntro };
+export { Intro, StyledIntro };

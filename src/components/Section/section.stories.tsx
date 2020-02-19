@@ -6,6 +6,7 @@ import { Section } from './index';
 import { Container } from "../Container";
 import { Intro } from '../Intro';
 import {Button} from "../Button";
+import { H2, Paragraph } from "../Typography";
 
 storiesOf("Section", module)
   .add("Default", () => (
@@ -14,11 +15,11 @@ storiesOf("Section", module)
       <Section p={[2, 4, 8]} bg="light.base">
         <Container>
           <Intro
-            centered
+            layout="column"
             copy={
-              <div style={{ textAlign: 'center'}}>
-                <h1>Section Intro</h1>
-                <p>Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.</p>
+              <div>
+                <H2>Section Intro</H2>
+                <Paragraph>Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.</Paragraph>
               </div>
             }
             action={<Button variant="primary">See All</Button>}
@@ -35,8 +36,8 @@ storiesOf("Section", module)
           <Intro
             copy={
               <div>
-                <h1>Section Intro</h1>
-                <p>Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.</p>
+                <H2>Section Intro</H2>
+                <Paragraph>Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus.</Paragraph>
               </div>
             }
             action={<Button variant="primary">See All</Button>}
