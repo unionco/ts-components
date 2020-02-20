@@ -27,7 +27,6 @@ export const StyledPagination = styled.div<IStyledPaginationProps>`
   }
 
   button {
-    background: ${props => themeGet(`colors.${props.variant}.base`)};
     border: 0;
     font-size: 16px;
     font-weight: bold;
