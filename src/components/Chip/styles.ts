@@ -1,5 +1,5 @@
+import { themeGet } from '@styled-system/theme-get';
 import styled from '../../styles/styled';
-import { get } from 'lodash';
 import { Icon } from '../Icon/styles'
 
 interface IChipProps {
@@ -11,17 +11,11 @@ interface IChipProps {
 }
 
 const Chip = styled.div<IChipProps>`
-  --neo-color-base: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  --neo-color-contrast: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-  --neo-color-tint: ${(props) => get(props.theme, `colors.${props.variant}.tint`)};
-
   align-items: center;
-  background: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  background: var(--neo-color-base);
+  background: ${props => themeGet(`colors.${props.variant}.base`)};
   border: none;
   border-radius: ${props => props.shape !== 'block' ? '32px' : '2px'};
-  color: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-  color: var(--neo-color-contrast);
+  color: ${props => themeGet(`colors.${props.variant}.contrast`)};
   display: inline-flex;
   font-size: 14px;
   height: 32px;
@@ -34,6 +28,7 @@ const Chip = styled.div<IChipProps>`
   box-sizing: border-box;
   user-select: none;
   transition: all 0.3s ease-in-out;
+
   ${props => props.shape === 'circle' && `
     justify-content: center;
     padding: 0;
@@ -46,6 +41,8 @@ const Chip = styled.div<IChipProps>`
     height: 15px;
     width: 15px;
     text-align: center;
+    background: ${props => themeGet(`colors.${props.variant}.contrast`)};
+    color: ${props => themeGet(`colors.${props.variant}.base`)};
   }
 
   [slot="start"] {
@@ -70,46 +67,46 @@ const Chip = styled.div<IChipProps>`
   ${props => props.shape === 'round' && `
     [slot="end"],
     [slot="start"] {
-      background: var(--neo-color-contrast);
+      background: ${themeGet(`colors.${props.variant}.contrast`)(props)};
       border-radius: 50%;
-      color: var(--neo-color-base);
+      color: ${themeGet(`colors.${props.variant}.base`)(props)};
       text-align: center;
       transition: all 0.3s ease-in-out;
     }
   `};
 
-  ${(props) => props.disabled && `
+  ${props => props.disabled && `
     cursor: not-allowed;
     opacity: 0.5;
   `}
 
-  ${(props) => props.clickable && `
+  ${props => props.clickable && `
     cursor: pointer;
     &:hover {
       opacity: 0.75;
     }
   `}
 
-  ${(props) => props.outline && `
+  ${props => props.outline && `
     background: transparent;
-    color: var(--neo-color-base);
-    border: 1px solid var(--neo-color-base);
+    color: ${themeGet(`colors.${props.variant}.base`)(props)};
+    border: 1px solid ${themeGet(`colors.${props.variant}.base`)(props)};
 
     [slot="end"],
     [slot="start"] {
-      background: var(--neo-color-base);
-      color: var(--neo-color-contrast);
+      background: ${themeGet(`colors.${props.variant}.base`)(props)};
+      color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
     }
 
     &:hover {
       opacity: 1;
-      background: var(--neo-color-base);
-      color: var(--neo-color-contrast);
+      background: ${themeGet(`colors.${props.variant}.base`)(props)};
+      color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
 
       [slot="end"],
       [slot="start"] {
-        background: var(--neo-color-contrast);
-        color: var(--neo-color-base);
+        background: ${themeGet(`colors.${props.variant}.contrast`)(props)};
+        color: ${themeGet(`colors.${props.variant}.base`)(props)};
       }
     }
   `}

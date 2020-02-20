@@ -1,9 +1,7 @@
+import { SpaceProps, BorderProps, space, border, display, DisplayProps, variant } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { get } from 'lodash';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { colors } from '../../theme';
-import { SpaceProps, BorderProps, space, border, display, DisplayProps } from 'styled-system';
-import { variant } from 'styled-system';
 
 export type ICheckboxWrapper = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & BorderProps & {
   variant?: keyof typeof colors;
@@ -47,9 +45,6 @@ const fillVariant = variant({
 })
 
 export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
-  --input-color-base: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  --input-color-contrast: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-
   display: inline-block;
   line-height: 1;
   position: relative;

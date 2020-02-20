@@ -1,9 +1,8 @@
-import { get } from 'lodash';
+import { ColorProps } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../../styles';
 import { StyledLabel } from '../../Label';
-import { themeGet } from '../../../utils';
 import { StyledIcon } from '../../Icon';
-import { ColorProps } from 'styled-system';
 
 export type FileInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
@@ -43,7 +42,7 @@ export const StyledInputWrapper = styled.div<StyledFileInputProps>`
     border: 2px solid ${props => themeGet(`colors.${props.color}.base`)};
     border-radius: ${themeGet('formElements.input.borderRadius')};
     display: flex;
-    ${props => get(props.theme, 'fontSizes.sm')};
+    ${themeGet('fontSizes.sm')};
     padding: 0 16px;
     height: 64px;
     outline: none;
@@ -74,7 +73,7 @@ export const StyledFiles = styled.ul`
 
   li {
     align-items: center;
-    border: 2px dashed ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
+    border: 2px dashed ${themeGet('formElements.input.backgroundColor')};
     display: flex;
     height: 64px;
     justify-content: space-between;

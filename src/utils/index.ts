@@ -1,5 +1,5 @@
-import { IColors } from '../theme/colors';
 import { get } from 'lodash';
+import { IColors } from '../theme/colors';
 import { IDefaultTheme } from '../theme/theme';
 import { css } from '../styles/styled';
 

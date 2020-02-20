@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { themeGet } from '@styled-system/theme-get';
 import { styled } from '../../styles';
 import { StyledLabel } from '../Label';
 
@@ -8,13 +8,9 @@ export interface IStyledFormGroupProps {
 
 
 export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
-  --inline-label-margin: ${(props) => get(props.theme, 'space.3')};
-  --floating-label: ${(props) => get(props.theme, 'formElements.input.floatingLabel')};
-  --floating-label-padding: ${(props) => get(props.theme, 'formElements.input.padding')};
-
   display: flex;
   flex-direction: column-reverse;
-  margin-bottom: ${(props) => get(props.theme, 'space.4')};
+  margin-bottom: ${themeGet('space.4')};
   position: relative;
   width: 100%;
 
@@ -23,7 +19,7 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
     flex-direction: row-reverse;
 
     ${StyledLabel} {
-      margin-right: var(--inline-label-margin);
+      margin-right: ${themeGet('space.3')};
       white-space: nowrap;
       min-width: 150px;
     }
@@ -37,12 +33,12 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
     .has-focus + ${StyledLabel},
     .has-value + ${StyledLabel} {
       transform-origin: left;
-      transform: var(--floating-label);
+      transform: ${themeGet('formElements.input.floatingLabel')};
     }
 
     ${StyledLabel} {
       left: 0;
-      padding: var(--floating-label-padding);
+      padding: ${themeGet('formElements.input.padding')};
       position: absolute;
       transition: transform 0.2s;
     }

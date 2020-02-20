@@ -1,5 +1,5 @@
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../../styles';
-import { get } from 'lodash';
 import { StyledLabel } from '../../Label';
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
@@ -39,10 +39,10 @@ export const StyledInputError = styled.span`
 
 export const StyledInput = styled.input<StyledInputProps>`
   appearance: none;
-  background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-  border: ${(props) => get(props.theme, 'formElements.input.border')};
-  border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-  ${props => get(props.theme, 'fontSizes.base')};
+  background: ${themeGet('formElements.input.backgroundColor')};
+  border: ${themeGet('formElements.input.border')};
+  border-radius: ${themeGet('formElements.input.borderRadius')};
+  ${themeGet('fontSizes.base')};
   padding: 0 16px;
   height: 64px;
   outline: none;
@@ -72,7 +72,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   `}
 
   ${props => !props.floating && `
-    border: 2px solid ${get(props.theme, 'formElements.input.backgroundColor')};
+    border: 2px solid ${themeGet('formElements.input.backgroundColor')(props)};
 
     &:hover,
     &:focus {

@@ -1,8 +1,11 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import { Chip } from "./index";
+import { Chip } from './index';
+import { Icon } from '../Icon';
+import ArrowRight from '../Icon/icons/ArrowRight';
+import ArrowUp from '../Icon/icons/ArrowUp';
 
 storiesOf("Chip", module)
   .add("Rounded", () => (
@@ -19,6 +22,14 @@ storiesOf("Chip", module)
       <Chip variant="primary" clickable>Click Chip</Chip>
       <Chip variant="primary" clickable end={<i>&times;</i>}>Click Chip</Chip>
       <Chip variant="primary" clickable start={<i>&times;</i>}>Click Chip</Chip>
+    </ThemeProvider>
+  ))
+  .add("Circle", () => (
+    <ThemeProvider>
+      <BaseStyles />
+      <Chip variant="primary" shape="circle" clickable />
+      <Chip variant="primary" shape="circle" clickable><Icon icon={<ArrowRight />} /></Chip>
+      <Chip variant="primary" shape="circle" clickable><Icon icon={<ArrowUp />} /></Chip>
     </ThemeProvider>
   ))
   .add("Colors", () => (

@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { themeGet } from '@styled-system/theme-get';
 import { styled } from '../../styles';
 import { colors } from '../../theme';
 
@@ -27,8 +27,7 @@ export const StyledPagination = styled.div<IStyledPaginationProps>`
   }
 
   button {
-    --neo-color-base: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-    background: var(--neo-color-base);
+    background: ${props => themeGet(`colors.${props.variant}.base`)};
     border: 0;
     font-size: 16px;
     font-weight: bold;
@@ -39,7 +38,7 @@ export const StyledPagination = styled.div<IStyledPaginationProps>`
 
     &.Pagination-button {
       &[disabled] {
-        border-top: 5px solid ${props => props.theme.colors.primary.base};
+        border-top: 5px solid ${themeGet('colors.primary.base')};
         cursor: initial;
       }
     }

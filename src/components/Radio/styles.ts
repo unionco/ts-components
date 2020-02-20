@@ -1,8 +1,7 @@
-import { get } from 'lodash';
+import { SpaceProps, BorderProps, space, border, display, DisplayProps, variant } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { colors } from '../../theme';
-import { SpaceProps, BorderProps, space, border, display, DisplayProps } from 'styled-system';
-import { variant } from 'styled-system';
 
 export type IRadioWrapper = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & BorderProps & {
   variant?: keyof typeof colors;
@@ -44,9 +43,6 @@ const fillVariant = variant({
 })
 
 export const RadioWrapper = styled.div<IRadioWrapper>`
-  --input-color-base: ${(props) => get(props.theme, `colors.${props.variant}.base`)};
-  --input-color-contrast: ${(props) => get(props.theme, `colors.${props.variant}.contrast`)};
-
   display: inline-block;
   line-height: 1;
   position: relative;
@@ -55,11 +51,11 @@ export const RadioWrapper = styled.div<IRadioWrapper>`
   width: 100%;
 
   .state {
-    padding: ${props => props.theme.space[3]} 0;
-    margin-right: ${props => props.theme.space[3]};
+    padding: ${themeGet('space.3')} 0;
+    margin-right: ${themeGet('space.3')};
 
     [slot="inner"] {
-      color: var(--input-color-contrast);
+      color: ${props => themeGet(`colors.${props.variant}.contrast`)};
       font-size: 1em;
       height: calc(1.25em + 2px);
       left: 1px;
@@ -72,8 +68,8 @@ export const RadioWrapper = styled.div<IRadioWrapper>`
       z-index: 1;
 
       svg {
-        fill: var(--input-color-contrast);
-        stroke: var(--input-color-contrast);
+        fill: currentColor;
+        stroke: currentColor;
       }
     }
   }
@@ -100,7 +96,7 @@ const labelSize = variant({
 
 export const RadioLabel = styled.label<IRadioLabel>`
   display: inline-block;
-  font-weight: ${props => props.theme.fontWeights.normal};
+  font-weight: ${themeGet('fontWeights.normal')};
   margin: 0;
   min-width: calc(1em + 2px);
   position: initial;
@@ -149,10 +145,8 @@ export const RadioInput = styled.input<IStyledRadioProps>`
   &:not([disabled]) {
     &:hover,
     &:focus {
-      ~ .state ${RadioLabel} {
-        &:before {
-          border-color: var(--input-color-base);
-        }
+      ~ .state ${RadioLabel}:before {
+        border-color: ${props => themeGet(`colors.${props.variant}.base`)};
       }
     }
   }
@@ -165,10 +159,10 @@ export const RadioInput = styled.input<IStyledRadioProps>`
 
       ${RadioLabel} {
         &:before {
-          border-color: var(--input-color-base);
+          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }
         &:after {
-          background: var(--input-color-base);
+          background-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }

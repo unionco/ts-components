@@ -1,5 +1,5 @@
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../../styles';
-import { get } from 'lodash';
 import { StyledLabel } from '../../Label';
 
 type TextareaProps = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
@@ -32,17 +32,17 @@ export const StyledTextareaWrapper = styled.div<{ floating?: boolean }>`
 `;
 
 export const StyledTextareaError = styled.span`
-  color: ${props => props.theme.colors.danger.base};
-  font-weight: ${props => props.theme.fontWeights.bold};
+  color: ${themeGet('colors.danger.base')};
+  font-weight: ${themeGet('fontWeights.bold')};
   font-style: italic;
 `;
 
 export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   appearance: none;
-  background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-  border: ${(props) => get(props.theme, 'formElements.input.border')};
-  border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-  ${props => get(props.theme, 'fontSizes.base')};
+  background: ${themeGet('formElements.input.backgroundColor')};
+  border: ${themeGet('formElements.input.border')};
+  border-radius: ${themeGet('formElements.input.borderRadius')};
+  ${themeGet('fontSizes.base')};
   padding: 16px;
   outline: none;
   width: 100%;
@@ -71,7 +71,7 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   `}
 
   ${props => !props.floating && `
-    border: 2px solid ${get(props.theme, 'formElements.input.backgroundColor')};
+    border: 2px solid ${themeGet('formElements.input.backgroundColor')(props)};
 
     &:hover,
     &:focus {

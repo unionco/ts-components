@@ -1,8 +1,8 @@
+import { SpaceProps, space } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 import styled, { IThemeStyledFunction } from '../../../styles/styled';
 import { StyledEyebrow } from '../../Eyebrow';
 import { StyledRichText } from '../../RichText';
-import { SpaceProps, space } from 'styled-system';
-import { themeGet } from '../../../utils';
 
 type IStyledCopyProps = IThemeStyledFunction<'div'> & SpaceProps & {
   twoCol?: boolean;

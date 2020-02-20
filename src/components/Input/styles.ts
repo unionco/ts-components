@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { themeGet } from '@styled-system/theme-get';
 import { styled } from '../../styles';
 import { StyledLabel } from '../Label';
 
@@ -10,13 +10,13 @@ export interface IStyledInputProps {
 export const StyledFiles = styled.div<IStyledInputProps>`
   > div {
     align-items: center;
-    background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-    border: ${(props) => get(props.theme, 'formElements.input.border')};
-    border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
+    background: ${themeGet('formElements.input.backgroundColor')};
+    border: ${themeGet('formElements.input.border')};
+    border-radius: ${themeGet('formElements.input.borderRadius')};
     display: flex;
     justify-content: space-between;
-    margin-top: ${(props) => get(props.theme, 'space.4')};
-    padding: ${(props) => get(props.theme, 'formElements.input.padding')};
+    margin-top: ${themeGet('space.4')};
+    padding: ${themeGet('formElements.input.padding')};
 
     button {
       background: transparent;
@@ -29,13 +29,13 @@ export const StyledFiles = styled.div<IStyledInputProps>`
 
 export const StyledInput = styled.input<IStyledInputProps>`
   appearance: none;
-  background: ${(props) => get(props.theme, 'formElements.input.backgroundColor')};
-  border: ${(props) => get(props.theme, 'formElements.input.border')};
-  border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-  padding: ${(props) => get(props.theme, 'formElements.input.padding')};
+  background: ${themeGet('formElements.input.backgroundColor')};
+  border: ${themeGet('formElements.input.border')};
+  border-radius: ${themeGet('formElements.input.borderRadius')};
+  padding: ${themeGet('formElements.input.padding')};
   width: 100%;
   outline: none;
-  ${props => get(props.theme, 'fontSizes.base')};
+  ${themeGet('fontSizes.base')};
 
   &[type="file"] {
     cursor: pointer;
@@ -50,20 +50,20 @@ export const StyledInput = styled.input<IStyledInputProps>`
 
     & + label {
       align-items: center;
-      background: ${(props) => get(props.theme, 'formElements.fileInput.backgroundColor')};
-      border: ${(props) => get(props.theme, 'formElements.input.border')};
-      border-radius: ${(props) => get(props.theme, 'formElements.input.borderRadius')};
-      color: ${(props) => get(props.theme, 'formElements.fileInput.color')};
+      background: ${themeGet('formElements.fileInput.backgroundColor')};
+      border: ${themeGet('formElements.input.border')};
+      border-radius: ${themeGet('formElements.input.borderRadius')};
+      color: ${themeGet('formElements.fileInput.color')};
       cursor: pointer;
       display: flex;
       justify-content: center;
-      padding: ${(props) => get(props.theme, 'formElements.input.padding')};
+      padding: ${themeGet('formElements.input.padding')};
     }
   }
 
   & + ${StyledLabel} {
     &::after {
-      color: ${(props) => get(props.theme, 'formElements.input.requiredColor')};
+      color: ${themeGet('formElements.input.requiredColor')};
     }
   }
 

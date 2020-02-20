@@ -36,7 +36,7 @@ storiesOf("Select", module)
             </Select>
           </GridItem>
           <GridItem size={[12]} px={8}>
-            <Select disabled label="Disabled States" id="states" name="states" position="floating">
+            <Select disabled label="Disabled States" id="states" name="states" position="inline">
               <Option></Option>
               <Option value="alabama">Alabama</Option>
               <Option value="alaska">Alaska</Option>

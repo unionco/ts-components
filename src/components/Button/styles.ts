@@ -1,6 +1,6 @@
+import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../styles';
-import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
 
 export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProps & SpaceProps & ButtonStyleProps & {
   disabled?: boolean;

@@ -1,5 +1,5 @@
+import { themeGet } from '@styled-system/theme-get';
 import { styled, css } from '../../styles';
-import { get } from 'lodash';
 import { objectFit } from '../../theme/mixins'
 
 export const MasonryGridItem = styled.div`
@@ -72,7 +72,7 @@ const determineItemSize = (layout: string) => {
 
 export const MasonryGrid = styled.div<IMasonryGridProps>`
   display: block;
-  max-width: ${(props) => props.theme.siteMaxWidth};
+  max-width: ${themeGet('siteMaxWidth')};
 
   .masonry_inner {
     box-sizing: border-box;
@@ -80,13 +80,13 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
     flex-flow: column wrap;
     height: ${props => props.minHeight || '90vmin'};
     margin: 0 auto;
-    max-width: ${(props) => props.theme.siteMaxWidth};
+    max-width: ${themeGet('siteMaxWidth')};
     text-align: center;
     text-transform: uppercase;
     width: 100%;
 
     ${MasonryGridItem} {
-      padding: ${props => get(props.theme, `space.${props.padding}`)};
+      padding: ${props => themeGet(`space.${props.padding}`)};
       ${props => determineItemSize(props.layout)};
 
       &:nth-child(1) {
@@ -98,7 +98,7 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
       }
     }
 
-    @media screen and (max-width: ${props => props.theme.breakpoints.sm}) {
+    @media screen and (max-width: ${themeGet('breakpoints.sm')}) {
       flex-flow: column nowrap;
       height: auto;
 

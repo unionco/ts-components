@@ -1,8 +1,7 @@
-import { get } from 'lodash';
+import { SpaceProps, space } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
 import { styled, IThemeStyledFunction } from '../../styles';
 import { StyledLabel } from '../Label';
-import { SpaceProps, space } from 'styled-system';
-import { themeGet } from '../../utils';
 
 export type IStyledSelectProps = IThemeStyledFunction<'select'> & SpaceProps & {
   disabled?: boolean;
@@ -37,8 +36,8 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   }
 
   ${props => props.multiple && `
-    padding-top: ${get(props.theme, 'formElements.input.padding')};
-    padding-bottom: ${get(props.theme, 'formElements.input.padding')};
+    padding-top: ${themeGet('formElements.input.padding')(props)};
+    padding-bottom: ${themeGet('formElements.input.padding')(props)};
 
     option {
       padding: 6px 5px;
@@ -104,7 +103,7 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
     display: flex;
 
     ${StyledLabel} {
-      margin-right: ${props.theme.space[4]};
+      margin-right: ${themeGet('space.4')(props)};
       white-space: nowrap;
       min-width: 150px;
     }

@@ -1,6 +1,6 @@
-import { styled, IThemeStyledFunction } from '../../../styles';
-import { get } from 'lodash';
 import { space, SpaceProps } from 'styled-system';
+import { themeGet } from '@styled-system/theme-get';
+import { styled, IThemeStyledFunction } from '../../../styles';
 
 type IStyledIconProps = IThemeStyledFunction<'i'> & SpaceProps & {
   size?: 'sm' | 'lg';
@@ -8,9 +8,6 @@ type IStyledIconProps = IThemeStyledFunction<'i'> & SpaceProps & {
 
 
 const Icon = styled.i<IStyledIconProps>`
-  --icon-color-base: ${props => get(props.theme.colors, `${props.color}.base`)};
-  --icon-color-contrast: ${props => get(props.theme.colors, `${props.color}.contrast`)};
-
   display: inline-block;
   fill: currentColor;
   height: 1em;
@@ -18,8 +15,8 @@ const Icon = styled.i<IStyledIconProps>`
   ${space};
 
   svg {
-    fill: var(--icon-color-base);
-    stroke: var(--icon-color-base);
+    fill: ${props => themeGet(`colors.${props.color}.base`)};
+    stroke: ${props => themeGet(`colors.${props.color}.base`)};
   }
 `;
 

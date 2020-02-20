@@ -26,19 +26,17 @@ const Radio: React.FC<IRadioProps> = ({
   variant = 'primary',
   ...rest
 }) => {
-  const props = { disabled, onChange, value, name, ...rest };
+  const props = { disabled, onChange, value, name, variant, ...rest };
   const wrapperProps = { disabled, size, variant };
 
   return (
-    <>
-      <RadioWrapper {...wrapperProps}>
-        <RadioInput type="radio" id={`input-${id}`} defaultChecked={defaultChecked} {...props} aria-label={name} />
-        <div className="state">
-          {inner && <div slot="inner">{inner}</div>}
-          <RadioLabel htmlFor={`input-${id}`} fill={fill} size={size}>{label}</RadioLabel>
-        </div>
-      </RadioWrapper>
-    </>
+    <RadioWrapper {...wrapperProps}>
+      <RadioInput type="radio" id={`input-${id}`} defaultChecked={defaultChecked} {...props} aria-label={name} />
+      <div className="state">
+        {inner && <div slot="inner">{inner}</div>}
+        <RadioLabel htmlFor={`input-${id}`} fill={fill} size={size}>{label}</RadioLabel>
+      </div>
+    </RadioWrapper>
   );
 }
 

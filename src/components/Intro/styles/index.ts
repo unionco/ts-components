@@ -1,6 +1,6 @@
-import { styled, IThemeStyledFunction } from '../../../styles';
 import { display, DisplayProps, SpaceProps, FlexboxProps, space, flexbox } from 'styled-system';
-import { themeGet } from '../../../utils';
+import { themeGet } from '@styled-system/theme-get';
+import { styled, IThemeStyledFunction } from '../../../styles';
 
 type StyledIntroProps = IThemeStyledFunction<'div'> & DisplayProps & SpaceProps & FlexboxProps & {
   layout?: 'row'|'column';

@@ -1,7 +1,7 @@
 // @ts-ignore
 import React from 'react';
+import { themeGet } from '@styled-system/theme-get';
 import { createGlobalStyle } from '../../styles';
-import { themeGet } from '../../utils';
 
 export const BaseStyles = createGlobalStyle`
   :root {
