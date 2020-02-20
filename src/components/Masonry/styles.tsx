@@ -105,6 +105,8 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
       ${MasonryGridItem} {
         max-width: 100%;
         min-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
         width: 100%;
       }
     }
