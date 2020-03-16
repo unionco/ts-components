@@ -1,9 +1,8 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
-import { select, boolean } from "@storybook/addon-knobs";
+import { storiesOf } from '@storybook/react';
+import { select, boolean } from '@storybook/addon-knobs';
 import { ThemeProvider } from '../../index';
-import { BaseStyles } from '../BaseStyles';
-import { Button } from "./index";
+import Button from './index';
 
 storiesOf("Button", module)
   .add("Default", () => {
@@ -12,7 +11,6 @@ storiesOf("Button", module)
     const textLink = boolean('Text Link', false);
     return (
       <ThemeProvider>
-        <BaseStyles />
         <Button fill={fill} size={size} textLink={textLink} variant="primary">Primary Button</Button>
         <Button fill={fill} size={size} textLink={textLink} variant="secondary">Secondary Button</Button>
         <Button fill={fill} size={size} textLink={textLink} variant="tertiary">Tertiary Button</Button>
@@ -28,7 +26,6 @@ storiesOf("Button", module)
   })
   .add("Slots", () => (
     <ThemeProvider>
-      <BaseStyles />
       <Button size="small" variant="primary" start={<i>&larr;</i>}>
         Slot Start
       </Button>

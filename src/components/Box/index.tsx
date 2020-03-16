@@ -1,40 +1,25 @@
+import styled from 'styled-components';
 import {
-  background,
-  borderRadius,
+  ColorProps,
   color,
-  display,
+  FlexboxProps,
   flexbox,
-  fontFamily,
-  fontSize,
-  fontStyle,
-  fontWeight,
+  LayoutProps,
   layout,
-  letterSpacing,
-  lineHeight,
-  position,
-  size,
-  space,
-  textAlign,
-  textStyle,
+  SpaceProps,
+  space
 } from 'styled-system';
-import { styled } from '../../styles';
 
-export const Box = styled.div<any>`
-  ${background}
-  ${borderRadius}
+export interface IBox extends ColorProps, FlexboxProps, LayoutProps, SpaceProps {}
+
+const Box = styled.div<IBox>`
+  box-sizing: border-box;
+  min-width: 0;
+
   ${color}
-  ${display}
   ${flexbox}
-  ${fontFamily}
-  ${fontSize}
-  ${fontStyle}
-  ${fontWeight}
   ${layout}
-  ${letterSpacing}
-  ${lineHeight}
-  ${position}
-  ${size}
   ${space}
-  ${textAlign}
-  ${textStyle}
 `;
+
+export default Box;
