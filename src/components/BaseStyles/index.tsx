@@ -4,10 +4,6 @@ import { themeGet } from '@styled-system/theme-get';
 import { createGlobalStyle } from '../../styles';
 
 export const BaseStyles = createGlobalStyle`
-  :root {
-    --base-font: ${(props) => props.theme.fonts.body};
-    --heading-font: ${(props) => props.theme.fonts.heading};
-  }
   *, *::before, *::after {
     box-sizing: inherit;
     box-sizing: border-box;

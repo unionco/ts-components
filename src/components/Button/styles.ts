@@ -9,6 +9,7 @@ export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProp
   size?: 'small' | 'medium' | 'large';
   fill?: 'solid' | 'outline' | 'clear';
   href?: string;
+  rounded?: boolean;
 };
 
 const sizes = variant({
@@ -57,6 +58,10 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   ${(props) => props.disabled && `
     cursor: not-allowed;
     opacity: 0.5;
+  `}
+
+  ${(props) => props.rounded && `
+    border-radius: 100px; // arbitrarily large number to create pill-shaped button vs. 50%, which would make it an oval
   `}
 
   ${typography};

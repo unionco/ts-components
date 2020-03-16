@@ -13,9 +13,10 @@ const Button: React.FC<IButtonProps> = ({
   size = 'medium',
   variant = 'primary',
   fill = 'solid',
+  rounded = false,
   ...rest
 }) => {
-  const props = { size, variant, fill, ...rest };
+  const props = { size, variant, fill, rounded, ...rest };
 
   return (
     <StyledButton {...props}>

@@ -28,6 +28,7 @@
   "dependencies": {
     "@styled-system/theme-get": "^5.1.2",
     "@types/lodash": "^4.14.149",
+    "@types/rc-slider": "^8.6.5",
     "@types/react": "^16.9.13",
     "@types/react-modal": "^3.10.1",
     "@types/styled-components": "4.0.2",
@@ -38,6 +39,7 @@
     "core-js": "2",
     "lodash": "^4.17.15",
     "polished": "^3.4.2",
+    "rc-slider": "^9.2.3",
     "react-modal": "^3.11.1",
     "styled-components": "^4.4.1",
     "styled-flex-component": "^3.0.0",

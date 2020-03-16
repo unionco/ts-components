@@ -1,40 +1,22 @@
 import {
   background,
-  borderRadius,
+  border,
   color,
-  display,
   flexbox,
-  fontFamily,
-  fontSize,
-  fontStyle,
-  fontWeight,
   layout,
-  letterSpacing,
-  lineHeight,
   position,
-  size,
   space,
-  textAlign,
-  textStyle,
+  typography,
 } from 'styled-system';
 import { styled } from '../../styles';
 
 export const Box = styled.div<any>`
   ${background}
-  ${borderRadius}
+  ${border}
   ${color}
-  ${display}
   ${flexbox}
-  ${fontFamily}
-  ${fontSize}
-  ${fontStyle}
-  ${fontWeight}
   ${layout}
-  ${letterSpacing}
-  ${lineHeight}
   ${position}
-  ${size}
   ${space}
-  ${textAlign}
-  ${textStyle}
+  ${typography}
 `;

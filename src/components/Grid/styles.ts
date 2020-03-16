@@ -1,11 +1,12 @@
 import { styled, IThemeStyledFunction } from '../../styles';
-import { SpaceProps, space } from 'styled-system';
+import { FlexProps, flexbox, SpaceProps, space } from 'styled-system';
 
-export type IStyledGridProps = IThemeStyledFunction<'div'> & SpaceProps;
+export type IStyledGridProps = IThemeStyledFunction<'div'> & FlexProps & SpaceProps;
 
 const StyledGrid = styled.div<IStyledGridProps>`
   display: block;
 
+  ${flexbox};
   ${space};
 `;
 

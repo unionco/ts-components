@@ -10,72 +10,72 @@ storiesOf("Grid", module)
     <ThemeProvider>
       <BaseStyles />
       <Grid>
-        <GridItem size={[12, 6, 4]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 4]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 4
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 4]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 4]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 4
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 4]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 4]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 4
           </div>
         </GridItem>
       </Grid>
       <br/><br/>
       <Grid>
-        <GridItem size={[12, 6, 3]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 3]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 3
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 3]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 3]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 3
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 3]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 3]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 3
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 3]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 3]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 3
           </div>
         </GridItem>
       </Grid>
       <br/><br/>
       <Grid>
-        <GridItem>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             Flex Item (auto)
           </div>
         </GridItem>
-        <GridItem>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             Flex Item (auto)
           </div>
         </GridItem>
-        <GridItem>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             Flex Item (auto)
           </div>
         </GridItem>
       </Grid>
       <br /><br />
       <Grid>
-        <GridItem size={[12, 6, 6]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 6]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 6
           </div>
         </GridItem>
-        <GridItem size={[12, 6, 4]} offSet={[0, 0, 2]}>
-          <div style={{ width: '100%', background: '#ddd' }}>
+        <GridItem size={[12, 6, 4]} offSet={[0, 0, 2]} backgroundColor="light.shade">
+          <div style={{ width: '100%' }}>
             12 / 6 / 6 with offSet 0 / 0 / 2
           </div>
         </GridItem>

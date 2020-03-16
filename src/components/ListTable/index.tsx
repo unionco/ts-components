@@ -1,35 +1,40 @@
 import React from 'react';
-import { Table, TableContainer, TableHeader, TableBody, TableRow, TableTd, IStyledListTableProps, IStyledListTableCellProps } from './styles';
+import {
+  Table,
+  TableContainer,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableTd,
+  IStyledListTableProps,
+  IStyledListTableCellProps,
+} from './styles';
 
-export interface IListTableProps
-  extends IStyledListTableProps {
-    headerData?: any,
-    bodyData?: any
-  };
+export interface IListTableProps extends IStyledListTableProps {
+  headerData?: any;
+  bodyData?: any;
+  accentColor?: string;
+}
 
-const ListTable: React.FC<IListTableProps> = ({
-  type,
-  border, 
-  headerData,
-  bodyData,
-}) => {
-  const props = { type, border,  headerData, bodyData };
+const ListTable: React.FC<IListTableProps> = props => {
+  const { bodyData, headerData } = props;
 
   return (
     <TableContainer>
       <Table {...props}>
         <TableHeader>
-          <TableRow>
-            {headerData}
-          </TableRow>
+          <TableRow>{headerData}</TableRow>
         </TableHeader>
-        <TableBody>
-          {bodyData}
-        </TableBody>
+        <TableBody>{bodyData}</TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
-// Export main component
-export { ListTable, TableRow as ListTableRow, TableTd as ListTableCell, IStyledListTableProps, IStyledListTableCellProps };
+export {
+  ListTable,
+  TableRow as ListTableRow,
+  TableTd as ListTableCell,
+  IStyledListTableProps,
+  IStyledListTableCellProps,
+};

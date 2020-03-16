@@ -1,7 +1,7 @@
 import { styled, IThemeStyledFunction } from '../../../styles';
-import { FlexboxProps, LayoutProps, SpaceProps, flexbox, layout, space } from 'styled-system';
+import { ColorProps, FlexboxProps, LayoutProps, SpaceProps, color, flexbox, layout, space } from 'styled-system';
 
-type IGridProps = IThemeStyledFunction<'div'> & FlexboxProps & LayoutProps & SpaceProps;
+type IGridProps = IThemeStyledFunction<'div'> & ColorProps & FlexboxProps & LayoutProps & SpaceProps;
 
 const GridItem = styled.div<IGridProps>`
   position: relative;
@@ -9,9 +9,11 @@ const GridItem = styled.div<IGridProps>`
   max-width: 100%;
   min-height: 1px;
 
+
   ${flexbox};
   ${layout};
   ${space};
+  ${color};
 `;
 
 export { GridItem, IGridProps };
