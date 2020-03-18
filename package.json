@@ -1,6 +1,6 @@
 {
   "name": "@union/ts-components",
-  "version": "0.0.45",
+  "version": "0.0.46",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/types/index.d.ts",
@@ -39,7 +39,6 @@
     "core-js": "2",
     "lodash": "^4.17.15",
     "polished": "^3.4.2",
-    "rc-slider": "^9.2.3",
     "react-modal": "^3.11.1",
     "styled-components": "^4.4.1",
     "styled-flex-component": "^3.0.0",

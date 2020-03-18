@@ -1,11 +1,14 @@
 import React from 'react';
-import { Range, RangeProps } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-const RangeSlider: React.FC<RangeProps> = (props) => {
+const RangeSlider = (props: any) => {
   console.log('props', props);
   return (
-    <Range {...props} />
+    <pre>
+      {
+        JSON.stringify(props, null, 2)
+      }
+    </pre>
   );
 };
 
