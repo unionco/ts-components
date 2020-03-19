@@ -1,53 +1,53 @@
-import React, { useState } from 'react';
-import { Range, getTrackBackground } from 'react-range';
-import styled from 'styled-components';
+import React, { useState, ReactNode } from 'react';
+import { Range } from 'react-range';
+import { Box } from '../Box';
+import { DefaultHandle, DefaultTrack, TrackColor } from './styles';
 
-const Handle = styled.div`
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rebeccapurple;
-`;
-
-interface IRangeSlider {
+interface IRangeSlider extends TrackColor {
   min: number,
   max: number;
+  minLabel?: string,
+  maxLabel?: string;
+  Handle?: (props: any) => ReactNode; // [TODO] This is defined in the react-range types, just not exported properly
+  onChange?: (values: number[]) => void; // [TODO] same as above, just a copy/paste
 }
 
-console.log('getTrackBackground', getTrackBackground);
 
-const RangeSlider: React.FC<IRangeSlider> = ({ min, max }) => {
-  const [values, setValues] = useState([20, 50]);
+const RangeSlider: React.FC<IRangeSlider> = ({ min, max, minLabel, maxLabel, Handle, onChange, ...rest }) => {
+  const [values, setValues] = useState([min, max]);
 
-  console.log('values',values);
+  const DefaultThumb = ({ props }: { props: any }) => (
+    <DefaultHandle {...props} {...rest} />
+  );
+
+  const handleChange = (values: number[]) => {
+    if (onChange) {
+      return onChange(values);
+    }
+
+    setValues([...values]);
+  }
 
   return (
-    <Range
-      step={1}
-      min={min}
-      max={max}
-      values={values}
-      onChange={values => setValues([...values])}
-      renderTrack={({ props, children }) => (
-        <div
-          {...props}
-          style={{
-            ...props.style,
-            height: '6px',
-            width: '100%',
-            background: getTrackBackground({
-              values: values,
-              colors: ["#ccc", "#f03", "#ccc"],
-              min,
-              max
-            })
-          }}
-        >
-          {children}
-        </div>
-      )}
-      renderThumb={({ props }) => <Handle {...props} />}
-    />
+    <>
+      <Range
+        step={1}
+        min={min}
+        max={max}
+        values={values}
+        onChange={handleChange}
+        renderTrack={({ props, children }) => (
+          <DefaultTrack values={values} min={min} max={max} {...props} {...rest}>
+            {children}
+          </DefaultTrack>
+        )}
+        renderThumb={Handle || DefaultThumb}
+      />
+      <Box display="flex" justifyContent="space-between">
+        <span>{minLabel}</span>
+        <span>{maxLabel}</span>
+      </Box>
+    </>
   );
 };
 
