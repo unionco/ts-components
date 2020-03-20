@@ -1,32 +1,45 @@
-import React, { useState, ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Range } from 'react-range';
 import { Box } from '../Box';
 import { DefaultHandle, DefaultTrack, TrackColor } from './styles';
+import { Paragraph } from '../Typography';
 
-interface IRangeSlider extends TrackColor {
+export interface IRangeSlider extends TrackColor {
   min: number,
   max: number;
+  onChange: (values: number[]) => void; // [TODO] same as above, just a copy/paste
+  values: number[];
   minLabel?: string,
   maxLabel?: string;
-  Handle?: (props: any) => ReactNode; // [TODO] This is defined in the react-range types, just not exported properly
-  onChange?: (values: number[]) => void; // [TODO] same as above, just a copy/paste
+  Handle?: (props: any) => ReactNode; // [TODO] This is defined in the react-range types, just not exported individually
+  onFinalChange?: (values: number[]) => void; // [TODO] same as above, just a copy/paste
 }
 
 
-const RangeSlider: React.FC<IRangeSlider> = ({ min, max, minLabel, maxLabel, Handle, onChange, ...rest }) => {
-  const [values, setValues] = useState([min, max]);
-
+const RangeSlider: React.FC<IRangeSlider> = ({
+  min,
+  max,
+  minLabel,
+  maxLabel,
+  Handle,
+  onChange,
+  onFinalChange,
+  values,
+  ...rest
+}) => {
   const DefaultThumb = ({ props }: { props: any }) => (
     <DefaultHandle {...props} {...rest} />
   );
 
   const handleChange = (values: number[]) => {
-    if (onChange) {
-      return onChange(values);
-    }
-
-    setValues([...values]);
+    onChange(values);
   }
+
+  const handleFinalChange = (values: number[]) => {
+    if (onFinalChange) {
+      onFinalChange(values);
+    }
+  };
 
   return (
     <>
@@ -36,16 +49,18 @@ const RangeSlider: React.FC<IRangeSlider> = ({ min, max, minLabel, maxLabel, Han
         max={max}
         values={values}
         onChange={handleChange}
+        onFinalChange={handleFinalChange}
         renderTrack={({ props, children }) => (
           <DefaultTrack values={values} min={min} max={max} {...props} {...rest}>
             {children}
           </DefaultTrack>
         )}
         renderThumb={Handle || DefaultThumb}
+        {...rest}
       />
       <Box display="flex" justifyContent="space-between">
-        <span>{minLabel}</span>
-        <span>{maxLabel}</span>
+        <Paragraph>{minLabel}</Paragraph>
+        <Paragraph>{maxLabel}</Paragraph>
       </Box>
     </>
   );

@@ -32,6 +32,7 @@ export * from './Modal';
 export * from './Option';
 export * from './Pagination';
 export * from './Radio';
+export { default as RangeSlider } from './RangeSlider';
 export * from './Review';
 export * from './RichText';
 export * from './Section';

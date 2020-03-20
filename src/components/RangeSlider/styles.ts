@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { themeGet } from '@styled-system/theme-get';
 import { getTrackBackground as getRRTrackBackground } from 'react-range';
-import { mix } from 'polished';
+import { tint } from 'polished';
 
 export type TrackColor = {
   // [TODO] Make this a string of theme colors OR fix the usage to support both
@@ -9,43 +9,32 @@ export type TrackColor = {
   trackColor?: string;
 }
 
-interface IDefaultTrack extends TrackColor {
+export interface IDefaultTrack extends TrackColor {
   values: any;
   min: number;
   max: number;
 }
 
-export const DefaultHandle = styled.div`
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  background-color: ${({ trackColor }: TrackColor) => themeGet(`colors.${trackColor}`)};
-`;
 
-DefaultHandle.defaultProps = {
-  trackColor: 'primary.base'
-};
-
-const getBaseColors = (props: IDefaultTrack) => [
-  themeGet(`colors.${props.trackColor}`)(props),
-  mix(0.8, 'white', themeGet(`colors.${props.trackColor}`)(props))
-];
-
-const getColors = (props: IDefaultTrack) => {
-  const count = props.values.length;
-  const colors = Array(Math.floor(count / 2) + 1).fill(getBaseColors(props)).flat();
-
-  if (count % 2 === 0) {
-    colors.shift();
-  }
-
-  return colors;
-}
+// [TODO] Hard-coded to get past pesky build process ... the last commit used
+// Array.fill and .flat, but those require babel polyfills
+const baseColors = [
+  () => [],
+  (props: IDefaultTrack) => [
+    themeGet(`colors.${props.trackColor}.base`)(props),
+    tint(0.8, themeGet(`colors.${props.trackColor}.base`)(props))
+  ],
+  (props: IDefaultTrack) => [
+    tint(0.8, themeGet(`colors.${props.trackColor}.base`)(props)),
+    themeGet(`colors.${props.trackColor}.base`)(props),
+    tint(0.8, themeGet(`colors.${props.trackColor}.base`)(props))
+  ],
+]
 
 export const getTrackBackground = (props: IDefaultTrack) => (
   getRRTrackBackground({
     values: props.values,
-    colors: getColors(props),
+    colors: baseColors[props.values.length](props),
     min: props.min,
     max: props.max
   })
@@ -63,5 +52,23 @@ export const DefaultTrack = styled.div.attrs((props: IDefaultTrack) => ({
 `;
 
 DefaultTrack.defaultProps = {
-  trackColor: 'primary.base'
+  trackColor: 'primary'
+};
+
+export const DefaultHandle = styled.div`
+  width: 1em;
+  height: 1em;
+  border: 0.125em solid ${({ trackColor }: TrackColor) => themeGet(`colors.${trackColor}.base`)};
+  border-radius: 50%;
+  background-color: ${({ trackColor }: TrackColor) => themeGet(`colors.${trackColor}.base`)};
+
+  &:focus {
+    outline: none;
+    background-color: ${({ trackColor }: TrackColor) => themeGet(`colors.${trackColor}.contrast`)};
+    border-color: ${({ trackColor }: TrackColor) => themeGet(`colors.${trackColor}.base`)};
+  }
+`;
+
+DefaultHandle.defaultProps = {
+  trackColor: 'primary'
 };
