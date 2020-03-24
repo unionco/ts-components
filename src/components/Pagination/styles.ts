@@ -30,6 +30,7 @@ export const StyledPagination = styled.div<IStyledPaginationProps>`
     border: 0;
     font-size: 16px;
     font-weight: bold;
+    background: none;
 
     [disabled] {
       opacity: 0.5;
