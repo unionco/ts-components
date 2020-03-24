@@ -9,21 +9,23 @@ export interface IRangeSlider extends TrackColor {
   max: number;
   onChange: (values: number[]) => void; // [TODO] same as above, just a copy/paste
   values: number[];
+  Handle?: (props: any) => ReactNode; // [TODO] This is defined in the react-range types, just not exported individually
   minLabel?: string,
   maxLabel?: string;
-  Handle?: (props: any) => ReactNode; // [TODO] This is defined in the react-range types, just not exported individually
   onFinalChange?: (values: number[]) => void; // [TODO] same as above, just a copy/paste
+  step?: number;
 }
 
 
 const RangeSlider: React.FC<IRangeSlider> = ({
-  min,
-  max,
-  minLabel,
-  maxLabel,
   Handle,
+  max,
+  maxLabel,
+  min,
+  minLabel,
   onChange,
   onFinalChange,
+  step,
   values,
   ...rest
 }) => {
@@ -44,7 +46,7 @@ const RangeSlider: React.FC<IRangeSlider> = ({
   return (
     <>
       <Range
-        step={1}
+        step={step}
         min={min}
         max={max}
         values={values}
@@ -64,6 +66,10 @@ const RangeSlider: React.FC<IRangeSlider> = ({
       </Box>
     </>
   );
+};
+
+RangeSlider.defaultProps = {
+  step: 1,
 };
 
 export default RangeSlider;

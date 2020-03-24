@@ -7,16 +7,21 @@ interface IImageProps {
   unsplash?: boolean;
   src: string;
   alt: string;
-  onError?: (ev?: SyntheticEvent) => void,
-  onLoad?: (ev?: SyntheticEvent) => void,
+  onError?: (ev?: SyntheticEvent) => void;
+  onLoad?: (ev?: SyntheticEvent) => void;
+  objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
 }
 
-const StyledImage = styled.img`
+interface IStyledImage {
+  objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
+};
+
+const StyledImage = styled.img<IStyledImage>`
   display: block;
   width: 100%;
   height: 100%;
-  ${objectFit('cover')}
-`
+  ${props => objectFit(props.objectFit || 'cover')}
+`;
 
 interface IImageState {
   loadSrc?: string;
@@ -41,7 +46,7 @@ class Image extends React.Component<IImageProps, IImageState> {
 
   public render() {
     const { loadSrc } = this.state;
-    const { alt, unsplash } = this.props;
+    const { alt, objectFit, unsplash } = this.props;
 
     if (loadSrc || unsplash) {
       return (
@@ -52,6 +57,7 @@ class Image extends React.Component<IImageProps, IImageState> {
           alt={alt}
           onLoad={this.onLoad}
           onError={this.onError}
+          objectFit={objectFit}
         />
       );
     }
