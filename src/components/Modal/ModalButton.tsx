@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import Modal from 'react-modal';
 import { StyledModal, IModalProps } from './styles';
 import { Button } from '../Button';
 
-interface IModalButton extends IModalProps, Modal {
+interface IModalButton extends IModalProps {
   buttonProps: any;
 }
 

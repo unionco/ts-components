@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { default as ReactModal } from 'react-modal';
 import { StyledModal, IModalProps } from './styles';
 import { Button } from '../Button';
 import ModalButton from './ModalButton';
 
-interface IModal extends IModalProps, ReactModal {}
+interface IModal extends IModalProps {}
 
-const Modal: React.FC<IModal> = ({
+const ModalComponent: React.FC<IModal> = ({
     modalSize = 'md',
     ...rest
   }) => {
@@ -40,4 +39,4 @@ const Modal: React.FC<IModal> = ({
   );
 }
 
-export { Modal, ModalButton, StyledModal, IModal };
+export { ModalComponent as Modal, ModalButton, StyledModal, IModal };

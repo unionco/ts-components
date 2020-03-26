@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { storiesOf } from "@storybook/react";
 import { select } from "@storybook/addon-knobs";
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import { Button } from '../Button';
 import { Modal, ModalButton } from './index';
 import { Media } from '../index';
 
@@ -26,7 +25,6 @@ storiesOf("Modal", module)
     )
   })
   .add("Modal", () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const modalSize = select('Modal Size', ['sm', 'md', 'lg'], 'lg');
 
     return (
@@ -35,7 +33,6 @@ storiesOf("Modal", module)
         <Modal modalSize={modalSize}>
           <Media type="image" />
         </Modal>
-        <Button variant="primary" onClick={() => setIsModalOpen(!isModalOpen)}>Open Modal</Button>
       </ThemeProvider>
     )
   });
