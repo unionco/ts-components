@@ -1,13 +1,13 @@
-import { styled, IThemeStyledFunction } from '../../styles';
 import Modal from 'react-modal';
 import { variant, SpaceProps, space } from 'styled-system'
+import { styled } from '../../styles';
 
 const modalSize = variant({
     prop: 'modalSize',
     scale: 'modalSizes'
 });
 
-export type IModalProps = IThemeStyledFunction<'div'> & SpaceProps & {
+export type IModalProps = SpaceProps & {
     /** Image url for background image */
     modalSize?: string;
 }

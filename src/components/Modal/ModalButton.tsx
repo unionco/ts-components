@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import { StyledModal, IModalProps } from './styles';
 import { Button } from '../Button';
 
-interface IModalButton extends IModalProps {
+interface IModalButton extends IModalProps, Modal {
   buttonProps: any;
-  isOpen?: boolean | false;
-  onAfterOpen?: () => void;
-  onRequestClose?: () => void;
 }
 
 const ModalButton: React.FC<IModalButton> = ({

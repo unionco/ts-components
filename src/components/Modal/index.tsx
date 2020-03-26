@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
+import { default as ReactModal } from 'react-modal';
 import { StyledModal, IModalProps } from './styles';
 import { Button } from '../Button';
 import ModalButton from './ModalButton';
 
-interface IModal extends IModalProps {
-  isOpen?: boolean | false;
-  onAfterOpen?: () => void;
-  onRequestClose?: () => void;
-}
+interface IModal extends IModalProps, ReactModal {}
 
 const Modal: React.FC<IModal> = ({
     modalSize = 'md',
