@@ -42,15 +42,34 @@ const fillVariant = variant({
       }
     }
   }
-})
+});
 
-export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
+const labelSize = variant({
+  prop: 'size',
+  variants: {
+    small: {
+      fontSize: '1rem'
+    },
+    medium: {
+      fontSize: '1.25rem'
+    },
+    large: {
+      fontSize: '1.5rem'
+    },
+  }
+});
+
+export const StyledCheckbox = styled.div<ICheckboxWrapper>`
   display: inline-block;
   line-height: 1;
   position: relative;
   white-space: nowrap;
-  ${props => props.disabled ? 'cursor: not-allowed;' : ''};
   width: 100%;
+
+  ${props => props.disabled && `
+    cursor: not-allowed;
+    opacity: 0.5;
+  `};
 
   .state {
     padding: ${props => props.theme.space[3]} 0;
@@ -81,22 +100,7 @@ export const CheckboxWrapper = styled.div<ICheckboxWrapper>`
   ${border};
 `;
 
-const labelSize = variant({
-  prop: 'size',
-  variants: {
-    small: {
-      fontSize: '1rem'
-    },
-    medium: {
-      fontSize: '1.25rem'
-    },
-    large: {
-      fontSize: '1.5rem'
-    },
-  }
-})
-
-export const CheckboxLabel = styled.label<ICheckboxLabel>`
+export const StyledCheckboxLabel = styled.label<ICheckboxLabel>`
   display: inline-block;
   font-weight: ${props => props.theme.fontWeights.normal};
   margin: 0;
@@ -130,7 +134,7 @@ export const CheckboxLabel = styled.label<ICheckboxLabel>`
   ${fillVariant};
 `;
 
-export const CheckboxInput = styled.input<IStyledCheckboxProps>`
+export const StyledCheckboxInput = styled.input<IStyledCheckboxProps>`
   cursor: pointer;
   height: 100%;
   left: 0;
@@ -147,7 +151,7 @@ export const CheckboxInput = styled.input<IStyledCheckboxProps>`
   &:not([disabled]) {
     &:hover,
     &:focus {
-      ~ .state ${CheckboxLabel} {
+      ~ .state ${StyledCheckboxLabel} {
         &:before {
           border-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }
@@ -161,7 +165,7 @@ export const CheckboxInput = styled.input<IStyledCheckboxProps>`
         opacity: 1;
       }
 
-      ${CheckboxLabel} {
+      ${StyledCheckboxLabel} {
         &:before {
           border-color: ${props => themeGet(`colors.${props.variant}.base`)};
         }

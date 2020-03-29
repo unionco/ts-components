@@ -6,6 +6,7 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './Card';
 export * from './CardContainer';
+export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
 export * from './Chip';
 export * from './Container';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckboxWrapper, CheckboxInput, CheckboxLabel, IStyledCheckboxProps } from './styles';
+import { StyledCheckbox, StyledCheckboxInput, StyledCheckboxLabel, IStyledCheckboxProps } from './styles';
 
 interface ICheckboxProps
   extends IStyledCheckboxProps {
@@ -32,16 +32,21 @@ const Checkbox: React.FC<ICheckboxProps> = ({
 
   return (
     <>
-      <CheckboxWrapper {...wrapperProps}>
-        <CheckboxInput type="checkbox" id={`input-${id}`} defaultChecked={defaultChecked} variant={variant} {...props} aria-label={name} />
+      <StyledCheckbox {...wrapperProps}>
+        <StyledCheckboxInput type="checkbox" id={`input-${id}`} defaultChecked={defaultChecked} variant={variant} {...props} aria-label={name} />
         <div className="state">
           {inner && <div slot="inner">{inner}</div>}
-          <CheckboxLabel htmlFor={`input-${id}`} fill={fill} round={round} size={boxSize}>{label}</CheckboxLabel>
+          <StyledCheckboxLabel htmlFor={`input-${id}`} fill={fill} round={round} size={boxSize}>{label}</StyledCheckboxLabel>
         </div>
-      </CheckboxWrapper>
+      </StyledCheckbox>
     </>
   );
 }
 
-
-export { Checkbox, CheckboxLabel, ICheckboxProps };
+export default Checkbox;
+export {
+  StyledCheckbox,
+  StyledCheckboxLabel,
+  StyledCheckboxInput,
+  ICheckboxProps
+};
