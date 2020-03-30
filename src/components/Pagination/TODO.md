@@ -1,0 +1,3 @@
+- Ensure the maxButtons lower limit is always 3, since we need to at least see the previous and next page
+- Ensure the ellipses and page number hiding works properly for a list that creates 5 pages with a maxButtons of 3
+- 

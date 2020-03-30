@@ -7,6 +7,7 @@ interface IPaginationProps {
   perPage?: number;
   totalItems?: number;
   onPageChange?: (e:number) => void;
+  currentPage?: number;
 };
 
 interface IPageRange {
@@ -20,13 +21,17 @@ const Pagination: React.FC<IPaginationProps> = ({
   perPage = 10,
   totalItems = 10,
   onPageChange,
+  currentPage: currentPageProp = 1
 }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPageState, setCurrentPage] = useState(currentPageProp);
+  const currentPage = currentPageProp ? currentPageProp : currentPageState;
   const totalPages = Math.ceil(totalItems / perPage);
-  // const isLastPage = currentPage === totalPages;she
 
-  const goToPage = (page:number) => {
-    setCurrentPage(page);
+  const goToPage = (page: number) => {
+    // Only set the current page state if it's an uncontrolled component
+    if (currentPageProp == null) {
+      setCurrentPage(page);
+    }
 
     if (onPageChange) {
       onPageChange(page);
@@ -87,12 +92,14 @@ const Pagination: React.FC<IPaginationProps> = ({
             <path fillRule="evenodd" clipRule="evenodd" d="M1.58951 7.87006L8.93359 15.2141L8.40768 15.7401L0.537676 7.87006L8.40768 6.10352e-05L8.93359 0.525978L1.58951 7.87006Z" fill="currentColor"/>
           </svg>
         </button>
-        {currentPage >= maxButtons && (
+
+        {(currentPage >= maxButtons) && (totalPages > maxButtons) && (
           <>
             <button className="Pagination-button" onClick={() => goToPage(1)}>1</button>
             <span className="Pagination-spacer">•••</span>
           </>
         )}
+
         {range.map(({pageNum, isDisabled}) => (
           <button
             key={`Pagination-button-${pageNum}`}
@@ -103,12 +110,14 @@ const Pagination: React.FC<IPaginationProps> = ({
             {pageNum}
           </button>
         ))}
+
         {(currentPage < (totalPages - Math.floor(maxButtons / 2) + 1)) && (totalPages > maxButtons) && (
           <>
             <span className="Pagination-spacer">&hellip;</span>
             <button className="Pagination-button" onClick={() => goToPage(totalPages)}>{totalPages}</button>
           </>
         )}
+
         <button className="Pagination-next" onClick={incrementPage} disabled={currentPage === totalPages}>
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fillRule="evenodd" clipRule="evenodd" d="M7.34408 8.13006L0 0.785977L0.525917 0.260061L8.39592 8.13006L0.525917 16.0001L0 15.4741L7.34408 8.13006Z" fill="currentColor"/>

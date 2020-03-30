@@ -41,12 +41,12 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
 
   [slot="start"] i {
     display: block;
-    margin-right: ${({ fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
+    margin-right: ${({fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
   }
 
   [slot="end"] i {
     display: block;
-    margin-left: ${({ fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
+    margin-left: ${({fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
   }
 
   .button-inner {
