@@ -5,7 +5,7 @@ import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { FeatureBlock } from './index';
 import { Flex, FlexItem } from '../Flex';
-import AddressBook from '../Icon/icons/AddressBook';
+import { ArrowLeft } from '../Icon/icons';
 import Button from "../Button/styles";
 
 const Action: React.FC<any> = ({ link, linkText }) => {
@@ -17,7 +17,7 @@ const Action: React.FC<any> = ({ link, linkText }) => {
 }
 storiesOf("FeatureBlock", module)
   .add("Default", () => {
-    const Icon = AddressBook;
+    const Icon = ArrowLeft;
     const title = text('Title', 'Feature');
     const copy = text('Copy', 'Exercitation nostrud proident reprehenderit adipisicing sint aliqua labore veniam irure commodo et dolore velit.');
     const link = text('Link URL', '/');

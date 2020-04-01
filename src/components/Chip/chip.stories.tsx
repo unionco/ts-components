@@ -4,8 +4,7 @@ import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Chip } from './index';
 import { Icon } from '../Icon';
-import ArrowRight from '../Icon/icons/ArrowRight';
-import ArrowUp from '../Icon/icons/ArrowUp';
+import { ArrowRight, Download } from '../Icon/icons';
 
 storiesOf("Chip", module)
   .add("Rounded", () => (
@@ -29,7 +28,7 @@ storiesOf("Chip", module)
       <BaseStyles />
       <Chip variant="primary" shape="circle" clickable />
       <Chip variant="primary" shape="circle" clickable><Icon icon={<ArrowRight />} /></Chip>
-      <Chip variant="primary" shape="circle" clickable><Icon icon={<ArrowUp />} /></Chip>
+      <Chip variant="primary" shape="circle" clickable><Icon icon={<Download />} /></Chip>
     </ThemeProvider>
   ))
   .add("Colors", () => (

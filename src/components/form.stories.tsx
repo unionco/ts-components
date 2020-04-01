@@ -5,7 +5,7 @@ import { boolean } from "@storybook/addon-knobs";
 import { ThemeProvider } from '../index';
 import { BaseStyles, Container, Grid, GridItem, Section, Option, Select, TextInput, Textarea, FileInput } from './index';
 import { Icon } from './Icon';
-import Alarm from './Icon/icons/Alarm';
+import { Search } from './Icon/icons';
 
 storiesOf("Forms", module)
   .add("Default", () => {
@@ -26,7 +26,7 @@ storiesOf("Forms", module)
                   required
                   floating={floating}
                   onChange={() => console.log('change')}
-                  start={<Icon icon={<Alarm />} />}
+                  start={<Icon icon={<Search />} />}
                 />
               </GridItem>
               <GridItem p={2} size={[12, 6]}>

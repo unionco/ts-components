@@ -1,6 +1,3 @@
-
-// GENERATE BY ./scripts/build-icon.js
-// DON NOT EDIT IT MANUALLY
 import { styled } from '../../../styles';
 
 const ArrowRight = styled.svg.attrs({
@@ -8,8 +5,9 @@ const ArrowRight = styled.svg.attrs({
   width: 16,
   height: 16,
   viewBox: '0 0 16 16',
+  strokeWidth: 2,
   dangerouslySetInnerHTML: {
-    __html: '<path d="M15.5 8L8 .5V5H0v6h8v4.5z"/>'
+    __html: '<line x1="14" y1="8" x2="1" y2="8" stroke="currentColor" /><polyline points="9.05 3.05 14 8 9.05 12.95" fill="none" stroke="currentColor" />'
   }
 })`
   display: inline-block;

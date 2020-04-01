@@ -10,7 +10,7 @@ import { icons } from '../Icon/icon.stories';
 storiesOf("Text Input", module)
   .add("Default", () => {
     const hasStartIcon = boolean('Use Start Icon?', false);
-    const iconName = select('Start Icon', icons.map(i => i.name), 'AddressBook');
+    const iconName = select('Start Icon', icons.map(i => i.name), 'Search');
     const IconComponent = icons.find(icon => icon.name === iconName)?.component || React.Fragment;
 
     const inputProps = {
