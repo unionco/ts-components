@@ -46,7 +46,7 @@ storiesOf("Icon", module)
     )
   })
 
-const icons = [
+export const icons = [
   { name: 'AddressBook', component: AddressBook },
   { name: 'Alarm', component: Alarm },
   { name: 'ArrowLeft', component: ArrowLeft },
