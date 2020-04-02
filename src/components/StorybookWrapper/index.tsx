@@ -9,7 +9,7 @@ interface IStorybookWrapper {
 const StorybookWrapper: React.FC<IStorybookWrapper> = ({ children }) => (
   <ThemeProvider>
     <BaseStyles />
-    <Section m={6}>
+    <Section p={6}>
       <Container>
         { children }
       </Container>

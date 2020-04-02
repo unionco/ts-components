@@ -1,36 +1,55 @@
-import React, { forwardRef, useRef } from 'react';
-import { StyledInputWrapper, StyledInput, StyledInputError, StyledInputProps } from './styles';
+import React, { forwardRef } from 'react';
+import {
+  StyledInputWrapper,
+  StyledInput,
+  StyledInputError,
+  StyledInputProps,
+  StyledInputIcon,
+  StyledInputContainer,
+} from './styles';
 import { Label } from '../Label';
 
-type Ref = HTMLInputElement;
+// [TODO] Ensure this works properly
+// export type Ref = HTMLInputElement;
+export type Ref = any;
 
-type InputProps = StyledInputProps & {
+export type InputProps = StyledInputProps & {
   label?: string;
+  flyout?: 'start' | 'end';
 }
 
-const InputComponent: React.FC<InputProps> = ({ ref, label, floating, start, ...props }) => {
-  const inputRef = useRef<HTMLInputElement>(null);
+const TextInput = forwardRef<Ref, InputProps>(({
+  end,
+  error,
+  floating,
+  label,
+  start,
+  ...props
+}, ref) => {
+  const LabelComponent = () => <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>;
+  const ErrorMessage = () => <StyledInputError>{error}</StyledInputError>;
 
-  const handleStartClick = () => {
-    if (inputRef.current != null) {
-      inputRef.current!.focus();
-    }
-  };
+  console.log('ref', ref);
 
   return (
-    <StyledInputWrapper floating={floating} hasStart={start != null}>
+    <StyledInputContainer>
+      {label && !floating && <LabelComponent />}
 
-      <StyledInput {...props} ref={inputRef as any} floating={floating} />
-      {start && <div slot="start" onClick={handleStartClick}>{start}</div>}
+      <StyledInputWrapper floating={floating} start={start} end={end} error={error}>
+        {start && <StyledInputIcon slot="start">{start}</StyledInputIcon>}
 
-      {label && <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>}
-      {props.error && <StyledInputError>{props.error}</StyledInputError>}
-    </StyledInputWrapper>
+        <StyledInput {...props} ref={ref} floating={floating} />
+
+        {label && floating && <LabelComponent />}
+        {error && floating && <ErrorMessage />}
+
+        {end && <StyledInputIcon slot="end">{end}</StyledInputIcon>}
+      </StyledInputWrapper>
+
+      {error && !floating && <ErrorMessage />}
+    </StyledInputContainer>
   );
-}
+});
 
-export const TextInput = forwardRef<Ref, InputProps>((props, ref) => (
-  <InputComponent ref={ref} {...props} />
-))
-
-export { StyledInputWrapper, StyledInput, StyledInputError, StyledInputProps };
+export default TextInput;
+export * from './styles';

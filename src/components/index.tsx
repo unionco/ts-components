@@ -6,8 +6,10 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './Card';
 export * from './CardContainer';
+
 export { default as Checkbox } from './Checkbox';
 export * from './Checkbox';
+
 export * from './Chip';
 export * from './Container';
 export * from './Copy';
@@ -33,13 +35,19 @@ export * from './Modal';
 export * from './Option';
 export * from './Pagination';
 export * from './Radio';
+
 export { default as RangeSlider } from './RangeSlider';
+export * from './RangeSlider';
+
 export * from './Review';
 export * from './RichText';
 export * from './Section';
 export * from './Select';
 export * from './Slider';
 export * from './Textarea';
+
+export { default as TextInput } from './TextInput';
 export * from './TextInput';
+
 export * from './ThumbsSlider';
 export * from './Typography';

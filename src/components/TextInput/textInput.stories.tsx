@@ -1,34 +1,44 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { boolean, select, text } from '@storybook/addon-knobs';
-import { Container, Icon, Section, ThemeProvider } from '../../index';
-import { BaseStyles } from '../BaseStyles';
-import { TextInput } from './index';
-import { icons } from '../Icon/icon.stories';
+import { boolean, text } from '@storybook/addon-knobs';
+import { Icon } from '../../index';
+import { Close, Search } from '../Icon/icons';
+import TextInput from './index';
+import StorybookWrapper from '../StorybookWrapper';
 
 
 storiesOf("Text Input", module)
   .add("Default", () => {
-    const hasStartIcon = boolean('Use Start Icon?', false);
-    const iconName = select('Start Icon', icons.map(i => i.name), 'Search');
-    const IconComponent = icons.find(icon => icon.name === iconName)?.component || React.Fragment;
-
     const inputProps = {
-      label: text('Input Label', 'Label Value'),
-      placeholder: text('Input Placeholder', 'Placeholder Value'),
       floating: boolean('Use Floating Label?', false),
       error: text('Input Error Message', 'Example Error Message'),
-      ...(hasStartIcon && { start: <Icon icon={<IconComponent />} />})
+      label: text('Input Label', 'Label Value'),
+      placeholder: text('Input Placeholder', 'Placeholder Value'),
     };
 
     return (
-      <ThemeProvider>
-        <BaseStyles />
-        <Section m={6}>
-          <Container>
-            <TextInput {...inputProps} />
-          </Container>
-        </Section>
-      </ThemeProvider>
+      <StorybookWrapper>
+        <TextInput
+          id="textInput-default"
+          {...inputProps}
+        />
+
+        <br/>
+
+        <TextInput
+          id="textInput-startIcon"
+          start={<Icon icon={<Search />} />}
+          {...inputProps}
+        />
+
+        <br/>
+
+        <TextInput
+          id="textInput-endIcon"
+          start={<Icon icon={<Search />} />}
+          end={<Icon icon={<Close />} />}
+          {...inputProps}
+        />
+      </StorybookWrapper>
     );
   })

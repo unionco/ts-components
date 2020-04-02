@@ -73,3 +73,4 @@ RangeSlider.defaultProps = {
 };
 
 export default RangeSlider;
+export * from './styles';

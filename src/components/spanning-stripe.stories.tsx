@@ -2,10 +2,7 @@ import React from "react";
 import { storiesOf } from "@storybook/react";
 import { ThemeProvider } from '../index';
 import { BaseStyles } from './BaseStyles';
-import { ButtonGroup, Grid, GridItem, Button, FormGroup } from './index';
-import { Eyebrow } from "./Eyebrow";
-import { Flex } from "./Flex";
-import { TextInput } from "./TextInput";
+import { ButtonGroup, Eyebrow, Flex, TextInput, Grid, GridItem, Button, FormGroup } from './index';
 
 storiesOf("Spanning Stripe", module)
   .add("Default", () => (

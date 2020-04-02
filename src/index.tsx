@@ -9,7 +9,7 @@ export * from './styles';
 export * from './components';
 
 /**
- * Export all components
+ * Export all utilities
  */
 export * from './utils';
 
