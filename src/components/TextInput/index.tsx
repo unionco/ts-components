@@ -29,8 +29,6 @@ const TextInput = forwardRef<Ref, InputProps>(({
   const LabelComponent = () => <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>;
   const ErrorMessage = () => <StyledInputError>{error}</StyledInputError>;
 
-  console.log('ref', ref);
-
   return (
     <StyledInputContainer>
       {label && !floating && <LabelComponent />}
