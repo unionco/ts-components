@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import _debounce from 'lodash/debounce';
 import { AccordionPanel, StyledAccordion, IStyledAccordionPanelProps, IStyledAccordionProps } from './styles';
 
 export interface IAccordionProps
@@ -13,6 +14,7 @@ interface IAccordionState {
 
 class Accordion extends Component<IAccordionProps, IAccordionState> {
   private el: any = React.createRef<HTMLDivElement>();
+  private resizeHandler: any = null;
 
   constructor(props: IAccordionProps) {
     super(props);
@@ -20,6 +22,7 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
       isOpen: false
     }
     this.toggleOpenState = this.toggleOpenState.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
@@ -27,19 +30,36 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
     if (open) {
       this.toggleOpenState();
     }
+
+    this.resizeHandler = _debounce(() => {
+      this.handleResize();
+    }, 100);
+
+    window.addEventListener('resize', this.resizeHandler);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeHandler);
+  }
+
 
   toggleOpenState() {
     const { isOpen } = this.state;
-    if (isOpen) {
-      this.el.current.style.maxHeight = '0px';
-    } else {
-      this.el.current.style.maxHeight = `${this.el.current.scrollHeight}px`;
-    }
+
+    this.el.current.style.maxHeight = (isOpen)
+      ? '0px'
+      : `${this.el.current.scrollHeight}px`;
 
     this.setState({
       isOpen: !isOpen
     });
+  }
+
+  handleResize() {
+    const { isOpen } = this.state;
+    if (!isOpen) { return; }
+
+    this.el.current.style.maxHeight = `${this.el.current.scrollHeight}px`;
   }
 
   render() {
