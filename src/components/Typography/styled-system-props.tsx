@@ -5,6 +5,7 @@ import {
   FontSizeProps,
   FontStyleProps,
   FontWeightProps,
+  LayoutProps,
   LetterSpacingProps,
   LineHeightProps,
   SizeProps,
@@ -27,5 +28,6 @@ export type StyledSystemProps = IThemeStyledFunction<any>
   & FontFamilyProps
   & LineHeightProps
   & TextAlignProps
+  & LayoutProps
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   & { className?: string; as?: keyof JSX.IntrinsicElements | React.ComponentType<any> };

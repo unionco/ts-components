@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { themeGet } from '@styled-system/theme-get';
 import { darken } from 'polished';
 import { styled, IThemeStyledFunction } from '../../../styles';
-import { StyledLabel } from '../../index';
+import { StyledLabel } from '../../Label';
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 

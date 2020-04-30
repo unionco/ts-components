@@ -67,11 +67,12 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
   margin-bottom: ${themeGet('space.3')};
 
   svg {
-    margin: ${themeGet('formElements.input.padding')};
+    bottom: 0;
+    margin: auto ${themeGet('formElements.input.padding')};
     pointer-events: none;
     position: absolute;
-    bottom: 6px;
     right: 0;
+    top: 0;
   }
 
   ${props => props.position === 'floating' && `
