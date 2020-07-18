@@ -36,7 +36,7 @@
     "@types/swiper": "^5.2.0",
     "@union/react-schematics": "^0.0.0",
     "core-js": "2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "polished": "^3.4.2",
     "react-modal": "^3.11.1",
     "react-range": "^1.5.3",
