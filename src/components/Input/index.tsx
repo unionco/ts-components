@@ -1,18 +1,17 @@
 import React, { ChangeEvent } from 'react';
 import { StyledInput, StyledFiles, IStyledInputProps } from './styles';
 
-interface IInputProps
-  extends IStyledInputProps {
-    type?: string;
-    id?: string;
-    name?: string;
-    placeholder?: string;
-    multiple?: boolean;
-    defaultValue?: any;
-    onFocus?: (ev: FocusEvent) => void;
-    onBlur?: (ev: FocusEvent) => void;
-    onChange?: (ev: ChangeEvent) => void;
-  };
+interface IInputProps extends IStyledInputProps {
+  type?: string;
+  id?: string;
+  name?: string;
+  placeholder?: string;
+  multiple?: boolean;
+  defaultValue?: any;
+  onFocus?: (ev: FocusEvent) => void;
+  onBlur?: (ev: FocusEvent) => void;
+  onChange?: (ev: ChangeEvent) => void;
+}
 
 interface IInputState {
   value?: string;
@@ -26,7 +25,7 @@ class Input extends React.Component<IInputProps, IInputState> {
     this.state = {
       value: props.defaultValue || '',
       hasFocus: '',
-      fileNames: []
+      fileNames: [],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -53,12 +52,12 @@ class Input extends React.Component<IInputProps, IInputState> {
         }
 
         this.setState({
-          fileNames
+          fileNames,
         });
       }
     }
 
-    this.setState({value: ev.target.value});
+    this.setState({ value: ev.target.value });
 
     const { onChange } = this.props;
     if (onChange) {
@@ -73,7 +72,7 @@ class Input extends React.Component<IInputProps, IInputState> {
     }
 
     this.setState({
-      hasFocus: 'has-focus'
+      hasFocus: 'has-focus',
     });
   }
 
@@ -83,18 +82,20 @@ class Input extends React.Component<IInputProps, IInputState> {
       onBlur(ev.nativeEvent);
     }
     this.setState({
-      hasFocus: ''
+      hasFocus: '',
     });
   }
 
   public onFileClear(event: any) {
     if (this.props.type === 'file') {
       this.setState({
-        value: ''
+        value: '',
       });
-      this.setState({fileNames: this.state.fileNames.filter((person) => {
-        return person !== event.target.parentNode.dataset.file;
-      })});
+      this.setState({
+        fileNames: this.state.fileNames.filter((person) => {
+          return person !== event.target.parentNode.dataset.file;
+        }),
+      });
     }
   }
 
@@ -103,20 +104,18 @@ class Input extends React.Component<IInputProps, IInputState> {
     let className = this.state.hasFocus;
 
     if (this.state.value) {
-      className += ' has-value'
+      className += ' has-value';
     }
 
-    const fileNames = this.state.fileNames.map((filename, index) =>
-      <div key={index} data-file={filename}>{filename} <button onClick={this.onFileClear}>X</button></div>
-    );
+    const fileNames = this.state.fileNames.map((filename, index) => (
+      <div key={index} data-file={filename}>
+        {filename} <button onClick={this.onFileClear}>X</button>
+      </div>
+    ));
 
     return (
       <>
-        {type === 'file' && (
-          <StyledFiles>
-            {fileNames}
-          </StyledFiles>
-        )}
+        {type === 'file' && <StyledFiles>{fileNames}</StyledFiles>}
         <StyledInput
           className={className}
           type={type}
@@ -133,7 +132,7 @@ class Input extends React.Component<IInputProps, IInputState> {
           onBlur={this.onBlur}
         />
       </>
-    )
+    );
   }
 }
 

@@ -1,15 +1,14 @@
 import React from 'react';
-import StyledButton, { IStyledButtonProps } from './styles';
+import StyledButton, { StyledButtonProps } from './styles';
 
-export interface IButtonProps
-  extends IStyledButtonProps {
-    start?: JSX.Element;
-    end?: JSX.Element;
-    iconOnly?: JSX.Element;
-  };
+export interface ButtonProps extends StyledButtonProps {
+  start?: JSX.Element;
+  end?: JSX.Element;
+  iconOnly?: JSX.Element;
+}
 
 /** A button with various size and color settings */
-const Button: React.FC<IButtonProps> = ({
+const Button: React.FC<ButtonProps> = ({
   size = 'medium',
   variant = 'primary',
   fill = 'solid',
@@ -28,6 +27,6 @@ const Button: React.FC<IButtonProps> = ({
       </span>
     </StyledButton>
   );
-}
+};
 
-export { Button, StyledButton, IStyledButtonProps };
+export { Button, StyledButton, StyledButtonProps };

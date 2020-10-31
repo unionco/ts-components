@@ -1,17 +1,17 @@
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import { getVariantCSS } from '../../utils';
-import { objectFit } from '../../theme/mixins'
+import { objectFit } from '../../theme/mixins';
 
 interface IRichTextProps {
   tightness?: 'tight' | 'loose' | 'default';
   twoCol?: boolean;
-};
+}
 
 const tightness = (props: any) => getVariantCSS(props.theme, `wysiwyg.tightness.${props.tightness}`);
 
 const StyledRichText = styled.div<IRichTextProps>`
   display: block;
-  max-width: ${props => props.theme.wysiwyg.maxWidth};
+  max-width: ${(props: any) => props.theme.wysiwyg.maxWidth};
 
   h1,
   h2,
@@ -35,33 +35,36 @@ const StyledRichText = styled.div<IRichTextProps>`
   }
 
   h1 {
-    margin-bottom: ${props => props.theme.space[6]};
+    margin-bottom: ${(props: any) => props.theme.space[6]};
   }
 
   h2 {
-    margin-bottom: ${props => props.theme.space[4]};
+    margin-bottom: ${(props: any) => props.theme.space[4]};
   }
 
   h3 {
-    margin-bottom: ${props => props.theme.space[3]};
+    margin-bottom: ${(props: any) => props.theme.space[3]};
   }
 
   h4 {
-    margin-bottom: ${props => props.theme.space[2]};
+    margin-bottom: ${(props: any) => props.theme.space[2]};
   }
 
-  ${({ theme }) => [1, 2, 3, 4, 5, 6].map((key) => `
+  ${({ theme }) =>
+    [1, 2, 3, 4, 5, 6].map(
+      (key) => `
     p + h${key},
     figure + h${key},
     ol + h${key},
     ul + h${key} {
       margin-top: ${theme.space[6]};
     }
-  `)}
+  `,
+    )}
 
   ul,
   ol {
-    margin-bottom: ${props => props.theme.space[4]};
+    margin-bottom: ${(props: any) => props.theme.space[4]};
     padding-left: 40px;
   }
 
@@ -90,7 +93,7 @@ const StyledRichText = styled.div<IRichTextProps>`
   }
 
   p {
-    ${props => tightness(props)}
+    ${(props: any) => tightness(props)}
   }
 
   hr {
@@ -102,8 +105,8 @@ const StyledRichText = styled.div<IRichTextProps>`
     overflow: hidden;
     padding: 0;
     margin: 0;
-    margin-top: ${props => props.theme.space[4]};
-    margin-bottom: ${props => props.theme.space[4]};
+    margin-top: ${(props: any) => props.theme.space[4]};
+    margin-bottom: ${(props: any) => props.theme.space[4]};
     width: 100%;
 
     img {
@@ -117,9 +120,9 @@ const StyledRichText = styled.div<IRichTextProps>`
     background: #eee;
     border-left: 4px solid #262626;
     line-height: 1.5;
-    margin: ${props => props.theme.space[5]} 0;
-    padding: ${props => props.theme.space[4]};
-    ${props => props.theme.fontSizes.lg};
+    margin: ${(props: any) => props.theme.space[5]} 0;
+    padding: ${(props: any) => props.theme.space[4]};
+    ${(props: any) => props.theme.fontSizes.lg};
     font-style: italic;
     text-align: left;
 
@@ -129,7 +132,7 @@ const StyledRichText = styled.div<IRichTextProps>`
     }
 
     span {
-      ${props => props.theme.fontSizes.base};
+      ${(props: any) => props.theme.fontSizes.base};
 
       &:before {
         content: '\2014';

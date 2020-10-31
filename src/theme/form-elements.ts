@@ -1,37 +1,6 @@
-export interface IFormElements {
-  input: {
-    backgroundColor: string;
-    border: string;
-    borderRadius: string;
-    height: string;
-    padding: string;
-    floatingLabel: string;
-    requiredColor: string;
-  }
+import { FormElements } from 'styled-components';
 
-  checkbox: {
-    border: string;
-    borderRadius: string;
-    sizes?: {
-      [key: string]: object;
-    }
-  }
-
-  fileInput: {
-    backgroundColor: string;
-    color: string;
-  }
-
-  radio: {
-    border: string;
-    borderRadius: string;
-    sizes?: {
-      [key: string]: object;
-    }
-  }
-}
-
-export const formElements: IFormElements = {
+export const formElements: FormElements = {
   input: {
     backgroundColor: '#eee',
     border: 'none',
@@ -59,8 +28,8 @@ export const formElements: IFormElements = {
         checkmark: '20px',
         height: '30px',
         width: '30px',
-      }
-    }
+      },
+    },
   },
   fileInput: {
     backgroundColor: '#3880ff',
@@ -84,7 +53,7 @@ export const formElements: IFormElements = {
         innerCircle: '18px',
         height: '30px',
         width: '30px',
-      }
-    }
+      },
+    },
   },
 };

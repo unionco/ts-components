@@ -1,13 +1,13 @@
-import React from 'react';
-import { styled, IThemeStyledFunction } from '../../styles';
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
 import { SpaceProps, ColorProps, space, color } from 'styled-system';
 
-export type ILabelProps = IThemeStyledFunction<'label'> & SpaceProps & ColorProps & {
-  htmlFor?: string;
-  required?: boolean;
-}
+export type StyledLabelProps = SpaceProps &
+  Omit<ColorProps, 'color'> & {
+    required?: boolean;
+  };
 
-const StyledLabel = styled.label<ILabelProps>`
+const StyledLabel = styled.label<StyledLabelProps>`
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -16,9 +16,11 @@ const StyledLabel = styled.label<ILabelProps>`
   text-transform: uppercase;
   user-select: none;
   pointer-events: none;
-  color: ${props => props.theme.colors.dark.base};
+  color: ${(props: any) => props.theme.colors.dark.base};
 
-  ${props => props.required && `
+  ${(props: any) =>
+    props.required &&
+    `
     &:after {
       content: '*';
     }
@@ -28,12 +30,13 @@ const StyledLabel = styled.label<ILabelProps>`
   ${color}
 `;
 
-const Label: React.FC<ILabelProps> = ({
-  htmlFor,
-  children,
-  ...rest
-}) => (
-  <StyledLabel htmlFor={htmlFor} {...rest }>
+export interface LabelProps extends StyledLabelProps {
+  htmlFor?: string;
+  children: ReactNode | ReactNode[];
+}
+
+const Label: React.FC<LabelProps> = ({ htmlFor, children, ...rest }) => (
+  <StyledLabel htmlFor={htmlFor} {...rest}>
     {children}
   </StyledLabel>
 );

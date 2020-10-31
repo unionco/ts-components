@@ -1,10 +1,12 @@
 import { display, DisplayProps, SpaceProps, FlexboxProps, space, flexbox } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 
-type StyledIntroProps = IThemeStyledFunction<'div'> & DisplayProps & SpaceProps & FlexboxProps & {
-  layout?: 'row'|'column';
-};
+type StyledIntroProps = DisplayProps &
+  SpaceProps &
+  FlexboxProps & {
+    layout?: 'row' | 'column';
+  };
 
 const StyledIntro = styled.div<StyledIntroProps>`
   align-items: center;
@@ -12,13 +14,15 @@ const StyledIntro = styled.div<StyledIntroProps>`
   justify-content: space-between;
   margin-bottom: ${themeGet('space.4')};
 
-  div[slot="copy"] {
+  div[slot='copy'] {
     margin-bottom: ${themeGet('space.4')};
     padding-right: ${themeGet('space.4')};
     width: 60%;
   }
 
-  ${props => props.layout === 'column' && `
+  ${(props: any) =>
+    props.layout === 'column' &&
+    `
     flex-direction: column;
     justify-content: center;
 
@@ -28,8 +32,8 @@ const StyledIntro = styled.div<StyledIntroProps>`
     }
   `}
 
-  @media screen and (max-width: ${props => props.theme.breakpoints.md}) {
-    div[slot="copy"] {
+  @media screen and (max-width: ${(props: any) => props.theme.breakpoints.md}) {
+    div[slot='copy'] {
       width: 90%;
     }
   }

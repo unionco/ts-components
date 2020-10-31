@@ -1,14 +1,13 @@
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 import { ColorProps, FlexboxProps, LayoutProps, SpaceProps, color, flexbox, layout, space } from 'styled-system';
 
-type IGridProps = IThemeStyledFunction<'div'> & ColorProps & FlexboxProps & LayoutProps & SpaceProps;
+type StyledGridItemProps = Omit<ColorProps, 'color'> & FlexboxProps & LayoutProps & SpaceProps;
 
-const GridItem = styled.div<IGridProps>`
+const GridItem = styled.div<StyledGridItemProps>`
   position: relative;
   width: 100%;
   max-width: 100%;
   min-height: 1px;
-
 
   ${flexbox};
   ${layout};
@@ -16,4 +15,4 @@ const GridItem = styled.div<IGridProps>`
   ${color};
 `;
 
-export { GridItem, IGridProps };
+export { GridItem, StyledGridItemProps };

@@ -1,11 +1,11 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import * as Typography from './index';
 
-storiesOf("Typography", module)
-  .add("Default", () => (
+storiesOf('Typography', module)
+  .add('Default', () => (
     <ThemeProvider>
       <BaseStyles />
       <Typography.Display>H1. Display Text</Typography.Display>
@@ -18,7 +18,7 @@ storiesOf("Typography", module)
       <Typography.SmallParagraph>Small Paragraph</Typography.SmallParagraph>
     </ThemeProvider>
   ))
-  .add("As Others", () => (
+  .add('As Others', () => (
     <ThemeProvider>
       <BaseStyles />
       <Typography.Display>H1. Display Text</Typography.Display>

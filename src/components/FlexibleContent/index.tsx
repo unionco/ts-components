@@ -1,13 +1,12 @@
 import React from 'react';
 import { StyledFlexibleContent, Media, IFlexibleContentStyleProps } from './styles';
 
-interface IFlexibleContentProps
-  extends IFlexibleContentStyleProps {
+interface FlexibleContentProps extends IFlexibleContentStyleProps {
   content?: JSX.Element;
   media?: JSX.Element;
 }
 
-const FlexibleContent: React.FC<IFlexibleContentProps> = ({
+const FlexibleContent: React.FC<FlexibleContentProps> = ({
   layout = 'row',
   order = 'last',
   reversed = false,
@@ -28,4 +27,4 @@ const FlexibleContent: React.FC<IFlexibleContentProps> = ({
   );
 };
 
-export { FlexibleContent, StyledFlexibleContent, IFlexibleContentProps, IFlexibleContentStyleProps };
+export { FlexibleContent, StyledFlexibleContent, FlexibleContentProps, IFlexibleContentStyleProps };

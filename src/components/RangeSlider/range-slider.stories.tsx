@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
-import RangeSlider from "./index";
+import RangeSlider from './index';
 import { Box, Container, Section } from '../index';
 import { H1 } from '../Typography';
-import { number } from "@storybook/addon-knobs";
+import { number } from '@storybook/addon-knobs';
 
-storiesOf("Range Slider", module)
-  .add("Default", () => {
+storiesOf('Range Slider', module)
+  .add('Default', () => {
     const min = 30;
     const max = 130;
 
-    const [values, setValues] = useState([((max - min) / 2) + min]);
+    const [values, setValues] = useState([(max - min) / 2 + min]);
 
     const handleChange = (values: number[]) => {
       setValues(values);
-    }
+    };
 
     return (
       <ThemeProvider>
@@ -37,24 +37,20 @@ storiesOf("Range Slider", module)
 
             <Box m={5}>
               <H1 className="h4">Values:</H1>
-              <pre>
-                {
-                  JSON.stringify(values, null, 2)
-                }
-              </pre>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
             </Box>
           </Container>
         </Section>
       </ThemeProvider>
     );
   })
-  .add("Multiple Handles", () => {
+  .add('Multiple Handles', () => {
     const initialValues = [0, 120];
     const [values, setValues] = useState(initialValues);
 
     const handleChange = (values: number[]) => {
       setValues(values);
-    }
+    };
 
     const label = 'Wrapper Font Size';
     const defaultValue = 16;
@@ -86,11 +82,7 @@ storiesOf("Range Slider", module)
 
             <Box m={5}>
               <H1 className="h4">Values:</H1>
-              <pre>
-                {
-                  JSON.stringify(values, null, 2)
-                }
-              </pre>
+              <pre>{JSON.stringify(values, null, 2)}</pre>
             </Box>
           </Container>
         </Section>

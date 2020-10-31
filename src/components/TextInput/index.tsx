@@ -16,17 +16,14 @@ export type Ref = any;
 export type InputProps = StyledInputProps & {
   label?: string;
   flyout?: 'start' | 'end';
-}
+};
 
-const TextInput = forwardRef<Ref, InputProps>(({
-  end,
-  error,
-  floating,
-  label,
-  start,
-  ...props
-}, ref) => {
-  const LabelComponent = () => <Label htmlFor={props.id} aria-label={props.id}>{label}</Label>;
+const TextInput = forwardRef<Ref, InputProps>(({ end, error, floating, label, start, ...props }, ref) => {
+  const LabelComponent = () => (
+    <Label htmlFor={props.id} aria-label={props.id}>
+      {label}
+    </Label>
+  );
   const ErrorMessage = () => <StyledInputError>{error}</StyledInputError>;
 
   return (
@@ -48,6 +45,7 @@ const TextInput = forwardRef<Ref, InputProps>(({
     </StyledInputContainer>
   );
 });
+TextInput.displayName = 'TextInput';
 
 export default TextInput;
 export * from './styles';

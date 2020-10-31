@@ -1,11 +1,10 @@
 import { space, SpaceProps } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 
-type IStyledIconProps = IThemeStyledFunction<'i'> & SpaceProps & {
+type IStyledIconProps = SpaceProps & {
   size?: 'sm' | 'lg';
 };
-
 
 const Icon = styled.i<IStyledIconProps>`
   display: inline-block;
@@ -15,8 +14,8 @@ const Icon = styled.i<IStyledIconProps>`
   ${space};
 
   svg {
-    fill: ${props => themeGet(`colors.${props.color}.base`)};
-    stroke: ${props => themeGet(`colors.${props.color}.base`)};
+    fill: ${(props: any) => themeGet(`colors.${props.color}.base`)};
+    stroke: ${(props: any) => themeGet(`colors.${props.color}.base`)};
   }
 `;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider } from "../Slider";
+import { Slider } from '../Slider';
 import { ThumbsSliderContainer, ThumbsContainer } from './styles';
 
 interface IThumbsSliderProps {
@@ -7,8 +7,8 @@ interface IThumbsSliderProps {
 }
 
 interface IThumbsSliderState {
-  thumbsSlider?: any,
-  isLoaded?: boolean
+  thumbsSlider?: any;
+  isLoaded?: boolean;
 }
 
 // [TODO] Perhaps make this come from the CMS ... remove this comment if you are a B/E and disagree
@@ -19,7 +19,7 @@ class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderStat
     super(props);
     this.state = {
       thumbsSlider: '',
-      isLoaded: false
+      isLoaded: false,
     };
 
     this.thumbsLoaded = this.thumbsLoaded.bind(this);
@@ -28,7 +28,7 @@ class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderStat
   public thumbsLoaded(event: any) {
     this.setState({
       thumbsSlider: event,
-      isLoaded: true
+      isLoaded: true,
     });
   }
 
@@ -39,27 +39,33 @@ class ThumbsSlider extends React.Component<IThumbsSliderProps, IThumbsSliderStat
     return (
       <ThumbsSliderContainer>
         {this.state.isLoaded && (
-          <Slider options={{
-            thumbs: {
-              swiper: this.state.thumbsSlider,
-            }
-          }}>
+          <Slider
+            options={{
+              thumbs: {
+                swiper: this.state.thumbsSlider,
+              },
+            }}
+          >
             {children}
           </Slider>
         )}
         <ThumbsContainer disableNextButton={disableNextButton}>
-          <Slider buttons onSlidesDidLoad={this.thumbsLoaded} options={{
-            spaceBetween: 15,
-            freeMode: true,
-            watchSlidesVisibility: true,
-            watchSlidesProgress: true,
-            slidesPerView,
-          }}>
+          <Slider
+            buttons
+            onSlidesDidLoad={this.thumbsLoaded}
+            options={{
+              spaceBetween: 15,
+              freeMode: true,
+              watchSlidesVisibility: true,
+              watchSlidesProgress: true,
+              slidesPerView,
+            }}
+          >
             {children}
           </Slider>
         </ThumbsContainer>
       </ThumbsSliderContainer>
-    )
+    );
   }
 }
 

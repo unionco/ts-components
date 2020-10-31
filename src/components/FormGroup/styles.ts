@@ -1,11 +1,10 @@
 import { themeGet } from '@styled-system/theme-get';
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
 export interface IStyledFormGroupProps {
   position?: 'stacked' | 'inline' | 'floating';
 }
-
 
 export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
   display: flex;
@@ -14,7 +13,9 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
   position: relative;
   width: 100%;
 
-  ${({ position }) => position === 'inline' && `
+  ${({ position }) =>
+    position === 'inline' &&
+    `
     align-items: center;
     flex-direction: row-reverse;
 
@@ -25,7 +26,9 @@ export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
     }
   `}
 
-  ${({ position }) => position === 'floating' && `
+  ${({ position }) =>
+    position === 'floating' &&
+    `
     align-items: flex-start;
     flex-direction: column;
 

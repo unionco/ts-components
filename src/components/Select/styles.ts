@@ -1,17 +1,18 @@
 import { SpaceProps, space } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
-export type IStyledSelectProps = IThemeStyledFunction<'select'> & SpaceProps & {
+export type IStyledSelectProps = SpaceProps & {
   disabled?: boolean;
   required?: boolean;
   position?: 'stacked' | 'inline' | 'floating';
-}
+};
 
-export type ISelectWrapperProps = IStyledSelectProps & SpaceProps & {
-  hasValue?: boolean;
-}
+export type ISelectWrapperProps = IStyledSelectProps &
+  SpaceProps & {
+    hasValue?: boolean;
+  };
 
 /**
  * Select Styles
@@ -26,7 +27,7 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
   font-size: 16px;
   outline: none;
   padding: 0 ${themeGet('formElements.input.padding')};
-  height: ${props => !props.multiple ? '64px' :  'auto'};
+  height: ${(props: any) => (!props.multiple ? '64px' : 'auto')};
   width: 100%;
   transition: all 0.3s ease-in-out;
 
@@ -35,7 +36,9 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
     display: none;
   }
 
-  ${props => props.multiple && `
+  ${(props: any) =>
+    props.multiple &&
+    `
     padding-top: ${themeGet('formElements.input.padding')(props)};
     padding-bottom: ${themeGet('formElements.input.padding')(props)};
 
@@ -75,7 +78,9 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
     top: 0;
   }
 
-  ${props => props.position === 'floating' && `
+  ${(props: any) =>
+    props.position === 'floating' &&
+    `
     svg {
       top: 6px;
     }
@@ -90,16 +95,21 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
       transform-origin: 0 0;
       opacity: .75;
 
-      ${props.hasValue && `
+      ${
+        props.hasValue &&
+        `
         top: 0;
         left: 0;
         transform: translate3d(0, -90%, 0) scale(0.9);
         opacity: 1;
-      `}
+      `
+      }
     }
   `}
 
-  ${props => props.position === 'inline' && `
+  ${(props: any) =>
+    props.position === 'inline' &&
+    `
     align-items: center;
     display: flex;
 
@@ -110,7 +120,9 @@ export const SelectWrapper = styled.div<ISelectWrapperProps>`
     }
   `}
 
-  ${props => props.disabled && `
+  ${(props: any) =>
+    props.disabled &&
+    `
     opacity: 0.75;
 
     svg {

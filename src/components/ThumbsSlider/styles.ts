@@ -1,6 +1,6 @@
-import { styled } from "../../styles";
+import styled from 'styled-components';
 import { SwiperContainer } from '../Slider';
-import { objectFit } from '../../theme/mixins'
+import { objectFit } from '../../theme/mixins';
 
 const ThumbsContainer = styled.div<any>`
   margin-top: 20px;
@@ -14,8 +14,8 @@ const ThumbsContainer = styled.div<any>`
     position: static;
 
     .swiper-button-next {
-      ${props => props.disableNextButton && `display: none;`}
-      color: ${props => props.theme.colors.black};
+      ${(props: any) => props.disableNextButton && `display: none;`}
+      color: ${(props: any) => props.theme.colors.black};
       right: -13%;
 
       &::after {

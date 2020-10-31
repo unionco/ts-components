@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import _debounce from 'lodash/debounce';
 import { AccordionPanel, StyledAccordion, IStyledAccordionPanelProps, IStyledAccordionProps } from './styles';
 
-export interface IAccordionProps
-  extends IStyledAccordionProps {
+export interface IAccordionProps extends IStyledAccordionProps {
   trigger: string | JSX.Element;
   panel: string | JSX.Element;
-};
+}
 
 interface IAccordionState {
   isOpen: boolean;
@@ -19,8 +18,8 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
   constructor(props: IAccordionProps) {
     super(props);
     this.state = {
-      isOpen: false
-    }
+      isOpen: false,
+    };
     this.toggleOpenState = this.toggleOpenState.bind(this);
     this.handleResize = this.handleResize.bind(this);
   }
@@ -42,22 +41,21 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
     window.removeEventListener('resize', this.resizeHandler);
   }
 
-
   toggleOpenState() {
     const { isOpen } = this.state;
 
-    this.el.current.style.maxHeight = (isOpen)
-      ? '0px'
-      : `${this.el.current.scrollHeight}px`;
+    this.el.current.style.maxHeight = isOpen ? '0px' : `${this.el.current.scrollHeight}px`;
 
     this.setState({
-      isOpen: !isOpen
+      isOpen: !isOpen,
     });
   }
 
   handleResize() {
     const { isOpen } = this.state;
-    if (!isOpen) { return; }
+    if (!isOpen) {
+      return;
+    }
 
     this.el.current.style.maxHeight = `${this.el.current.scrollHeight}px`;
   }

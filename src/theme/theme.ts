@@ -1,85 +1,13 @@
-import { colors, IColors } from './colors';
-import { formElements, IFormElements } from './form-elements';
-import { fonts, fontSizes, fontWeights, lineHeights, IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
+import { colors } from './colors';
+import { formElements } from './form-elements';
+import { fonts, fontSizes, fontWeights, lineHeights } from './typography';
 import { breakpoints, media } from './breakpoints';
-import { createColorMap, IColorVariant } from '../utils/index';
+import { createColorMap } from '../utils/index';
 import { DefaultTheme } from 'styled-components';
 
 const colorVariants = createColorMap(colors);
 
-export interface IDefaultTheme
-  extends DefaultTheme {
-  // tslint:disable-next-line:prefer-array-literal
-  borders: Array<number | string>;
-
-  colors: IColors;
-
-  formElements: IFormElements;
-
-  gridColumns: number;
-  breakpoints: {
-    [key: string]: string;
-  };
-  media: {
-    [key: string]: string;
-  };
-  fonts: IFonts;
-  fontSizes: IFontSizes;
-  fontWeights: IFontWeights;
-  lineHeights: ILineHeights;
-
-  siteMaxWidth: string;
-  maxWidths: {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-  }
-
-  radii: string[];
-  shadows: {
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-  }
-
-  space: string[];
-
-  buttons: IColorVariant;
-  buttonFills?: {
-    [key: string]: object;
-  };
-  buttonSizes: {
-    small: {
-      fontSize: string;
-      padding: string;
-    },
-    medium: {
-      fontSize: string;
-      padding: string;
-    },
-    large: {
-      fontSize: string;
-      padding: string;
-    }
-  },
-  modalSizes: {
-    sm: object;
-    md: object;
-    lg: object;
-  }
-  wysiwyg: {
-    maxWidth: string;
-    tightness: {
-      tight: object,
-      default: object,
-      loose: object
-    }
-  }
-}
-
-export const theme: IDefaultTheme = {
+export const theme: DefaultTheme = {
   colors,
   fonts,
   fontSizes,
@@ -114,7 +42,7 @@ export const theme: IDefaultTheme = {
       color: 'var(--neo-color-base)',
       ':hover': {
         background: '#eee',
-      }
+      },
     },
     outline: {
       background: 'transparent',
@@ -123,60 +51,60 @@ export const theme: IDefaultTheme = {
       ':hover': {
         background: 'var(--neo-color-base)',
         color: 'var(--neo-color-contrast)',
-      }
+      },
     },
     solid: {
       background: 'var(--neo-color-base)',
       color: 'var(--neo-color-contrast)',
       ':hover': {
-        opacity: 0.75
-      }
-    }
+        opacity: 0.75,
+      },
+    },
   },
   buttonSizes: {
     small: {
       fontSize: fontSizes.sm,
-      padding: `8px 16px`
+      padding: `8px 16px`,
     },
     medium: {
       fontSize: fontSizes.base,
-      padding: `16px 24px`
+      padding: `16px 24px`,
     },
     large: {
       fontSize: fontSizes.md,
-      padding: `24px 32px`
-    }
+      padding: `24px 32px`,
+    },
   },
   modalSizes: {
     sm: {
       height: `270px`,
       maxHeight: '90vh',
       maxWidth: '90vw',
-      width: `480px`
+      width: `480px`,
     },
     md: {
       height: `360px`,
       maxHeight: '90vh',
       maxWidth: '90vw',
-      width: `640px`
+      width: `640px`,
     },
     lg: {
       height: `90vh`,
-      width: `90vw`
-    }
+      width: `90vw`,
+    },
   },
   wysiwyg: {
     maxWidth: '720px',
     tightness: {
       tight: {
-        lineHeight: 1.2
+        lineHeight: 1.2,
       },
       default: {
-        lineHeight: 1.9
+        lineHeight: 1.9,
       },
       loose: {
-        lineHeight: 2.5
-      }
-    }
-  }
+        lineHeight: 2.5,
+      },
+    },
+  },
 };

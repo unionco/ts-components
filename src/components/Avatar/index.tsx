@@ -1,16 +1,17 @@
 import React from 'react';
 import { StyledAvatar } from './styles';
 
-interface IAvatar {
+export interface AvatarProps {
   image?: string;
+  alt?: string;
 }
 
-const Avatar: React.FC<IAvatar> = ({image}) => {
+const Avatar: React.FC<AvatarProps> = ({ image, alt }) => {
   return (
     <StyledAvatar>
-      <img src={image} alt=""/>
+      <img src={image} alt={alt && alt} />
     </StyledAvatar>
   );
-}
+};
 
-export { Avatar, StyledAvatar, IAvatar };
+export { Avatar, StyledAvatar };

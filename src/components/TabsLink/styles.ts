@@ -1,9 +1,9 @@
-import { styled, IThemeStyledFunction } from "../../styles";
+import styled from 'styled-components';
 import { SpaceProps, space } from 'styled-system';
 
-export type IStyledTabsProps = IThemeStyledFunction<'button'> & SpaceProps & {
+export type IStyledTabsProps = SpaceProps & {
   disabled?: boolean;
-}
+};
 
 const StyledTabsLink = styled.button<IStyledTabsProps>`
   appearance: none;
@@ -13,13 +13,15 @@ const StyledTabsLink = styled.button<IStyledTabsProps>`
   cursor: pointer;
   font-size: inherit;
   opacity: 0.7;
-  padding: ${props => props.theme.space[3]};
+  padding: ${(props: any) => props.theme.space[3]};
 
   &.is-active {
     opacity: 1;
   }
 
-  ${props => props.disabled && `
+  ${(props: any) =>
+    props.disabled &&
+    `
     cursor: not-allowed;
     opacity: 0.4;
   `}

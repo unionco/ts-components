@@ -1,13 +1,14 @@
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { SpaceProps, space, DisplayProps, FlexboxProps, display, flexbox, BorderProps, border } from 'styled-system';
 
-export type IStyledAccordionProps = IThemeStyledFunction<'div'> & SpaceProps & BorderProps & {
-  open?: boolean;
-}
+export type IStyledAccordionProps = SpaceProps &
+  BorderProps & {
+    open?: boolean;
+  };
 
-export type IStyledAccordionTriggerProps = IThemeStyledFunction<'span'> & SpaceProps & BorderProps;
+export type IStyledAccordionTriggerProps = SpaceProps & BorderProps;
 
-export type IStyledAccordionPanelProps = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & FlexboxProps & BorderProps;
+export type IStyledAccordionPanelProps = SpaceProps & DisplayProps & FlexboxProps & BorderProps;
 
 export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
   ${display};
@@ -18,7 +19,7 @@ export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
 
 export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   display: flex;
-  ${props => props.theme.fontSizes.base};
+  ${(props: any) => props.theme.fontSizes.base};
 
   i {
     font-style: normal;
@@ -31,17 +32,17 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
     }
   }
 
-  [slot="start"],
-  [slot="end"] {
+  [slot='start'],
+  [slot='end'] {
     align-items: center;
     display: flex;
   }
 
-  [slot="start"] {
-    padding-right: ${props => props.theme.space[3]};
+  [slot='start'] {
+    padding-right: ${(props: any) => props.theme.space[3]};
   }
 
-  [slot="end"] {
+  [slot='end'] {
     margin-left: auto;
     transform-origin: center center;
     transition: all 0.5s ease;
@@ -73,8 +74,8 @@ export const StyledAccordion = styled.div<IStyledAccordionProps>`
     width: 100%;
 
     ${StyledAccordionTrigger} {
-      [slot="end"] {
-        transform: ${(props) => props.open ? `rotate(180deg)` : `rotate(0deg)`};
+      [slot='end'] {
+        transform: ${(props) => (props.open ? `rotate(180deg)` : `rotate(0deg)`)};
       }
     }
   }

@@ -1,21 +1,16 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { StyledAccordionTrigger, IStyledAccordionTriggerProps } from './styles';
 
-export interface ITriggerProps
-  extends IStyledAccordionTriggerProps {
-  start?: string | JSX.Element,
-  end?: string | JSX.Element
-};
+export interface TriggerProps extends IStyledAccordionTriggerProps {
+  start?: string | JSX.Element;
+  end?: string | JSX.Element;
+  children: ReactNode | ReactNode[];
+}
 
 /**
  * AccordionTrigger is a button with start and end slots for content/icons
  */
-const AccordionTrigger: React.FC<ITriggerProps> = ({
-  start,
-  end,
-  children,
-  ...rest
-}) => {
+const AccordionTrigger: React.FC<TriggerProps> = ({ start, end, children, ...rest }) => {
   return (
     <StyledAccordionTrigger {...rest}>
       {start && <div slot="start">{start}</div>}
@@ -23,6 +18,6 @@ const AccordionTrigger: React.FC<ITriggerProps> = ({
       {end && <div slot="end">{end}</div>}
     </StyledAccordionTrigger>
   );
-}
+};
 
 export { AccordionTrigger, StyledAccordionTrigger };

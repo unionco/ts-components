@@ -3,14 +3,19 @@ import React, { Component } from 'react';
 interface ITabsProps {
   tabs: string | JSX.Element;
   panels: string | JSX.Element;
-};
+}
 
 interface ITabsState {
   panelValue: any;
   changeTab: any;
 }
 
-const PanelContext = React.createContext({panelValue: 0, changeTab: () => {''}}); 
+const PanelContext = React.createContext({
+  panelValue: 0,
+  changeTab: () => {
+    ('');
+  },
+});
 
 class Tabs extends Component<ITabsProps, ITabsState> {
   public changeTab: any;
@@ -22,14 +27,14 @@ class Tabs extends Component<ITabsProps, ITabsState> {
       const value = event.target.value;
 
       this.setState({
-        panelValue: parseInt(value, 10)
+        panelValue: parseInt(value, 10),
       });
     };
-    
+
     this.state = {
       panelValue: 0,
       changeTab: this.changeTab,
-    }
+    };
   }
 
   public render() {
@@ -46,4 +51,4 @@ class Tabs extends Component<ITabsProps, ITabsState> {
   }
 }
 
-export { Tabs, ITabsProps,  PanelContext };
+export { Tabs, ITabsProps, PanelContext };

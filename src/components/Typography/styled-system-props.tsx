@@ -13,21 +13,17 @@ import {
   TextAlignProps,
   TextStyleProps,
 } from 'styled-system';
-import { IThemeStyledFunction } from '../../styles'
 
-export type StyledSystemProps = IThemeStyledFunction<any>
-  & SpaceProps
-  & FontSizeProps
-  & FontStyleProps
-  & SizeProps
-  & TextStyleProps
-  & LetterSpacingProps
-  & FontFamilyProps
-  & FontWeightProps
-  & BorderRadiusProps
-  & FontFamilyProps
-  & LineHeightProps
-  & TextAlignProps
-  & LayoutProps
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  & { className?: string; as?: keyof JSX.IntrinsicElements | React.ComponentType<any> };
+export type StyledSystemProps = SpaceProps &
+  FontSizeProps &
+  FontStyleProps &
+  SizeProps &
+  TextStyleProps &
+  LetterSpacingProps &
+  FontFamilyProps &
+  FontWeightProps &
+  BorderRadiusProps &
+  FontFamilyProps &
+  LineHeightProps &
+  TextAlignProps &
+  LayoutProps & { className?: string; as?: keyof JSX.IntrinsicElements | React.ComponentType<any> }; // eslint-disable-next-line @typescript-eslint/no-explicit-any

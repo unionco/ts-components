@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-  GalleryGrid as StyledGalleryGrid,
-  GalleryGridItem,
-  IGalleryGridProps
-} from './styles';
+import React, { ReactNode } from 'react';
+import { GalleryGrid as StyledGalleryGrid, GalleryGridItem, StyledGalleryGridProps } from './styles';
 
 const layoutTypes: { [key: number]: string } = {
   1: 'up-1',
@@ -18,22 +14,23 @@ const layoutTypes: { [key: number]: string } = {
   10: 'up-4',
 };
 
-const GalleryGrid: React.FC<IGalleryGridProps> = (props) => {
+export interface GalleryGridProps extends StyledGalleryGridProps {
+  children: ReactNode | ReactNode[];
+}
 
+const GalleryGrid: React.FC<GalleryGridProps> = (props) => {
   const determineMinWidth = (): string => {
     const length: number = props.children ? (props.children as any).length : 0;
     const layout: string = layoutTypes[length];
 
     return layout ? layout : 'up-4';
-  }
+  };
 
   return (
     <StyledGalleryGrid {...props} layout={determineMinWidth()}>
-      <div className="gallery_inner">
-        {props.children}
-      </div>
+      <div className="gallery_inner">{props.children}</div>
     </StyledGalleryGrid>
   );
-}
+};
 
-export { GalleryGrid, GalleryGridItem, IGalleryGridProps };
+export { GalleryGrid, GalleryGridItem };

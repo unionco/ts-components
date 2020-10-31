@@ -1,4 +1,4 @@
-import { styled } from "../../styles";
+import styled from 'styled-components';
 
 const SwiperContainer = styled.div<any>`
   display: block;

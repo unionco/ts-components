@@ -1,10 +1,10 @@
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../../Label';
 
 type TextareaProps = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 
-export type StyledTextareaProps = IThemeStyledFunction<'textarea'> & TextareaProps & {
+export type StyledTextareaProps = TextareaProps & {
   floating?: boolean;
   error?: string;
 };
@@ -15,14 +15,18 @@ export const StyledTextareaWrapper = styled.div<{ floating?: boolean }>`
   flex-direction: column;
   position: relative;
 
-  ${props => props.floating && `
+  ${(props: any) =>
+    props.floating &&
+    `
     margin-bottom: ${props.theme.space[3]};
   `}
 
   ${StyledLabel} {
-    order: ${props => !props.floating && '-1'};
+    order: ${(props: any) => !props.floating && '-1'};
 
-    ${props => props.floating && `
+    ${(props: any) =>
+      props.floating &&
+      `
       position: absolute;
       top: 32px;
       left: 16px;
@@ -48,7 +52,9 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   width: 100%;
   transition: all 0.3s ease-in-out;
 
-  ${props => props.floating && `
+  ${(props: any) =>
+    props.floating &&
+    `
     &::placeholder {
       color: transparent;
     }
@@ -70,7 +76,9 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
     }
   `}
 
-  ${props => !props.floating && `
+  ${(props: any) =>
+    !props.floating &&
+    `
     border: 2px solid ${themeGet('formElements.input.backgroundColor')(props)};
 
     &:hover,
@@ -79,12 +87,13 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
     }
   `}
 
-  ${props => props.required && `
+  ${(props: any) =>
+    props.required &&
+    `
     & + ${StyledLabel} {
       &:after {
         content: '*'
       }
     }
   `}
-
 `;

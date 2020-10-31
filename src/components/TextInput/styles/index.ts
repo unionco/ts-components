@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import { themeGet } from '@styled-system/theme-get';
 import { darken } from 'polished';
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../../Label';
 
 type InputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export type StyledInputProps = IThemeStyledFunction<'input'> & InputProps & {
+export type StyledInputProps = InputProps & {
   floating?: boolean;
   error?: string;
   start?: ReactNode;
@@ -29,7 +29,9 @@ export const StyledInput = styled.input<StyledInputProps>`
   width: 100%;
   transition: all 0.3s ease-in-out;
 
-  ${props => !props.floating && `
+  ${(props: any) =>
+    !props.floating &&
+    `
     border: 2px solid ${themeGet('formElements.input.backgroundColor')(props)};
 
     &:hover,
@@ -38,7 +40,9 @@ export const StyledInput = styled.input<StyledInputProps>`
     }
   `}
 
-  ${props => props.floating && `
+  ${(props: any) =>
+    props.floating &&
+    `
     &::placeholder {
       color: transparent;
     }
@@ -60,7 +64,9 @@ export const StyledInput = styled.input<StyledInputProps>`
     }
   `}
 
-  ${props => props.required && `
+  ${(props: any) =>
+    props.required &&
+    `
     & + ${StyledLabel} {
       &:after {
         content: '*'
@@ -94,7 +100,9 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
   position: relative;
 
   /* Regular, non-floating label */
-  ${props => !props.floating && `
+  ${(props: any) =>
+    !props.floating &&
+    `
     flex-wrap: wrap;
 
     ${StyledLabel} {
@@ -104,7 +112,9 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
   `}
 
   /* Has Floating label */
-  ${props => props.floating && `
+  ${(props: any) =>
+    props.floating &&
+    `
     background: ${themeGet('formElements.input.backgroundColor')(props)};
     margin-bottom: ${props.theme.space[3]};
 
@@ -122,7 +132,9 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
   `}
 
   /* Has Start Icon */
-  ${props => (props.start) && `
+  ${(props: any) =>
+    props.start &&
+    `
     ${StyledInputIcon}[slot="start"] {
       left: 0;
       margin-left: ${themeGet('formElements.input.padding')(props)};
@@ -134,7 +146,9 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
   `}
 
   /* Has End Icon */
-  ${props => (props.end) && `
+  ${(props: any) =>
+    props.end &&
+    `
     ${StyledInputIcon}[slot="end"] {
       right: 0;
       margin-right: ${themeGet('formElements.input.padding')(props)};
@@ -145,7 +159,9 @@ export const StyledInputWrapper = styled.div<StyledInputWrapperProps>`
     }
   `}
 
-  ${props => props.flyout && `
+  ${(props: any) =>
+    props.flyout &&
+    `
     ${StyledInput} {
       width: ${props.isOpen ? '100%' : 0}
     }

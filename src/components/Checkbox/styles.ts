@@ -1,62 +1,62 @@
 import { SpaceProps, BorderProps, space, border, display, DisplayProps, variant } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { colors } from '../../theme';
 
-export type ICheckboxWrapper = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & BorderProps & {
-  variant?: keyof typeof colors;
-  disabled?: boolean;
-}
+export type ICheckboxWrapper = SpaceProps &
+  DisplayProps &
+  BorderProps & {
+    variant?: keyof typeof colors;
+    disabled?: boolean;
+  };
 
-export type ICheckboxLabel = IThemeStyledFunction<'div'> & {
+export type ICheckboxLabel = {
   size?: 'small' | 'medium' | 'large';
   round?: boolean;
   fill?: 'default' | 'full' | 'thick';
-}
+};
 
-export type IStyledCheckboxProps = IThemeStyledFunction<'input'> & {
+export type IStyledCheckboxProps = {
   disabled?: boolean;
   variant?: keyof typeof colors;
   boxSize?: 'small' | 'medium' | 'large';
   round?: boolean;
   fill?: 'default' | 'full' | 'thick';
-}
+};
 
 const fillVariant = variant({
   prop: 'fill',
   variants: {
     default: {
       '&:after': {
-        transform: 'scale(0.6)'
-      }
+        transform: 'scale(0.6)',
+      },
     },
-    full: {
-
-    },
+    full: {},
     thick: {
       '&:before': {
-        borderWidth: '3px'
+        borderWidth: '3px',
       },
       '&:after': {
-        transform: 'scale(0.4)'
-      }
-    }
-  }
+        transform: 'scale(0.4)',
+      },
+    },
+  },
 });
 
 const labelSize = variant({
   prop: 'size',
   variants: {
     small: {
-      fontSize: '1rem'
+      fontSize: '1rem',
     },
     medium: {
-      fontSize: '1.25rem'
+      fontSize: '1.25rem',
     },
     large: {
-      fontSize: '1.5rem'
+      fontSize: '1.5rem',
     },
-  }
+  },
 });
 
 export const StyledCheckbox = styled.div<ICheckboxWrapper>`
@@ -66,17 +66,19 @@ export const StyledCheckbox = styled.div<ICheckboxWrapper>`
   white-space: nowrap;
   width: 100%;
 
-  ${props => props.disabled && `
+  ${(props: any) =>
+    props.disabled &&
+    `
     cursor: not-allowed;
     opacity: 0.5;
   `};
 
   .state {
-    padding: ${props => props.theme.space[3]} 0;
-    margin-right: ${props => props.theme.space[3]};
+    padding: ${(props: any) => props.theme.space[3]} 0;
+    margin-right: ${(props: any) => props.theme.space[3]};
 
-    [slot="inner"] {
-      color: ${props => themeGet(`colors.${props.variant}.contrast`)};
+    [slot='inner'] {
+      color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
       font-size: 1em;
       height: calc(1.25em + 2px);
       left: 1px;
@@ -89,8 +91,8 @@ export const StyledCheckbox = styled.div<ICheckboxWrapper>`
       z-index: 1;
 
       svg {
-        fill: ${props => themeGet(`colors.${props.variant}.contrast`)};
-        stroke: ${props => themeGet(`colors.${props.variant}.contrast`)};
+        fill: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
+        stroke: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
       }
     }
   }
@@ -102,7 +104,7 @@ export const StyledCheckbox = styled.div<ICheckboxWrapper>`
 
 export const StyledCheckboxLabel = styled.label<ICheckboxLabel>`
   display: inline-block;
-  font-weight: ${props => props.theme.fontWeights.normal};
+  font-weight: ${(props: any) => props.theme.fontWeights.normal};
   margin: 0;
   min-width: calc(1em + 2px);
   position: initial;
@@ -115,7 +117,7 @@ export const StyledCheckboxLabel = styled.label<ICheckboxLabel>`
     border-radius: 0;
     border: 1px solid transparent;
     box-sizing: border-box;
-    ${props => props.round ? `border-radius: 50%;` : ''};
+    ${(props: any) => (props.round ? `border-radius: 50%;` : '')};
     content: '';
     display: block;
     height: calc(1em + 2px);
@@ -146,14 +148,14 @@ export const StyledCheckboxInput = styled.input<IStyledCheckboxProps>`
   top: 0;
   width: 100%;
   z-index: 2;
-  ${props => props.disabled ? 'cursor: not-allowed;' : ''};
+  ${(props: any) => (props.disabled ? 'cursor: not-allowed;' : '')};
 
   &:not([disabled]) {
     &:hover,
     &:focus {
       ~ .state ${StyledCheckboxLabel} {
         &:before {
-          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
+          border-color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }
@@ -161,16 +163,16 @@ export const StyledCheckboxInput = styled.input<IStyledCheckboxProps>`
 
   &:checked {
     ~ .state {
-      [slot="inner"] {
+      [slot='inner'] {
         opacity: 1;
       }
 
       ${StyledCheckboxLabel} {
         &:before {
-          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
+          border-color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
         }
         &:after {
-          background: ${props => themeGet(`colors.${props.variant}.base`)};
+          background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }

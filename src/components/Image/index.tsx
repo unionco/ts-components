@@ -1,7 +1,7 @@
 import React, { SyntheticEvent } from 'react';
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import { isBrowser } from '../../utils';
-import { objectFit } from '../../theme/mixins'
+import { objectFit } from '../../theme/mixins';
 
 interface IImageProps {
   unsplash?: boolean;
@@ -14,13 +14,13 @@ interface IImageProps {
 
 interface IStyledImage {
   objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down';
-};
+}
 
 const StyledImage = styled.img<IStyledImage>`
   display: block;
   width: 100%;
   height: 100%;
-  ${props => objectFit(props.objectFit || 'cover')}
+  ${(props: any) => objectFit(props.objectFit || 'cover')}
 `;
 
 interface IImageState {
@@ -36,8 +36,8 @@ class Image extends React.Component<IImageProps, IImageState> {
     this.el = React.createRef();
     this.state = {
       loadSrc: undefined,
-      io: undefined
-    }
+      io: undefined,
+    };
   }
 
   public componentDidMount() {
@@ -72,21 +72,24 @@ class Image extends React.Component<IImageProps, IImageState> {
 
     if ('IntersectionObserver' in window) {
       this.removeIO();
-      const instance = new IntersectionObserver(data => {
-        // because there will only ever be one instance
-        // of the element we are observing
-        // we can just use data[0]
-        if (data[0].isIntersecting) {
-          this.load();
-          this.removeIO();
-        }
-      }, {
-        rootMargin: '0px 0px 200px 0px'
-      });
+      const instance = new IntersectionObserver(
+        (data) => {
+          // because there will only ever be one instance
+          // of the element we are observing
+          // we can just use data[0]
+          if (data[0].isIntersecting) {
+            this.load();
+            this.removeIO();
+          }
+        },
+        {
+          rootMargin: '0px 0px 200px 0px',
+        },
+      );
 
       instance.observe((this.el as any).current);
       this.setState({
-        io: instance
+        io: instance,
       });
     } else {
       // fall back to setTimeout for Safari and IE
@@ -96,7 +99,7 @@ class Image extends React.Component<IImageProps, IImageState> {
 
   private load() {
     this.setState({
-      loadSrc: this.props.src
+      loadSrc: this.props.src,
     });
   }
 
@@ -105,20 +108,20 @@ class Image extends React.Component<IImageProps, IImageState> {
     if (this.props.onLoad) {
       this.props.onLoad(ev);
     }
-  }
+  };
 
   private onError = (ev: SyntheticEvent) => {
     //
     if (this.props.onError) {
       this.props.onError(ev);
     }
-  }
+  };
 
   private removeIO() {
     if (this.state.io) {
       this.state.io.disconnect();
       this.setState({
-        io: undefined
+        io: undefined,
       });
     }
   }

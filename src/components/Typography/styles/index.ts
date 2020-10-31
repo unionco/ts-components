@@ -15,7 +15,7 @@ export interface TypographyStyles {
 export const typographyStyles: TypographyStyles = {
   Display: {
     as: 'h1',
-    className: 'display'
+    className: 'display',
   },
   H1: {
     as: 'h1',

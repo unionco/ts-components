@@ -1,5 +1,5 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Media } from '../Media';
@@ -14,14 +14,14 @@ const image = {
   url: 'https://placehold.it/400x200.png',
   title: 'image title',
   filename: 'imaget-title.png',
-  alt: 'image'
-}
+  alt: 'image',
+};
 
-const ContentMedia = () => (<Media type="image" image={image} />)
-const ContentMediaVideo = () => (<Media type="video" videoId="OdzaTbaQwTg" videoProvider="youtube" />)
+const ContentMedia = () => <Media type="image" image={image} />;
+const ContentMediaVideo = () => <Media type="video" videoId="OdzaTbaQwTg" videoProvider="youtube" />;
 
-storiesOf("Media", module)
-  .add("Image", () => (
+storiesOf('Media', module)
+  .add('Image', () => (
     <ThemeProvider>
       <BaseStyles />
       <Section>
@@ -31,7 +31,7 @@ storiesOf("Media", module)
       </Section>
     </ThemeProvider>
   ))
-  .add("Video", () => (
+  .add('Video', () => (
     <ThemeProvider>
       <BaseStyles />
       <Section>
@@ -41,7 +41,7 @@ storiesOf("Media", module)
       </Section>
     </ThemeProvider>
   ))
-  .add("Copy + Video", () => (
+  .add('Copy + Video', () => (
     <ThemeProvider>
       <BaseStyles />
       <Section>

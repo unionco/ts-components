@@ -1,32 +1,13 @@
-export interface IThemeColor {
-  base: string;
-  contrast: string;
-  shade: string;
-  tint: string;
-};
+import { Colors } from 'styled-components';
 
-export interface IColors {
-  black: string | string[];
-  white: string | string[];
-  primary: IThemeColor;
-  secondary: IThemeColor;
-  tertiary: IThemeColor;
-  success: IThemeColor;
-  warning: IThemeColor;
-  danger: IThemeColor;
-  dark: IThemeColor;
-  medium: IThemeColor;
-  light: IThemeColor;
-}
-
-export const colors: IColors = {
+export const colors: Colors = {
   black: '#000000',
   white: '#FFFFFF',
   primary: {
     base: '#3880ff',
     contrast: '#FFFFFF',
     shade: '#3171e0',
-    tint: '#4c8dff'
+    tint: '#4c8dff',
   },
   secondary: {
     base: '#0cd1e8',

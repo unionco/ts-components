@@ -1,9 +1,9 @@
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { FlexProps, flexbox, SpaceProps, space } from 'styled-system';
 
-export type IStyledGridProps = IThemeStyledFunction<'div'> & FlexProps & SpaceProps;
+export type StyledGridProps = FlexProps & SpaceProps;
 
-const StyledGrid = styled.div<IStyledGridProps>`
+const StyledGrid = styled.div<StyledGridProps>`
   display: block;
 
   ${flexbox};
@@ -14,12 +14,9 @@ const StyledGridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  @media screen and (max-width: ${props => props.theme.siteMaxWidth}) {
+  @media screen and (max-width: ${(props: any) => props.theme.siteMaxWidth}) {
     margin: 0;
   }
 `;
 
-export {
-  StyledGrid,
-  StyledGridContainer
-}
+export { StyledGrid, StyledGridContainer };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Review as StyledReview, ReviewStars as StyledReviewStars } from './styles';
-import { Avatar } from '../Avatar'
+import { Avatar } from '../Avatar';
 import { H1, Paragraph } from '../Typography';
 
 interface IReview {
@@ -11,11 +11,11 @@ interface IReview {
   review?: string;
 }
 
-interface IReviewStars {
+interface ReviewStars {
   rating: number;
 }
 
-const ReviewStars: React.FC<IReviewStars> = ({rating, ...rest}) => {
+const ReviewStars: React.FC<ReviewStars> = ({ rating, ...rest }) => {
   return (
     <StyledReviewStars rating={rating} {...rest}>
       <div className="ReviewStars-outline">
@@ -34,17 +34,17 @@ const ReviewStars: React.FC<IReviewStars> = ({rating, ...rest}) => {
       </div>
     </StyledReviewStars>
   );
-}
+};
 
-const Review: React.FC<IReview> = ({image, title, subtitle, rating, review, ...rest}) => {
+const Review: React.FC<IReview> = ({ image, title, subtitle, rating, review, ...rest }: IReview) => {
   return (
     <StyledReview {...rest}>
       <Avatar image={image} />
       <section className="Review-content">
         <div className="Review-info">
           <div className="Review-info-left">
-            {title && (<H1 className="h3">{title}</H1>)}
-            {subtitle && (<Paragraph>{subtitle}</Paragraph>)}
+            {title && <H1 className="h3">{title}</H1>}
+            {subtitle && <Paragraph>{subtitle}</Paragraph>}
           </div>
           <div className="Review-info-right">
             {rating && (
@@ -54,10 +54,10 @@ const Review: React.FC<IReview> = ({image, title, subtitle, rating, review, ...r
             )}
           </div>
         </div>
-        {review && (<p>{review}</p>)}
+        {review && <p>{review}</p>}
       </section>
     </StyledReview>
   );
-}
+};
 
 export { Review, StyledReview, ReviewStars, StyledReviewStars, IReview };

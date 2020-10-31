@@ -1,19 +1,10 @@
 import React from 'react';
 import { StyledFormGroup, IStyledFormGroupProps } from './styles';
 
-interface IFormGroupProps 
-  extends IStyledFormGroupProps {}
+export type FormGroupProps = IStyledFormGroupProps;
 
-class FormGroup extends React.Component<IFormGroupProps> {
-  public render() {
-    const {children, position = 'stacked'} = this.props;
+export const FormGroup: React.FC<FormGroupProps> = ({ children, position = 'stacked' }) => {
+  return <StyledFormGroup position={position}>{children}</StyledFormGroup>;
+};
 
-    return (
-      <StyledFormGroup position={position}>
-        {children}
-      </StyledFormGroup>
-    )
-  }
-}
-
-export { FormGroup, StyledFormGroup, IFormGroupProps };
+export { StyledFormGroup };

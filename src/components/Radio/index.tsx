@@ -1,8 +1,7 @@
 import React from 'react';
 import { RadioWrapper, RadioInput, RadioLabel, IStyledRadioProps } from './styles';
 
-interface IRadioProps
-  extends IStyledRadioProps {
+interface RadioProps extends IStyledRadioProps {
   id?: string;
   name?: string;
   value?: string;
@@ -10,9 +9,9 @@ interface IRadioProps
   inner?: JSX.Element;
   label: string;
   onChange?: (e: any) => void;
-};
+}
 
-const Radio: React.FC<IRadioProps> = ({
+const Radio: React.FC<RadioProps> = ({
   size = 'medium',
   defaultChecked,
   disabled,
@@ -34,11 +33,12 @@ const Radio: React.FC<IRadioProps> = ({
       <RadioInput type="radio" id={`input-${id}`} defaultChecked={defaultChecked} {...props} aria-label={name} />
       <div className="state">
         {inner && <div slot="inner">{inner}</div>}
-        <RadioLabel htmlFor={`input-${id}`} fill={fill} size={size}>{label}</RadioLabel>
+        <RadioLabel htmlFor={`input-${id}`} fill={fill} size={size}>
+          {label}
+        </RadioLabel>
       </div>
     </RadioWrapper>
   );
-}
+};
 
-
-export { Radio, RadioLabel, IRadioProps };
+export { Radio, RadioLabel, RadioProps };

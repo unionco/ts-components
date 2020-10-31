@@ -10,13 +10,13 @@ import {
   IStyledListTableCellProps,
 } from './styles';
 
-export interface IListTableProps extends IStyledListTableProps {
+export interface ListTableProps extends IStyledListTableProps {
   headerData?: any;
   bodyData?: any;
   accentColor?: string;
 }
 
-const ListTable: React.FC<IListTableProps> = props => {
+const ListTable: React.FC<ListTableProps> = (props) => {
   const { bodyData, headerData } = props;
 
   return (

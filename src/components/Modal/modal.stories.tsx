@@ -1,13 +1,13 @@
-import React from "react";
-import { storiesOf } from "@storybook/react";
-import { select } from "@storybook/addon-knobs";
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { select } from '@storybook/addon-knobs';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Modal, ModalButton } from './index';
 import { Media } from '../index';
 
-storiesOf("Modal", module)
-  .add("Modal Button", () => {
+storiesOf('Modal', module)
+  .add('Modal Button', () => {
     const modalSize = select('Modal Size', ['sm', 'md', 'lg'], 'lg');
     return (
       <ThemeProvider>
@@ -22,9 +22,9 @@ storiesOf("Modal", module)
           <Media type="image" />
         </ModalButton>
       </ThemeProvider>
-    )
+    );
   })
-  .add("Modal", () => {
+  .add('Modal', () => {
     const modalSize = select('Modal Size', ['sm', 'md', 'lg'], 'lg');
 
     return (
@@ -34,5 +34,5 @@ storiesOf("Modal", module)
           <Media type="image" />
         </Modal>
       </ThemeProvider>
-    )
+    );
   });

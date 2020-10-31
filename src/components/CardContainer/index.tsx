@@ -1,37 +1,36 @@
 // import React from 'react';
-import { styled } from '../../styles';
+import styled from 'styled-components';
 
-interface ICardContainerProps {
+export interface StyledCardContainerProps {
   gap?: number | string;
   perRow?: number;
-};
+}
 
-const CardContainer = styled.div.attrs(({ gap }: ICardContainerProps) => ({
+const CardContainer = styled.div.attrs(({ gap }: StyledCardContainerProps) => ({
   gap: gap || 2,
-}))<ICardContainerProps>`
+}))<StyledCardContainerProps>`
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -${props => props.gap}%;
-  width: calc(100% + ${props => props.gap}%);
+  margin: 0 -${(props: any) => props.gap}%;
+  width: calc(100% + ${(props: any) => props.gap}%);
 
   > * {
-    margin-bottom: calc(2 * ${props => props.gap}%);
-    margin-left: ${props => props.gap}%;
-    width: calc(100% - ${props => props.gap}%);
+    margin-bottom: calc(2 * ${(props: any) => props.gap}%);
+    margin-left: ${(props: any) => props.gap}%;
+    width: calc(100% - ${(props: any) => props.gap}%);
   }
 
-  ${props => props.theme.media.sm} {
+  ${(props: any) => props.theme.media.sm} {
     > * {
-      width: calc(50% - ${props => props.gap}%);
+      width: calc(50% - ${(props: any) => props.gap}%);
     }
   }
 
-  ${props => props.theme.media.md} {
+  ${(props: any) => props.theme.media.md} {
     > * {
-      width: calc(${props => `${100 / (props.perRow || 3)}%`} - ${props => props.gap}%);
+      width: calc(${(props: any) => `${100 / (props.perRow || 3)}%`} - ${(props: any) => props.gap}%);
     }
   }
 `;
 
-
-export { CardContainer, ICardContainerProps };
+export { CardContainer };

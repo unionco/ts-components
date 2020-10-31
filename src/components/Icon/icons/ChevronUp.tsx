@@ -7,10 +7,10 @@ const ChevronUp = styled.svg.attrs({
   viewBox: '0 0 16 16',
   strokeWidth: 2,
   dangerouslySetInnerHTML: {
-    __html: '<polyline points="1.64 11.18 8 4.82 14.36 11.18" fill="none" stroke="currentColor" />'
-  }
+    __html: '<polyline points="1.64 11.18 8 4.82 14.36 11.18" fill="none" stroke="currentColor" />',
+  },
 })`
   display: inline-block;
-`
+`;
 
 export default ChevronUp;

@@ -1,10 +1,8 @@
-// @ts-ignore
-import React from 'react';
 import { default as FlexComponent, FlexItem as FlexItemComponent } from 'styled-flex-component';
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { SpaceProps, space, TextAlignProps, textAlign } from 'styled-system';
 
-type IFlex = IThemeStyledFunction<'div'> & SpaceProps & {
+type IFlex = SpaceProps & {
   full?: boolean;
   inline?: boolean;
   center?: boolean;
@@ -30,15 +28,16 @@ type IFlex = IThemeStyledFunction<'div'> & SpaceProps & {
   justifyBetween?: boolean;
   justifyAround?: boolean;
   justifyEvenly?: boolean;
-}
+};
 
-type IFlexItem = IThemeStyledFunction<'div'> & SpaceProps & TextAlignProps & {
-  order?: number;
-  basis?: string;
-  grow?: boolean;
-  shrink?: boolean;
-  noShrink?: boolean;
-}
+type IFlexItem = SpaceProps &
+  TextAlignProps & {
+    order?: number;
+    basis?: string;
+    grow?: boolean;
+    shrink?: boolean;
+    noShrink?: boolean;
+  };
 
 const Flex = styled(FlexComponent)`
   ${space}

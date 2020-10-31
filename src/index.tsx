@@ -16,12 +16,4 @@ export * from './utils';
 /**
  * Export default theme
  */
-export {
-  theme as BaseTheme,
-  IColors,
-  IDefaultTheme,
-  IFonts,
-  IFontSizes,
-  IFontWeights,
-  ILineHeights
-} from './theme';
+export { theme as BaseTheme, Colors, DefaultTheme, Fonts, FontSizes, FontWeights, LineHeights } from './theme';

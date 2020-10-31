@@ -1,8 +1,8 @@
-import styled from '../../styles/styled';
+import styled from 'styled-components';
 import { Flex, FlexItem } from '../Flex';
 import { StyledImage } from '../Image';
 import { StyledCopy } from '../Copy';
-import { objectFit } from '../../theme/mixins'
+import { objectFit } from '../../theme/mixins';
 
 interface IFlexibleContentStyleProps {
   layout?: string;
@@ -28,14 +28,15 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
   flex-direction: column;
   position: relative;
 
-  div[slot="content"] {
+  div[slot='content'] {
     ${StyledCopy} {
       max-width: 720px;
-      ${props => props.textAlign === 'center' ? `margin: 0 auto;` : ``}
+      ${(props: any) => (props.textAlign === 'center' ? `margin: 0 auto;` : ``)}
     }
 
-    ${props => props.theme.media.md} {
-      ${props => props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
+    ${(props: any) => props.theme.media.md} {
+      ${(props: any) =>
+        props.reversed ? `padding-left: ${props.theme.space[6]};` : `padding-right: ${props.theme.space[6]};`}
 
       &:only-child {
         padding-left: 0;
@@ -48,13 +49,17 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
     flex-basis: auto;
   }
 
-  ${props => props.reversed && `
+  ${(props: any) =>
+    props.reversed &&
+    `
     ${Media} {
       order: -1;
     }
   `}
 
-  ${props => props.layout === 'row' && `
+  ${(props: any) =>
+    props.layout === 'row' &&
+    `
     div[slot="content"] {
       flex: 1;
     }
@@ -64,7 +69,9 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
     }
   `}
 
-  ${props => props.layout === 'col' && `
+  ${(props: any) =>
+    props.layout === 'col' &&
+    `
     justify-content: center;
     flex-direction: column;
     text-align: center;
@@ -76,7 +83,9 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
       padding: 0;
     }
 
-    ${props.stretch && `
+    ${
+      props.stretch &&
+      `
       div[slot="content"] {
         max-width: 900px
       }
@@ -90,10 +99,13 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
           ${objectFit('cover')}
         }
       }
-    `}
+    `
+    }
   `}
 
-  ${props => props.bleed && `
+  ${(props: any) =>
+    props.bleed &&
+    `
     ${props.layout === 'col' ? `align-items: flex-start;` : ``}
     ${props.layout === 'row' ? `justify-content: flex-start !important;` : ``}
 
@@ -119,7 +131,9 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
         ${objectFit('cover')}
       }
 
-      ${props.reversed ? `
+      ${
+        props.reversed
+          ? `
         ${Media} {
           right: 50%;
         }
@@ -127,17 +141,19 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
           padding-left: 40px;
           transform: translateX(100%);
         }
-      ` : `
+      `
+          : `
         ${Media} {
           left: 50%;
         }
-      `}
+      `
+      }
     }
   `}
 
   // media for the whole thing
-  ${props => props.theme.media.md} {
-    ${props => props.layout !== 'col' && `flex-direction: row;`}
+  ${(props: any) => props.theme.media.md} {
+    ${(props: any) => props.layout !== 'col' && `flex-direction: row;`}
   }
 `;
 

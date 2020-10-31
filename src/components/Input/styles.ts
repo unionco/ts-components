@@ -1,5 +1,5 @@
 import { themeGet } from '@styled-system/theme-get';
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
 export interface IStyledInputProps {
@@ -37,7 +37,7 @@ export const StyledInput = styled.input<IStyledInputProps>`
   outline: none;
   ${themeGet('fontSizes.base')};
 
-  &[type="file"] {
+  &[type='file'] {
     cursor: pointer;
     opacity: 0;
     position: absolute;
@@ -45,7 +45,7 @@ export const StyledInput = styled.input<IStyledInputProps>`
 
     &:focus + label {
       outline: 1px dotted #000;
-	    outline: -webkit-focus-ring-color auto 5px;
+      outline: -webkit-focus-ring-color auto 5px;
     }
 
     & + label {
@@ -67,11 +67,15 @@ export const StyledInput = styled.input<IStyledInputProps>`
     }
   }
 
-  ${props => props.disabled && `
+  ${(props: any) =>
+    props.disabled &&
+    `
     cursor: not-allowed;
   `}
 
-  ${props => props.required && `
+  ${(props: any) =>
+    props.required &&
+    `
     & + ${StyledLabel}::after {
       content: '*';
     }

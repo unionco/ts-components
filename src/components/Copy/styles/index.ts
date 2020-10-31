@@ -1,32 +1,32 @@
 import { SpaceProps, space } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import styled, { IThemeStyledFunction } from '../../../styles/styled';
+import styled from 'styled-components';
 import { StyledEyebrow } from '../../Eyebrow';
 import { StyledRichText } from '../../RichText';
 
-type IStyledCopyProps = IThemeStyledFunction<'div'> & SpaceProps & {
+type IStyledCopyProps = SpaceProps & {
   twoCol?: boolean;
   textAlign?: string;
-}
+};
 
 const textAlignToFlexMap = (prop: string) => {
-  switch(prop) {
+  switch (prop) {
     case 'center':
       return 'center';
     case 'right':
       return 'flex-end';
     case 'left':
-      default:
+    default:
       return 'flex-start';
   }
-}
+};
 
 const Copy = styled.div<IStyledCopyProps>`
   display: flex;
   flex-direction: column;
-  justify-content: ${props => textAlignToFlexMap(props.textAlign ?? 'left')};
+  justify-content: ${(props: any) => textAlignToFlexMap(props.textAlign ?? 'left')};
   padding: ${themeGet('space.6')} 0;
-  text-align: ${props => props.textAlign ?? 'left'};
+  text-align: ${(props: any) => props.textAlign ?? 'left'};
 
   ${StyledEyebrow} {
     margin-bottom: ${themeGet('space.4')};
@@ -46,7 +46,9 @@ const Copy = styled.div<IStyledCopyProps>`
     }
   }
 
-  ${props => props.twoCol && `
+  ${(props: any) =>
+    props.twoCol &&
+    `
     ${StyledRichText} {
       column-count: 2;
       margin-bottom: ${themeGet('space.6')(props)};
@@ -58,7 +60,7 @@ const Copy = styled.div<IStyledCopyProps>`
   `}
 
   div[slot="actions"] {
-    align-self: ${props => textAlignToFlexMap(props.textAlign ?? 'left')};
+    align-self: ${(props: any) => textAlignToFlexMap(props.textAlign ?? 'left')};
     margin: 0 -5px;
   }
 

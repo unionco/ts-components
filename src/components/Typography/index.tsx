@@ -3,8 +3,11 @@ import { Box } from '../Box';
 import { StyledSystemProps } from './styled-system-props';
 import { typographyStyles } from './styles';
 
-const createComponent: (textStyle: StyledSystemProps, displayName: string) => React.FC<StyledSystemProps> = (textStyle, displayName) => {
-  const component: React.FC<StyledSystemProps> = props => (
+const createComponent: (textStyle: StyledSystemProps, displayName: string) => React.FC<StyledSystemProps> = (
+  textStyle,
+  displayName,
+) => {
+  const component: React.FC<StyledSystemProps> = (props) => (
     <Box {...textStyle} {...props}>
       {props.children}
     </Box>

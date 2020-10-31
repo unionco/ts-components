@@ -1,35 +1,37 @@
 import { themeGet } from '@styled-system/theme-get';
-import styled from '../../styles/styled';
-import { Icon } from '../Icon/styles'
+import styled from 'styled-components';
+import { Icon } from '../Icon/styles';
 
-interface IChipProps {
+interface StyledChipProps {
   variant?: string;
   outline?: boolean;
   clickable?: boolean;
   disabled?: boolean;
-  shape?: 'block'|'round'|'circle'
+  shape?: 'block' | 'round' | 'circle';
 }
 
-const Chip = styled.div<IChipProps>`
+const Chip = styled.div<StyledChipProps>`
   align-items: center;
-  background: ${props => themeGet(`colors.${props.variant}.base`)};
+  background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
   border: none;
-  border-radius: ${props => props.shape !== 'block' ? '32px' : '2px'};
-  color: ${props => themeGet(`colors.${props.variant}.contrast`)};
+  border-radius: ${(props: any) => (props.shape !== 'block' ? '32px' : '2px')};
+  color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
   display: inline-flex;
   font-size: 14px;
   height: 32px;
   line-height: 1;
-  margin: ${props => props.theme.space[1]} ${props => props.theme.space[1]};
+  margin: ${(props: any) => props.theme.space[1]} ${(props: any) => props.theme.space[1]};
   overflow: hidden;
-  padding: ${props => props.theme.space[2]} ${props => props.theme.space[3]};
+  padding: ${(props: any) => props.theme.space[2]} ${(props: any) => props.theme.space[3]};
   position: relative;
   vertical-align: middle;
   box-sizing: border-box;
   user-select: none;
   transition: all 0.3s ease-in-out;
 
-  ${props => props.shape === 'circle' && `
+  ${(props: any) =>
+    props.shape === 'circle' &&
+    `
     justify-content: center;
     padding: 0;
     width: 32px;
@@ -41,15 +43,15 @@ const Chip = styled.div<IChipProps>`
     height: 15px;
     width: 15px;
     text-align: center;
-    background: ${props => themeGet(`colors.${props.variant}.contrast`)};
-    color: ${props => themeGet(`colors.${props.variant}.base`)};
+    background: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
+    color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
   }
 
-  [slot="start"] {
+  [slot='start'] {
     margin-right: 8px;
   }
 
-  [slot="end"] {
+  [slot='end'] {
     margin-left: 8px;
   }
 
@@ -64,7 +66,9 @@ const Chip = styled.div<IChipProps>`
     }
   }
 
-  ${props => props.shape === 'round' && `
+  ${(props: any) =>
+    props.shape === 'round' &&
+    `
     [slot="end"],
     [slot="start"] {
       background: ${themeGet(`colors.${props.variant}.contrast`)(props)};
@@ -75,19 +79,25 @@ const Chip = styled.div<IChipProps>`
     }
   `};
 
-  ${props => props.disabled && `
+  ${(props: any) =>
+    props.disabled &&
+    `
     cursor: not-allowed;
     opacity: 0.5;
   `}
 
-  ${props => props.clickable && `
+  ${(props: any) =>
+    props.clickable &&
+    `
     cursor: pointer;
     &:hover {
       opacity: 0.75;
     }
   `}
 
-  ${props => props.outline && `
+  ${(props: any) =>
+    props.outline &&
+    `
     background: transparent;
     color: ${themeGet(`colors.${props.variant}.base`)(props)};
     border: 1px solid ${themeGet(`colors.${props.variant}.base`)(props)};
@@ -112,4 +122,4 @@ const Chip = styled.div<IChipProps>`
   `}
 `;
 
-export { Chip, IChipProps };
+export { Chip, StyledChipProps };

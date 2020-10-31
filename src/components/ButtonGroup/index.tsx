@@ -1,34 +1,35 @@
-import React from 'react';
-import { styled } from '../../styles';
+import React, { ReactNode } from 'react';
+import styled from 'styled-components';
 import { StyledButton } from '../Button';
 
-interface IButtonGroupProps {
-  layout?: 'row'|'column';
+interface ButtonGroupProps {
+  layout?: 'row' | 'column';
   condensed?: boolean;
+  children: ReactNode | ReactNode[];
 }
 
-const StyledButtonGroup = styled.div<IButtonGroupProps>`
+const StyledButtonGroup = styled.div<ButtonGroupProps>`
   display: flex;
   flex-wrap: wrap;
 
-  ${(props) => props.layout === 'column' && `
+  ${(props) =>
+    props.layout === 'column' &&
+    `
     align-items: flex-start;
     flex-direction: column;
   `}
 
-  ${(props) => props.condensed && `
+  ${(props) =>
+    props.condensed &&
+    `
     ${StyledButton} {
       margin: 0 !important;
     }
   `}
 `;
 
-const ButtonGroup: React.FC<IButtonGroupProps> = (props) => {
-  return (
-    <StyledButtonGroup {...props}>
-      {props.children}
-    </StyledButtonGroup>
-  )
-}
+const ButtonGroup: React.FC<ButtonGroupProps> = ({ children, ...props }) => {
+  return <StyledButtonGroup {...props}>{children}</StyledButtonGroup>;
+};
 
-export { ButtonGroup, StyledButtonGroup, IButtonGroupProps };
+export { ButtonGroup, StyledButtonGroup, ButtonGroupProps };

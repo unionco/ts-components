@@ -2,17 +2,15 @@ import React, { ReactNode } from 'react';
 import { Container, Section, ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 
-interface IStorybookWrapper {
+interface StorybookWrapper {
   children: ReactNode | ReactNode[];
-};
+}
 
-const StorybookWrapper: React.FC<IStorybookWrapper> = ({ children }) => (
+const StorybookWrapper: React.FC<StorybookWrapper> = ({ children }) => (
   <ThemeProvider>
     <BaseStyles />
     <Section p={6}>
-      <Container>
-        { children }
-      </Container>
+      <Container>{children}</Container>
     </Section>
   </ThemeProvider>
 );

@@ -6,10 +6,11 @@ const Grid = styled.svg.attrs({
   height: 16,
   viewBox: '0 0 16 16',
   dangerouslySetInnerHTML: {
-    __html: '<rect width="6.4" height="6.4"/><rect x="9.6" width="6.4" height="6.4"/><rect x="9.6" y="9.6" width="6.4" height="6.4"/><rect y="9.6" width="6.4" height="6.4"/>'
-  }
+    __html:
+      '<rect width="6.4" height="6.4"/><rect x="9.6" width="6.4" height="6.4"/><rect x="9.6" y="9.6" width="6.4" height="6.4"/><rect y="9.6" width="6.4" height="6.4"/>',
+  },
 })`
   display: inline-block;
-`
+`;
 
 export default Grid;

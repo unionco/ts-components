@@ -1,17 +1,18 @@
 import { SpaceProps, space, TypographyProps, typography } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from "../../styles";
+import styled from 'styled-components';
 
-export type IStyledTabsBarProps = IThemeStyledFunction<'div'> & SpaceProps & TypographyProps & {
-  variant?: string
-};
+export type IStyledTabsBarProps = SpaceProps &
+  TypographyProps & {
+    variant?: string;
+  };
 
 const StyledTabsBar = styled.div<IStyledTabsBarProps>`
   align-items: center;
-  background: ${props => themeGet(`colors.${props.variant}.base`)};
-  color: ${props => themeGet(`colors.${props.variant}.contrast`)};
+  background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
+  color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
   display: flex;
-  margin-bottom: ${props => props.theme.space[1]};
+  margin-bottom: ${(props: any) => props.theme.space[1]};
 
   ${typography}
   ${space};

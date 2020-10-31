@@ -1,30 +1,32 @@
 import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 
-export type IStyledButtonProps = IThemeStyledFunction<'button'> & TypographyProps & SpaceProps & ButtonStyleProps & {
-  disabled?: boolean;
-  textLink?: boolean;
-  onClick?: () => void | Function;
-  size?: 'small' | 'medium' | 'large';
-  fill?: 'solid' | 'outline' | 'clear';
-  href?: string;
-  rounded?: boolean;
-};
+export type StyledButtonProps = TypographyProps &
+  SpaceProps &
+  ButtonStyleProps & {
+    disabled?: boolean;
+    textLink?: boolean;
+    onClick?: () => void;
+    size?: 'small' | 'medium' | 'large';
+    fill?: 'solid' | 'outline' | 'clear';
+    href?: string;
+    rounded?: boolean;
+  };
 
 const sizes = variant({
   prop: 'size',
   scale: 'buttonSizes',
 });
 
-const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) => ({
+const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
-}))<IStyledButtonProps>`
+}))<StyledButtonProps>`
   appearance: none;
   display: inline-block;
-  background: ${props => themeGet(`colors.${props.variant}.base`)};
-  border: 1px solid ${props => themeGet(`colors.${props.variant}.base`)};;
-  color: ${props => themeGet(`colors.${props.variant}.contrast`)};
+  background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
+  border: 1px solid ${(props: any) => themeGet(`colors.${props.variant}.base`)};
+  color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
   cursor: pointer;
   ${themeGet('fontSizes.base')};
   font-weight: ${themeGet('fontWeights.bold')};
@@ -39,14 +41,14 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
   transition: all 0.2s ease-in-out;
   white-space: nowrap;
 
-  [slot="start"] i {
+  [slot='start'] i {
     display: block;
-    margin-right: ${({fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
+    margin-right: ${({ fill }) => (fill === 'clear' ? themeGet('space.2') : themeGet('space.3'))};
   }
 
-  [slot="end"] i {
+  [slot='end'] i {
     display: block;
-    margin-left: ${({fill}) => (fill === 'clear') ? themeGet('space.2') : themeGet('space.3')};
+    margin-left: ${({ fill }) => (fill === 'clear' ? themeGet('space.2') : themeGet('space.3'))};
   }
 
   .button-inner {
@@ -55,12 +57,16 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
     justify-content: center;
   }
 
-  ${(props) => props.disabled && `
+  ${(props) =>
+    props.disabled &&
+    `
     cursor: not-allowed;
     opacity: 0.5;
   `}
 
-  ${(props) => props.rounded && `
+  ${(props) =>
+    props.rounded &&
+    `
     border-radius: 100px; // arbitrarily large number to create pill-shaped button vs. 50%, which would make it an oval
   `}
 
@@ -77,7 +83,7 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
           color: ${themeGet(`colors.${props.variant}.base`)(props)};
           :hover {
             background: #eee;
-          }`
+          }`;
       case 'outline':
         return `
           background: transparent;
@@ -86,17 +92,18 @@ const Button = styled.button.attrs(({ disabled, onClick }: IStyledButtonProps) =
           :hover {
             background: ${themeGet(`colors.${props.variant}.base`)(props)};
             color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
-          }`
+          }`;
       default:
-        return `${props.theme.buttonFills?.solid}`
+        return `${props.theme.buttonFills?.solid}`;
     }
   }}
 
-  ${props => props.textLink && `
+  ${(props: any) =>
+    props.textLink &&
+    `
     background: transparent;
     color: ${themeGet(`colors.${props.variant}.base`)};
-    padding: 0;`
-  };
+    padding: 0;`};
 
   ${space};
 `;

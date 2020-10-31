@@ -1,14 +1,5 @@
-import { colors, IColors } from './colors';
-import { IFonts, IFontSizes, IFontWeights, ILineHeights } from './typography';
-import { theme, IDefaultTheme } from './theme';
+import { Colors, DefaultTheme, Fonts, FontSizes, FontWeights, LineHeights } from 'styled-components';
+import { colors } from './colors';
+import { theme } from './theme';
 
-export {
-  colors,
-  IColors,
-  IDefaultTheme,
-  IFonts,
-  IFontSizes,
-  IFontWeights,
-  ILineHeights,
-  theme
-};
+export { colors, theme, Colors, DefaultTheme, Fonts, FontSizes, FontWeights, LineHeights };

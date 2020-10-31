@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { storiesOf } from "@storybook/react";
+import React, { useState } from 'react';
+import { storiesOf } from '@storybook/react';
 import { number, select } from '@storybook/addon-knobs';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Pagination } from './index';
 
-storiesOf("Pagination", module)
-  .add("Default", () => {
+storiesOf('Pagination', module)
+  .add('Default', () => {
     const align = select('Alignment', ['left', 'center', 'right'], 'center');
     const totalItems = number('Total Items', 150);
     const maxButtons = number('Max Center Buttons', 3);
@@ -17,9 +17,9 @@ storiesOf("Pagination", module)
         <BaseStyles />
         <Pagination align={align} totalItems={totalItems} maxButtons={maxButtons} perPage={perPage} />
       </ThemeProvider>
-    )
+    );
   })
-  .add("Controlled Component", () => {
+  .add('Controlled Component', () => {
     const [currentPage, setCurrentPage] = useState(1);
     const align = select('Alignment', ['left', 'center', 'right'], 'center');
     const totalItems = number('Total Items', 150);
@@ -34,7 +34,14 @@ storiesOf("Pagination", module)
     return (
       <ThemeProvider>
         <BaseStyles />
-        <Pagination currentPage={currentPage} onPageChange={handlePageChange} align={align} totalItems={totalItems} maxButtons={maxButtons} perPage={perPage} />
+        <Pagination
+          currentPage={currentPage}
+          onPageChange={handlePageChange}
+          align={align}
+          totalItems={totalItems}
+          maxButtons={maxButtons}
+          perPage={perPage}
+        />
       </ThemeProvider>
-    )
+    );
   });

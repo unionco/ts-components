@@ -7,15 +7,10 @@ type IntroProps = StyledIntroProps & {
   /** action slotted content */
   action?: JSX.Element;
   /** applies default values for centering of content */
-  layout?: 'row'|'column';
-}
+  layout?: 'row' | 'column';
+};
 
-const Intro: React.FC<IntroProps> = ({
-  copy,
-  action,
-  layout = 'row',
-  ...rest
-}) => {
+const Intro: React.FC<IntroProps> = ({ copy, action, layout = 'row', ...rest }) => {
   /**
    * Reset props with default values
    */
@@ -27,6 +22,6 @@ const Intro: React.FC<IntroProps> = ({
       {action && action}
     </StyledIntro>
   );
-}
+};
 
 export { Intro, StyledIntro };

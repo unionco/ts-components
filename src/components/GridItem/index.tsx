@@ -1,19 +1,14 @@
-import React from 'react';
-import { GridItem as StyledGridItem, IGridProps } from './styles';
+import React, { ReactNode } from 'react';
+import { GridItem as StyledGridItem, StyledGridItemProps } from './styles';
 
-interface IGridItem
-  extends IGridProps {
-    /** Number of columns to span defaults to auto */
+interface GridItemProps extends StyledGridItemProps {
+  /** Number of columns to span defaults to auto */
   size?: 'auto' | number | number[];
   offSet?: number | number[];
+  children: ReactNode | ReactNode[];
 }
 
-const GridItem: React.FC<IGridItem> = ({
-  size = 'auto',
-  offSet,
-  ...props
-}) => {
-
+const GridItem: React.FC<GridItemProps> = ({ size = 'auto', offSet, ...props }) => {
   const calculateOffset = () => {
     if (!offSet) {
       return '';
@@ -27,7 +22,7 @@ const GridItem: React.FC<IGridItem> = ({
     return offSet.map((s: number) => {
       return `${(s / 12) * 100}%`;
     });
-  }
+  };
 
   const calculateSize = () => {
     if (size === 'auto') {
@@ -51,6 +46,6 @@ const GridItem: React.FC<IGridItem> = ({
       {props.children}
     </StyledGridItem>
   );
-}
+};
 
-export { GridItem, StyledGridItem, IGridItem };
+export { GridItem, StyledGridItem, GridItemProps };

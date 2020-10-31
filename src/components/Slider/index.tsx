@@ -3,9 +3,12 @@ import Swiper, { SwiperOptions } from 'swiper';
 import { SwiperContainer } from './styles';
 import { get } from 'lodash';
 
-export interface ISwiperEvent { name: string, swiper: Swiper };
+export interface ISwiperEvent {
+  name: string;
+  swiper: Swiper;
+}
 export type SwiperInstance = Swiper | null;
-export type ISlideChildren = ReactElement|ReactElement[];
+export type ISlideChildren = ReactElement | ReactElement[];
 export type GetSwiper = (swiper: Swiper) => void;
 export type GetSwiperEvent = (event: ISwiperEvent) => void;
 
@@ -88,19 +91,19 @@ class Slider extends Component<ISliderProps, ISliderState> {
       this.swiper.current.destroy(true, true);
       this.swiper.current = null;
     }
-  };
+  }
 
   public rebuildSwiper() {
     this.destroySwiper();
     this.initSwiper();
-  };
+  }
 
   // Update swiper
   public updateSwiper() {
     if (this.swiper.current !== null) {
       this.swiper.current.update();
     }
-  };
+  }
 
   public render() {
     const { pager, scrollbar, buttons, children } = this.props;
@@ -111,17 +114,15 @@ class Slider extends Component<ISliderProps, ISliderState> {
 
     return (
       <SwiperContainer className="swiper-container" ref={this.el}>
-        <div className="swiper-wrapper">
-          {Children.map(children, this.renderContent.bind(this))}
-        </div>
+        <div className="swiper-wrapper">{Children.map(children, this.renderContent.bind(this))}</div>
         {pager && <div className="swiper-pagination" ref={this.paginationEl}></div>}
         {scrollbar && <div className="swiper-scrollbar" ref={this.scrollbarEl}></div>}
         {buttons && [
           <div key={0} className="swiper-button-prev" ref={this.navPrevEl}></div>,
-          <div key={1} className="swiper-button-next" ref={this.navNextEl}></div>
+          <div key={1} className="swiper-button-next" ref={this.navNextEl}></div>,
         ]}
       </SwiperContainer>
-    )
+    );
   }
 
   private async initSwiper() {
@@ -140,8 +141,8 @@ class Slider extends Component<ISliderProps, ISliderState> {
     if (buttons) {
       opts.navigation = {
         nextEl: this.navNextEl.current,
-        prevEl: this.navPrevEl.current
-      }
+        prevEl: this.navPrevEl.current,
+      };
     }
     if (scrollbar) {
       opts.scrollbar = {
@@ -160,10 +161,10 @@ class Slider extends Component<ISliderProps, ISliderState> {
         slidePrevTransitionEnd: this.emitSlideEvent.bind(this, 'onSlidePrevTransitionEnd'),
         transitionStart: this.emitSlideEvent.bind(this, 'onTransitionStart'),
         transitionEnd: this.emitSlideEvent.bind(this, 'onTransitionEnd'),
-      }
+      },
     };
 
-    const customEvents = (!!options && !!options.on) ? options.on : {};
+    const customEvents = !!options && !!options.on ? options.on : {};
 
     const mergedEventOptions = { on: { ...customEvents, ...eventOptions.on } };
 
@@ -172,7 +173,7 @@ class Slider extends Component<ISliderProps, ISliderState> {
     if (this.el.current && this.swiper.current === null) {
       this.swiper.current = new Swiper(this.el.current, finalOptions);
       this.setState({
-        swiperReady: true
+        swiperReady: true,
       });
     }
   }
@@ -182,9 +183,9 @@ class Slider extends Component<ISliderProps, ISliderState> {
 
     return cloneElement(e, {
       ...e.props,
-      className: slideClassNames.join(' ').trim()
+      className: slideClassNames.join(' ').trim(),
     });
-  };
+  }
 }
 
 export { Slider, SwiperContainer };
@@ -250,25 +251,25 @@ const defaultOptions: SwiperOptions = {
     stretch: 0,
     depth: 100,
     modifier: 1,
-    slideShadows: true
+    slideShadows: true,
   },
   flipEffect: {
     slideShadows: true,
-    limitRotation: true
+    limitRotation: true,
   },
   cubeEffect: {
     slideShadows: true,
     shadow: true,
     shadowOffset: 20,
-    shadowScale: 0.94
+    shadowScale: 0.94,
   },
   fadeEffect: {
-    crossFade: false
+    crossFade: false,
   },
   a11y: {
     prevSlideMessage: 'Previous slide',
     nextSlideMessage: 'Next slide',
     firstSlideMessage: 'This is the first slide',
-    lastSlideMessage: 'This is the last slide'
-  }
+    lastSlideMessage: 'This is the last slide',
+  },
 };

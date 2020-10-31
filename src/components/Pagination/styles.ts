@@ -1,5 +1,5 @@
 import { themeGet } from '@styled-system/theme-get';
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import { colors } from '../../theme';
 
 export interface IStyledPaginationProps {
@@ -10,7 +10,7 @@ export interface IStyledPaginationProps {
 }
 
 export const StyledPagination = styled.div<IStyledPaginationProps>`
-  border-top: 1px solid #BDBDBD;
+  border-top: 1px solid #bdbdbd;
   width: 100%;
 
   nav {

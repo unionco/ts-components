@@ -1,6 +1,6 @@
 import { themeGet } from '@styled-system/theme-get';
-import { styled, css } from '../../styles';
-import { objectFit } from '../../theme/mixins'
+import styled, { css } from 'styled-components';
+import { objectFit } from '../../theme/mixins';
 
 export const MasonryGridItem = styled.div`
   display: block;
@@ -29,14 +29,14 @@ const determineItemSize = (layout: string) => {
         height: '100%',
         ':nth-child(n+2)': {
           height: '50%',
-          paddingRight: 0
-        }
-      } as any)
+          paddingRight: 0,
+        },
+      } as any);
     case 'md':
       return css({
         height: '70%',
         ':first-child': {
-          height: '30%'
+          height: '30%',
         },
         ':nth-child(2)': {
           paddingLeft: 0,
@@ -45,9 +45,9 @@ const determineItemSize = (layout: string) => {
           paddingRight: 0,
         },
         ':last-child': {
-          height: '30%'
-        }
-      } as any)
+          height: '30%',
+        },
+      } as any);
     case 'lg':
       return css({
         height: '50%',
@@ -56,16 +56,16 @@ const determineItemSize = (layout: string) => {
         },
         ':nth-child(n+3)': {
           height: '30%',
-          paddingRight: 0
+          paddingRight: 0,
         },
         ':nth-child(4)': {
-          height: '40%'
-        }
-      } as any)
+          height: '40%',
+        },
+      } as any);
     case 'xs':
     default:
       return css({
-        height: '100%'
+        height: '100%',
       } as any);
   }
 };
@@ -78,7 +78,7 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
     box-sizing: border-box;
     display: flex;
     flex-flow: column wrap;
-    height: ${props => props.minHeight || '90vmin'};
+    height: ${(props: any) => props.minHeight || '90vmin'};
     margin: 0 auto;
     max-width: ${themeGet('siteMaxWidth')};
     text-align: center;
@@ -86,8 +86,8 @@ export const MasonryGrid = styled.div<IMasonryGridProps>`
     width: 100%;
 
     ${MasonryGridItem} {
-      padding: ${props => themeGet(`space.${props.padding}`)};
-      ${props => determineItemSize(props.layout)};
+      padding: ${(props: any) => themeGet(`space.${props.padding}`)};
+      ${(props: any) => determineItemSize(props.layout)};
 
       &:nth-child(1) {
         padding-left: 0;

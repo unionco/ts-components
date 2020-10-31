@@ -1,14 +1,14 @@
-import { styled } from '../../styles';
+import styled from 'styled-components';
 import Button from '../Button/styles';
-import { objectFit } from '../../theme/mixins'
+import { objectFit } from '../../theme/mixins';
 
-interface ICardProps {
+export interface StyledCardProps {
   layout?: 'row' | 'column';
   tall?: boolean;
   hasBackground?: boolean;
 }
 
-const CardContent = styled.div<ICardProps>`
+const CardContent = styled.div<StyledCardProps>`
   padding: ${(props) => props.theme.space[4]} ${(props) => props.theme.space[3]};
   position: relative;
   z-index: 1;
@@ -17,7 +17,7 @@ const CardContent = styled.div<ICardProps>`
 
   h4,
   p {
-    padding-bottom: ${props => props.theme.space[2]};
+    padding-bottom: ${(props: any) => props.theme.space[2]};
     width: 100%;
   }
 
@@ -26,18 +26,22 @@ const CardContent = styled.div<ICardProps>`
   }
 `;
 
-const Card = styled.div<ICardProps>`
+const Card = styled.div<StyledCardProps>`
   display: flex;
   flex-direction: ${(props) => props.layout};
   position: relative;
   width: 100%;
 
-  ${(props) => props.layout === 'row' && `
+  ${(props) =>
+    props.layout === 'row' &&
+    `
     align-items: center;
     box-shadow: unset;
   `}
 
-  ${(props) => props.hasBackground && `
+  ${(props) =>
+    props.hasBackground &&
+    `
     ${CardContent} {
       align-items: center;
       display: flex;
@@ -48,7 +52,9 @@ const Card = styled.div<ICardProps>`
     }
   `}
 
-  ${props => props.tall && `
+  ${(props: any) =>
+    props.tall &&
+    `
     justify-content: flex-end;
     min-height: 400px;
   `}
@@ -67,8 +73,8 @@ const Card = styled.div<ICardProps>`
     }
   }
 
-  div[slot="start"],
-  div[slot="end"] {
+  div[slot='start'],
+  div[slot='end'] {
     img {
       width: 100%;
       ${objectFit('cover')}
@@ -76,4 +82,4 @@ const Card = styled.div<ICardProps>`
   }
 `;
 
-export { Card, CardContent, ICardProps };
+export { Card, CardContent };

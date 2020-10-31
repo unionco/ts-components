@@ -1,16 +1,14 @@
-import { styled, IThemeStyledFunction } from "../../styles";
+import styled from 'styled-components';
 import { SpaceProps, space, BorderProps, border } from 'styled-system';
 import { darken } from 'polished';
 
-
-export type IStyledListTableProps = IThemeStyledFunction<'table'> & SpaceProps & {
+export type IStyledListTableProps = SpaceProps & {
   type?: 'default' | 'striped';
   border?: 'default' | 'all' | 'none';
   accentColor?: string;
-}
+};
 
-export type IStyledListTableCellProps = IThemeStyledFunction<'td'|'th'> & BorderProps & SpaceProps;
-
+export type IStyledListTableCellProps = BorderProps & SpaceProps;
 
 const TableBody = styled.tbody``;
 const TableHeader = styled.thead``;
@@ -18,7 +16,7 @@ const TableRow = styled.tr``;
 const TableTh = styled.th<IStyledListTableCellProps>`
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  padding: ${props => props.theme.space[3]} ${props => props.theme.space[5]};
+  padding: ${(props: any) => props.theme.space[3]} ${(props: any) => props.theme.space[5]};
 
   ${border}
   ${space}
@@ -26,7 +24,7 @@ const TableTh = styled.th<IStyledListTableCellProps>`
 const TableTd = styled.td<IStyledListTableCellProps>`
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  padding: ${props => props.theme.space[3]} ${props => props.theme.space[5]};
+  padding: ${(props: any) => props.theme.space[3]} ${(props: any) => props.theme.space[5]};
 
   ${border}
   ${space}
@@ -39,20 +37,26 @@ const Table = styled.table<IStyledListTableProps>`
   ${TableTd},
   ${TableTh} {
     text-align: left;
-    border-color: ${props => darken(0.2, props.accentColor || props.theme.colors.light.base)};
+    border-color: ${(props: any) => darken(0.2, props.accentColor || props.theme.colors.light.base)};
 
-    ${props => props.border === 'none' && `
+    ${(props: any) =>
+      props.border === 'none' &&
+      `
       border-bottom: none;
     `}
 
-    ${props => props.border === 'all' && `
+    ${(props: any) =>
+      props.border === 'all' &&
+      `
       border: 1px solid ${darken(0.2, props.accentColor || props.theme.colors.light.base)};
     `}
   }
 
   ${TableBody} {
     ${TableRow} {
-      ${props => props.type === 'striped' && `
+      ${(props: any) =>
+        props.type === 'striped' &&
+        `
         &:nth-child(odd) {
           background-color: ${props.accentColor || props.theme.colors.light.base};
         }

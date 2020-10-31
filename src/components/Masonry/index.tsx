@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  MasonryGrid as StyledMasonryGrid,
-  MasonryGridItem,
-  IMasonryGridProps
-} from './styles';
+import { MasonryGrid as StyledMasonryGrid, MasonryGridItem, IMasonryGridProps } from './styles';
 
 const layoutTypes: { [key: number]: string } = {
   2: 'xs',
@@ -12,13 +8,9 @@ const layoutTypes: { [key: number]: string } = {
   5: 'lg',
 };
 
-export type IMasonryGridComponentProps = Omit<IMasonryGridProps, 'layout' >;
+export type MasonryGridProps = Omit<IMasonryGridProps, 'layout'>;
 
-const MasonryGrid: React.FC<IMasonryGridComponentProps> = ({
-  padding = 4,
-  ...rest
-}) => {
-
+const MasonryGrid: React.FC<MasonryGridProps> = ({ padding = 4, ...rest }) => {
   const props = { padding, ...rest };
 
   const determineMinWidth = (): string => {
@@ -26,15 +18,13 @@ const MasonryGrid: React.FC<IMasonryGridComponentProps> = ({
     const layout: string = layoutTypes[length];
 
     return layout ? layout : 'xs';
-  }
+  };
 
   return (
     <StyledMasonryGrid {...props} layout={determineMinWidth()}>
-      <div className="masonry_inner">
-        {props.children}
-      </div>
+      <div className="masonry_inner">{props.children}</div>
     </StyledMasonryGrid>
   );
-}
+};
 
 export { MasonryGrid, MasonryGridItem, IMasonryGridProps };

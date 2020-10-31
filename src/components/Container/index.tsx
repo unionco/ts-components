@@ -1,26 +1,30 @@
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 
 import { Box } from '../Box';
 import { space } from 'styled-system';
 
-type IContainerProps = IThemeStyledFunction<'div'> & {
-  variant?: 'thin'|'extra-thin';
+export type ContainerProps = {
+  variant?: 'thin' | 'extra-thin';
 };
 
-const Container = styled(Box)<IContainerProps>`
-  max-width: ${ props => props.theme.maxWidths.xl };
+const Container = styled(Box)<ContainerProps>`
+  max-width: ${(props) => props.theme.maxWidths.xl};
   margin: 0 auto;
-  padding: 0 ${ props => props.theme.space[3] };
+  padding: 0 ${(props) => props.theme.space[3]};
 
-  ${props => props.variant === 'thin' && `
-    max-width: ${ props.theme.maxWidths.lg };
+  ${(props: any) =>
+    props.variant === 'thin' &&
+    `
+    max-width: ${props.theme.maxWidths.lg};
   `}
 
-  ${props => props.variant === 'extra-thin' && `
-    max-width: ${ props.theme.maxWidths.md };
+  ${(props: any) =>
+    props.variant === 'extra-thin' &&
+    `
+    max-width: ${props.theme.maxWidths.md};
   `}
 
-  ${props => props.theme.media.xl} {
+  ${(props: any) => props.theme.media.xl} {
     padding-left: 0;
     padding-right: 0;
   }
@@ -28,5 +32,4 @@ const Container = styled(Box)<IContainerProps>`
   ${space}
 `;
 
-
-export { Container, IContainerProps };
+export { Container };

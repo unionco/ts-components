@@ -1,7 +1,7 @@
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { SpaceProps, space, BorderProps, border, TypographyProps, typography } from 'styled-system';
 
-export type IStyledLinkListItemProps = IThemeStyledFunction<'li'> & SpaceProps & BorderProps & TypographyProps;
+export type IStyledLinkListItemProps = SpaceProps & BorderProps & TypographyProps;
 
 const StyledLinkListButton = styled.span<IStyledLinkListItemProps>`
   display: flex;
@@ -17,8 +17,8 @@ const StyledLinkListButton = styled.span<IStyledLinkListItemProps>`
 `;
 
 const StyledLinkListItem = styled.li<IStyledLinkListItemProps>`
-  border-bottom: 1px solid ${props => props.theme.colors.light.base};
-  color: ${props => props.theme.colors.dark.base};
+  border-bottom: 1px solid ${(props: any) => props.theme.colors.light.base};
+  color: ${(props: any) => props.theme.colors.dark.base};
   transition: all 0.2s;
 
   &:last-child {
@@ -29,7 +29,7 @@ const StyledLinkListItem = styled.li<IStyledLinkListItemProps>`
     padding: 13px 0;
 
     ${StyledLinkListButton} {
-      color: ${props => props.theme.colors.primary.base};
+      color: ${(props: any) => props.theme.colors.primary.base};
       cursor: pointer;
       transform: scale(1.5);
     }

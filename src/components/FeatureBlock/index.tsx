@@ -3,7 +3,7 @@ import { StyledFeatureBlock, IStyledFeatureBlockProps } from './styles';
 import { Icon } from '../Icon';
 import { H3, Paragraph } from '../Typography';
 
-interface IFeatureBlock extends IStyledFeatureBlockProps {
+interface FeatureBlockProps extends IStyledFeatureBlockProps {
   icon?: JSX.Element;
   title?: string;
   copy?: string;
@@ -12,15 +12,15 @@ interface IFeatureBlock extends IStyledFeatureBlockProps {
   linkText?: string;
 }
 
-const FeatureBlock: React.FC<IFeatureBlock> = ({ icon, title, copy, action }) => {
+const FeatureBlock: React.FC<FeatureBlockProps> = ({ icon, title, copy, action }) => {
   return (
     <StyledFeatureBlock>
-      {icon && (<Icon icon={icon} />)}
-      {title && (<H3 className="h4">{title}</H3>)}
-      {copy && (<Paragraph>{copy}</Paragraph>)}
-      {action && (<div slot="action">{action}</div>)}
+      {icon && <Icon icon={icon} />}
+      {title && <H3 className="h4">{title}</H3>}
+      {copy && <Paragraph>{copy}</Paragraph>}
+      {action && <div slot="action">{action}</div>}
     </StyledFeatureBlock>
   );
-}
+};
 
-export { FeatureBlock, StyledFeatureBlock, IFeatureBlock };
+export { FeatureBlock, StyledFeatureBlock, FeatureBlockProps };

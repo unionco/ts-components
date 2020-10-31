@@ -1,61 +1,61 @@
 import { SpaceProps, BorderProps, space, border, display, DisplayProps, variant } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../styles';
+import styled from 'styled-components';
 import { colors } from '../../theme';
 
-export type IRadioWrapper = IThemeStyledFunction<'div'> & SpaceProps & DisplayProps & BorderProps & {
-  variant?: keyof typeof colors;
-  disabled?: boolean;
-}
+export type IRadioWrapper = SpaceProps &
+  DisplayProps &
+  BorderProps & {
+    variant?: keyof typeof colors;
+    disabled?: boolean;
+  };
 
-export type IRadioLabel = IThemeStyledFunction<'div'> & {
+export type IRadioLabel = {
   size?: 'small' | 'medium' | 'large';
   fill?: 'default' | 'full' | 'thick';
-}
+};
 
-export type IStyledRadioProps = IThemeStyledFunction<'input'> & {
+export type IStyledRadioProps = {
   disabled?: boolean;
   variant?: keyof typeof colors;
   size?: 'small' | 'medium' | 'large';
   fill?: 'default' | 'full' | 'thick';
-}
+};
 
 const fillVariant = variant({
   prop: 'fill',
   variants: {
     default: {
       '&:after': {
-        transform: 'scale(0.6)'
-      }
+        transform: 'scale(0.6)',
+      },
     },
-    full: {
-
-    },
+    full: {},
     thick: {
       '&:before': {
-        borderWidth: '3px'
+        borderWidth: '3px',
       },
       '&:after': {
-        transform: 'scale(0.4)'
-      }
-    }
-  }
-})
+        transform: 'scale(0.4)',
+      },
+    },
+  },
+});
 
 export const RadioWrapper = styled.div<IRadioWrapper>`
   display: inline-block;
   line-height: 1;
   position: relative;
   white-space: nowrap;
-  ${props => props.disabled ? 'cursor: not-allowed;' : ''};
+  ${(props: any) => (props.disabled ? 'cursor: not-allowed;' : '')};
   width: 100%;
 
   .state {
     padding: ${themeGet('space.3')} 0;
     margin-right: ${themeGet('space.3')};
 
-    [slot="inner"] {
-      color: ${props => themeGet(`colors.${props.variant}.contrast`)};
+    [slot='inner'] {
+      color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
       font-size: 1em;
       height: calc(1.25em + 2px);
       left: 1px;
@@ -83,16 +83,16 @@ const labelSize = variant({
   prop: 'size',
   variants: {
     small: {
-      fontSize: '1rem'
+      fontSize: '1rem',
     },
     medium: {
-      fontSize: '1.25rem'
+      fontSize: '1.25rem',
     },
     large: {
-      fontSize: '1.5rem'
+      fontSize: '1.5rem',
     },
-  }
-})
+  },
+});
 
 export const RadioLabel = styled.label<IRadioLabel>`
   display: inline-block;
@@ -140,29 +140,29 @@ export const RadioInput = styled.input<IStyledRadioProps>`
   top: 0;
   width: 100%;
   z-index: 2;
-  ${props => props.disabled ? 'cursor: not-allowed;' : ''};
+  ${(props: any) => (props.disabled ? 'cursor: not-allowed;' : '')};
 
   &:not([disabled]) {
     &:hover,
     &:focus {
       ~ .state ${RadioLabel}:before {
-        border-color: ${props => themeGet(`colors.${props.variant}.base`)};
+        border-color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
       }
     }
   }
 
   &:checked {
     ~ .state {
-      [slot="inner"] {
+      [slot='inner'] {
         opacity: 1;
       }
 
       ${RadioLabel} {
         &:before {
-          border-color: ${props => themeGet(`colors.${props.variant}.base`)};
+          border-color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
         }
         &:after {
-          background-color: ${props => themeGet(`colors.${props.variant}.base`)};
+          background-color: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
         }
       }
     }

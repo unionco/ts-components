@@ -1,24 +1,19 @@
 import React from 'react';
-import {
-  Chip as StyledChip,
-  IChipProps
-} from './styles';
+import { Chip as StyledChip, StyledChipProps } from './styles';
 
-interface IChipComponentProps
-  extends IChipProps {
-    start?: JSX.Element,
-    end?: JSX.Element,
-    onClick?: () => void
-  }
+interface ChipProps extends StyledChipProps {
+  start?: JSX.Element;
+  end?: JSX.Element;
+  onClick?: () => void;
+}
 
-const Chip: React.FC<IChipComponentProps> = ({
+const Chip: React.FC<ChipProps> = ({
   variant = 'primary',
   outline = false,
   clickable = false,
   shape = 'block',
   ...rest
 }) => {
-
   const props = { variant, outline, clickable, shape, ...rest };
 
   return (
@@ -28,6 +23,6 @@ const Chip: React.FC<IChipComponentProps> = ({
       {props.end && <div slot="end">{props.end}</div>}
     </StyledChip>
   );
-}
+};
 
-export { Chip, StyledChip, IChipProps };
+export { Chip, StyledChip, StyledChipProps };

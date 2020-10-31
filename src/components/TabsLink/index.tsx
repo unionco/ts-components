@@ -2,26 +2,20 @@ import React from 'react';
 import { StyledTabsLink, IStyledTabsProps } from './styles';
 import { PanelContext } from '../Tabs';
 
-export interface ITabsLinkProps
-  extends IStyledTabsProps {
-    children: React.ReactNode;
-    value: number;
-    onClick?: (e: any) => void;
-  };
+export interface TabsLinkProps extends IStyledTabsProps {
+  children: React.ReactNode;
+  value: number;
+  onClick?: (e: any) => void;
+}
 
-const TabsLink: React.FC<ITabsLinkProps> = ({
-  children,
-  value,
-  disabled,
-  ...rest
-}) => {
+const TabsLink: React.FC<TabsLinkProps> = ({ children, value, disabled, ...rest }) => {
   const props = { children, value, disabled, ...rest };
 
   return (
     <PanelContext.Consumer>
-      {({panelValue, changeTab}) => (
+      {({ panelValue, changeTab }) => (
         <StyledTabsLink
-          role='tab'
+          role="tab"
           disabled={disabled}
           onClick={changeTab}
           className={value === panelValue ? 'is-active' : ''}
@@ -32,6 +26,6 @@ const TabsLink: React.FC<ITabsLinkProps> = ({
       )}
     </PanelContext.Consumer>
   );
-}
+};
 
 export { TabsLink };

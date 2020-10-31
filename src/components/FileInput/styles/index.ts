@@ -1,15 +1,18 @@
-import { ColorProps } from 'styled-system';
+import { ColorProps as SSColorProps } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
-import { styled, IThemeStyledFunction } from '../../../styles';
+import styled from 'styled-components';
 import { StyledLabel } from '../../Label';
 import { StyledIcon } from '../../Icon';
 
+type ColorProps = Omit<SSColorProps, 'color'>;
+
 export type FileInputProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
 
-export type StyledFileInputProps = IThemeStyledFunction<'input'> & FileInputProps & ColorProps & {
-  floating?: boolean;
-  error?: string;
-};
+export type StyledFileInputProps = FileInputProps &
+  ColorProps & {
+    floating?: boolean;
+    error?: string;
+  };
 
 const StyledFileInput = styled.input<ColorProps>`
   cursor: pointer;
@@ -21,7 +24,7 @@ const StyledFileInput = styled.input<ColorProps>`
   width: 100%;
 
   &:hover + ${StyledLabel} {
-    border-color: ${props => themeGet(`colors.${props.color}.shade`)};
+    border-color: ${(props: any) => themeGet(`colors.${props.color}.shade`)};
   }
 `;
 
@@ -31,15 +34,17 @@ export const StyledInputWrapper = styled.div<StyledFileInputProps>`
   flex-direction: column;
   position: relative;
 
-  ${props => props.floating && `
+  ${(props: any) =>
+    props.floating &&
+    `
     margin-bottom: ${props.theme.space[3]};
   `}
 
   ${StyledLabel} {
     align-items: center;
-    background: ${props => themeGet(`colors.${props.color}.base`)};
-    color: ${props => themeGet(`colors.${props.color}.contrast`)};
-    border: 2px solid ${props => themeGet(`colors.${props.color}.base`)};
+    background: ${(props: any) => themeGet(`colors.${props.color}.base`)};
+    color: ${(props: any) => themeGet(`colors.${props.color}.contrast`)};
+    border: 2px solid ${(props: any) => themeGet(`colors.${props.color}.base`)};
     border-radius: ${themeGet('formElements.input.borderRadius')};
     display: flex;
     ${themeGet('fontSizes.sm')};
@@ -54,15 +59,15 @@ export const StyledInputWrapper = styled.div<StyledFileInputProps>`
       margin-right: ${themeGet('space.3')};
 
       * {
-        stroke: ${props => themeGet(`colors.${props.color}.contrast`)};
+        stroke: ${(props: any) => themeGet(`colors.${props.color}.contrast`)};
       }
     }
   }
 `;
 
 export const StyledInputError = styled.span`
-  color: ${props => props.theme.colors.danger.base};
-  font-weight: ${props => props.theme.fontWeights.bold};
+  color: ${(props: any) => props.theme.colors.danger.base};
+  font-weight: ${(props: any) => props.theme.fontWeights.bold};
   font-style: italic;
 `;
 

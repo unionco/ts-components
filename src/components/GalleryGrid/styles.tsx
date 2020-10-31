@@ -1,9 +1,9 @@
-import { styled, css } from '../../styles';
-import { objectFit } from '../../theme/mixins'
+import styled, { css } from 'styled-components';
+import { objectFit } from '../../theme/mixins';
 
-const galleryLargeHeight: string = '550px';
-const galleryMediumHeight: string = '375px';
-const gallerySmallHeight: string = '275px';
+const galleryLargeHeight = '550px';
+const galleryMediumHeight = '375px';
+const gallerySmallHeight = '275px';
 
 export const GalleryGridItem = styled.div`
   display: block;
@@ -17,11 +17,11 @@ export const GalleryGridItem = styled.div`
   }
 `;
 
-export interface IGalleryGridProps {
+export interface StyledGalleryGridProps {
   layout?: string;
 }
 
-const styles = (props: IGalleryGridProps) => css`
+const styles = (props: StyledGalleryGridProps) => css`
   display: block;
   width: 100%;
 
@@ -50,6 +50,6 @@ const styles = (props: IGalleryGridProps) => css`
   }
 `;
 
-export const GalleryGrid = styled.div<IGalleryGridProps>`
+export const GalleryGrid = styled.div<StyledGalleryGridProps>`
   ${styles}
 `;
