@@ -9,7 +9,7 @@ import { Grid } from '../Grid';
 import { GridItem } from '../GridItem';
 import { Eyebrow } from '../Eyebrow';
 import { ThumbsSlider } from '../ThumbsSlider';
-import 'swipercss';
+// import 'swipercss';
 
 const Slide = styled.div`
   max-width: 70%;
