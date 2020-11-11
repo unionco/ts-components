@@ -1,14 +1,6 @@
 import React from 'react';
-import { Image } from '../Image';
+import { Image, ImageProps } from '../Image';
 import { EmbedWrapper, Embed } from './styles';
-
-export interface ImageProps {
-  id: string;
-  url: string;
-  title: string;
-  filename: string;
-  alt?: string;
-}
 
 export interface MediaProps {
   type: string;
@@ -19,7 +11,7 @@ export interface MediaProps {
 
 const Media: React.FC<MediaProps> = ({ type, image, videoId, videoProvider }) => {
   if (type === 'image' && image) {
-    return <Image src={image.url} alt={image.alt || 'image'} />;
+    return <Image url={image.url} alt={image.alt || 'image'} />;
   }
 
   const url =

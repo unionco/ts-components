@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { isBrowser } from '../../utils';
 import { objectFit } from '../../theme/mixins';
 
-interface IImageProps {
+interface ImageProps {
   unsplash?: boolean;
-  src: string;
+  url: string;
   alt: string;
   onError?: (ev?: SyntheticEvent) => void;
   onLoad?: (ev?: SyntheticEvent) => void;
@@ -23,15 +23,15 @@ const StyledImage = styled.img<IStyledImage>`
   ${(props: any) => objectFit(props.objectFit || 'cover')}
 `;
 
-interface IImageState {
+interface ImageState {
   loadSrc?: string;
   io?: IntersectionObserver;
 }
 
-class Image extends React.Component<IImageProps, IImageState> {
+class Image extends React.Component<ImageProps, ImageState> {
   private el?: React.RefObject<any>;
 
-  constructor(props: IImageProps) {
+  constructor(props: ImageProps) {
     super(props);
     this.el = React.createRef();
     this.state = {
@@ -66,7 +66,7 @@ class Image extends React.Component<IImageProps, IImageState> {
   }
 
   private addIO() {
-    if (this.props.src === undefined || !isBrowser()) {
+    if (this.props.url === undefined || !isBrowser()) {
       return;
     }
 
@@ -99,7 +99,7 @@ class Image extends React.Component<IImageProps, IImageState> {
 
   private load() {
     this.setState({
-      loadSrc: this.props.src,
+      loadSrc: this.props.url,
     });
   }
 
@@ -127,4 +127,4 @@ class Image extends React.Component<IImageProps, IImageState> {
   }
 }
 
-export { Image, StyledImage, IImageProps };
+export { Image, StyledImage, ImageProps };

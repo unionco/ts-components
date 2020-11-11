@@ -5,7 +5,7 @@ interface GridItemProps extends StyledGridItemProps {
   /** Number of columns to span defaults to auto */
   size?: 'auto' | number | number[];
   offSet?: number | number[];
-  children: ReactNode | ReactNode[];
+  children?: ReactNode | ReactNode[];
 }
 
 const GridItem: React.FC<GridItemProps> = ({ size = 'auto', offSet, ...props }) => {

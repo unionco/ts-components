@@ -2109,11 +2109,6 @@
   resolved "https://registry.yarnpkg.com/@types/styled-system__theme-get/-/styled-system__theme-get-5.0.1.tgz#c3884e8f15641603503dc1d49f9d282dce11e5fb"
   integrity sha512-+i4VZ5wuYKMU8oKPmUlzc9r2RhpSNOK061Khtrr7X0sOQEcIyhUtrDusuMkp5ZR3D05Xopn3zybTPyUSQkKGAA==
 
-"@types/swiper@^5.4.1":
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/@types/swiper/-/swiper-5.4.1.tgz#4c19ef57aeb853c246eb6a73148b1b89b7ff3a6f"
-  integrity sha512-tEmsNfGIc20V+SoX0Cp/fzROWnk4meu/9bqYUxVHa+ALCESiD8LBLBrpEW8oXw7VebwZfRLh8Edmh5OcocbQ+w==
-
 "@types/tapable@*", "@types/tapable@^1.0.5":
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/@types/tapable/-/tapable-1.0.6.tgz#a9ca4b70a18b270ccb2bc0aaafefd1d486b7ea74"
