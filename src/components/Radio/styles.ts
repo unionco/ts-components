@@ -3,19 +3,19 @@ import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 import { colors } from '../../theme';
 
-export type IRadioWrapper = SpaceProps &
+export type StyledRadioWrapperProps = SpaceProps &
   DisplayProps &
   BorderProps & {
     variant?: keyof typeof colors;
     disabled?: boolean;
   };
 
-export type IRadioLabel = {
+export type StyledRadioLabelProps = {
   size?: 'small' | 'medium' | 'large';
   fill?: 'default' | 'full' | 'thick';
 };
 
-export type IStyledRadioProps = {
+export type StyledRadioProps = {
   disabled?: boolean;
   variant?: keyof typeof colors;
   size?: 'small' | 'medium' | 'large';
@@ -42,7 +42,7 @@ const fillVariant = variant({
   },
 });
 
-export const RadioWrapper = styled.div<IRadioWrapper>`
+export const RadioWrapper = styled.div<StyledRadioWrapperProps>`
   display: inline-block;
   line-height: 1;
   position: relative;
@@ -94,7 +94,7 @@ const labelSize = variant({
   },
 });
 
-export const RadioLabel = styled.label<IRadioLabel>`
+export const RadioLabel = styled.label<StyledRadioLabelProps>`
   display: inline-block;
   font-weight: ${themeGet('fontWeights.normal')};
   margin: 0;
@@ -128,7 +128,7 @@ export const RadioLabel = styled.label<IRadioLabel>`
   ${fillVariant};
 `;
 
-export const RadioInput = styled.input<IStyledRadioProps>`
+export const RadioInput = styled.input<StyledRadioProps>`
   cursor: pointer;
   height: 100%;
   left: 0;

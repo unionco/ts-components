@@ -1,8 +1,8 @@
 import React, { ReactNode, useState } from 'react';
-import { StyledSelect, IStyledSelectProps, SelectWrapper } from './styles';
+import { StyledSelect, StyledSelectProps, SelectWrapper } from './styles';
 import { Label } from '../Label';
 
-interface SelectProps extends IStyledSelectProps {
+interface SelectProps extends StyledSelectProps {
   id?: string;
   name?: string;
   multiple?: boolean;

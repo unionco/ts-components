@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 import { SpaceProps, space } from 'styled-system';
 
-export type IStyledTabsProps = SpaceProps & {
+export type StyledTabsProps = SpaceProps & {
   disabled?: boolean;
 };
 
-const StyledTabsLink = styled.button<IStyledTabsProps>`
+const StyledTabsLink = styled.button<StyledTabsProps>`
   appearance: none;
   background: transparent;
   border: none;

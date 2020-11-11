@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { SpaceProps, space } from 'styled-system';
 
-type IEyebrowProps = SpaceProps & {
-  as?: React.ReactType;
+type EyebrowProps = SpaceProps & {
+  as?: React.ElementType;
 };
 
 const StyledEyebrow = styled.p`
@@ -20,7 +20,7 @@ const StyledEyebrow = styled.p`
   ${space};
 `;
 
-const Eyebrow: React.FC<IEyebrowProps> = ({ as = 'p', ...rest }) => {
+const Eyebrow: React.FC<EyebrowProps> = ({ as = 'p', ...rest }) => {
   const props = { ...rest };
   return (
     <StyledEyebrow as={as} {...props}>
@@ -29,4 +29,4 @@ const Eyebrow: React.FC<IEyebrowProps> = ({ as = 'p', ...rest }) => {
   );
 };
 
-export { Eyebrow, StyledEyebrow, IEyebrowProps };
+export { Eyebrow, StyledEyebrow, EyebrowProps };

@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledCheckbox, StyledCheckboxInput, StyledCheckboxLabel, IStyledCheckboxProps } from './styles';
+import { StyledCheckbox, StyledCheckboxInput, StyledCheckboxLabel, StyledCheckboxProps } from './styles';
 
-interface CheckboxProps extends IStyledCheckboxProps {
+export interface CheckboxProps extends StyledCheckboxProps {
   id?: string;
   name?: string;
   value?: string;
@@ -52,4 +52,4 @@ const Checkbox: React.FC<CheckboxProps> = ({
 };
 
 export default Checkbox;
-export { StyledCheckbox, StyledCheckboxLabel, StyledCheckboxInput, CheckboxProps };
+export { StyledCheckbox, StyledCheckboxLabel, StyledCheckboxInput };

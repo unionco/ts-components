@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { SpaceProps, space, BorderProps, border, TypographyProps, typography } from 'styled-system';
 
-export type IStyledLinkListItemProps = SpaceProps & BorderProps & TypographyProps;
+export type StyledLinkListItemProps = SpaceProps & BorderProps & TypographyProps;
 
-const StyledLinkListButton = styled.span<IStyledLinkListItemProps>`
+const StyledLinkListButton = styled.span<StyledLinkListItemProps>`
   display: flex;
   font-size: 1rem;
   position: relative;
@@ -16,7 +16,7 @@ const StyledLinkListButton = styled.span<IStyledLinkListItemProps>`
   ${typography}
 `;
 
-const StyledLinkListItem = styled.li<IStyledLinkListItemProps>`
+const StyledLinkListItem = styled.li<StyledLinkListItemProps>`
   border-bottom: 1px solid ${(props: any) => props.theme.colors.light.base};
   color: ${(props: any) => props.theme.colors.dark.base};
   transition: all 0.2s;

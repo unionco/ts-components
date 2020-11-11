@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledLinkListItem, StyledLinkListButton, IStyledLinkListItemProps } from './styles';
+import { StyledLinkListItem, StyledLinkListButton, StyledLinkListItemProps } from './styles';
 
-export interface LinkListItemProps extends IStyledLinkListItemProps {
+export interface LinkListItemProps extends StyledLinkListItemProps {
   children: React.ReactNode;
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MasonryGrid as StyledMasonryGrid, MasonryGridItem, IMasonryGridProps } from './styles';
+import { MasonryGrid as StyledMasonryGrid, MasonryGridItem, StyledMasonryGridProps } from './styles';
 
 const layoutTypes: { [key: number]: string } = {
   2: 'xs',
@@ -8,7 +8,7 @@ const layoutTypes: { [key: number]: string } = {
   5: 'lg',
 };
 
-export type MasonryGridProps = Omit<IMasonryGridProps, 'layout'>;
+export type MasonryGridProps = Omit<StyledMasonryGridProps, 'layout'>;
 
 const MasonryGrid: React.FC<MasonryGridProps> = ({ padding = 4, ...rest }) => {
   const props = { padding, ...rest };
@@ -27,4 +27,4 @@ const MasonryGrid: React.FC<MasonryGridProps> = ({ padding = 4, ...rest }) => {
   );
 };
 
-export { MasonryGrid, MasonryGridItem, IMasonryGridProps };
+export { MasonryGrid, MasonryGridItem, StyledMasonryGridProps };

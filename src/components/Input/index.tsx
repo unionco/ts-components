@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react';
-import { StyledInput, StyledFiles, IStyledInputProps } from './styles';
+import { StyledInput, StyledFiles, StyledInputProps } from './styles';
 
-interface IInputProps extends IStyledInputProps {
+interface InputProps extends StyledInputProps {
   type?: string;
   id?: string;
   name?: string;
@@ -19,8 +19,8 @@ interface IInputState {
   fileNames: any[];
 }
 
-class Input extends React.Component<IInputProps, IInputState> {
-  constructor(props: IInputProps) {
+class Input extends React.Component<InputProps, IInputState> {
+  constructor(props: InputProps) {
     super(props);
     this.state = {
       value: props.defaultValue || '',
@@ -136,4 +136,4 @@ class Input extends React.Component<IInputProps, IInputState> {
   }
 }
 
-export { Input, StyledInput, IInputProps };
+export { Input, StyledInput, InputProps };

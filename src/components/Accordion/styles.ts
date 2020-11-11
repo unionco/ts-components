@@ -1,23 +1,23 @@
 import styled from 'styled-components';
 import { SpaceProps, space, DisplayProps, FlexboxProps, display, flexbox, BorderProps, border } from 'styled-system';
 
-export type IStyledAccordionProps = SpaceProps &
+export type StyledAccordionProps = SpaceProps &
   BorderProps & {
     open?: boolean;
   };
 
-export type IStyledAccordionTriggerProps = SpaceProps & BorderProps;
+export type StyledAccordionTriggerProps = SpaceProps & BorderProps;
 
-export type IStyledAccordionPanelProps = SpaceProps & DisplayProps & FlexboxProps & BorderProps;
+export type StyledAccordionPanelProps = SpaceProps & DisplayProps & FlexboxProps & BorderProps;
 
-export const AccordionPanel = styled.div<IStyledAccordionPanelProps>`
+export const AccordionPanel = styled.div<StyledAccordionPanelProps>`
   ${display};
   ${flexbox};
   ${space};
   ${border};
 `;
 
-export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
+export const StyledAccordionTrigger = styled.span<StyledAccordionTriggerProps>`
   display: flex;
   ${(props: any) => props.theme.fontSizes.base};
 
@@ -58,7 +58,7 @@ export const StyledAccordionTrigger = styled.span<IStyledAccordionTriggerProps>`
   ${border};
 `;
 
-export const StyledAccordion = styled.div<IStyledAccordionProps>`
+export const StyledAccordion = styled.div<StyledAccordionProps>`
   display: block;
 
   .accordion_trigger {

@@ -6,11 +6,11 @@ import {
   TableBody,
   TableRow,
   TableTd,
-  IStyledListTableProps,
-  IStyledListTableCellProps,
+  StyledListTableProps,
+  StyledListTableCellProps,
 } from './styles';
 
-export interface ListTableProps extends IStyledListTableProps {
+export interface ListTableProps extends StyledListTableProps {
   headerData?: any;
   bodyData?: any;
   accentColor?: string;
@@ -35,6 +35,6 @@ export {
   ListTable,
   TableRow as ListTableRow,
   TableTd as ListTableCell,
-  IStyledListTableProps,
-  IStyledListTableCellProps,
+  StyledListTableProps,
+  StyledListTableCellProps,
 };

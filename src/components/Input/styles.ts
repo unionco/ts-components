@@ -2,12 +2,12 @@ import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
-export interface IStyledInputProps {
+export interface StyledInputProps {
   disabled?: boolean;
   required?: boolean;
 }
 
-export const StyledFiles = styled.div<IStyledInputProps>`
+export const StyledFiles = styled.div<StyledInputProps>`
   > div {
     align-items: center;
     background: ${themeGet('formElements.input.backgroundColor')};
@@ -27,7 +27,7 @@ export const StyledFiles = styled.div<IStyledInputProps>`
   }
 `;
 
-export const StyledInput = styled.input<IStyledInputProps>`
+export const StyledInput = styled.input<StyledInputProps>`
   appearance: none;
   background: ${themeGet('formElements.input.backgroundColor')};
   border: ${themeGet('formElements.input.border')};

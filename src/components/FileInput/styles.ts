@@ -1,8 +1,8 @@
 import { ColorProps as SSColorProps } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
-import { StyledLabel } from '../../Label';
-import { StyledIcon } from '../../Icon';
+import { StyledLabel } from '../Label';
+import { StyledIcon } from '../Icon';
 
 type ColorProps = Omit<SSColorProps, 'color'>;
 

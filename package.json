@@ -37,13 +37,11 @@
     "styled-components": "^5.2.1",
     "styled-flex-component": "^3.0.5",
     "styled-system": "^5.1.5",
-    "swiper": "^6.3.5",
     "tslib": "*"
   },
   "peerDependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "swiper": "^6.3.5"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

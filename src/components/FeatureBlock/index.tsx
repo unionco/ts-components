@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyledFeatureBlock, IStyledFeatureBlockProps } from './styles';
+import { StyledFeatureBlock, StyledFeatureBlockProps } from './styles';
 import { Icon } from '../Icon';
 import { H3, Paragraph } from '../Typography';
 
-interface FeatureBlockProps extends IStyledFeatureBlockProps {
+export interface FeatureBlockProps extends StyledFeatureBlockProps {
   icon?: JSX.Element;
   title?: string;
   copy?: string;
@@ -23,4 +23,4 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({ icon, title, copy, action }
   );
 };
 
-export { FeatureBlock, StyledFeatureBlock, FeatureBlockProps };
+export { FeatureBlock, StyledFeatureBlock };

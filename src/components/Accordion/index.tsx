@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import _debounce from 'lodash/debounce';
-import { AccordionPanel, StyledAccordion, IStyledAccordionPanelProps, IStyledAccordionProps } from './styles';
+import { AccordionPanel, StyledAccordion, StyledAccordionPanelProps, StyledAccordionProps } from './styles';
 
-export interface IAccordionProps extends IStyledAccordionProps {
+export interface AccordionProps extends StyledAccordionProps {
   trigger: string | JSX.Element;
   panel: string | JSX.Element;
 }
 
-interface IAccordionState {
+export interface AccordionState {
   isOpen: boolean;
 }
 
-class Accordion extends Component<IAccordionProps, IAccordionState> {
+class Accordion extends Component<AccordionProps, AccordionState> {
   private el: any = React.createRef<HTMLDivElement>();
   private resizeHandler: any = null;
 
-  constructor(props: IAccordionProps) {
+  constructor(props: AccordionProps) {
     super(props);
     this.state = {
       isOpen: false,
@@ -81,4 +81,4 @@ class Accordion extends Component<IAccordionProps, IAccordionState> {
 export { AccordionTrigger, StyledAccordionTrigger } from './trigger';
 
 // Export main component
-export { Accordion, StyledAccordion, AccordionPanel, IStyledAccordionPanelProps, IStyledAccordionProps };
+export { Accordion, StyledAccordion, AccordionPanel, StyledAccordionPanelProps, StyledAccordionProps };

@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { SpaceProps, space, ColorProps, color } from 'styled-system';
 
-type ISectionProps = SpaceProps &
+type SectionProps = SpaceProps &
   Omit<ColorProps, 'color'> & {
     /** Image url for background image */
     image?: string;
   };
 
-const Section = styled.section<ISectionProps>`
+const Section = styled.section<SectionProps>`
   display: block;
   width: 100%;
   transition: margin 0.2s ease-in-out, padding 0.2s ease-in-out;
@@ -19,4 +19,4 @@ const Section = styled.section<ISectionProps>`
   ${space};
 `;
 
-export { Section, ISectionProps };
+export { Section, SectionProps };

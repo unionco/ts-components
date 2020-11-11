@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
-import { StyledAccordionTrigger, IStyledAccordionTriggerProps } from './styles';
+import { StyledAccordionTrigger, StyledAccordionTriggerProps } from './styles';
 
-export interface TriggerProps extends IStyledAccordionTriggerProps {
+export interface TriggerProps extends StyledAccordionTriggerProps {
   start?: string | JSX.Element;
   end?: string | JSX.Element;
   children: ReactNode | ReactNode[];

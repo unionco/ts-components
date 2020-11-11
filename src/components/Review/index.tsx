@@ -3,7 +3,7 @@ import { Review as StyledReview, ReviewStars as StyledReviewStars } from './styl
 import { Avatar } from '../Avatar';
 import { H1, Paragraph } from '../Typography';
 
-interface IReview {
+interface ReviewProps {
   image?: string;
   title?: string;
   subtitle?: string;
@@ -36,7 +36,7 @@ const ReviewStars: React.FC<ReviewStars> = ({ rating, ...rest }) => {
   );
 };
 
-const Review: React.FC<IReview> = ({ image, title, subtitle, rating, review, ...rest }: IReview) => {
+const Review: React.FC<ReviewProps> = ({ image, title, subtitle, rating, review, ...rest }) => {
   return (
     <StyledReview {...rest}>
       <Avatar image={image} />
@@ -60,4 +60,4 @@ const Review: React.FC<IReview> = ({ image, title, subtitle, rating, review, ...
   );
 };
 
-export { Review, StyledReview, ReviewStars, StyledReviewStars, IReview };
+export { Review, StyledReview, ReviewStars, StyledReviewStars, ReviewProps };

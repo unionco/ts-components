@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledFlexibleContent, Media, IFlexibleContentStyleProps } from './styles';
+import { StyledFlexibleContent, Media, FlexibleContentStyleProps } from './styles';
 
-interface FlexibleContentProps extends IFlexibleContentStyleProps {
+export interface FlexibleContentProps extends FlexibleContentStyleProps {
   content?: JSX.Element;
   media?: JSX.Element;
 }
@@ -27,4 +27,4 @@ const FlexibleContent: React.FC<FlexibleContentProps> = ({
   );
 };
 
-export { FlexibleContent, StyledFlexibleContent, FlexibleContentProps, IFlexibleContentStyleProps };
+export { FlexibleContent, StyledFlexibleContent, FlexibleContentStyleProps };

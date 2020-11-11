@@ -16,7 +16,7 @@ export const MasonryGridItem = styled.div`
   }
 `;
 
-export interface IMasonryGridProps {
+export interface StyledMasonryGridProps {
   layout: string;
   minHeight?: string;
   padding?: number;
@@ -70,7 +70,7 @@ const determineItemSize = (layout: string) => {
   }
 };
 
-export const MasonryGrid = styled.div<IMasonryGridProps>`
+export const MasonryGrid = styled.div<StyledMasonryGridProps>`
   display: block;
   max-width: ${themeGet('siteMaxWidth')};
 

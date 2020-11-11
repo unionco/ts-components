@@ -1,6 +1,6 @@
 import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
-import { StyledLabel } from '../../Label';
+import { StyledLabel } from '../Label';
 
 type TextareaProps = React.DetailedHTMLProps<React.TextareaHTMLAttributes<HTMLTextAreaElement>, HTMLTextAreaElement>;
 

@@ -2,12 +2,12 @@ import { SpaceProps, space, TypographyProps, typography } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 
-export type IStyledTabsBarProps = SpaceProps &
+export type StyledTabsBarProps = SpaceProps &
   TypographyProps & {
     variant?: string;
   };
 
-const StyledTabsBar = styled.div<IStyledTabsBarProps>`
+const StyledTabsBar = styled.div<StyledTabsBarProps>`
   align-items: center;
   background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
   color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};

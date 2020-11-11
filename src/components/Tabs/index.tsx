@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-interface ITabsProps {
+interface TabsProps {
   tabs: string | JSX.Element;
   panels: string | JSX.Element;
 }
 
-interface ITabsState {
+interface TabsState {
   panelValue: any;
   changeTab: any;
 }
@@ -17,10 +17,10 @@ const PanelContext = React.createContext({
   },
 });
 
-class Tabs extends Component<ITabsProps, ITabsState> {
+class Tabs extends Component<TabsProps, TabsState> {
   public changeTab: any;
 
-  constructor(props: ITabsProps) {
+  constructor(props: TabsProps) {
     super(props);
 
     this.changeTab = (event: any) => {
@@ -51,4 +51,4 @@ class Tabs extends Component<ITabsProps, ITabsState> {
   }
 }
 
-export { Tabs, ITabsProps, PanelContext };
+export { Tabs, TabsProps, PanelContext };

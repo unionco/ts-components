@@ -3,13 +3,13 @@ import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
-export type IStyledSelectProps = SpaceProps & {
+export type StyledSelectProps = SpaceProps & {
   disabled?: boolean;
   required?: boolean;
   position?: 'stacked' | 'inline' | 'floating';
 };
 
-export type ISelectWrapperProps = IStyledSelectProps &
+export type SelectWrapperProps = StyledSelectProps &
   SpaceProps & {
     hasValue?: boolean;
   };
@@ -17,7 +17,7 @@ export type ISelectWrapperProps = IStyledSelectProps &
 /**
  * Select Styles
  */
-export const StyledSelect = styled.select<IStyledSelectProps>`
+export const StyledSelect = styled.select<StyledSelectProps>`
   appearance: none;
   background: ${themeGet('formElements.input.backgroundColor')};
   border-radius: ${themeGet('formElements.input.borderRadius')};
@@ -65,7 +65,7 @@ export const StyledSelect = styled.select<IStyledSelectProps>`
 /**
  * Select Wrapper styles
  */
-export const SelectWrapper = styled.div<ISelectWrapperProps>`
+export const SelectWrapper = styled.div<SelectWrapperProps>`
   position: relative;
   margin-bottom: ${themeGet('space.3')};
 

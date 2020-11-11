@@ -4,7 +4,7 @@ import { StyledImage } from '../Image';
 import { StyledCopy } from '../Copy';
 import { objectFit } from '../../theme/mixins';
 
-interface IFlexibleContentStyleProps {
+interface FlexibleContentStyleProps {
   layout?: string;
   order?: string;
   reversed?: boolean;
@@ -21,7 +21,7 @@ const Media = styled(FlexItem)`
 
 Media.displayName = 'Media';
 
-const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
+const StyledFlexibleContent = styled(Flex)<FlexibleContentStyleProps>`
   align-items: center;
   justify-content: flex-start;
   display: flex;
@@ -159,4 +159,4 @@ const StyledFlexibleContent = styled(Flex)<IFlexibleContentStyleProps>`
 
 StyledFlexibleContent.displayName = 'FlexibleContent';
 
-export { StyledFlexibleContent, Media, IFlexibleContentStyleProps };
+export { StyledFlexibleContent, Media, FlexibleContentStyleProps };

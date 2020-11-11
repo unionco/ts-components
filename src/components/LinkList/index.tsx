@@ -2,19 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import { SpaceProps, space } from 'styled-system';
 
-type IStyledLinkListProps = SpaceProps;
+export type StyledLinkListProps = SpaceProps;
 
-const StyledLinkList = styled.ul<IStyledLinkListProps>`
+const StyledLinkList = styled.ul<StyledLinkListProps>`
   padding: ${(props: any) => props.theme.space[6]} 0;
 
   ${space}
 `;
 
-export interface ILinkListProps extends IStyledLinkListProps {
+export interface LinkListProps extends StyledLinkListProps {
   children: React.ReactNode;
 }
 
-const LinkList: React.FC<ILinkListProps> = ({ children, ...rest }) => {
+const LinkList: React.FC<LinkListProps> = ({ children, ...rest }) => {
   const props = { children, ...rest };
 
   return (

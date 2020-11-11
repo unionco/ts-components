@@ -1,10 +1,10 @@
 import { SpaceProps, space } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
-import { StyledEyebrow } from '../../Eyebrow';
-import { StyledRichText } from '../../RichText';
+import { StyledEyebrow } from '../Eyebrow';
+import { StyledRichText } from '../RichText';
 
-type IStyledCopyProps = SpaceProps & {
+type StyledCopyProps = SpaceProps & {
   twoCol?: boolean;
   textAlign?: string;
 };
@@ -21,7 +21,7 @@ const textAlignToFlexMap = (prop: string) => {
   }
 };
 
-const Copy = styled.div<IStyledCopyProps>`
+const Copy = styled.div<StyledCopyProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${(props: any) => textAlignToFlexMap(props.textAlign ?? 'left')};
@@ -67,4 +67,4 @@ const Copy = styled.div<IStyledCopyProps>`
   ${space}
 `;
 
-export { Copy, IStyledCopyProps };
+export { Copy, StyledCopyProps };

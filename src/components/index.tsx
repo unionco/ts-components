@@ -43,11 +43,8 @@ export * from './Review';
 export * from './RichText';
 export * from './Section';
 export * from './Select';
-// export * from './Slider';
 export * from './Textarea';
 
 export { default as TextInput } from './TextInput';
 export * from './TextInput';
-
-// export * from './ThumbsSlider';
 export * from './Typography';

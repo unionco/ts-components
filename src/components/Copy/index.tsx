@@ -1,10 +1,10 @@
 import React from 'react';
 import { Eyebrow } from '../Eyebrow';
 import { RichText } from '../RichText';
-import { Copy as StyledCopy, IStyledCopyProps } from './styles';
+import { Copy as StyledCopy, StyledCopyProps } from './styles';
 import { H1, H2 } from '../Typography';
 
-interface CopyProps extends IStyledCopyProps {
+interface CopyProps extends StyledCopyProps {
   eyebrow?: string;
   heading?: string;
   subheading?: string;

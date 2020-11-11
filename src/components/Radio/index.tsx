@@ -1,7 +1,7 @@
 import React from 'react';
-import { RadioWrapper, RadioInput, RadioLabel, IStyledRadioProps } from './styles';
+import { RadioWrapper, RadioInput, RadioLabel, StyledRadioProps } from './styles';
 
-interface RadioProps extends IStyledRadioProps {
+interface RadioProps extends StyledRadioProps {
   id?: string;
   name?: string;
   value?: string;

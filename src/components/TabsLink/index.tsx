@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyledTabsLink, IStyledTabsProps } from './styles';
+import { StyledTabsLink, StyledTabsProps } from './styles';
 import { PanelContext } from '../Tabs';
 
-export interface TabsLinkProps extends IStyledTabsProps {
+export interface TabsLinkProps extends StyledTabsProps {
   children: React.ReactNode;
   value: number;
   onClick?: (e: any) => void;

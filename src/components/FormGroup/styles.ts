@@ -2,11 +2,11 @@ import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 import { StyledLabel } from '../Label';
 
-export interface IStyledFormGroupProps {
+export interface StyledFormGroupProps {
   position?: 'stacked' | 'inline' | 'floating';
 }
 
-export const StyledFormGroup = styled.div<IStyledFormGroupProps>`
+export const StyledFormGroup = styled.div<StyledFormGroupProps>`
   display: flex;
   flex-direction: column-reverse;
   margin-bottom: ${themeGet('space.4')};

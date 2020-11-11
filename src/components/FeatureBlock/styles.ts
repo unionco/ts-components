@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { Icon } from '../../Icon/styles';
+import { Icon } from '../Icon/styles';
 import { SpaceProps, space } from 'styled-system';
-import { StyledButton } from '../../Button';
+import { StyledButton } from '../Button';
 
-type IStyledFeatureBlockProps = SpaceProps;
+type StyledFeatureBlockProps = SpaceProps;
 
-const StyledFeatureBlock = styled.div<IStyledFeatureBlockProps>`
+const StyledFeatureBlock = styled.div<StyledFeatureBlockProps>`
   margin-bottom: 3em;
 
   p {
@@ -28,4 +28,4 @@ const StyledFeatureBlock = styled.div<IStyledFeatureBlockProps>`
   ${space}
 `;
 
-export { StyledFeatureBlock, IStyledFeatureBlockProps };
+export { StyledFeatureBlock, StyledFeatureBlockProps };

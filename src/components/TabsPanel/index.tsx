@@ -1,7 +1,7 @@
 import React from 'react';
 import { PanelContext } from '../Tabs';
 
-interface TabsPanelProps {
+export interface TabsPanelProps {
   children: React.ReactNode;
   index: number;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyledTabsBar, IStyledTabsBarProps } from './styles';
+import { StyledTabsBar, StyledTabsBarProps } from './styles';
 
-export interface TabsBarProps extends IStyledTabsBarProps {
+export interface TabsBarProps extends StyledTabsBarProps {
   children: React.ReactNode;
 }
 

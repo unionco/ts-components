@@ -2,18 +2,18 @@ import styled from 'styled-components';
 import { SpaceProps, space, BorderProps, border } from 'styled-system';
 import { darken } from 'polished';
 
-export type IStyledListTableProps = SpaceProps & {
+export type StyledListTableProps = SpaceProps & {
   type?: 'default' | 'striped';
   border?: 'default' | 'all' | 'none';
   accentColor?: string;
 };
 
-export type IStyledListTableCellProps = BorderProps & SpaceProps;
+export type StyledListTableCellProps = BorderProps & SpaceProps;
 
 const TableBody = styled.tbody``;
 const TableHeader = styled.thead``;
 const TableRow = styled.tr``;
-const TableTh = styled.th<IStyledListTableCellProps>`
+const TableTh = styled.th<StyledListTableCellProps>`
   border-bottom-width: 1px;
   border-bottom-style: solid;
   padding: ${(props: any) => props.theme.space[3]} ${(props: any) => props.theme.space[5]};
@@ -21,7 +21,7 @@ const TableTh = styled.th<IStyledListTableCellProps>`
   ${border}
   ${space}
 `;
-const TableTd = styled.td<IStyledListTableCellProps>`
+const TableTd = styled.td<StyledListTableCellProps>`
   border-bottom-width: 1px;
   border-bottom-style: solid;
   padding: ${(props: any) => props.theme.space[3]} ${(props: any) => props.theme.space[5]};
@@ -30,7 +30,7 @@ const TableTd = styled.td<IStyledListTableCellProps>`
   ${space}
 `;
 
-const Table = styled.table<IStyledListTableProps>`
+const Table = styled.table<StyledListTableProps>`
   border-collapse: collapse;
   width: 100%;
 
