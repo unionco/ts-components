@@ -1,4 +1,4 @@
-import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space, buttonStyle } from 'styled-system';
+import { SpaceProps, TypographyProps, ButtonStyleProps, variant, typography, space } from 'styled-system';
 import { themeGet } from '@styled-system/theme-get';
 import styled from 'styled-components';
 
@@ -24,11 +24,7 @@ const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) =>
 }))<StyledButtonProps>`
   appearance: none;
   display: inline-block;
-  background: ${(props: any) => themeGet(`colors.${props.variant}.base`)};
-  border: 1px solid ${(props: any) => themeGet(`colors.${props.variant}.base`)};
-  color: ${(props: any) => themeGet(`colors.${props.variant}.contrast`)};
   cursor: pointer;
-  ${themeGet('fontSizes.base')};
   font-weight: ${themeGet('fontWeights.bold')};
   line-height: 20px;
   overflow: hidden;
@@ -71,7 +67,6 @@ const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) =>
   `}
 
   ${typography};
-  ${buttonStyle};
   ${sizes};
 
   ${(props) => {
@@ -94,16 +89,23 @@ const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) =>
             color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
           }`;
       default:
-        return `${props.theme.buttonFills?.solid}`;
+        return `
+          background: ${themeGet(`colors.${props.variant}.base`)(props)};
+          border: 1px solid ${themeGet(`colors.${props.variant}.base`)(props)};
+          color: ${themeGet(`colors.${props.variant}.contrast`)(props)};
+          :hover {
+            background: ${themeGet(`colors.${props.variant}.shade`)(props)};
+          }`;
     }
   }}
 
   ${(props: any) =>
     props.textLink &&
     `
-    background: transparent;
-    color: ${themeGet(`colors.${props.variant}.base`)};
-    padding: 0;`};
+      background: transparent;
+      color: ${themeGet(`colors.${props.variant}.base`)};
+      padding: 0;
+    `};
 
   ${space};
 `;

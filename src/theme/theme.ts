@@ -63,15 +63,15 @@ export const theme: DefaultTheme = {
   },
   buttonSizes: {
     small: {
-      fontSize: fontSizes.sm,
+      fontSize: '0.75rem',
       padding: `8px 16px`,
     },
     medium: {
-      fontSize: fontSizes.base,
+      fontSize: '1rem',
       padding: `16px 24px`,
     },
     large: {
-      fontSize: fontSizes.md,
+      fontSize: '1.25rem',
       padding: `24px 32px`,
     },
   },
