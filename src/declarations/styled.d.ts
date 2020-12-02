@@ -133,9 +133,6 @@ declare module 'styled-components' {
     space: string[];
 
     buttons: ColorVariant;
-    buttonFills?: {
-      [key: string]: any;
-    };
     buttonSizes: {
       small: {
         fontSize: string;

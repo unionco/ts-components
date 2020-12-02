@@ -36,31 +36,6 @@ export const theme: DefaultTheme = {
   buttons: {
     ...colorVariants,
   },
-  buttonFills: {
-    clear: {
-      background: 'transparent',
-      color: 'var(--neo-color-base)',
-      ':hover': {
-        background: '#eee',
-      },
-    },
-    outline: {
-      background: 'transparent',
-      color: 'var(--neo-color-base)',
-      border: '1px solid var(--neo-color-base)',
-      ':hover': {
-        background: 'var(--neo-color-base)',
-        color: 'var(--neo-color-contrast)',
-      },
-    },
-    solid: {
-      background: 'var(--neo-color-base)',
-      color: 'var(--neo-color-contrast)',
-      ':hover': {
-        opacity: 0.75,
-      },
-    },
-  },
   buttonSizes: {
     small: {
       fontSize: '0.75rem',
