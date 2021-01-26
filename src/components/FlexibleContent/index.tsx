@@ -16,9 +16,10 @@ const FlexibleContent: React.FC<FlexibleContentProps> = ({
   textAlign = 'left',
   content,
   media,
+  useAsHero,
   ...rest
 }) => {
-  const props = { layout, bleed, stretch, reversed, textAlign, ...rest };
+  const props = { layout, bleed, stretch, reversed, textAlign, useAsHero, ...rest };
   return (
     <StyledFlexibleContent {...props}>
       {content && <div slot="content">{content}</div>}

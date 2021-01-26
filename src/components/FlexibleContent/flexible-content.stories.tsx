@@ -52,6 +52,7 @@ storiesOf('Flexible Content', module)
   .add('Default', () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
+    const useAsHero = boolean('Use as Hero', false);
 
     return (
       <ThemeProvider>
@@ -59,7 +60,7 @@ storiesOf('Flexible Content', module)
         <Section>
           <Container>
             <FlexibleContent
-              {...Object.assign({}, { reversed })}
+              {...Object.assign({}, { reversed, useAsHero })}
               media={showVideo ? <ContentMediaVideo /> : <ContentMedia />}
               content={<ContentCopy />}
             />
@@ -83,6 +84,7 @@ storiesOf('Flexible Content', module)
   .add('Stacked', () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
+    const useAsHero = boolean('Use as Hero', false);
 
     return (
       <ThemeProvider>
@@ -92,7 +94,7 @@ storiesOf('Flexible Content', module)
             <FlexibleContent
               content={<ContentCopy />}
               media={showVideo ? <ContentMediaVideo /> : <ContentMedia />}
-              {...Object.assign({}, { reversed, textAlign: 'center', layout: 'col' })}
+              {...Object.assign({}, { reversed, textAlign: 'center', layout: 'col', useAsHero })}
             />
           </Container>
         </Section>
@@ -102,6 +104,7 @@ storiesOf('Flexible Content', module)
   .add('Stacked Stretch', () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
+    const useAsHero = boolean('Use as Hero', false);
 
     return (
       <ThemeProvider>
@@ -111,7 +114,7 @@ storiesOf('Flexible Content', module)
             <FlexibleContent
               content={<ContentCopy />}
               media={showVideo ? <ContentMediaVideo /> : <ContentMedia />}
-              {...Object.assign({}, { layout: 'col', reversed, stretch: true })}
+              {...Object.assign({}, { layout: 'col', reversed, stretch: true, useAsHero })}
             />
           </Container>
         </Section>
@@ -121,6 +124,7 @@ storiesOf('Flexible Content', module)
   .add('Bleeding', () => {
     const reversed = boolean('Reversed', false);
     const showVideo = boolean('Use Video', false);
+    const useAsHero = boolean('Use as Hero', false);
 
     return (
       <ThemeProvider>
@@ -130,7 +134,7 @@ storiesOf('Flexible Content', module)
             <FlexibleContent
               content={<ContentCopy />}
               media={showVideo ? <ContentMediaVideo /> : <ContentMedia />}
-              {...Object.assign({}, { reversed, bleed: true })}
+              {...Object.assign({}, { reversed, bleed: true, useAsHero })}
             />
           </Container>
         </Section>
