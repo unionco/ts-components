@@ -25,7 +25,7 @@ Media.displayName = 'Media';
 const StyledFlexibleContent = styled(Flex)<FlexibleContentStyleProps>`
   align-items: center;
   display: flex;
-  min-height: ${(props: any) => (props.useAsHero ? '700px;' : 'auto;')}
+  min-height: ${(props: any) => (props.useAsHero ? '600px;' : 'auto;')}
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
