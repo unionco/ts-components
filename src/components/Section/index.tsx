@@ -16,6 +16,7 @@ const Section = styled.section<SectionProps>`
   ${(props: any) => props.image && `background-image: url(${props.image})`};
   background-position: center;
   background-size: cover;
+  position: relative;
 
   ${props => props.video && `
     & > video {
@@ -27,7 +28,7 @@ const Section = styled.section<SectionProps>`
       bottom: 0;
       height: 100%;
       width: 100%;
-      z-index: -1;
+      z-index: 0;
     }
   `}
 
