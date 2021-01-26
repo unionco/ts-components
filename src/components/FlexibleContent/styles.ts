@@ -13,6 +13,7 @@ interface FlexibleContentStyleProps {
   background?: any;
   backgroundColor?: string;
   textAlign?: string;
+  useAsHero?: boolean;
 }
 
 const Media = styled(FlexItem)`
@@ -23,9 +24,10 @@ Media.displayName = 'Media';
 
 const StyledFlexibleContent = styled(Flex)<FlexibleContentStyleProps>`
   align-items: center;
-  justify-content: flex-start;
   display: flex;
+  min-height: ${(props: any) => (props.useAsHero ? '700px;' : 'auto;')}
   flex-direction: column;
+  justify-content: flex-start;
   position: relative;
 
   div[slot='content'] {
