@@ -33,13 +33,13 @@ const Section = styled.section<SectionProps>`
     }
 
     & > video {
-      position: absolute;
-      ${objectFit('cover')};
-      top: 0;
-      left: 0;
-      right: 0;
       bottom: 0;
       height: 100%;
+      left: 0;
+      ${objectFit('cover')};
+      position: absolute;
+      right: 0;
+      top: 0;
       width: 100%;
       z-index: 0;
     }
