@@ -19,6 +19,19 @@ const Section = styled.section<SectionProps>`
   position: relative;
 
   ${props => props.video && `
+    color: white;
+
+    &:after {
+      background-color: rgba(0,0,0,0.5);
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 0;
+    }
+
     & > video {
       position: absolute;
       ${objectFit('cover')};
@@ -29,6 +42,11 @@ const Section = styled.section<SectionProps>`
       height: 100%;
       width: 100%;
       z-index: 0;
+    }
+
+    & > div {
+      position: relative;
+      z-index: 1;
     }
   `}
 
