@@ -10,8 +10,9 @@ interface FlexibleContentStyleProps {
   reversed?: boolean;
   bleed?: boolean;
   stretch?: boolean;
-  background?: any;
   backgroundColor?: string;
+  backgroundImage?: any;
+  backgroundVideo?: any;
   textAlign?: string;
   useAsHero?: boolean;
 }

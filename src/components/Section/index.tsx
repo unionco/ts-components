@@ -18,9 +18,12 @@ const Section = styled.section<SectionProps>`
   background-size: cover;
   position: relative;
 
-  ${props => props.video && `
+  // Invert text color for bg images and videos
+  ${props => (props.video || props.image) && `
     color: white;
+  `}
 
+  ${props => props.video && `
     &:after {
       background-color: rgba(0,0,0,0.5);
       content: '';
