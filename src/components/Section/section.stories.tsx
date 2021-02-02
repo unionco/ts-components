@@ -6,6 +6,7 @@ import { Section } from './index';
 import { Container } from '../Container';
 import { Intro } from '../Intro';
 import { Button } from '../Button';
+import { Eyebrow } from '../Eyebrow';
 import { H2, Paragraph } from '../Typography';
 
 storiesOf('Section', module).add('Default', () => (
@@ -69,6 +70,7 @@ storiesOf('Section', module).add('Default', () => (
         <Intro
           copy={
             <div>
+              <Eyebrow>Simple Eyebrow</Eyebrow>
               <H2>Section Intro</H2>
               <Paragraph>
                 Pellentesque in ipsum id orci porta dapibus. Pellentesque in ipsum id orci porta dapibus. Pellentesque

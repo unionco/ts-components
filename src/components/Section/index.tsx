@@ -21,6 +21,9 @@ const Section = styled.section<SectionProps>`
   // Invert text color for bg images and videos
   ${props => (props.video || props.image) && `
     color: white;
+    & p {
+      color: white; // overrides eyebrow styles
+    }
   `}
 
   ${props => props.video && `
