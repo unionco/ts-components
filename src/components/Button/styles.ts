@@ -25,6 +25,7 @@ const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) =>
   appearance: none;
   display: inline-block;
   cursor: pointer;
+  font-family: ${themeGet('fonts.button')};
   font-weight: ${themeGet('fontWeights.bold')};
   line-height: 20px;
   overflow: hidden;

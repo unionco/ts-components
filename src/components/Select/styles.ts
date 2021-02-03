@@ -25,6 +25,7 @@ export const StyledSelect = styled.select<StyledSelectProps>`
   border: 2px solid transparent;
   cursor: pointer;
   font-size: 16px;
+  font-family: ${themeGet('fonts.body')};
   outline: none;
   padding: 0 ${themeGet('formElements.input.padding')};
   height: ${(props: any) => (!props.multiple ? '64px' : 'auto')};

@@ -23,6 +23,7 @@ export const StyledInput = styled.input<StyledInputProps>`
   background: ${themeGet('formElements.input.backgroundColor')};
   border: ${themeGet('formElements.input.border')};
   ${themeGet('fontSizes.base')};
+  font-family: ${themeGet('fonts.body')};
   height: ${themeGet('formElements.input.height')};
   outline: none;
   padding: 0 ${themeGet('formElements.input.padding')};

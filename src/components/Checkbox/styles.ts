@@ -105,6 +105,7 @@ export const StyledCheckbox = styled.div<CheckboxWrapper>`
 export const StyledCheckboxLabel = styled.label<CheckboxLabel>`
   display: inline-block;
   font-weight: ${(props: any) => props.theme.fontWeights.normal};
+  font-family: ${themeGet('fonts.body')};
   margin: 0;
   min-width: calc(1em + 2px);
   position: initial;
@@ -138,6 +139,7 @@ export const StyledCheckboxLabel = styled.label<CheckboxLabel>`
 
 export const StyledCheckboxInput = styled.input<StyledCheckboxProps>`
   cursor: pointer;
+  font-family: ${themeGet('fonts.body')};
   height: 100%;
   left: 0;
   margin: 0;

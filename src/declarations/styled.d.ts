@@ -7,6 +7,7 @@ declare module 'styled-components' {
     body: string;
     heading: string;
     display: string;
+    button?: string;
     h1: string;
     h2: string;
     h3: string;

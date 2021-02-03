@@ -16,6 +16,7 @@ export type StyledFileInputProps = FileInputProps &
 
 const StyledFileInput = styled.input<ColorProps>`
   cursor: pointer;
+  font-family: ${themeGet('fonts.body')};
   height: 64px;
   left: 0;
   opacity: 0;

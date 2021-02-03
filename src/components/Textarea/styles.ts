@@ -47,6 +47,7 @@ export const StyledTextarea = styled.textarea<StyledTextareaProps>`
   border: ${themeGet('formElements.input.border')};
   border-radius: ${themeGet('formElements.input.borderRadius')};
   ${themeGet('fontSizes.base')};
+  font-family: ${themeGet('fonts.body')};
   padding: 16px;
   outline: none;
   width: 100%;

@@ -5,6 +5,7 @@ export const fonts: Fonts = {
   body: '"Helvetica Neue", "Arial", sans-serif',
   heading: 'inherit',
   display: 'inherit',
+  button: '"Helvetica Neue", "Arial", sans-serif',
   h1: 'inherit',
   h2: 'inherit',
   h3: 'inherit',
