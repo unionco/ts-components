@@ -18,6 +18,7 @@ export * from './FeatureBlock';
 export * from './FileInput';
 export * from './Flex';
 export * from './FlexibleContent';
+export * from './OffsetContent';
 export * from './FormGroup';
 export * from './GalleryGrid';
 export * from './Grid';
