@@ -23,7 +23,7 @@ const StyledEyebrow = styled.p`
 const Eyebrow: React.FC<EyebrowProps> = ({ as = 'p', ...rest }) => {
   const props = { ...rest };
   return (
-    <StyledEyebrow as={as} {...props}>
+    <StyledEyebrow as={as} {...props} className="eyebrow">
       {props.children}
     </StyledEyebrow>
   );

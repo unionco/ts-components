@@ -18,17 +18,17 @@ const Section = styled.section<SectionProps>`
   background-size: cover;
   position: relative;
 
-  // Invert text color for bg images and videos
   ${props => (props.video || props.image) && `
-    color: white;
-    & p {
-      color: white; // overrides eyebrow styles
-    }
-  `}
+    // Invert text color for bg images and videos
+    color: ${props.theme.colors.light.tint};
 
-  ${props => props.video && `
+    .eyebrow {
+      color: ${props.theme.colors.secondary.base};
+    }
+
+    // Add slightly-opaque overlay
     &:after {
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.4);
       content: '';
       height: 100%;
       left: 0;
@@ -38,6 +38,14 @@ const Section = styled.section<SectionProps>`
       z-index: 0;
     }
 
+    // Make sure the copy/etc. stays on top of overlay
+    & > div {
+      position: relative;
+      z-index: 1;
+    }
+  `}
+
+  ${props => props.video && `
     & > video {
       bottom: 0;
       height: 100%;
@@ -48,11 +56,6 @@ const Section = styled.section<SectionProps>`
       top: 0;
       width: 100%;
       z-index: 0;
-    }
-
-    & > div {
-      position: relative;
-      z-index: 1;
     }
   `}
 
