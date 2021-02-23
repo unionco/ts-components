@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { select } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 import { ThemeProvider } from '../../index';
 import { BaseStyles } from '../BaseStyles';
 import { Modal, ModalButton } from './index';
@@ -9,6 +9,8 @@ import { Media } from '../index';
 storiesOf('Modal', module)
   .add('Modal Button', () => {
     const modalSize = select('Modal Size', ['sm', 'md', 'lg'], 'lg');
+    const right = number('Right', 40);
+    const top = number('Top', 40);
     return (
       <ThemeProvider>
         <BaseStyles />
@@ -18,6 +20,8 @@ storiesOf('Modal', module)
             variant: 'primary',
             children: 'Click to Open',
           }}
+          top={top}
+          right={right}
         >
           <Media type="image" />
         </ModalButton>
@@ -26,11 +30,13 @@ storiesOf('Modal', module)
   })
   .add('Modal', () => {
     const modalSize = select('Modal Size', ['sm', 'md', 'lg'], 'lg');
+    const right = number('Right', 40);
+    const top = number('Top', 40);
 
     return (
       <ThemeProvider>
         <BaseStyles />
-        <Modal modalSize={modalSize}>
+        <Modal modalSize={modalSize} top={top} right={right}>
           <Media type="image" />
         </Modal>
       </ThemeProvider>

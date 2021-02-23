@@ -7,7 +7,7 @@ export type ModalProps = StyledModalProps & {
   children: ReactNode | ReactNode[];
 };
 
-const ModalComponent: React.FC<ModalProps> = ({ modalSize = 'md', ...rest }) => {
+const ModalComponent: React.FC<ModalProps> = ({ modalSize = 'md', top, right, ...rest }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const props = { modalSize, ...rest };
 
@@ -27,7 +27,14 @@ const ModalComponent: React.FC<ModalProps> = ({ modalSize = 'md', ...rest }) => 
       <Button variant="primary" onClick={openModal}>
         Open Modal
       </Button>
-      <StyledModal isOpen={modalIsOpen} onAfterOpen={afterOpenModal} onRequestClose={closeModal} {...props}>
+      <StyledModal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        top={top}
+        right={right}
+        {...props}
+      >
         {props.children}
         <button className="Modal-close" onClick={closeModal}>
           ×

@@ -10,6 +10,8 @@ const modalSize = variant({
 export type StyledModalProps = SpaceProps & {
   /** Image url for background image */
   modalSize?: string;
+  top?: number;
+  right?: number;
 };
 
 const StyledModal = styled(Modal)<StyledModalProps>`
@@ -26,9 +28,9 @@ const StyledModal = styled(Modal)<StyledModalProps>`
     cursor: pointer;
     font-size: 24px;
     position: absolute;
-    right: 40px;
+    right: ${(props) => (props.right ? props.right : 40)}px;
     text-shadow: 0 0px 5px rgba(255, 255, 255);
-    top: 40px;
+    top: ${(props) => (props.top ? props.top : 40)}px;
   }
 
   ${modalSize}
