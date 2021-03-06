@@ -12,7 +12,7 @@ import { Button } from '../Button';
 
 const image = {
   id: '1',
-  url: 'https://placehold.it/400x400.png',
+  url: 'https://source.unsplash.com/random/1440x600',
   title: 'image title',
   filename: 'imaget-title.png',
   alt: 'image',
@@ -20,7 +20,6 @@ const image = {
 const copy = {
   eyebrow: 'Eyebrow',
   heading: 'Long headline for two lines for attention and evolving',
-  subheading: 'Aenean eu leo quam. Pellentesque ornare sem lacinia quam.',
   copy:
     '<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Duis mollis, est non commodo luctus..</p>',
 };
@@ -43,19 +42,17 @@ const ContentCopy = () => {
 
 storiesOf('Offset Content', module).add('Default', () => {
   const textAlign = select('Text Align', ['left', 'center', 'right'], 'right');
-  const cardColor = select('Card Color', ['primary', 'secondary', 'tertiary'], 'secondary');
+  const cardColor = select('Card Color', ['primary', 'secondary', 'tertiary', 'light'], 'secondary');
 
   return (
     <ThemeProvider>
       <BaseStyles />
       <Section>
-        <Container>
-          <OffsetContent
-            content={<ContentCopy />}
-            background={image.url}
-            {...Object.assign({}, { textAlign, cardColor })}
-          />
-        </Container>
+        <OffsetContent
+          content={<ContentCopy />}
+          background={image.url}
+          {...Object.assign({}, { textAlign, cardColor })}
+        />
       </Section>
     </ThemeProvider>
   );

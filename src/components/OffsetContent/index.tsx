@@ -1,4 +1,5 @@
 import React from 'react';
+import { Container } from '../Container';
 import { StyledOffsetContent, OffsetContentStyleProps, CardBackground, StyledCard } from './styles';
 
 export interface OffsetContentProps extends OffsetContentStyleProps {
@@ -10,9 +11,10 @@ const OffsetContent: React.FC<OffsetContentProps> = ({ textAlign = 'left', conte
   const props = { content, background, textAlign, cardColor };
   return (
     <StyledOffsetContent {...props}>
-      <CardBackground {...props}>
+      <CardBackground src={background} />
+      <Container>
         <StyledCard {...props}>{content && <div slot="content">{content}</div>}</StyledCard>
-      </CardBackground>
+      </Container>
     </StyledOffsetContent>
   );
 };
