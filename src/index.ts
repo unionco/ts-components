@@ -16,4 +16,16 @@ export * from './utils';
 /**
  * Export default theme
  */
-export { theme as BaseTheme, Colors, DefaultTheme, Fonts, FontSizes, FontWeights, LineHeights } from './theme';
+export {
+  theme as BaseTheme,
+  lineHeights,
+  fontSizes,
+  fontWeights,
+  fonts,
+  Colors,
+  DefaultTheme,
+  Fonts,
+  FontSizes,
+  FontWeights,
+  LineHeights,
+} from './theme';
