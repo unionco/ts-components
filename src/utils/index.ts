@@ -36,5 +36,5 @@ export function isBrowser() {
   return typeof window !== 'undefined';
 }
 
-export { maxWidth, fontSize } from './slopeCalc';
+export { maxWidth, fontSize, lineHeight } from './slopeCalc';
 export { themeGet } from '@styled-system/theme-get';
