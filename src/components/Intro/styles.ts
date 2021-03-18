@@ -26,7 +26,7 @@ const StyledIntro = styled.div<StyledIntroProps>`
     flex-direction: column;
     justify-content: center;
 
-    div[slot="copy"] {
+    * {
       text-align: center;
       padding-right: 0;
     }

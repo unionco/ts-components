@@ -19,4 +19,4 @@ const OffsetContent: React.FC<OffsetContentProps> = ({ textAlign = 'left', conte
   );
 };
 
-export { OffsetContent, StyledOffsetContent, OffsetContentStyleProps };
+export { OffsetContent, StyledCard as OffsetStyledCard, StyledOffsetContent, OffsetContentStyleProps };
