@@ -87,7 +87,7 @@ const Pagination: React.FC<PaginationProps> = ({
   return (
     <StyledPagination align={align}>
       <nav>
-        <button className="Pagination-prev" onClick={decrementPage} disabled={currentPage === 1}>
+        <button className="Pagination-prev" aria-label="Pagination Previous" onClick={decrementPage} disabled={currentPage === 1}>
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
@@ -100,7 +100,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
         {currentPage >= maxButtons && totalPages > maxButtons && (
           <>
-            <button className="Pagination-button" onClick={() => goToPage(1)}>
+            <button className="Pagination-button" aria-label="Pagination Button" onClick={() => goToPage(1)}>
               1
             </button>
             <span className="Pagination-spacer">•••</span>
@@ -110,6 +110,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {range.map(({ pageNum, isDisabled }) => (
           <button
             key={`Pagination-button-${pageNum}`}
+            aria-label="Pagination Button"
             className={`Pagination-button ${pageNum === currentPage ? 'is-active' : ''}`}
             onClick={() => goToPage(pageNum)}
             disabled={isDisabled}
@@ -121,13 +122,13 @@ const Pagination: React.FC<PaginationProps> = ({
         {currentPage < totalPages - Math.floor(maxButtons / 2) + 1 && totalPages > maxButtons && (
           <>
             <span className="Pagination-spacer">&hellip;</span>
-            <button className="Pagination-button" onClick={() => goToPage(totalPages)}>
+            <button className="Pagination-button" aria-label="Pagination Button" onClick={() => goToPage(totalPages)}>
               {totalPages}
             </button>
           </>
         )}
 
-        <button className="Pagination-next" onClick={incrementPage} disabled={currentPage === totalPages}>
+        <button className="Pagination-next" aria-label="Pagination Next" onClick={incrementPage} disabled={currentPage === totalPages}>
           <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
               fillRule="evenodd"
