@@ -17,7 +17,7 @@ const Media: React.FC<MediaProps> = ({ type, image, videoId, videoProvider }) =>
   const url =
     videoProvider === 'vimeo'
       ? `https://player.vimeo.com/video/${videoId}`
-      : `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+      : `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&cc_load_policy=1`;
 
   return (
     <EmbedWrapper>
