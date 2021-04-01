@@ -100,7 +100,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
         {currentPage >= maxButtons && totalPages > maxButtons && (
           <>
-            <button className="Pagination-button" aria-label="Go to page 1" onClick={() => goToPage(1)}>
+            <button className="Pagination-button" aria-label="Go to first page" onClick={() => goToPage(1)}>
               1
             </button>
             <span className="Pagination-spacer">•••</span>
@@ -122,7 +122,7 @@ const Pagination: React.FC<PaginationProps> = ({
         {currentPage < totalPages - Math.floor(maxButtons / 2) + 1 && totalPages > maxButtons && (
           <>
             <span className="Pagination-spacer">&hellip;</span>
-            <button className="Pagination-button" aria-label="Go to last page." onClick={() => goToPage(totalPages)}>
+            <button className="Pagination-button" aria-label="Go to last page" onClick={() => goToPage(totalPages)}>
               {totalPages}
             </button>
           </>
