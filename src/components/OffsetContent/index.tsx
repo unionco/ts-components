@@ -11,7 +11,7 @@ const OffsetContent: React.FC<OffsetContentProps> = ({ textAlign = 'left', conte
   const props = { content, background, textAlign, cardColor };
   return (
     <StyledOffsetContent {...props}>
-      <CardBackground src={background} />
+      <CardBackground src={background.url} alt={background.title} />
       <Container>
         <StyledCard {...props}>{content && <div slot="content">{content}</div>}</StyledCard>
       </Container>

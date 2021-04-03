@@ -14,7 +14,7 @@ const image = {
   id: '1',
   url: 'https://source.unsplash.com/random/1440x600',
   title: 'image title',
-  filename: 'imaget-title.png',
+  filename: 'image-title.png',
   alt: 'image',
 };
 const copy = {
@@ -50,7 +50,10 @@ storiesOf('Offset Content', module).add('Default', () => {
       <Section>
         <OffsetContent
           content={<ContentCopy />}
-          background={image.url}
+          background={{
+            url: image.url,
+            title: image.title
+          }}
           {...Object.assign({}, { textAlign, cardColor })}
         />
       </Section>
