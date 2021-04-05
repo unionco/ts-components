@@ -8,8 +8,9 @@ export type StyledFieldsetProps = SpaceProps &
   };
 
 const StyledFieldset = styled.fieldset<StyledFieldsetProps>`
-  padding: 0;
   border: none;
+  margin: 0;
+  padding: 0;
 
   & legend {
     font-style: normal;
@@ -19,6 +20,7 @@ const StyledFieldset = styled.fieldset<StyledFieldsetProps>`
     letter-spacing: 1.1px;
     text-transform: uppercase;
     user-select: none;
+    padding: 0;
     pointer-events: none;
     color: ${(props: any) => props.theme.colors.dark.base};
 
