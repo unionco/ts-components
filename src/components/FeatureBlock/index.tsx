@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledFeatureBlock, StyledFeatureBlockProps } from './styles';
 import { Icon } from '../Icon';
-import { H3, Paragraph } from '../Typography';
+import { H2, Paragraph } from '../Typography';
 
 export type FeatureBlockProps = StyledFeatureBlockProps & {
   icon?: JSX.Element;
@@ -16,7 +16,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({ icon, title, copy, action, 
   return (
     <StyledFeatureBlock {...rest}>
       {icon && <Icon icon={icon} />}
-      {title && <H3 className="h4">{title}</H3>}
+      {title && <H2 className="h4">{title}</H2>}
       {copy && <Paragraph>{copy}</Paragraph>}
       {action && <div slot="action">{action}</div>}
     </StyledFeatureBlock>
