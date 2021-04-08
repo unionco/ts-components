@@ -15,7 +15,7 @@ export * from './Container';
 export * from './Copy';
 export * from './Eyebrow';
 export * from './FeatureBlock';
-export * from './Fieldset';
+export * from './fieldset';
 export * from './FileInput';
 export * from './Flex';
 export * from './FlexibleContent';

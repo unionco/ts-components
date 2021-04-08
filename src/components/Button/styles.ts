@@ -8,6 +8,7 @@ export type StyledButtonProps = TypographyProps &
     disabled?: boolean;
     textLink?: boolean;
     onClick?: () => void;
+    ariaLabel?: string;
     size?: 'small' | 'medium' | 'large';
     fill?: 'solid' | 'outline' | 'clear';
     href?: string;
@@ -19,8 +20,9 @@ const sizes = variant({
   scale: 'buttonSizes',
 });
 
-const Button = styled.button.attrs(({ disabled, onClick }: StyledButtonProps) => ({
+const Button = styled.button.attrs(({ disabled, onClick, ariaLabel }: StyledButtonProps) => ({
   onClick: disabled ? undefined : onClick,
+  'aria-label': ariaLabel
 }))<StyledButtonProps>`
   appearance: none;
   display: inline-block;
