@@ -28,7 +28,7 @@ const Section = styled.section<SectionProps>`
 
     // Add slightly-opaque overlay
     &:after {
-      background-color: rgba(0,0,0,0.4);
+      background-color: rgba(0,0,0,0.2);
       content: '';
       height: 100%;
       left: 0;
