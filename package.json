@@ -28,7 +28,7 @@
   ],
   "dependencies": {
     "@styled-system/theme-get": "^5.1.2",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "polished": "^3.4.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
